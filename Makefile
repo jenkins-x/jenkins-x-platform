@@ -7,8 +7,6 @@ WATCH := $(shell command -v watch --help 2> /dev/null)
 IP := $(shell minikube ip)
 INGRESS_RUNNING := $(shell minikube addons list | grep "ingress: enabled" 2> /dev/null)
 TILLER_RUNNING := $(shell kubectl get pod -l app=helm -l name=tiller -n kube-system | grep '1/1       Running' 2> /dev/null)
-EXISTING_HELM_REPOS := $(shell helm repo list | awk '{print $1}' 2> /dev/null)
-HELM_REPOS := chartmuseum incubator stable monocular
 
 setup:
 
@@ -32,11 +30,13 @@ endif
 
 ifndef TILLER_RUNNING
 	helm init
+	echo 'Waiting for tiller to become available in the namespace kube-system'
 	(kubectl get pod -l app=helm -l name=tiller -n kube-system -w &) | grep -q  '1/1       Running'
 endif
 
 ifndef INGRESS_RUNNING
 	minikube addons enable ingress
+	echo 'Waiting for the ingress controller to become available in the namespace kube-system'
 	(kubectl get pod -l app=nginx-ingress-controller -l name=nginx-ingress-controller -n kube-system -w &) | grep -q  '1/1       Running'
 endif
 	helm repo add chartmuseum $(CHART_REPO)
