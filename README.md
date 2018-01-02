@@ -43,7 +43,7 @@ We use `helm` as the package manager and install / upgrade features so to get th
 ```
 make setup
 ```
-to install ProjectX on minikube:
+to install Jenkins-X on minikube:
 ```
 make install
 ```
