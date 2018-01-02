@@ -3,21 +3,45 @@ NAME := jenkins-x
 OS := $(shell uname)
 RELEASE_VERSION := $(shell semver-release-version)
 HELM := $(shell command -v helm 2> /dev/null)
+WATCH := $(shell command -v watch --help 2> /dev/null)
 IP := $(shell minikube ip)
+INGRESS_RUNNING := $(shell minikube addons list | grep "ingress: enabled" 2> /dev/null)
+TILLER_RUNNING := $(shell kubectl get pod -l app=helm -l name=tiller -n kube-system | grep '1/1       Running' 2> /dev/null)
+EXISTING_HELM_REPOS := $(shell helm repo list | awk '{print $1}' 2> /dev/null)
+HELM_REPOS := chartmuseum incubator stable monocular
+
 setup:
-	minikube addons enable ingress
+
+# setup is always called from the `clean` target, remove it not required to run each time
+# this will check dependencies are installed, services are running and local repos configured correctly
 ifndef HELM
 ifeq ($(OS),Darwin)
 	brew install kubernetes-helm
-	brew install watch
 else
 	echo "Please install helm first https://github.com/kubernetes/helm/blob/master/docs/install.md"
 endif
 endif
+
+ifndef WATCH
+ifeq ($(OS),Darwin)
+	brew install watch
+else
+	echo "Please install watch first"
+endif
+endif
+
+ifndef TILLER_RUNNING
 	helm init
+	(kubectl get pod -l app=helm -l name=tiller -n kube-system -w &) | grep -q  '1/1       Running'
+endif
+
+ifndef INGRESS_RUNNING
+	minikube addons enable ingress
+	(kubectl get pod -l app=nginx-ingress-controller -l name=nginx-ingress-controller -n kube-system -w &) | grep -q  '1/1       Running'
+endif
 	helm repo add chartmuseum $(CHART_REPO)
-	helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
-	helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+	helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+	helm repo add stable https://kubernetes-charts.storage.googleapis.com
 	helm repo add monocular https://kubernetes-helm.github.io/monocular
 
 build: clean
@@ -36,7 +60,7 @@ upgrade: clean build
 delete:
 	helm delete --purge $(NAME)
 
-clean:
+clean: setup
 	rm -rf charts
 	rm -rf ${NAME}*.tgz
 
