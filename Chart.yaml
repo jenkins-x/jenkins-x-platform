@@ -1,6 +1,6 @@
 name: jenkins-x-platform
 home: https://github.com/jenkins-x/jenkins-x-charts
-version: 0.0.0
+version: 0.0.1
 description: jenkins-x
 maintainers:
   - name: Jenkins-X Team
