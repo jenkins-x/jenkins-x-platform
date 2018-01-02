@@ -9,6 +9,7 @@ setup:
 ifndef HELM
 ifeq ($(OS),Darwin)
 	brew install kubernetes-helm
+	brew install watch
 else
 	echo "Please install helm first https://github.com/kubernetes/helm/blob/master/docs/install.md"
 endif
