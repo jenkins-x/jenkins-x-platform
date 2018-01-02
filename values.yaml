@@ -1,0 +1,270 @@
+
+expose:
+  Args: 
+    - --exposer
+    - Ingress
+    - --http
+    - "true"
+  Annotations:
+    helm.sh/hook: post-install
+    helm.sh/hook-delete-policy: hook-succeeded
+  # add custom domain here else defaults to using nip.io if a single node cluster
+
+cleanup:
+  Args: 
+    - --cleanup
+  Annotations:
+    helm.sh/hook: pre-delete
+    helm.sh/hook-delete-policy: hook-succeeded
+
+chartmuseum:
+  service:
+    annotations:
+      fabric8.io/expose: "true"
+  basicAuth:
+    user: admin
+    pass: admin
+  persistence:
+    Enabled: true
+    AccessMode: ReadWriteOnce
+    Size: 8Gi
+
+monocular:
+    ingress:
+      enabled: false
+    api:
+      livenessProbe:
+        initialDelaySeconds: 360
+      replicaCount: 1
+      service:
+        type: ClusterIP
+        annotations:
+          fabric8.io/expose: "true"
+          fabric8.io/ingress.name: "monocular"
+          fabric8.io/ingress.path: "/api/"
+          fabric8.io/ingress.annotations: "ingress.kubernetes.io/rewrite-target: /\nkubernetes.io/ingress.class: nginx"
+      config:
+        repos:
+          - name: chartmuseum
+            url: http://jenkins-x-chartmuseum:8080
+            source: https://github.com/jenkins-x/jenkins-x-platfrom
+        cacheRefreshInterval: 30
+        releasesEnabled: false
+    ui:
+      appName: ProjectX
+      replicaCount: 1
+      service:
+        type: ClusterIP
+        annotations:
+          fabric8.io/expose: "true"
+          fabric8.io/ingress.name: "monocular"
+          fabric8.io/ingress.path: "/"
+    prerender:
+      service:
+        type: ClusterIP
+jenkins:
+  # Default values for jenkins.
+  # This is a YAML-formatted file.
+  # Declare name/value pairs to be passed into your templates.
+  # name: value
+  Master:
+    Name: jenkins-master
+    # Image: "jenkinsci/jenkins"
+    # ImageTag: "2.89"
+    Image: "rawlingsj/jenkins-light"
+    ImageTag: "dev"
+    ImagePullPolicy: "IfNotPresent"
+    Component: "jenkins-master"
+    UseSecurity: true
+    AdminUser: admin
+  # AdminPassword: <defaults to random>
+    AdminPassword: admin
+    Cpu: "200m"
+    Memory: "256Mi"
+  # Set min/max heap here if needed with:
+  # JavaOpts: "-Xms512m -Xmx512m"
+  # JenkinsOpts: ""
+  # JenkinsUriPrefix: "/jenkins"
+    ServicePort: 8080
+  # For minikube, set this to NodePort, elsewhere use LoadBalancer
+  # Use ClusterIP if your setup includes ingress controller
+    ServiceType: ClusterIP
+  # Master Service annotations
+    ServiceAnnotations:
+      #   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
+      fabric8.io/expose: "true"
+  # Used to create Ingress record (should used with ServiceType: ClusterIP)
+  # HostName: jenkins.cluster.local
+  # NodePort: <to set explicitly, choose port between 30000-32767
+    ContainerPort: 8080
+    SlaveListenerPort: 50000
+    # LoadBalancerSourceRanges:
+    # - 0.0.0.0/0
+  # Optionally assign a known public LB IP
+  # LoadBalancerIP: 1.2.3.4
+  # Optionally configure a JMX port
+  # requires additional JavaOpts, ie
+  # JavaOpts: >
+  #   -Dcom.sun.management.jmxremote.port=4000
+  #   -Dcom.sun.management.jmxremote.authenticate=false
+  #   -Dcom.sun.management.jmxremote.ssl=false
+  # JMXPort: 4000
+  # Used to approve a list of groovy functions in pipelines used the script-security plugin. Can be viewed under /scriptApproval
+    # ScriptApproval:
+    #   - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
+    #   - "new groovy.json.JsonSlurperClassic"
+  # List of groovy init scripts to be executed during Jenkins master start
+    InitScripts:
+  #  - |
+  #    print 'adding global pipeline libraries, register properties, bootstrap jobs...'
+    CustomConfigMap: false
+  # Node labels and tolerations for pod assignment
+  # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+  # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#taints-and-tolerations-beta-feature
+    NodeSelector: {}
+    Tolerations: {}
+  
+    Ingress:
+      Annotations:
+        # kubernetes.io/ingress.class: nginx
+        # kubernetes.io/tls-acme: "true"
+  
+      TLS:
+        # - secretName: jenkins.cluster.local
+        #   hosts:
+        #     - jenkins.cluster.local
+  
+  Agent:
+    Enabled: true
+
+    Component: "jenkins-agent"
+
+    # Key Value selectors. Ex:
+    # jenkins-agent: v1
+    PodTemplates:
+      Maven:
+        Name: maven
+        Label: jenkins-maven
+        EnvVars:
+          JENKINS_URL: http://jenkins:8080
+        Containers:
+          Jnlp:
+            Image: jenkinsci/jnlp-slave:3.14-1
+            RequestCpu: "100m"
+            RequestMemory: "128Mi"
+            Args: '${computer.jnlpmac} ${computer.name}'
+          Maven:
+            Image: rawlingsj/builder-maven:dev
+            Privileged: true
+            RequestCpu: "200m"
+            RequestMemory: "256Mi"
+            LimitCpu: "200m"
+            LimitMemory: "256Mi"
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
+  Persistence:
+    Enabled: true
+    ## A manually managed Persistent Volume and Claim
+    ## Requires Persistence.Enabled: true
+    ## If defined, PVC must be created manually before volume will be bound
+    # ExistingClaim:
+  
+    ## jenkins data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    # StorageClass: "-"
+  
+    AccessMode: ReadWriteOnce
+    Size: 3Gi
+    volumes:
+  #  - name: nothing
+  #    emptyDir: {}
+    mounts:
+  #  - mountPath: /var/nothing
+  #    name: nothing
+  #    readOnly: true
+  
+  NetworkPolicy:
+    # Enable creation of NetworkPolicy resources.
+    Enabled: false
+    # For Kubernetes v1.4, v1.5 and v1.6, use 'extensions/v1beta1'
+    # For Kubernetes v1.7, use 'networking.k8s.io/v1'
+    ApiVersion: extensions/v1beta1
+  
+  ## Install Default RBAC roles and bindings
+  rbac:
+    install: false
+    serviceAccountName: default
+    # RBAC api version (currently either v1beta1 or v1alpha1)
+    apiVersion: v1beta1
+    # Cluster role reference
+    roleRef: cluster-admin
+
+sonatype-nexus:
+  # Default values for nexus.
+  # This is a YAML-formatted file.
+  # Declare variables to be passed into your templates.
+  replicaCount: 1
+  image:
+    repository: clearent/nexus
+    tag: 3.5.1-02
+  service:
+    name: nexus
+    type: ClusterIP
+    externalPort: 8081
+    internalPort: 8081
+    readinessProbe:
+      initialDelaySeconds: 30
+      periodSeconds: 30
+      failureThreshold: 6
+    livenessProbe:
+      initialDelaySeconds: 30
+      periodSeconds: 30
+    annotations:
+      fabric8.io/expose: "true"
+  ingress:
+    enabled: false
+    # Used to create an Ingress record.
+    # hosts:
+    #  - nexus.local
+    # annotations:
+    #  kubernetes.io/ingress.class: nginx
+    #  kubernetes.io/tls-acme: "true"
+    # tls: {}
+    # Secrets must be manually created in the namespace.
+    #  - secretName: nexus-tls
+    #    hosts:
+    #      - nexus.local
+  ## Persist data to a persitent volume
+  persistence:
+    enabled: true
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    # storageClass: "-"
+    accessMode: ReadWriteOnce
+    size: 4Gi
+  resources: {}
+    # We usually recommend not to specify default resources and to leave this as a conscious
+    # choice for the user. This also increases chances charts run on environments with little
+    # resources, such as Minikube. If you do want to specify resources, uncomment the following
+    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+    # limits:
+    #  cpu: 100m
+    #  memory: 128Mi
+    # requests:
+    #  cpu: 100m
+    #  memory: 128Mi
+
+PipelineSecrets:
+  SSHConfig:

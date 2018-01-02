@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    component: "{{ .Release.Name }}-{{ .Chart.Name }}"
+  name: {{ .Chart.Name }}
+  annotations:
+    "helm.sh/hook": pre-delete
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "{{.Release.Name}}"
+      labels:
+        heritage: {{.Release.Service | quote }}
+        release: {{.Release.Name | quote }}
+        chart: "{{.Chart.Name}}-{{.Chart.Version}}"
+    spec:
+      containers:
+      - env:
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        image: "{{ .Values.Image }}:{{ .Values.ImageTag }}"
+        name: {{ .Chart.Name }}
+        command: ["/exposecontroller"]
+        args: ["--cleanup"]
+      serviceAccountName: {{ .Chart.Name }}
+      restartPolicy: Never

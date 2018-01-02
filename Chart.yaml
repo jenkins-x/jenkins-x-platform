@@ -1,0 +1,7 @@
+name: jenkins-x-platform
+home: https://github.com/jenkins-x/jenkins-x-charts
+version: 0.0.1
+description: jenkins-x
+maintainers:
+  - name: Jenkins-X Team
+icon: https://www.cloudbees.com/sites/default/files/Jenkins_8.png

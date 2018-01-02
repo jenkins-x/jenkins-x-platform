@@ -1,0 +1,5 @@
+name: cleanup
+home: https://fabric8.io/
+version: 0.0.1
+appVersion: 0.0.1
+icon: https://github.com/fabric8-apps/exposecontroller-app/blob/7a8fdf9/src/main/fabric8/icon.png

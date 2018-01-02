@@ -1,0 +1,5 @@
+name: pipelines
+home: https://jenkins-x.github.io/jenkins-x-website/
+version: 0.0.1
+appVersion: 0.0.1
+icon: http://www.premaypipeline.com/images/pipeline_icon_original.png
