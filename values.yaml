@@ -145,6 +145,10 @@ jenkins:
       Maven:
         Name: maven
         Label: jenkins-maven
+        volumes:
+        - type: Secret
+          secretName: jenkins-maven-settings
+          mountPath: /root/.m2/
         EnvVars:
           JENKINS_URL: http://jenkins:8080
         Containers:
