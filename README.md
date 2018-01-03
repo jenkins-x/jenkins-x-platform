@@ -1,6 +1,6 @@
-# Jenkins-X Helm Charts
+# Jenkins X Helm Charts
 
-Integrated cloud platform for any Kubernetes cluster with CI / CD at the heart of it.  Simple installation of best of bread open source software for developing and running applications in the cloud.
+[Jenkins X](https://jenkins-x.github.io/jenkins-x-website/) is an integrated CI / CD platform for any Kubernetes cluster or cloud.  Simple installation of best of bread open source software for developing and running applications in the cloud.
 
 What's in the box?
 
