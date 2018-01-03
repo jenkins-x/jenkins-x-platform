@@ -36,7 +36,7 @@ brew cask install minikube
 This repo has some helper commands to get you started
 
 ```
-git clone https://github.com/jenkins-x/jenkins-x-platfrom && cd jenkins-x-platfrom
+git clone https://github.com/jenkins-x/jenkins-x-platform && cd jenkins-x-platform
 minikube start --vm-driver hyperkit --cpus 4 --memory 4096
 ```
 We use `helm` as the package manager and install / upgrade features so to get the binary and install an nginx ingress controller so we can access our apps run:
