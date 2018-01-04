@@ -1,7 +1,7 @@
 CHART_REPO := http://chartmuseum.thunder.thunder.fabric8.io
 NAME := jenkins-x
 OS := $(shell uname)
-RELEASE_VERSION := $(shell semver-release-version)
+RELEASE_VERSION := ''# $(shell semver-release-version)
 HELM := $(shell command -v helm 2> /dev/null)
 WATCH := $(shell command -v watch --help 2> /dev/null)
 IP := $(shell minikube ip)
