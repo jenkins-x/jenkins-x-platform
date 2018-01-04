@@ -151,6 +151,7 @@ jenkins:
           mountPath: /root/.m2/
         EnvVars:
           JENKINS_URL: http://jenkins:8080
+          _JAVA_OPTIONS: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m'
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.14-1
@@ -271,4 +272,63 @@ sonatype-nexus:
     #  memory: 128Mi
 
 PipelineSecrets:
-  SSHConfig:
+  DockerConfig:
+  GithubToken:
+  NPMToken:
+  PipelineSecrets:
+      pubring:
+      secjenkins:
+      secring:
+      trustdb:
+  SSHConfig: |-
+      Host github.com
+          User git
+          IdentityFile /root/.ssh-git/ssh-key
+          StrictHostKeyChecking no
+  MavenSettingsXML: |-
+      <settings>
+          <!-- sets the local maven repository outside of the ~/.m2 folder for easier mounting of secrets and repo -->
+          <localRepository>${user.home}/.mvnrepository</localRepository>
+          <!-- lets disable the download progress indicator that fills up logs -->
+          <interactiveMode>false</interactiveMode>
+          <mirrors>
+              <mirror>
+              <id>nexus</id>
+              <mirrorOf>external:*</mirrorOf>
+              <url>http://jenkins-x-sonatype-nexus:8081/repository/maven-public/</url>
+              </mirror>
+          </mirrors>
+          <servers>
+              <server>
+              <id>local-nexus</id>
+              <username>admin</username>
+              <password>admin123</password>
+          </server>
+          <server>
+              <id>oss-sonatype-staging</id>
+              <username></username>
+              <password></password>
+              </server>
+          </servers>
+          <profiles>
+              <profile>
+                  <id>nexus</id>
+                  <properties>
+                      <altDeploymentRepository>local-nexus::default::http://jenkins-x-sonatype-nexus:8081/repository/maven-snapshots/</altDeploymentRepository>
+                      <altReleaseDeploymentRepository>local-nexus::default::http://jenkins-x-sonatype-nexus:8081/repository/maven-releases/</altReleaseDeploymentRepository>
+                      <altSnapshotDeploymentRepository>local-nexus::default::http://jenkins-x-sonatype-nexus:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
+                  </properties>
+              </profile>
+              <profile>
+                  <id>release</id>
+                  <properties>
+                      <gpg.executable>gpg</gpg.executable>
+                      <gpg.passphrase>mysecretpassphrase</gpg.passphrase>
+                  </properties>
+              </profile>
+          </profiles>
+          <activeProfiles>
+              <!--make the profile active all the time -->
+              <activeProfile>nexus</activeProfile>
+          </activeProfiles>
+      </settings>
