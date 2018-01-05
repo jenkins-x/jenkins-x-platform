@@ -149,7 +149,7 @@ jenkins:
         - type: Secret
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
-        - type: Host
+        - type: HostPath
           hostPath: /var/run/docker.sock
           mounPath: /var/run/docker.sock
         EnvVars:
