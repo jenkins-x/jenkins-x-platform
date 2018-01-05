@@ -6,7 +6,7 @@ expose:
     - --http
     - "true"
   Annotations:
-    helm.sh/hook: post-install
+    helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
   # add custom domain here else defaults to using nip.io if a single node cluster
 
@@ -16,6 +16,11 @@ cleanup:
   Annotations:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
+
+docker-registry:
+  service:
+    annotations:
+      fabric8.io/expose: "true"
 
 chartmuseum:
   service:
