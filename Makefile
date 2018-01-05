@@ -2,11 +2,13 @@ CHART_REPO := http://chartmuseum.thunder.thunder.fabric8.io
 NAME := jenkins-x
 OS := $(shell uname)
 RELEASE_VERSION := ''# $(shell semver-release-version)
+DRAFT := $(shell command -v draft 2> /dev/null)
 HELM := $(shell command -v helm 2> /dev/null)
 WATCH := $(shell command -v watch --help 2> /dev/null)
 IP := $(shell minikube ip)
-INGRESS_RUNNING := $(shell minikube addons list | grep "ingress: enabled" 2> /dev/null)
+DRAFT_RUNNING := $(shell kubectl get pod -l app=draft -l name=draftd -n kube-system | grep '1/1       Running' 2> /dev/null)
 HEAPSTER_RUNNING := $(shell minikube addons list | grep "heapster: enabled" 2> /dev/null)
+INGRESS_RUNNING := $(shell minikube addons list | grep "ingress: enabled" 2> /dev/null)
 TILLER_RUNNING := $(shell kubectl get pod -l app=helm -l name=tiller -n kube-system | grep '1/1       Running' 2> /dev/null)
 
 setup:
