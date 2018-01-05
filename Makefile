@@ -21,6 +21,16 @@ else
 endif
 endif
 
+ifndef DRAFT
+ifeq ($(OS),Darwin)
+	brew tap azure/draft
+	brew install draft
+else
+	echo "Please install draft first https://github.com/Azure/draft/blob/master/docs/install.md"
+endif
+endif
+
+
 ifndef WATCH
 ifeq ($(OS),Darwin)
 	brew install watch
@@ -33,6 +43,11 @@ ifndef TILLER_RUNNING
 	helm init
 	echo 'Waiting for tiller to become available in the namespace kube-system'
 	(kubectl get pod -l app=helm -l name=tiller -n kube-system -w &) | grep -q  '1/1       Running'
+endif
+
+ifndef DRAFT_RUNNING
+	draft init --auto-accept
+	draft pack-repo add https://github.com/jenkins-x/draft-repo
 endif
 
 ifndef INGRESS_RUNNING
