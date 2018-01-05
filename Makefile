@@ -6,6 +6,7 @@ HELM := $(shell command -v helm 2> /dev/null)
 WATCH := $(shell command -v watch --help 2> /dev/null)
 IP := $(shell minikube ip)
 INGRESS_RUNNING := $(shell minikube addons list | grep "ingress: enabled" 2> /dev/null)
+HEAPSTER_RUNNING := $(shell minikube addons list | grep "heapster: enabled" 2> /dev/null)
 TILLER_RUNNING := $(shell kubectl get pod -l app=helm -l name=tiller -n kube-system | grep '1/1       Running' 2> /dev/null)
 
 setup:
@@ -39,6 +40,13 @@ ifndef INGRESS_RUNNING
 	echo 'Waiting for the ingress controller to become available in the namespace kube-system'
 	(kubectl get pod -l app=nginx-ingress-controller -l name=nginx-ingress-controller -n kube-system -w &) | grep -q  '1/1       Running'
 endif
+
+ifndef HEAPSTER_RUNNING
+	minikube addons enable heapster
+	echo 'Waiting for heapster to become available in the namespace kube-system'
+	(kubectl get pod -l k8s-app=heapster -n kube-system -w &) | grep -q  '1/1       Running'
+endif
+
 	helm repo add chartmuseum $(CHART_REPO)
 	helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
 	helm repo add stable https://kubernetes-charts.storage.googleapis.com
@@ -51,6 +59,7 @@ build: clean
 
 install: clean build
 	helm install . --name $(NAME)
+	minikube dashboard
 	watch kubectl get pods
 
 upgrade: clean build
