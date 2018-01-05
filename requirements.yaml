@@ -28,6 +28,11 @@ dependencies:
   - name: monocular
     version: 0.5.0
     repository: https://kubernetes-helm.github.io/monocular
+  # - name: docker-registry
+  #   version: 1.0.0
+  #   repository: https://kubernetes-charts.storage.googleapis.com
+
+  # waiting for PR https://github.com/kubernetes/charts/pull/3238
   - name: docker-registry
-    version: 1.0.0
-    repository: https://kubernetes-charts.storage.googleapis.com
+    version: 1.0.1
+    repository: http://chartmuseum.thunder.thunder.fabric8.io
