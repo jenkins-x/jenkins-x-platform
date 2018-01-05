@@ -156,7 +156,7 @@ jenkins:
           mountPath: /root/.m2/
         - type: HostPath
           hostPath: /var/run/docker.sock
-          mounPath: /var/run/docker.sock
+          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           _JAVA_OPTIONS: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m'
