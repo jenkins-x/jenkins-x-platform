@@ -25,6 +25,12 @@ dependencies:
   - name: sonatype-nexus
     version: 0.1.5
     repository: https://kubernetes-charts.storage.googleapis.com
+  - name: heapster
+    version: 0.2.4
+    repository: https://kubernetes-charts.storage.googleapis.com
+  - name: kubernetes-dashboard
+    version: 0.4.3
+    repository: https://kubernetes-charts.storage.googleapis.com
   - name: monocular
     version: 0.5.0
     repository: https://kubernetes-helm.github.io/monocular

@@ -154,6 +154,9 @@ jenkins:
         - type: Secret
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
+        - type: Secret
+          secretName: jenkins-netrc
+          mountPath: /root/.netrc
         - type: HostPath
           hostPath: /var/run/docker.sock
           mountPath: /var/run/docker.sock
@@ -284,6 +287,11 @@ sonatype-nexus:
     #  memory: 128Mi
 
 PipelineSecrets:
+  # used by pipelines to tag new releases
+  Netrc:
+      machine github.com
+            login jenkins-x-bot
+            password 
   DockerConfig:
   GithubToken:
   NPMToken:
