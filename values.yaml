@@ -178,8 +178,8 @@ jenkins:
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
-            LimitCpu: "200m"
-            LimitMemory: "256Mi"
+            LimitCpu: "400m"
+            LimitMemory: "512Mi"
             # You may want to change this to true while testing a new image
             # AlwaysPullImage: true
             Command: "/bin/sh -c"
@@ -285,10 +285,9 @@ sonatype-nexus:
     # requests:
     #  cpu: 100m
     #  memory: 128Mi
-
 PipelineSecrets:
   # used by pipelines to tag new releases
-  Netrc:
+  Netrc: |-
       machine github.com
             login jenkins-x-bot
             password 
