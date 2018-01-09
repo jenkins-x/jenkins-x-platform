@@ -1,7 +1,7 @@
 CHART_REPO := http://chartmuseum.thunder.thunder.fabric8.io
 NAME := jenkins-x
 OS := $(shell uname)
-RELEASE_VERSION := ''# $(shell semver-release-version)
+RELEASE_VERSION := $(shell jx-release-version)
 DRAFT := $(shell command -v draft 2> /dev/null)
 HELM := $(shell command -v helm 2> /dev/null)
 WATCH := $(shell command -v watch --help 2> /dev/null)
@@ -79,7 +79,7 @@ upgrade: clean build
 delete:
 	helm delete --purge $(NAME)
 
-clean: setup
+clean: 
 	rm -rf charts
 	rm -rf ${NAME}*.tgz
 
