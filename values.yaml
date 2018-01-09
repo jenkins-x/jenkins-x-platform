@@ -167,6 +167,7 @@ jenkins:
           GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
           GIT_AUTHOR_NAME: jenkins-x-bot
           GIT_COMMITTER_NAME: jenkins-x-bot
+          NETRC: /root/.netrc/.netrc
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.14-1
