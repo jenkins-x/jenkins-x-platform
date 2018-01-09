@@ -156,7 +156,7 @@ jenkins:
           mountPath: /root/.m2/
         - type: Secret
           secretName: jenkins-netrc
-          mountPath: /root/.netrc
+          mountPath: /root/netrc
         - type: HostPath
           hostPath: /var/run/docker.sock
           mountPath: /var/run/docker.sock
