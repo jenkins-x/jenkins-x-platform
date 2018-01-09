@@ -1,3 +1,4 @@
+JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 
 expose:
   Args: 
@@ -22,13 +23,16 @@ docker-registry:
     annotations:
       fabric8.io/expose: "true"
 
+kubernetes-dashboard:
+  serviceAnnotations:
+    fabric8.io/expose: "true"
+    fabric8.io/ingress.annotations: "ingress.kubernetes.io/auth-type: basic\ningress.kubernetes.io/auth-secret: jx-basic-auth"
+
 chartmuseum:
   service:
     annotations:
       fabric8.io/expose: "true"
-  basicAuth:
-    user: admin
-    pass: admin
+      fabric8.io/ingress.annotations: "ingress.kubernetes.io/auth-type: basic\ningress.kubernetes.io/auth-secret: jx-basic-auth"
   persistence:
     Enabled: true
     AccessMode: ReadWriteOnce
