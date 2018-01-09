@@ -175,7 +175,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: rawlingsj/builder-maven:dev1
+            Image: rawlingsj/builder-maven:dev3
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
