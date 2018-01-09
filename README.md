@@ -67,7 +67,9 @@ kubectl get ingress
 
 This repo is for test purposes so default admin username and passwords are used:
 
-| Application | Username | Password |
-| ----------- | -------- | -------- |
-| Jenkins     | admin    | admin    |
-| Nexus       | admin    | admin123 |
+| Application   | Username | Password |
+| ------------- | -------- | -------- |
+| K8S Dashboard | admin    | admin    |
+| Chartmuseum   | admin    | admin    |
+| Jenkins       | admin    | admin    |
+| Nexus         | admin    | admin123 |

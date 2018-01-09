@@ -4,7 +4,6 @@ OS := $(shell uname)
 RELEASE_VERSION := ''# $(shell semver-release-version)
 DRAFT := $(shell command -v draft 2> /dev/null)
 HELM := $(shell command -v helm 2> /dev/null)
-WATCH := $(shell command -v watch --help 2> /dev/null)
 DRAFT_RUNNING := $(shell kubectl get pod -l app=draft -l name=draftd -n kube-system | grep '1/1       Running' 2> /dev/null)
 HEAPSTER_RUNNING := $(shell minikube addons list | grep "heapster: enabled" 2> /dev/null)
 INGRESS_RUNNING := $(shell minikube addons list | grep "ingress: enabled" 2> /dev/null)
@@ -28,15 +27,6 @@ ifeq ($(OS),Darwin)
 	brew install draft
 else
 	echo "Please install draft first https://github.com/Azure/draft/blob/master/docs/install.md"
-endif
-endif
-
-
-ifndef WATCH
-ifeq ($(OS),Darwin)
-	brew install watch
-else
-	echo "Please install watch first"
 endif
 endif
 
@@ -69,12 +59,9 @@ build: clean
 
 install: clean build
 	helm install . --name $(NAME)
-	minikube dashboard
-	watch kubectl get pods
 
 upgrade: clean build
 	helm upgrade $(NAME) .
-	watch kubectl get pods
 
 delete:
 	helm delete --purge $(NAME)

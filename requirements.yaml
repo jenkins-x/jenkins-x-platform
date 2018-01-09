@@ -28,16 +28,19 @@ dependencies:
   - name: heapster
     version: 0.2.4
     repository: https://kubernetes-charts.storage.googleapis.com
+  #  waiting for PR https://github.com/kubernetes/charts/pull/3275    
+  # - name: kubernetes-dashboard
+  #   version: 0.4.3
+  #   repository: https://kubernetes-charts.storage.googleapis.com
   - name: kubernetes-dashboard
-    version: 0.4.3
-    repository: https://kubernetes-charts.storage.googleapis.com
+    version: 0.4.4
+    repository: http://chartmuseum.thunder.thunder.fabric8.io
   - name: monocular
     version: 0.5.0
     repository: https://kubernetes-helm.github.io/monocular
   # - name: docker-registry
   #   version: 1.0.0
   #   repository: https://kubernetes-charts.storage.googleapis.com
-
   # waiting for PR https://github.com/kubernetes/charts/pull/3238
   - name: docker-registry
     version: 1.0.1
