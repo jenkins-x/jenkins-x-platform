@@ -25,9 +25,10 @@ dependencies:
   - name: sonatype-nexus
     version: 0.1.5
     repository: https://kubernetes-charts.storage.googleapis.com
-  - name: heapster
-    version: 0.2.4
-    repository: https://kubernetes-charts.storage.googleapis.com
+    # disable heapster if we're using prometheus
+  # - name: heapster
+  #   version: 0.2.4
+  #   repository: https://kubernetes-charts.storage.googleapis.com
   #  waiting for PR https://github.com/kubernetes/charts/pull/3275    
   # - name: kubernetes-dashboard
   #   version: 0.4.3
@@ -45,3 +46,9 @@ dependencies:
   - name: docker-registry
     version: 1.0.1
     repository: http://chartmuseum.thunder.thunder.fabric8.io
+  - name: prometheus
+    version: 4.6.17
+    repository: https://kubernetes-charts.storage.googleapis.com
+  - name: grafana
+    version: 0.5.4
+    repository: https://kubernetes-charts.storage.googleapis.com
