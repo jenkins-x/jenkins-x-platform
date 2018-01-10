@@ -73,3 +73,4 @@ This repo is for test purposes so default admin username and passwords are used:
 | Chartmuseum   | admin    | admin    |
 | Jenkins       | admin    | admin    |
 | Nexus         | admin    | admin123 |
+| Grafana       | admin    | admin    |
