@@ -190,8 +190,7 @@ jenkins:
             Command: "/bin/sh -c"
             Args: "cat"
             Tty: true
-    PodTemplates:
-      Maven:
+      Go:
         Name: go
         Label: jenkins-go
         volumes:
