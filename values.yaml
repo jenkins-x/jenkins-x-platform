@@ -179,7 +179,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: rawlingsj/builder-maven:dev3
+            Image: rawlingsj/builder-maven:dev4
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
@@ -213,8 +213,43 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          Maven:
-            Image: rdocker pull fabric8/go-builder:1.8.1.2
+          Go:
+            Image: rawlingsj/builder-go:dev1
+            Privileged: true
+            RequestCpu: "200m"
+            RequestMemory: "256Mi"
+            LimitCpu: "400m"
+            LimitMemory: "512Mi"
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
+      JX-base:
+        Name: jx-base
+        Label: jenkins-jx-base
+        volumes:
+        - type: Secret
+          secretName: jenkins-netrc
+          mountPath: /root/netrc
+        - type: HostPath
+          hostPath: /var/run/docker.sock
+          mountPath: /var/run/docker.sock
+        EnvVars:
+          JENKINS_URL: http://jenkins:8080
+          GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_NAME: jenkins-x-bot
+          GIT_COMMITTER_NAME: jenkins-x-bot
+          NETRC: /root/.netrc/.netrc
+        Containers:
+          Jnlp:
+            Image: jenkinsci/jnlp-slave:3.14-1
+            RequestCpu: "100m"
+            RequestMemory: "128Mi"
+            Args: '${computer.jnlpmac} ${computer.name}'
+          JX-base:
+            Image: rawlingsj/builder-base:dev1
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
