@@ -80,7 +80,7 @@ jenkins:
     Name: jenkins-master
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
-    Image: "rawlingsj/jenkins-light"
+    Image: "jenkins-x/jenkins"
     ImageTag: "dev"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
