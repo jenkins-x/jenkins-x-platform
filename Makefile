@@ -1,7 +1,8 @@
-CHART_REPO := http://chartmuseum.thunder.thunder.fabric8.io
+# CHART_REPO := http://chartmuseum.thunder.thunder.fabric8.io
+CHART_REPO := http://jenkins-x-chartmuseum
 NAME := jenkins-x
 OS := $(shell uname)
-RELEASE_VERSION := ''# $(shell semver-release-version)
+RELEASE_VERSION := $(shell jx-release-version)
 DRAFT := $(shell command -v draft 2> /dev/null)
 HELM := $(shell command -v helm 2> /dev/null)
 DRAFT_RUNNING := $(shell kubectl get pod -l app=draft -l name=draftd -n kube-system | grep '1/1       Running' 2> /dev/null)
@@ -53,26 +54,25 @@ endif
 	helm repo add monocular https://kubernetes-helm.github.io/monocular
 
 build: clean
-	rm -rf requirements.lock
 	helm dependency build
 	helm lint
 
-install: clean build
+install: clean setup build
 	helm install . --name $(NAME)
 
-upgrade: clean build
+upgrade: clean setup build
 	helm upgrade $(NAME) .
 
 delete:
 	helm delete --purge $(NAME)
 
-clean: setup
+clean: 
 	rm -rf charts
 	rm -rf ${NAME}*.tgz
+	rm -rf requirements.lock
 
-release: clean
-	helm dependency build
-	helm lint
+release: clean build
+
 ifeq ($(OS),Darwin)
 	sed -i "" -e "s/version:.*/version: $(RELEASE_VERSION)/" Chart.yaml
 else ifeq ($(OS),Linux)
