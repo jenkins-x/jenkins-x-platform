@@ -6,7 +6,7 @@ What's in the box?
 
 |                                   |                                       |
 | --------------------------------- | ------------------------------------- |
-|![Jenkins](./images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pielines and environments |
+|![Jenkins](./images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pipelines and environments |
 |![Sonartype Nexus 3](./images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
 |![Chartmuseum](./images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
 |![Monocular](./images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
@@ -58,7 +58,7 @@ make delete
 
 ## Accessing applications
 
-You can list the external URLs used to acess applications on you kubernetes cluster by running:
+You can list the external URLs used to access applications on you kubernetes cluster by running:
 ```
 kubectl get ingress
 ```
