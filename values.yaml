@@ -60,7 +60,7 @@ monocular:
         cacheRefreshInterval: 30
         releasesEnabled: false
     ui:
-      appName: Jenkins-X
+      appName: Jenkins X Apps
       replicaCount: 1
       service:
         type: ClusterIP

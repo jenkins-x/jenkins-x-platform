@@ -6,10 +6,12 @@ What's in the box?
 
 |                                   |                                       |
 | --------------------------------- | ------------------------------------- |
-|![Jenkins](./images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pielines and environments |
-|![Sonartype Nexus 3](./images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
-|![Chartmuseum](./images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
-|![Monocular](./images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
+|![Jenkins](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pielines and environments |
+|![Sonartype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
+|![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
+|![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
+|![Grafana](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/grafana.png) | __Grafana__ Data visualization & Monitoring |
+|![Prometheus](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/prometheus.png) | __Prometheus__ monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach |
 
 Monitoring and alerting projects to come.
 
