@@ -80,8 +80,8 @@ jenkins:
     Name: jenkins-master
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
-    Image: "rawlingsj/jenkins-light"
-    ImageTag: "dev"
+    Image: "rawlingsj/jenkinsx"
+    ImageTag: "0.0.1"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -381,7 +381,8 @@ PipelineSecrets:
       machine github.com
             login jenkins-x-bot
             password 
-  DockerConfig:
+  DockerConfig: |-
+      {}
   GithubToken:
   NPMToken:
   PipelineSecrets:
@@ -461,7 +462,7 @@ grafana:
       # How long should it take to commit failure
       # Default: 300
       #
-      activeDeadlineSeconds: 300
+      activeDeadlineSeconds: 1000
 
       # Curl Docker image
       # Default: appropriate/curl:latest
