@@ -29,6 +29,9 @@ pipeline {
                     sh 'cp /root/netrc/.netrc ~/.netrc'
 
                     sh "helm init --client-only"
+                    sh "helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com"
+                    sh "helm repo add stable https://kubernetes-charts.storage.googleapis.com"
+                    sh "helm repo add monocular https://kubernetes-helm.github.io/monocular"
                     sh "make release"
                 }
             }
