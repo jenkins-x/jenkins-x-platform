@@ -48,7 +48,7 @@ ifndef INGRESS_RUNNING
 	(kubectl get pod -l app=nginx-ingress-controller -l name=nginx-ingress-controller -n kube-system -w &) | grep -q  '1/1       Running'
 endif
 
-	helm repo add chartmuseum $(CHART_REPO)
+	helm repo add chartmuseum http://chartmuseum.thunder.thunder.fabric8.io
 	helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
 	helm repo add stable https://kubernetes-charts.storage.googleapis.com
 	helm repo add monocular https://kubernetes-helm.github.io/monocular

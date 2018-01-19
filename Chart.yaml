@@ -4,6 +4,7 @@ version: 0.0.1-SNAPSHOT
 description: Jenkins X next gen cloud CI / CD platform for Kubernetes
 maintainers:
 - name: Jenkins X Team
+  email: jenkins-x@googlegroups.com
 icon: https://jenkins-x.github.io/jenkins-x-website/img/profile.png
 sources:
 - https://github.com/jenkins-x/jenkins-x-platform
