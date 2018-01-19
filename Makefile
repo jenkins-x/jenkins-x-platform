@@ -76,12 +76,12 @@ release: clean build
 ifeq ($(OS),Darwin)
 	sed -i "" -e "s/version:.*/version: $(RELEASE_VERSION)/" Chart.yaml
 else ifeq ($(OS),Linux)
-	echo "linux"
+	sed -i -e "s/version:.*/version: $(RELEASE_VERSION)/" Chart.yaml
 else
 	exit -1
 endif
 	git add Chart.yaml
-	git commit -a -m "release $(RELEASE_VERSION)"
+	git commit -a -m "release $(RELEASE_VERSION)" --allow-empty
 	git tag -fa v$(RELEASE_VERSION) -m "Release version $(RELEASE_VERSION)"
 	git push origin v$(RELEASE_VERSION)
 	helm package .
