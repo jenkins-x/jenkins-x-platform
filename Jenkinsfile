@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        GH_CREDS = credentials('jenkins-x-github')
+    }
     agent {
         label "jenkins-jx-base"
     }
@@ -9,6 +12,7 @@ pipeline {
             }
             steps {
                 container('jx-base') {
+                    sg "helm init --client-only"
                     sh "make build"
                     sh "helm template ."
                 }
@@ -24,6 +28,7 @@ pipeline {
                     // until kubernetes plugin supports init containers https://github.com/jenkinsci/kubernetes-plugin/pull/229/
                     sh 'cp /root/netrc/.netrc ~/.netrc'
 
+                    sg "helm init --client-only"
                     sh "make release"
                 }
             }
