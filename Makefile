@@ -1,5 +1,5 @@
 # CHART_REPO := http://chartmuseum.thunder.thunder.fabric8.io
-CHART_REPO := http://jenkins-x-chartmuseum
+CHART_REPO := http://jenkins-x-chartmuseum:8080
 NAME := jenkins-x
 OS := $(shell uname)
 RELEASE_VERSION := $(shell jx-release-version)
