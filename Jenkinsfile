@@ -30,6 +30,7 @@ pipeline {
                         // until kubernetes plugin supports init containers https://github.com/jenkinsci/kubernetes-plugin/pull/229/
                         sh 'cp /root/netrc/.netrc ~/.netrc'
 
+                        sh "git checkout master"
                         sh "helm init --client-only"
                         sh "helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com"
                         sh "helm repo add stable https://kubernetes-charts.storage.googleapis.com"
