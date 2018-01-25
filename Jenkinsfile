@@ -1,6 +1,7 @@
 pipeline {
     environment {
-        GH_CREDS = credentials('jenkins-x-github')
+        CHARTMUSEUM_CREDS = credentials('jenkins-x-github')
+        GH_CREDS = credentials('jenkins-x-chartmuseum')
     }
     agent {
         label "jenkins-jx-base"
