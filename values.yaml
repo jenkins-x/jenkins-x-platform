@@ -32,11 +32,17 @@ chartmuseum:
   service:
     annotations:
       fabric8.io/expose: "true"
-      fabric8.io/ingress.annotations: "ingress.kubernetes.io/auth-type: basic\ningress.kubernetes.io/auth-secret: jx-basic-auth"
   persistence:
     Enabled: true
     AccessMode: ReadWriteOnce
     Size: 8Gi
+  env:
+    open:
+      BASIC_AUTH_USER: admin
+      BASIC_AUTH_PASS: admin
+  image:
+    repository: rawlingsj/chartmuseum
+    tag: 0.0.7
 
 monocular:
     ingress:
