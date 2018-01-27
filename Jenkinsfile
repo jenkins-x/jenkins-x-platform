@@ -36,6 +36,9 @@ pipeline {
                 dir ('/home/jenkins/jenkins-x-platform') {
                     checkout scm
                     container('jx-base') {
+                        // until kubernetes plugin supports init containers https://github.com/jenkinsci/kubernetes-plugin/pull/229/
+                        sh 'cp /root/netrc/.netrc ~/.netrc'
+
                         sh "git checkout master"
                         sh "helm init --client-only"
                         sh "helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com"
