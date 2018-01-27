@@ -165,8 +165,8 @@ jenkins:
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
         - type: Secret
-          secretName: jenkins-netrc
-          mountPath: /root/netrc
+          secretName: jenkins-git-credentials
+          mountPath: /root/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
@@ -183,7 +183,7 @@ jenkins:
           GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
           GIT_AUTHOR_NAME: jenkins-x-bot
           GIT_COMMITTER_NAME: jenkins-x-bot
-          NETRC: /root/.netrc/.netrc
+          XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         Containers:
           Jnlp:
@@ -208,8 +208,8 @@ jenkins:
         Label: jenkins-go
         volumes:
         - type: Secret
-          secretName: jenkins-netrc
-          mountPath: /root/netrc
+          secretName: jenkins-git-credentials
+          mountPath: /root/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
@@ -222,7 +222,7 @@ jenkins:
           GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
           GIT_AUTHOR_NAME: jenkins-x-bot
           GIT_COMMITTER_NAME: jenkins-x-bot
-          NETRC: /root/.netrc/.netrc
+          XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         Containers:
           Jnlp:
@@ -247,8 +247,8 @@ jenkins:
         Label: jenkins-jx-base
         volumes:
         - type: Secret
-          secretName: jenkins-netrc
-          mountPath: /root/netrc
+          secretName: jenkins-git-credentials
+          mountPath: /root/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
@@ -261,7 +261,7 @@ jenkins:
           GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
           GIT_AUTHOR_NAME: jenkins-x-bot
           GIT_COMMITTER_NAME: jenkins-x-bot
-          NETRC: /root/.netrc/.netrc
+          XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         Containers:
           Jnlp:
@@ -383,10 +383,8 @@ sonatype-nexus:
     #  memory: 128Mi
 PipelineSecrets:
   # used by pipelines to tag new releases
-  Netrc: |-
-      machine github.com
-            login jenkins-x-bot
-            password 
+  GitCreds: |-
+      https://jenkins-x-bot@github.com
   DockerConfig: |-
       {}
   GithubToken:
