@@ -194,10 +194,10 @@ jenkins:
           Maven:
             Image: rawlingsj/builder-maven:0.0.1
             Privileged: true
-            RequestCpu: "200m"
-            RequestMemory: "256Mi"
-            LimitCpu: "400m"
-            LimitMemory: "512Mi"
+            RequestCpu: "400m"
+            RequestMemory: "512Mi"
+            LimitCpu: "1"
+            LimitMemory: "1024Mi"
             # You may want to change this to true while testing a new image
             # AlwaysPullImage: true
             Command: "/bin/sh -c"
