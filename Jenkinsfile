@@ -20,7 +20,7 @@ pipeline {
                         sh "helm repo add stable https://kubernetes-charts.storage.googleapis.com"
                         sh "helm repo add monocular https://kubernetes-helm.github.io/monocular"
                         sh "helm repo add chartmuseum http://chartmuseum.thunder.thunder.fabric8.io"
-
+                        sh "helm repo add jx http://chartmuseum.cd.thunder.fabric8.io"
                         sh "make build"
                         sh "helm template ."
                     }
@@ -45,6 +45,7 @@ pipeline {
                         sh "helm repo add stable https://kubernetes-charts.storage.googleapis.com"
                         sh "helm repo add monocular https://kubernetes-helm.github.io/monocular"
                         sh "helm repo add chartmuseum http://chartmuseum.thunder.thunder.fabric8.io"
+                        sh "helm repo add jx http://chartmuseum.cd.thunder.fabric8.io"
                         sh "make release"
                     }
                 }

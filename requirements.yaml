@@ -9,12 +9,12 @@ dependencies:
     version: 0.0.1
     repository: file://pipelines
   - name: exposecontroller
-    version: 0.1.1
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
+    version: 0.1.3
+    repository: http://chartmuseum.cd.thunder.fabric8.io
     alias: expose
   - name: exposecontroller
-    version: 0.1.1
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
+    version: 0.1.3
+    repository: http://chartmuseum.cd.thunder.fabric8.io
     alias: cleanup
   - name: pipelinecontroller
     version: 0.0.1
@@ -25,10 +25,9 @@ dependencies:
   - name: sonatype-nexus
     version: 0.1.5
     repository: https://kubernetes-charts.storage.googleapis.com
-    # disable heapster if we're using prometheus
-  # - name: heapster
-  #   version: 0.2.4
-  #   repository: https://kubernetes-charts.storage.googleapis.com
+  - name: heapster
+    version: 0.2.4
+    repository: https://kubernetes-charts.storage.googleapis.com
   - name: kubernetes-dashboard
     version: 0.4.4
     repository: https://kubernetes-charts.storage.googleapis.com
@@ -37,10 +36,4 @@ dependencies:
     repository: https://kubernetes-helm.github.io/monocular
   - name: docker-registry
     version: 1.0.1
-    repository: https://kubernetes-charts.storage.googleapis.com
-  - name: prometheus
-    version: 4.6.17
-    repository: https://kubernetes-charts.storage.googleapis.com
-  - name: grafana
-    version: 0.5.4
     repository: https://kubernetes-charts.storage.googleapis.com
