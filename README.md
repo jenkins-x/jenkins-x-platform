@@ -2,7 +2,7 @@
 
 [Jenkins X](https://jenkins-x.github.io/jenkins-x-website/) is an integrated CI / CD platform for any Kubernetes cluster or cloud.  Simple installation of best of bread open source software for developing and running applications in the cloud.
 
-What's in the box?
+What's included out of the box?
 
 |                                   |                                       |
 | --------------------------------- | ------------------------------------- |
@@ -10,10 +10,8 @@ What's in the box?
 |![Sonartype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
 |![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
 |![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
-|![Grafana](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/grafana.png) | __Grafana__ Data visualization & Monitoring |
-|![Prometheus](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/prometheus.png) | __Prometheus__ monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach |
 
-Monitoring and alerting projects to come.
+Easy to install addons to come.
 
 ## Remote cluster install
 

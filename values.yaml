@@ -166,7 +166,7 @@ jenkins:
           mountPath: /root/.m2/
         - type: Secret
           secretName: jenkins-git-credentials
-          mountPath: /root/git
+          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
@@ -209,7 +209,7 @@ jenkins:
         volumes:
         - type: Secret
           secretName: jenkins-git-credentials
-          mountPath: /root/git
+          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
@@ -248,7 +248,7 @@ jenkins:
         volumes:
         - type: Secret
           secretName: jenkins-git-credentials
-          mountPath: /root/git
+          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
