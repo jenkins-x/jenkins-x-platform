@@ -148,6 +148,11 @@ jenkins:
         # - secretName: jenkins.cluster.local
         #   hosts:
         #     - jenkins.cluster.local
+
+    # Overwrite the base jenkins config and any plugins during upgrades
+    Overwrite:
+      Plugins: true
+      Config: true
   
   Agent:
     Enabled: true
