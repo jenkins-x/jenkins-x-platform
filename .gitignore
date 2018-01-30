@@ -39,4 +39,5 @@ Session.vim
 
 *.tgz
 *.lock
+
 .updatebot-repos/
