@@ -197,7 +197,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: rawlingsj/builder-maven:0.0.1
+            Image: jenkinsxio/builder-maven:0.0.2
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -236,7 +236,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: rawlingsj/builder-go:0.0.4
+            Image: jenkinsxio/builder-go:0.0.5
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
