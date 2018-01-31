@@ -13,7 +13,3 @@ helm repo add monocular https://kubernetes-helm.github.io/monocular
 helm repo add chartmuseum http://chartmuseum.thunder.thunder.fabric8.io
 helm repo add jx http://chartmuseum.cd.thunder.fabric8.io
 make release
-
-jx step tag --version ${VERSION}
-
-updatebot push-version --kind make CHART_VERSION ${VERSION}
