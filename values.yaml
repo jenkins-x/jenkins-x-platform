@@ -26,7 +26,7 @@ docker-registry:
 kubernetes-dashboard:
   serviceAnnotations:
     fabric8.io/expose: "true"
-    fabric8.io/ingress.annotations: "ingress.kubernetes.io/auth-type: basic\ningress.kubernetes.io/auth-secret: jx-basic-auth"
+    fabric8.io/ingress.annotations: "nginx.ingress.kubernetes.io/auth-type: basic\nnginx.ingress.kubernetes.io/auth-secret: jx-basic-auth"
 
 chartmuseum:
   service:
@@ -57,7 +57,7 @@ monocular:
           fabric8.io/expose: "true"
           fabric8.io/ingress.name: "monocular"
           fabric8.io/ingress.path: "/api/"
-          fabric8.io/ingress.annotations: "ingress.kubernetes.io/rewrite-target: /\nkubernetes.io/ingress.class: nginx"
+          fabric8.io/ingress.annotations: "nginx.ingress.kubernetes.io/rewrite-target: /\nnginx.ingress.kubernetes.io/ingress.class: nginx"
       config:
         repos:
           - name: chartmuseum
