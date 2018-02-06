@@ -159,6 +159,8 @@ jenkins:
 
     Component: "jenkins-agent"
 
+    ContainerCap: 0
+
     # Key Value selectors. Ex:
     # jenkins-agent: v1
     PodTemplates:
