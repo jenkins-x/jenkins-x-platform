@@ -38,11 +38,13 @@ chartmuseum:
     Size: 8Gi
   env:
     open:
+      AUTH_ANONYMOUS_GET: true
+      DISABLE_API: false
+    secret:
       BASIC_AUTH_USER: admin
       BASIC_AUTH_PASS: admin
   image:
-    repository: rawlingsj/chartmuseum
-    tag: 0.0.7
+    tag: v0.2.8
 
 monocular:
     ingress:
