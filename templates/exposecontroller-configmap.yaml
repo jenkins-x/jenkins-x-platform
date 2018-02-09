@@ -6,7 +6,7 @@ data:
     domain: {{ .Values.exposecontroller.domain }}
 {{- end }}
 {{- if .Values.exposecontroller.http }}
-    http: {{ .Values.exposecontroller.http | quote  }}
+    http: {{ .Values.exposecontroller.http  }}
 {{- end }}
 kind: ConfigMap
 metadata:
