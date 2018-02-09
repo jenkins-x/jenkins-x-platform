@@ -3,10 +3,10 @@ data:
   config.yml: |-
     exposer: Ingress
 {{- if .Values.exposecontroller.domain }}
-    domain: {{- .Values.exposecontroller.domain }}
+    domain: {{ .Values.exposecontroller.domain }}
 {{- end }}
 {{- if .Values.exposecontroller.http }}
-    http: {{- .Values.exposecontroller.http | quote  }}
+    http: {{ .Values.exposecontroller.http | quote  }}
 {{- end }}
 kind: ConfigMap
 metadata:
