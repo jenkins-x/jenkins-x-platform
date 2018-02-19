@@ -254,6 +254,45 @@ jenkins:
             Command: "/bin/sh -c"
             Args: "cat"
             Tty: true
+      Nodejs:
+        Name: nodejs
+        Label: jenkins-nodejs
+        volumes:
+        - type: Secret
+          secretName: jenkins-git-credentials
+          mountPath: /home/jenkins/git
+        - type: Secret
+          secretName: jenkins-docker-cfg
+          mountPath: /home/jenkins/.docker
+        - type: HostPath
+          hostPath: /var/run/docker.sock
+          mountPath: /var/run/docker.sock
+        EnvVars:
+          JENKINS_URL: http://jenkins:8080
+          GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_NAME: jenkins-x-bot
+          GIT_COMMITTER_NAME: jenkins-x-bot
+          XDG_CONFIG_HOME: /home/jenkins
+          DOCKER_CONFIG: /home/jenkins/.docker/
+        Containers:
+          Jnlp:
+            Image: jenkinsci/jnlp-slave:3.14-1
+            RequestCpu: "100m"
+            RequestMemory: "128Mi"
+            Args: '${computer.jnlpmac} ${computer.name}'
+          Go:
+            Image: jenkinsxio/builder-nodejs:0.0.1
+            Privileged: true
+            RequestCpu: "400m"
+            RequestMemory: "512Mi"
+            LimitCpu: "1"
+            LimitMemory: "1024Mi"
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
       JX-base:
         Name: jx-base
         Label: jenkins-jx-base
