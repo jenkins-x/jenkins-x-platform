@@ -1,8 +1,5 @@
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 
-exposecontroller:
-  http: true
-
 expose:
   Args: 
     - --exposer
@@ -13,6 +10,8 @@ expose:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
   # add custom domain here else defaults to using nip.io if a single node cluster
+  config:
+    http: true
 
 cleanup:
   Args: 
