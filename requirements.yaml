@@ -1,7 +1,4 @@
 dependencies:
-  # - name: jenkins
-  #   version: 0.9.0
-  #   repository: https://kubernetes-charts.storage.googleapis.com
   - name: jenkins
     version: 0.10.7
     repository: http://chartmuseum.build.cd.jenkins-x.io
@@ -22,9 +19,9 @@ dependencies:
   - name: chartmuseum
     version: 0.3.2
     repository: https://kubernetes-charts-incubator.storage.googleapis.com/
-  - name: sonatype-nexus
-    version: 0.1.5
-    repository: https://kubernetes-charts.storage.googleapis.com
+  - name: nexus
+    version: 0.0.4
+    repository: http://chartmuseum.build.cd.jenkins-x.io
   - name: heapster
     version: 0.2.4
     repository: https://kubernetes-charts.storage.googleapis.com
