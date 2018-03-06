@@ -47,6 +47,13 @@ chartmuseum:
       BASIC_AUTH_PASS: admin
   image:
     tag: v0.2.8
+  resources:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 160m
+      memory: 128Mi
 
 monocular:
     ingress:
