@@ -1,11 +1,6 @@
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 
 expose:
-  Args: 
-    - --exposer
-    - Ingress
-    - --http
-    - "true"
   Annotations:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
