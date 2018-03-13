@@ -195,6 +195,7 @@ jenkins:
           GIT_COMMITTER_NAME: jenkins-x-bot
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.14-1
@@ -234,6 +235,7 @@ jenkins:
           GIT_COMMITTER_NAME: jenkins-x-bot
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.14-1
@@ -274,6 +276,7 @@ jenkins:
           GIT_COMMITTER_NAME: jenkins-x-bot
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.14-1
@@ -313,6 +316,7 @@ jenkins:
           GIT_COMMITTER_NAME: jenkins-x-bot
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.14-1
