@@ -89,8 +89,8 @@ jenkins:
     Name: jenkins-master
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
-    Image: "rawlingsj/jenkinsx"
-    ImageTag: "0.0.2"
+    Image: "jenkinsxio/jenkinsx"
+    ImageTag: "0.0.5"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -284,8 +284,8 @@ jenkins:
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
-            LimitCpu: "1"
-            LimitMemory: "1024Mi"
+            LimitCpu: "2"
+            LimitMemory: "2048Mi"
             # You may want to change this to true while testing a new image
             # AlwaysPullImage: true
             Command: "/bin/sh -c"
