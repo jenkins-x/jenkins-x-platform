@@ -254,6 +254,7 @@ jenkins:
             Tty: true
       Nodejs:
         Name: nodejs
+        # ServiceAccount: fooo
         Label: jenkins-nodejs
         volumes:
         - type: Secret
