@@ -352,7 +352,7 @@ jenkins:
     # StorageClass: "-"
   
     AccessMode: ReadWriteOnce
-    Size: 3Gi
+    Size: 30Gi
     volumes:
   #  - name: nothing
   #    emptyDir: {}
