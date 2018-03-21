@@ -8,7 +8,6 @@ setup:
 	helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
 	helm repo add stable https://kubernetes-charts.storage.googleapis.com
 	helm repo add monocular https://kubernetes-helm.github.io/monocular
-	helm repo add jx http://chartmuseum.build.cd.jenkins-x.io
 
 build: setup clean
 	helm dependency build
