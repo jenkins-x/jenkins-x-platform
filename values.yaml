@@ -16,6 +16,10 @@ docker-registry:
   service:
     annotations:
       fabric8.io/expose: "true"
+  persistence:
+    accessMode: 'ReadWriteOnce'
+    enabled: true
+    size: 100Gi
 
 kubernetes-dashboard:
   serviceAnnotations:
