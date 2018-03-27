@@ -160,7 +160,13 @@ jenkins:
     Overwrite:
       Plugins: true
       Config: true
-  
+
+  Servers:
+    Gitea:
+    - Name: gitea
+      Url: http://gitea.changeme.com
+      Credential: jenkins-x-gitea
+
   Agent:
     Enabled: true
 
