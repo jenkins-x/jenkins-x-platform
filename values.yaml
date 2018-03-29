@@ -418,7 +418,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: jenkinsxio/builder-base:0.0.161
+            Image: jenkinsxio/builder-base:0.0.162
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
