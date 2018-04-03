@@ -162,10 +162,15 @@ jenkins:
       Config: true
 
   Servers:
-    Gitea:
-    - Name: gitea
-      Url: http://gitea.changeme.com
-      Credential: jenkins-x-gitea
+  #
+  #  GHE:
+  #  - Name: github
+  #    Url: https://github.mydomain.com
+  #
+  #  Gitea:
+  #  - Name: gitea
+  #    Url: http://gitea.changeme.com
+  #    Credential: jenkins-x-gitea
 
   Agent:
     Enabled: true
