@@ -1,54 +1,33 @@
 dependencies:
-  # - name: jenkins
-  #   version: 0.9.0
-  #   repository: https://kubernetes-charts.storage.googleapis.com
   - name: jenkins
-    version: 0.10.2
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
+    version: 0.10.15
+    repository: http://chartmuseum.build.cd.jenkins-x.io
   - name: pipelines
     version: 0.0.1
     repository: file://pipelines
   - name: exposecontroller
-    version: 0.1.1
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
+    version: 2.3.56
+    repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: expose
   - name: exposecontroller
-    version: 0.1.1
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
+    version: 2.3.56
+    repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: cleanup
   - name: pipelinecontroller
     version: 0.0.1
     repository: file://pipelinecontroller
   - name: chartmuseum
-    version: 0.1.3
+    version: 0.3.2
     repository: https://kubernetes-charts-incubator.storage.googleapis.com/
-  - name: sonatype-nexus
-    version: 0.1.5
+  - name: nexus
+    version: 0.0.6
+    repository: http://chartmuseum.build.cd.jenkins-x.io
+  - name: heapster
+    version: 0.2.4
     repository: https://kubernetes-charts.storage.googleapis.com
-    # disable heapster if we're using prometheus
-  # - name: heapster
-  #   version: 0.2.4
-  #   repository: https://kubernetes-charts.storage.googleapis.com
-  #  waiting for PR https://github.com/kubernetes/charts/pull/3275    
-  # - name: kubernetes-dashboard
-  #   version: 0.4.3
-  #   repository: https://kubernetes-charts.storage.googleapis.com
-  - name: kubernetes-dashboard
-    version: 0.4.4
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
   - name: monocular
     version: 0.5.0
     repository: https://kubernetes-helm.github.io/monocular
-  # - name: docker-registry
-  #   version: 1.0.0
-  #   repository: https://kubernetes-charts.storage.googleapis.com
-  # waiting for PR https://github.com/kubernetes/charts/pull/3238
   - name: docker-registry
     version: 1.0.1
-    repository: http://chartmuseum.thunder.thunder.fabric8.io
-  - name: prometheus
-    version: 4.6.17
-    repository: https://kubernetes-charts.storage.googleapis.com
-  - name: grafana
-    version: 0.5.4
     repository: https://kubernetes-charts.storage.googleapis.com

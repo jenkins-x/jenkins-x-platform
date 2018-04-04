@@ -2,65 +2,49 @@
 
 [Jenkins X](https://jenkins-x.github.io/jenkins-x-website/) is an integrated CI / CD platform for any Kubernetes cluster or cloud.  Simple installation of best of breed open source software for developing and running applications in the cloud.
 
-What's in the box?
+What's included out of the box?
 
 |                                   |                                       |
 | --------------------------------- | ------------------------------------- |
-|![Jenkins](./images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pielines and environments |
-|![Sonartype Nexus 3](./images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
-|![Chartmuseum](./images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
-|![Monocular](./images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
+|![Jenkins](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pielines and environments |
+|![Sonartype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
+|![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
+|![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
 
-Monitoring and alerting projects to come.
+Easy to install addons to come.
 
+# Install
+
+We use a CLI tool called [jx](https://github.com/jenkins-x/jx) to interact with Jenkins X.  For installation `jx` delegates to Helm (Kubernetes Package manager) for install, upgrades and uninstall operations.
+
+Grab the latest [jx](https://github.com/jenkins-x/jx/releases/latest) and choose the type of cluster you want to create.
 ## Remote cluster install
 
-If you are installing on a remote Kubernetes cluster, head over to the cloud environments repo which includes entire environments that install out of the box, preconfigured for you cloud provider with [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/) and [Azure Container Service (AKS)](https://azure.microsoft.com/en-gb/services/container-service/), [Amazon Elastic Container Service (EKS)](https://aws.amazon.com/eks/) to come shortly.
+The quickest way to get going is with [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/), other major cloud providers coming shortly.
 
-https://github.com/jenkins-x/cloud-environments
+__Prerequisite__ you will need a Google Cloud Account with a Google Project setup, follow this link for a free trial along with $300 credit https://console.cloud.google.com/freetrial
 
+```
+jx create cluster gke
+```
+And follow the CLI wizard
 
 ## Local development
 
-Best way to get started is with minikube.
-
-These steps are for OSX for others OS please see the docs https://github.com/kubernetes/minikube#installation.
+For local developement we can install Jenkins X with minikube.
 
 First install the Hyperkit driver https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver
 
-Next get minikube
 ```
-brew cask install minikube
-```
-
-This repo has some helper commands to get you started
-
-```
-git clone https://github.com/jenkins-x/jenkins-x-platform && cd jenkins-x-platform
-minikube start --vm-driver hyperkit --cpus 4 --memory 4096
-```
-We use `helm` as the package manager and install / upgrade features so to get the binary and install an nginx ingress controller so we can access our apps run:
-```
-make setup
-```
-to install Jenkins-X on minikube:
-```
-make install
-```
-now you can edit charts and apply the chages using:
-```
-make upgrade
-```
-to clean up run:
-```
-make delete
+git clone https://github.com/jenkins-x/cloud-environments && cd cloud-environments
+jx create cluster minikube --local-cloud-environment=true
 ```
 
 ## Accessing applications
 
 You can list the external URLs used to acess applications on you kubernetes cluster by running:
 ```
-kubectl get ingress
+jx open
 ```
 
 ## Credentials
