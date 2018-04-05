@@ -94,7 +94,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "jenkinsxio/jenkinsx"
-    ImageTag: "0.0.9"
+    ImageTag: "0.0.10"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -305,9 +305,9 @@ jenkins:
             Image: jenkinsxio/builder-go:0.0.150
             Privileged: true
             RequestCpu: "400m"
-            RequestMemory: "512Mi"
+            RequestMemory: "600Mi"
             LimitCpu: "1"
-            LimitMemory: "1024Mi"
+            LimitMemory: "1448Mi"
             # You may want to change this to true while testing a new image
             # AlwaysPullImage: true
             Command: "/bin/sh -c"
