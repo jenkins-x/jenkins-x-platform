@@ -259,7 +259,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Gradle:
-            Image: jenkinsxio/builder-gradle:0.0.63
+            Image: jenkinsxio/builder-gradle:0.0.64
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
