@@ -94,7 +94,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "jenkinsxio/jenkinsx"
-    ImageTag: "0.0.11"
+    ImageTag: "0.0.14"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -162,15 +162,25 @@ jenkins:
       Config: true
 
   Servers:
-  #
-  #  GHE:
-  #  - Name: github
-  #    Url: https://github.mydomain.com
-  #
-  #  Gitea:
-  #  - Name: gitea
-  #    Url: http://gitea.changeme.com
-  #    Credential: jenkins-x-gitea
+    Gitea:
+    #- Name: myname
+    #  Url: https://something.com/
+    #  Credential: some-cred-name
+
+    GHE:
+    #- Name: myname
+    #  Url: https://something.com/
+    #  Credential: some-cred-name
+
+    BitbucketCloud:
+    #- Name: myname
+    #  Url: https://something.com/
+    #  Credential: some-cred-name
+
+    BitbucketServer:
+    #- Name: myname
+    #  Url: https://something.com/
+    #  Credential: some-cred-name
 
   Agent:
     Enabled: true
