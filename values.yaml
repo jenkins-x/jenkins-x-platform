@@ -234,9 +234,6 @@ jenkins:
         Label: jenkins-gradle
         volumes:
         - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
-        - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
         - type: Secret
@@ -278,9 +275,6 @@ jenkins:
         Label: jenkins-go
         volumes:
         - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
-        - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
         - type: HostPath
@@ -317,9 +311,6 @@ jenkins:
         Name: rust
         Label: jenkins-rust
         volumes:
-        - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
@@ -359,9 +350,6 @@ jenkins:
         Label: jenkins-nodejs
         volumes:
         - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
-        - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
         - type: HostPath
@@ -398,9 +386,6 @@ jenkins:
         Name: jx-base
         Label: jenkins-jx-base
         volumes:
-        - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
