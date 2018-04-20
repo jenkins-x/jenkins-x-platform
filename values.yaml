@@ -105,6 +105,7 @@ jenkins:
     Memory: "256Mi"
   # Set min/max heap here if needed with:
   # JavaOpts: "-Xms512m -Xmx512m"
+    JavaOpts: "-Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85"
   # JenkinsOpts: ""
   # JenkinsUriPrefix: "/jenkins"
     ServicePort: 8080
