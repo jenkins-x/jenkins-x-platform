@@ -348,7 +348,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: jenkinsxio/builder-go:0.0.180
+            Image: jenkinsxio/builder-go:0.0.181
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
