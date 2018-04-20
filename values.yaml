@@ -94,7 +94,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "jenkinsxio/jenkinsx"
-    ImageTag: "0.0.14"
+    ImageTag: "0.0.15"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -105,6 +105,7 @@ jenkins:
     Memory: "256Mi"
   # Set min/max heap here if needed with:
   # JavaOpts: "-Xms512m -Xmx512m"
+    JavaOpts: "-Dhudson.slaves.NodeProvisioner.initialDelay=0 -Dhudson.slaves.NodeProvisioner.MARGIN=50 -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85"
   # JenkinsOpts: ""
   # JenkinsUriPrefix: "/jenkins"
     ServicePort: 8080
@@ -200,9 +201,6 @@ jenkins:
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
         - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
-        - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
         - type: Secret
@@ -287,9 +285,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
-        - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
