@@ -200,9 +200,6 @@ jenkins:
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
         - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
-        - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
         - type: Secret
@@ -287,9 +284,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-maven-settings
           mountPath: /root/.m2/
-        - type: Secret
-          secretName: jenkins-git-credentials
-          mountPath: /home/jenkins/git
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
