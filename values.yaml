@@ -94,7 +94,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "jenkinsxio/jenkinsx"
-    ImageTag: "0.0.15"
+    ImageTag: "0.0.18"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -163,7 +163,12 @@ jenkins:
       Config: true
 
   Servers:
-    Gitea:
+    BitbucketCloud:
+    #- Name: myname
+    #  Url: https://something.com/
+    #  Credential: some-cred-name
+
+    BitbucketServer:
     #- Name: myname
     #  Url: https://something.com/
     #  Credential: some-cred-name
@@ -173,12 +178,12 @@ jenkins:
     #  Url: https://something.com/
     #  Credential: some-cred-name
 
-    BitbucketCloud:
+    Gitea:
     #- Name: myname
     #  Url: https://something.com/
     #  Credential: some-cred-name
 
-    BitbucketServer:
+    GitLab:
     #- Name: myname
     #  Url: https://something.com/
     #  Credential: some-cred-name
