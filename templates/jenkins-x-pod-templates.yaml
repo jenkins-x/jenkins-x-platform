@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "jenkins-x-pod-templates"
+data:
+{{- if .Values.jenkins.Agent.Enabled }}
+{{- range $pkey, $pval := .Values.jenkins.Agent.PodTemplates }}
+  {{ $pval.Name }}: |-
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: {{ $pval.Label }}
+      labels:
+        jenkins.io/kind: build-pod
+    spec:
+{{- if $pval.ServiceAccount }}
+      serviceAccount: {{ $pval.ServiceAccount }}
+{{- end }}
+      nodeSelector:
+{{- range $key, $value := $pval.NodeSelector }}
+        {{- $key }}: {{ $value }}
+{{- end }}
+      volumes:
+      - name: workspace-volume
+        emptyDir: {}
+{{- range $index, $volume := $pval.volumes }}
+      - name: volume-{{ $index }}
+  {{- if eq "Secret" $volume.type }}
+        secret:
+          secretName: {{ $volume.secretName }}
+  {{- end }}
+  {{- if eq "HostPath" $volume.type }}
+        hostPath:
+          path: {{ $volume.hostPath }}
+  {{- end }}
+{{- end }}
+      containers:
+  {{- range $ckey, $cval := $pval.Containers }}
+  {{- if ne "Jnlp" $ckey }}
+      - name: {{ $ckey | lower }}
+        image: {{ $cval.Image }}
+        args:
+        - cat
+        command:
+        - /bin/sh
+        - -c
+        workingDir: /home/jenkins
+        securityContext:
+          privileged: {{ default false $cval.Privileged }}
+  {{- if $cval.AlwaysPullImage }}
+        imagePullPolicy: Always
+  {{- end }}
+        tty: {{ default false $cval.Tty }}
+        env:
+  {{- range $ekey, $eval := $pval.EnvVars }}
+        - name: {{ $ekey }}
+          value: {{ $eval }}
+  {{- end }}
+        resources:
+          requests:
+            cpu: {{ $cval.RequestCpu }}
+            memory: {{ $cval.RequestMemory }}
+          limits:
+  {{- if $pval.LimitCpu }}
+            cpu: {{ $cval.LimitCpu }}
+  {{- end }}
+  {{- if $pval.LimitMemory }}
+            memory: {{ $cval.LimitMemory }}
+  {{- end }}
+        volumeMounts:
+          - mountPath: /home/jenkins
+            name: workspace-volume
+  {{- range $index, $volume := $pval.volumes }}
+          - name: volume-{{ $index }}
+            mountPath: {{ $volume.mountPath }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+{{- if $pval.ImagePullSecret }}
+      imagePullSecrets:
+        - name: {{ $pval.ImagePullSecret }}
+{{- end }}
+{{- end }}
+{{- end -}}
