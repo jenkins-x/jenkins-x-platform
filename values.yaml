@@ -231,7 +231,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: jenkinsxio/builder-maven:0.0.231
+            Image: jenkinsxio/builder-maven:0.0.232
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -272,7 +272,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Gradle:
-            Image: jenkinsxio/builder-gradle:0.0.119
+            Image: jenkinsxio/builder-gradle:0.0.120
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -316,7 +316,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Scala:
-            Image: jenkinsxio/builder-scala:0.0.53
+            Image: jenkinsxio/builder-scala:0.0.54
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -353,7 +353,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: jenkinsxio/builder-go:0.0.229
+            Image: jenkinsxio/builder-go:0.0.230
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -390,7 +390,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Rust:
-            Image: jenkinsxio/builder-rust:0.0.84
+            Image: jenkinsxio/builder-rust:0.0.85
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -428,7 +428,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           nodejs:
-            Image: jenkinsxio/builder-nodejs:0.0.181
+            Image: jenkinsxio/builder-nodejs:0.0.182
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -465,7 +465,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: jenkinsxio/builder-base:0.0.256
+            Image: jenkinsxio/builder-base:0.0.257
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
