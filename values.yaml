@@ -393,7 +393,7 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          Go:
+          terraform:
             Image: jenkinsxio/builder-terraform:0.0.5
             Privileged: true
             RequestCpu: "400m"
@@ -543,7 +543,7 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          nodejs:
+          python:
             Image: jenkinsxio/builder-python2:0.0.1
             Privileged: true
             RequestCpu: "400m"
@@ -581,7 +581,7 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          nodejs:
+          python:
             Image: jenkinsxio/builder-python:0.0.1
             Privileged: true
             RequestCpu: "400m"
@@ -619,7 +619,7 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          nodejs:
+          ruby:
             Image: jenkinsxio/builder-ruby:0.0.263
             Privileged: true
             RequestCpu: "400m"
@@ -657,7 +657,7 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          nodejs:
+          swift:
             Image: jenkinsxio/builder-swift:0.0.263
             Privileged: true
             RequestCpu: "400m"
