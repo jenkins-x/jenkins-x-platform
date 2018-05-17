@@ -763,6 +763,42 @@ PipelineSecrets:
                       <altReleaseDeploymentRepository>local-nexus::default::http://nexus:8081/repository/maven-releases/</altReleaseDeploymentRepository>
                       <altSnapshotDeploymentRepository>local-nexus::default::http://nexus:8081/repository/maven-snapshots/</altSnapshotDeploymentRepository>
                   </properties>
+                  <repositories>
+                      <repository>
+                          <id>nexus-snapshot</id>
+                          <name>Snapshot Repository</name>
+                          <url>http://nexus/repository/maven-snapshots/</url>
+                          <snapshots>
+                              <enabled>true</enabled>
+                          </snapshots>
+                      </repository>
+                      <repository>
+                          <snapshots>
+                            <enabled>false</enabled>
+                          </snapshots>
+                          <id>nexus-release</id>
+                          <name>Release Repository</name>
+                          <url>http://nexus/repository/maven-releases/</url>
+                      </repository>
+                  </repositories>
+                  <pluginRepositories>
+                      <pluginRepository>
+                          <id>nexus-snapshot</id>
+                          <name>Snapshot Repository</name>
+                          <url>http://nexus/repository/maven-snapshots/</url>
+                          <snapshots>
+                              <enabled>true</enabled>
+                          </snapshots>
+                      </pluginRepository>
+                      <pluginRepository>
+                          <snapshots>
+                              <enabled>false</enabled>
+                          </snapshots>
+                          <id>nexus-release</id>
+                          <name>Reslease Repository</name>
+                          <url>http://nexus/repository/maven-releases/</url>
+                      </pluginRepository>
+                  </pluginRepositories>
               </profile>
               <profile>
                   <id>release</id>
