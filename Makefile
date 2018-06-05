@@ -14,10 +14,10 @@ build: setup clean
 	helm lint
 
 install: clean setup build
-	helm install . --name $(NAME)
+	helm upgrade --install $(NAME) .
 
 upgrade: clean setup build
-	helm upgrade $(NAME) .
+	helm upgrade --install $(NAME) .
 
 delete:
 	helm delete --purge $(NAME)
