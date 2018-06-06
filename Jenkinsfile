@@ -35,7 +35,7 @@ pipeline {
                         sh "./jx/scripts/release.sh"
                     }
                 }
-                dir('home/jenkins/home'){
+                dir('/home/jenkins/packs'){
                     container('jx-base') {
                         sh 'jx step git credentials'
                         git 'https://github.com/jenkins-x/draft-packs.git'
