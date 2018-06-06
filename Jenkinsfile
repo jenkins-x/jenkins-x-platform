@@ -36,10 +36,12 @@ pipeline {
                     }
                 }
                 dir('home/jenkins/home'){
-                    sh 'jx step git credentials'
-                    git 'https://github.com/jenkins-x/draft-packs.git'
+                    container('jx-base') {
+                        sh 'jx step git credentials'
+                        git 'https://github.com/jenkins-x/draft-packs.git'
 
-                    sh 'jx step tag --version \$(cat /home/jenkins/jenkins-x-platform/VERSION)'
+                        sh 'jx step tag --version \$(cat /home/jenkins/jenkins-x-platform/VERSION)'
+                    }
                 }
             }
         }
