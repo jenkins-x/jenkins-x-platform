@@ -37,9 +37,8 @@ pipeline {
                 }
                 dir('/home/jenkins/packs'){
                     container('jx-base') {
-                        input 'ok?'
                         git 'https://github.com/jenkins-x/draft-packs.git'
-
+                        sh 'git config credential.helper store'
                         sh 'jx step tag --version \$(cat /home/jenkins/jenkins-x-platform/VERSION)'
                     }
                 }
