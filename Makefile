@@ -28,7 +28,6 @@ clean:
 	rm -rf requirements.lock
 
 release: setup clean build
-
 ifeq ($(OS),Darwin)
 	sed -i "" -e "s/version:.*/version: $(RELEASE_VERSION)/" Chart.yaml
 else ifeq ($(OS),Linux)
@@ -44,4 +43,4 @@ endif
 	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
 	rm -rf ${NAME}*.tgz
 	updatebot push-version --kind make CHART_VERSION $(RELEASE_VERSION)
-
+	echo $(RELEASE_VERSION) > VERSION
