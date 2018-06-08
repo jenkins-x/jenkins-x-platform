@@ -1,5 +1,21 @@
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 
+gc-previews:
+  cronjob:
+    enabled: true
+    schedule: "0 */3 * * *"
+  args:
+    - "gc"
+    - "previews"
+
+gc-activities:
+  cronjob:
+    enabled: true
+    schedule: "0/30 */3 * * *"
+  args:
+    - "gc"
+    - "activities"
+
 expose:
   Annotations:
     helm.sh/hook: post-install,post-upgrade
