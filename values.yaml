@@ -102,7 +102,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "jenkinsxio/jenkinsx"
-    ImageTag: "0.0.20"
+    ImageTag: "0.0.23"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
@@ -200,6 +200,11 @@ jenkins:
     #- Name: myname
     #  Url: https://something.com/
     #  Credential: some-cred-name
+
+    # global node properties
+    Global:
+      EnvVars:
+        DOCKER_REGISTRY: ""
 
   Agent:
     Enabled: true
