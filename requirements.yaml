@@ -31,3 +31,11 @@ dependencies:
   - name: docker-registry
     version: 1.0.1
     repository: https://kubernetes-charts.storage.googleapis.com
+  - name: jx
+    version: 1.2.116
+    repository: http://chartmuseum.build.cd.jenkins-x.io
+    alias: gc-activities
+  - name: jx
+    version: 1.2.116
+    repository: http://chartmuseum.build.cd.jenkins-x.io
+    alias: gc-previews
