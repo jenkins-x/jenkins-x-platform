@@ -424,7 +424,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Terraform:
-            Image: jenkinsxio/builder-terraform:0.0.75
+            Image: jenkinsxio/builder-terraform:0.0.76
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
