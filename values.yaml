@@ -1,20 +1,82 @@
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 
 gc-previews:
+  serviceaccount:
+    enabled: true
   cronjob:
     enabled: true
     schedule: "0 */3 * * *"
   args:
     - "gc"
     - "previews"
+  role:
+    enabled: true
+    rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - environments
+      verbs:
+      - list
+      - delete
+    - apiGroups:
+      - ""
+      resources:
+      - secrets
+      verbs:
+      - get
+      - list
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - create
+
+  clusterrole:
+    enabled: true
+    rules:
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - get
+    - apiGroups:
+      - ""
+      resources:
+      - namespace
+      verbs:
+      - get
+      - delete
+      - list
 
 gc-activities:
+  serviceaccount:
+    enabled: true
   cronjob:
     enabled: true
     schedule: "0/30 */3 * * *"
   args:
     - "gc"
     - "activities"
+  role:
+    enabled: true
+    rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - pipelineactivities
+      verbs:
+      - list
+      - delete
+    - apiGroups:
+      - ""
+      resources:
+      - secrets
+      - services
+      verbs:
+      - get
 
 expose:
   Annotations:
