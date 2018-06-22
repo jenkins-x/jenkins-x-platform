@@ -32,10 +32,10 @@ dependencies:
     version: 1.0.1
     repository: https://kubernetes-charts.storage.googleapis.com
   - name: jx
-    version: 1.3.21
+    version: 1.3.24
     repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: gc-activities
   - name: jx
-    version: 1.3.21
+    version: 1.3.24
     repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: gc-previews
