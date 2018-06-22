@@ -1,6 +1,6 @@
 dependencies:
   - name: jenkins
-    version: 0.10.21
+    version: 0.10.22
     repository: http://chartmuseum.build.cd.jenkins-x.io
   - name: pipelines
     version: 0.0.1
