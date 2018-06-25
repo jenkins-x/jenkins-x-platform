@@ -2,25 +2,26 @@ CHART_REPO := http://jenkins-x-chartmuseum:8080
 NAME := jenkins-x
 OS := $(shell uname)
 RELEASE_VERSION := $(shell jx-release-version)
+HELM := helm
 
 setup:
-	helm repo add chartmuseum http://chartmuseum.build.cd.jenkins-x.io
-	helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
-	helm repo add stable https://kubernetes-charts.storage.googleapis.com
-	helm repo add monocular https://kubernetes-helm.github.io/monocular
+	$(HELM) repo add chartmuseum http://chartmuseum.build.cd.jenkins-x.io
+	$(HELM) repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+	$(HELM) repo add stable https://kubernetes-charts.storage.googleapis.com
+	$(HELM) repo add monocular https://kubernetes-helm.github.io/monocular
 
 build: setup clean
 	helm dependency build
-	helm lint
+	$(HELM) lint
 
 install: clean setup build
-	helm upgrade --install $(NAME) .
+	$(HELM) upgrade --install $(NAME) .
 
 upgrade: clean setup build
-	helm upgrade --install $(NAME) .
+	$(HELM) upgrade --install $(NAME) .
 
 delete:
-	helm delete --purge $(NAME)
+	$(HELM) delete --purge $(NAME)
 
 clean: 
 	rm -rf charts
@@ -39,7 +40,7 @@ endif
 	git commit -a -m "release $(RELEASE_VERSION)" --allow-empty
 	git tag -fa v$(RELEASE_VERSION) -m "Release version $(RELEASE_VERSION)"
 	git push origin v$(RELEASE_VERSION)
-	helm package .
+	$(HELM) package .
 	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
 	rm -rf ${NAME}*.tgz
 	updatebot push-version --kind make CHART_VERSION $(RELEASE_VERSION)
