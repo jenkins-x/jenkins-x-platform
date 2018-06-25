@@ -17,8 +17,8 @@ dependencies:
     version: 0.0.1
     repository: file://pipelinecontroller
   - name: chartmuseum
-    version: 0.3.2                                                
-    repository: https://kubernetes-charts-incubator.storage.googleapis.com/
+    version: 1.5.0                                                
+    repository: https://kubernetes-charts.storage.googleapis.com
   - name: nexus
     version: 0.0.14
     repository: http://chartmuseum.build.cd.jenkins-x.io
