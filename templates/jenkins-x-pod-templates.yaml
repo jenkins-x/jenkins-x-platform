@@ -52,6 +52,11 @@ data:
   {{- end }}
         tty: {{ default false $cval.Tty }}
         env:
+        - name: DOCKER_REGISTRY
+          valueFrom:
+            configMapKeyRef:
+              name: jenkins-x-docker-registry
+              key: docker.registry
   {{- range $ekey, $eval := $pval.EnvVars }}
         - name: {{ $ekey }}
           value: {{ $eval }}
