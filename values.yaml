@@ -291,6 +291,9 @@ jenkins:
 
     ContainerCap: 0
 
+    DockerHostPath: "/var/run/docker.sock"
+    DockerMountPath: "/var/run/docker.sock"
+
     # Key Value selectors. Ex:
     # jenkins-agent: v1
     PodTemplates:
@@ -307,9 +310,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-release-gpg
           mountPath: /home/jenkins/.gnupg
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           _JAVA_OPTIONS: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m'
@@ -348,9 +348,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-release-gpg
           mountPath: /home/jenkins/.gnupg
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           _JAVA_OPTIONS: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m'
@@ -392,9 +389,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-release-gpg
           mountPath: /home/jenkins/.gnupg
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           _JAVA_OPTIONS: '-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -Dsun.zip.disableMemoryMapping=true -XX:+UseParallelGC -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Xms10m -Xmx192m'
@@ -430,9 +424,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -467,9 +458,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -504,9 +492,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -542,9 +527,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -579,9 +561,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -617,9 +596,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -655,9 +631,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -693,9 +666,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
@@ -731,9 +701,6 @@ jenkins:
         - type: Secret
           secretName: jenkins-docker-cfg
           mountPath: /home/jenkins/.docker
-        - type: HostPath
-          hostPath: /var/run/docker.sock
-          mountPath: /var/run/docker.sock
         EnvVars:
           JENKINS_URL: http://jenkins:8080
           GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
