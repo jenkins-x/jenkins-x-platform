@@ -4,6 +4,7 @@ metadata:
   name: "jenkins-x-pod-templates"
 data:
 {{- if .Values.jenkins.Agent.Enabled }}
+{{- $agent := .Values.jenkins.Agent -}}
 {{- range $pkey, $pval := .Values.jenkins.Agent.PodTemplates }}
   {{ $pval.Name }}: |-
     apiVersion: v1
@@ -23,6 +24,11 @@ data:
       volumes:
       - name: workspace-volume
         emptyDir: {}
+{{- if $agent.DockerHostPath }}
+      - name: docker-daemon
+        hostPath:
+          path: {{ $agent.DockerHostPath }}
+{{- end }}
 {{- range $index, $volume := $pval.volumes }}
       - name: volume-{{ $index }}
   {{- if eq "Secret" $volume.type }}
@@ -75,6 +81,10 @@ data:
         volumeMounts:
           - mountPath: /home/jenkins
             name: workspace-volume
+  {{- if $agent.DockerHostPath }}
+          - name: docker-daemon
+            mountPath: {{ $agent.DockerMountPath }}
+  {{- end }}
   {{- range $index, $volume := $pval.volumes }}
           - name: volume-{{ $index }}
             mountPath: {{ $volume.mountPath }}
