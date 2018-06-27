@@ -2,9 +2,6 @@ dependencies:
   - name: jenkins
     version: 0.10.24
     repository: http://chartmuseum.build.cd.jenkins-x.io
-  - name: pipelines
-    version: 0.0.1
-    repository: file://pipelines
   - name: exposecontroller
     version: 2.3.59
     repository: http://chartmuseum.build.cd.jenkins-x.io
