@@ -1,4 +1,4 @@
-{{ if .Values.chartmuseum-service-link.enabled }}
+{{ if .Values.chartmuseumServiceLink.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -10,5 +10,5 @@ metadata:
     release: jenkins-x
 spec:
   type: ExternalName
-  externalName: {{ .Values.chartmuseum-service-link.externalName }}
+  externalName: {{ .Values.chartmuseumServiceLink.externalName }}
 {{ end }}
