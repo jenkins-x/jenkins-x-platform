@@ -13,18 +13,22 @@ dependencies:
   - name: pipelinecontroller
     version: 0.0.1
     repository: file://pipelinecontroller
+    condition: pipelinecontroller.enabled
   - name: chartmuseum
     version: 0.3.2                                                
     repository: https://kubernetes-charts-incubator.storage.googleapis.com/
+    condition: chartmuseum.enabled
   - name: nexus
     version: 0.0.14
     repository: http://chartmuseum.build.cd.jenkins-x.io
+    condition: nexus.enabled
   - name: heapster
     version: 0.2.4
     repository: https://kubernetes-charts.storage.googleapis.com
   - name: monocular
     version: 0.5.1
     repository: http://chartmuseum.build.cd.jenkins-x.io
+    condition: monocular.enabled
   - name: docker-registry
     version: 1.0.1
     repository: https://kubernetes-charts.storage.googleapis.com

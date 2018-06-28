@@ -1,0 +1,13 @@
+{{ if .Values.nexus-service-link.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: nexus
+  annotations:
+    fabric8.io/expose: "true"
+  labels:
+    app: nexus
+    release: jenkins-x
+spec:
+  type: ExternalName
+  externalName: {{ .Values.nexus-service-link.externalName }}
