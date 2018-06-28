@@ -11,3 +11,4 @@ metadata:
 spec:
   type: ExternalName
   externalName: {{ .Values.nexus-service-link.externalName }}
+{{ end }}
