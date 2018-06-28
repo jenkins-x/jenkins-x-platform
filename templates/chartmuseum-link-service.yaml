@@ -1,0 +1,14 @@
+{{ if .Values.chartmuseumServiceLink.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-x-chartmuseum
+  annotations:
+    fabric8.io/expose: "true"
+  labels:
+    app: chartmuseum
+    release: jenkins-x
+spec:
+  type: ExternalName
+  externalName: {{ .Values.chartmuseumServiceLink.externalName }}
+{{ end }}
