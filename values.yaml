@@ -607,6 +607,40 @@ jenkins:
             Command: "/bin/sh -c"
             Args: "cat"
             Tty: true
+      Promote:
+        Name: promote
+        Label: jenkins-promote
+        volumes:
+        - type: Secret
+          secretName: jenkins-docker-cfg
+          mountPath: /home/jenkins/.docker
+        EnvVars:
+          JENKINS_URL: http://jenkins:8080
+          GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_NAME: jenkins-x-bot
+          GIT_COMMITTER_NAME: jenkins-x-bot
+          XDG_CONFIG_HOME: /home/jenkins
+          DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
+        Containers:
+          Jnlp:
+            Image: jenkinsci/jnlp-slave:3.14-1
+            RequestCpu: "100m"
+            RequestMemory: "128Mi"
+            Args: '${computer.jnlpmac} ${computer.name}'
+          Promote:
+            Image: jenkinsxio/builder-base:0.0.370
+            Privileged: true
+            RequestCpu: "200m"
+            RequestMemory: "100Mi"
+            LimitCpu: "400m"
+            LimitMemory: "200Mi"
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
       Python2:
         Name: python2
         # ServiceAccount: fooo
