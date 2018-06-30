@@ -102,6 +102,7 @@ docker-registry:
     accessMode: 'ReadWriteOnce'
     enabled: true
     size: 100Gi
+  prefix: ""
 
 kubernetes-dashboard:
   serviceAnnotations:

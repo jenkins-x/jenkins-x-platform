@@ -44,7 +44,7 @@ data:
   {{- range $ckey, $cval := $pval.Containers }}
   {{- if ne "Jnlp" $ckey }}
       - name: {{ $ckey | lower }}
-        image: {{ $cval.Image }}
+        image: {{ .Values.docker-registry.prefix }}{{ $cval.Image }}
         args:
         - cat
         command:
