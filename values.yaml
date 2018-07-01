@@ -347,7 +347,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: jenkinsxio/builder-maven:0.0.335
+            Image: jenkinsxio/builder-maven:0.0.342
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -385,7 +385,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Gradle:
-            Image: jenkinsxio/builder-gradle:0.0.216
+            Image: jenkinsxio/builder-gradle:0.0.223
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -426,7 +426,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Scala:
-            Image: jenkinsxio/builder-scala:0.0.150
+            Image: jenkinsxio/builder-scala:0.0.157
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -460,7 +460,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: jenkinsxio/builder-go:0.0.325
+            Image: jenkinsxio/builder-go:0.0.332
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -494,7 +494,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Terraform:
-            Image: jenkinsxio/builder-terraform:0.0.108
+            Image: jenkinsxio/builder-terraform:0.0.115
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -528,7 +528,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Rust:
-            Image: jenkinsxio/builder-rust:0.0.168
+            Image: jenkinsxio/builder-rust:0.0.176
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -563,7 +563,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: jenkinsxio/builder-nodejs:0.0.277
+            Image: jenkinsxio/builder-nodejs:0.0.285
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -597,12 +597,46 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: jenkinsxio/builder-base:0.0.370
+            Image: jenkinsxio/builder-base:0.0.377
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
             LimitCpu: "400m"
             LimitMemory: "512Mi"
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
+      Promote:
+        Name: promote
+        Label: jenkins-promote
+        volumes:
+        - type: Secret
+          secretName: jenkins-docker-cfg
+          mountPath: /home/jenkins/.docker
+        EnvVars:
+          JENKINS_URL: http://jenkins:8080
+          GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_NAME: jenkins-x-bot
+          GIT_COMMITTER_NAME: jenkins-x-bot
+          XDG_CONFIG_HOME: /home/jenkins
+          DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
+        Containers:
+          Jnlp:
+            Image: jenkinsci/jnlp-slave:3.14-1
+            RequestCpu: "100m"
+            RequestMemory: "128Mi"
+            Args: '${computer.jnlpmac} ${computer.name}'
+          Promote:
+            Image: jenkinsxio/builder-base:0.0.377
+            Privileged: true
+            RequestCpu: "200m"
+            RequestMemory: "100Mi"
+            LimitCpu: "400m"
+            LimitMemory: "200Mi"
             # You may want to change this to true while testing a new image
             # AlwaysPullImage: true
             Command: "/bin/sh -c"
@@ -632,7 +666,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: jenkinsxio/builder-python2:0.0.101
+            Image: jenkinsxio/builder-python2:0.0.108
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -667,7 +701,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: jenkinsxio/builder-python:0.0.101
+            Image: jenkinsxio/builder-python:0.0.108
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -702,7 +736,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Ruby:
-            Image: jenkinsxio/builder-ruby:0.0.370
+            Image: jenkinsxio/builder-ruby:0.0.377
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -737,7 +771,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Swift:
-            Image: jenkinsxio/builder-swift:0.0.370
+            Image: jenkinsxio/builder-swift:0.0.377
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
