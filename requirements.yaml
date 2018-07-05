@@ -1,6 +1,6 @@
 dependencies:
   - name: jenkins
-    version: 0.10.27
+    version: 0.10.28
     repository: http://chartmuseum.build.cd.jenkins-x.io
   - name: exposecontroller
     version: 2.3.59
