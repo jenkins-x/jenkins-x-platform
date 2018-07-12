@@ -185,6 +185,7 @@ monocular:
         fabric8.io/expose: "true"
         fabric8.io/ingress.name: "monocular"
         fabric8.io/ingress.path: "/"
+        jenkins-x.io/skip.tls: "true"
   prerender:
     service:
       type: ClusterIP
