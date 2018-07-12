@@ -82,6 +82,9 @@ expose:
   Annotations:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    # use value of `path` to use path based ingress
+    #pathMode: "path"
 
 cleanup:
   Args: 

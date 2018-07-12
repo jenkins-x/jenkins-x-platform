@@ -3,11 +3,11 @@ dependencies:
     version: 0.10.29
     repository: http://chartmuseum.build.cd.jenkins-x.io
   - name: exposecontroller
-    version: 2.3.59
+    version: 2.3.66
     repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: expose
   - name: exposecontroller
-    version: 2.3.59
+    version: 2.3.66
     repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: cleanup
   - name: pipelinecontroller
@@ -19,7 +19,7 @@ dependencies:
     repository: https://kubernetes-charts-incubator.storage.googleapis.com/
     condition: chartmuseum.enabled
   - name: nexus
-    version: 0.0.14
+    version: 0.0.16
     repository: http://chartmuseum.build.cd.jenkins-x.io
     condition: nexus.enabled
   - name: heapster
