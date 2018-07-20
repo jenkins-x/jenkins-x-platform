@@ -533,7 +533,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Rust:
-            Image: jenkinsxio/builder-rust:0.0.218
+            Image: jenkinsxio/builder-rust:0.0.219
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -568,7 +568,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: jenkinsxio/builder-nodejs:0.0.326
+            Image: jenkinsxio/builder-nodejs:0.0.327
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
