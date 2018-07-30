@@ -30,7 +30,7 @@ dependencies:
     repository: http://chartmuseum.build.cd.jenkins-x.io
     condition: monocular.enabled
   - name: docker-registry
-    version: 1.0.1
+    version: 1.5.0
     repository: https://kubernetes-charts.storage.googleapis.com
   - name: jx
     version: 1.3.107
