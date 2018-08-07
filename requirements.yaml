@@ -15,8 +15,8 @@ dependencies:
     repository: file://pipelinecontroller
     condition: pipelinecontroller.enabled
   - name: chartmuseum
-    version: 0.3.2                                                
-    repository: https://kubernetes-charts-incubator.storage.googleapis.com/
+    version: 1.6.0
+    repository: https://kubernetes-charts.storage.googleapis.com
     condition: chartmuseum.enabled
   - name: nexus
     version: 0.0.16
