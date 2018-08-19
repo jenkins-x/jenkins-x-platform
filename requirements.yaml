@@ -26,7 +26,7 @@ dependencies:
     version: 0.2.4
     repository: https://kubernetes-charts.storage.googleapis.com
   - name: monocular
-    version: 0.5.1
+    version: 0.6.4
     repository: http://chartmuseum.build.cd.jenkins-x.io
     condition: monocular.enabled
   - name: docker-registry
