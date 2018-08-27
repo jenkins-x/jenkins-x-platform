@@ -1,6 +1,5 @@
 pipeline {
     environment {
-        GH_CREDS = credentials('jenkins-x-github')
         CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
     }
     agent {
@@ -32,6 +31,7 @@ pipeline {
                 dir ('/home/jenkins/jenkins-x-platform') {
                     checkout scm
                     container('jx-base') {
+                        sh "jx step git credentials"
                         sh "./jx/scripts/release.sh"
                     }
                 }
@@ -39,6 +39,7 @@ pipeline {
                     container('jx-base') {
                         git 'https://github.com/jenkins-x/draft-packs.git'
                         sh 'git config credential.helper store'
+                        sh "jx step git credentials"'
                         sh 'jx step tag --version \$(cat /home/jenkins/jenkins-x-platform/VERSION)'
                     }
                 }
