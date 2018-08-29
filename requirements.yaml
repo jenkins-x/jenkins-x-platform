@@ -3,11 +3,11 @@ dependencies:
     version: 0.10.29
     repository: http://chartmuseum.build.cd.jenkins-x.io
   - name: exposecontroller
-    version: 2.3.67
+    version: 2.3.71
     repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: expose
   - name: exposecontroller
-    version: 2.3.67
+    version: 2.3.71
     repository: http://chartmuseum.build.cd.jenkins-x.io
     alias: cleanup
   - name: pipelinecontroller
