@@ -84,7 +84,8 @@ controller-workflow:
     enabled: true
   deployment:
     enabled: true
-  probe.path: ""
+  probe:
+    path: ""
   restartPolicy: Always
   args:
   - "controller"
