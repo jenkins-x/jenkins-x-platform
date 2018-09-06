@@ -78,6 +78,66 @@ gc-activities:
       verbs:
       - get
 
+controller-workflow:
+  enabled: true
+  serviceaccount:
+    enabled: true
+  deployment:
+    enabled: true
+  probe:
+    path: ""
+  restartPolicy: Always
+  args:
+  - "controller"
+  - "workflow"
+  clusterrole:
+    enabled: true
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+      - namespaces
+      verbs:
+      - get
+      - list
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - get
+      - create
+      - update
+      - list
+  role:
+    enabled: true
+    rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - pipelineactivities
+      verbs:
+      - list
+      - get
+      - watch
+      - create
+      - update
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - workflows
+      verbs:
+      - list
+      - get
+      - watch
+    - apiGroups:
+      - ""
+      resources:
+      - services
+      verbs:
+      - list
+      - get
+
 expose:
   Annotations:
     helm.sh/hook: post-install,post-upgrade

@@ -16,10 +16,10 @@ build: setup clean
 	$(HELM) lint
 
 install: clean setup build
-	$(HELM) upgrade --install $(NAME) .
+	$(HELM) upgrade --debug --install $(NAME) .
 
 upgrade: clean setup build
-	$(HELM) upgrade --install $(NAME) .
+	$(HELM) upgrade --debug --install $(NAME) .
 
 delete:
 	$(HELM) delete --purge $(NAME)
