@@ -33,6 +33,7 @@ dependencies:
 - name: "docker-registry"
   repository: "https://kubernetes-charts.storage.googleapis.com"
   version: "1.5.0"
+  condition: docker-registry.enabled
 - name: "jx"
   repository: "http://chartmuseum.build.cd.jenkins-x.io"
   version: "1.3.223"

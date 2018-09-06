@@ -157,6 +157,7 @@ pipelinecontroller:
   enabled: true
 
 docker-registry:
+  enabled: true
   service:
     annotations:
       fabric8.io/expose: "true"
