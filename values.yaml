@@ -45,7 +45,7 @@ gc-previews:
     - apiGroups:
       - ""
       resources:
-      - namespace
+      - namespaces
       verbs:
       - get
       - delete
