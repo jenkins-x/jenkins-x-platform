@@ -1,5 +1,11 @@
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 
+teamRoles:
+  viewer:
+    enabled: true
+  team-admin:
+    enabled: true
+
 gc-previews:
   serviceaccount:
     enabled: true
@@ -137,6 +143,7 @@ controller-workflow:
       verbs:
       - list
       - get
+
 
 expose:
   Annotations:
