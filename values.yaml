@@ -4580,3 +4580,6 @@ grafana:
         "version": 37,
         "description": "After selecting your namespace and container you get a wealth of metrics like request rate, error rate, response times, pod count, cpu and memory usage. You can view cpu and memory usage in a variety of ways, compared to the limit, compared to the request, per pod, average per pod, etc."
       }
+DevPods:
+  Versions:
+    theia: latest
