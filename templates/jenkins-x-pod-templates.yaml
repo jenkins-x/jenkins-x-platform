@@ -13,6 +13,8 @@ data:
       name: {{ $pval.Label }}
       labels:
         jenkins.io/kind: build-pod
+      annotations:
+        jenkins-x.io/devpodPorts: {{ $pval.DevPodPorts }}
     spec:
 {{- if $pval.ServiceAccount }}
       serviceAccount: {{ $pval.ServiceAccount }}
