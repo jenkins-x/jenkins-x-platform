@@ -2,12 +2,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: viewer
+  name: owner
   labels:
     jenkins.io/kind: "EnvironmentRole"
   annotations:
-     title: "Viewer"
-     description: "A viewer can view all project resources"
+     title: "Team Owner"
+     description: "A team owner can add/remove users and has write access to all team resources"
 rules:
   - apiGroups:
     - jenkins.io
@@ -17,6 +17,10 @@ rules:
     - list
     - get
     - watch
+    - create
+    - update
+    - patch
+    - delete
   - apiGroups:
     - ""
     resources:
@@ -25,4 +29,8 @@ rules:
     - list
     - get
     - watch
+    - create
+    - update
+    - patch
+    - delete
 {{- end }}

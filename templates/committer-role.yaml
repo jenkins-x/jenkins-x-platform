@@ -2,9 +2,12 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: team-admin
+  name: committer
   labels:
     jenkins.io/kind: "EnvironmentRole"
+  annotations:
+    title: "Committer"
+    description: "A committer can write to project resources but cannot add/remove users"
 rules:
   - apiGroups:
     - jenkins.io
@@ -14,10 +17,6 @@ rules:
     - list
     - get
     - watch
-    - create
-    - update
-    - patch
-    - delete
   - apiGroups:
     - ""
     resources:

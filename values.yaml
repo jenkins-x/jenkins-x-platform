@@ -393,6 +393,7 @@ jenkins:
       Maven:
         Name: maven
         Label: jenkins-maven
+        DevPodPorts: 5005, 8080
         volumes:
         - type: Secret
           secretName: jenkins-maven-settings
@@ -434,6 +435,7 @@ jenkins:
       Gradle:
         Name: gradle
         Label: jenkins-gradle
+        DevPodPorts: 5005, 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -472,6 +474,7 @@ jenkins:
       Scala:
         Name: scala
         Label: jenkins-scala
+        DevPodPorts: 5005, 8080
         volumes:
         - type: Secret
           secretName: jenkins-maven-settings
@@ -513,6 +516,7 @@ jenkins:
       Go:
         Name: go
         Label: jenkins-go
+        DevPodPorts: 2345, 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -581,6 +585,7 @@ jenkins:
       Rust:
         Name: rust
         Label: jenkins-rust
+        DevPodPorts: 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -616,6 +621,7 @@ jenkins:
         Name: nodejs
         # ServiceAccount: fooo
         Label: jenkins-nodejs
+        DevPodPorts: 9229, 3000
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -719,6 +725,7 @@ jenkins:
         Name: python2
         # ServiceAccount: fooo
         Label: jenkins-python2
+        DevPodPorts: 3000, 8000
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -754,6 +761,7 @@ jenkins:
         Name: python
         # ServiceAccount: fooo
         Label: jenkins-python
+        DevPodPorts: 3000, 8000
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -789,6 +797,7 @@ jenkins:
         Name: ruby
         # ServiceAccount: fooo
         Label: jenkins-ruby
+        DevPodPorts: 1234, 3000
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -824,6 +833,7 @@ jenkins:
         Name: swift
         # ServiceAccount: fooo
         Label: jenkins-swift
+        DevPodPorts: 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -858,6 +868,7 @@ jenkins:
       Dlang:
         Name: dlang
         Label: jenkins-dlang
+        DevPodPorts: 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
