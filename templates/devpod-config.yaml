@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: "devpod-config"
 data:
-  versions:
+  versions: |-
     theia: latest
