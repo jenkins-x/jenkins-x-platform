@@ -3,9 +3,5 @@ kind: ConfigMap
 metadata:
   name: "devpod-config"
 data:
-{{- if .Values.jenkins.Agent.Enabled }}
-{{- $agent := .Values.jenkins.Agent -}}
-{{- range $pkey, $pval := .Values.DevPods.Versions }}
-  {{ $pval.Name }}: {{ $pval.Version}}
-{{- end }}
-{{- end -}}
+  versions:
+    theia: latest
