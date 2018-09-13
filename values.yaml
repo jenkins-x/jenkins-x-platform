@@ -676,7 +676,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: jenkinsxio/builder-base:0.0.547
+            Image: jenkinsxio/builder-base:0.0.548
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
@@ -710,7 +710,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Promote:
-            Image: jenkinsxio/builder-base:0.0.547
+            Image: jenkinsxio/builder-base:0.0.548
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "100Mi"
