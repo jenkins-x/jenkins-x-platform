@@ -83,6 +83,25 @@ gc-activities:
       - services
       verbs:
       - get
+  clusterrole:
+    enabled: true
+    rules:
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - get
+      - create
+      - update
+    - apiGroups:
+      - ""
+      resources:
+      - namespaces
+      verbs:
+      - get
+      - delete
+      - list
 
 controller-workflow:
   enabled: true
