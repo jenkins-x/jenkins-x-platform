@@ -908,7 +908,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Dlang:
-            Image: cosmincojocar/builder-dlang:0.0.404
+            Image: jenkinsxio/builder-dlang:0.0.94
             Privileged: true
             RequestCpu: "500m"
             RequestMemory: "1024Mi"
