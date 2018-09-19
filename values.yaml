@@ -102,6 +102,12 @@ gc-activities:
       - get
       - delete
       - list
+    - apiGroups:
+      - ""
+      resources:
+      - deployments
+      verbs:
+      - get
 
 controller-workflow:
   enabled: true
