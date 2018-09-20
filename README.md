@@ -7,9 +7,9 @@ What's included out of the box?
 |                                   |                                       |
 | --------------------------------- | ------------------------------------- |
 |![Jenkins](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pipelines and environments |
-|![Sonartype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/nexus.png) | __Nexus__ Artifact repository (pluggable so we can switch with Artifactory) |
-|![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/chartmuseum.png) | __Chartmuseum__ Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
-|![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/bitnami.png) | __Monocular__ Web UI for searching and discovering Helm Charts |
+|![Sonartype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/nexus.png) | __Nexus__ - Artifact repository (pluggable so we can switch with Artifactory) |
+|![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/chartmuseum.png) | __Chartmuseum__ - Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
+|![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/bitnami.png) | __Monocular__ - Web UI for searching and discovering Helm Charts |
 
 Easy to install addons to come.
 
@@ -42,14 +42,14 @@ jx create cluster minikube --local-cloud-environment=true
 
 ## Accessing applications
 
-You can list the external URLs used to access applications on you kubernetes cluster by running:
+You can list the external URLs used to access applications on your kubernetes cluster by running:
 ```
 jx open
 ```
 
 ## Credentials
 
-This repo is for test purposes so default admin username and passwords are used:
+This repo is for test purposes, so default admin username and passwords are used:
 
 | Application   | Username | Password |
 | ------------- | -------- | -------- |
