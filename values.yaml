@@ -675,7 +675,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: jenkinsxio/builder-nodejs:0.0.457
+            Image: jenkinsxio/builder-nodejs:0.0.458
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
