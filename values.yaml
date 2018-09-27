@@ -454,7 +454,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: jenkinsxio/builder-maven:0.0.522
+            Image: jenkinsxio/builder-maven:0.0.523
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
