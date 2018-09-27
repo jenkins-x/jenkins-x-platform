@@ -48,6 +48,8 @@ gc-previews:
       - customresourcedefinitions
       verbs:
       - get
+      - create
+      - update
     - apiGroups:
       - ""
       resources:
