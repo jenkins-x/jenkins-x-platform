@@ -275,7 +275,7 @@ monocular:
       repos:
         - name: chartmuseum
           url: http://jenkins-x-chartmuseum:8080
-          source: https://github.com/jenkins-x/jenkins-x-platfrom
+          source: https://github.com/jenkins-x/jenkins-x-platform
       cacheRefreshInterval: 30
       releasesEnabled: false
   ui:
