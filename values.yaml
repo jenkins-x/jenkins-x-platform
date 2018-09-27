@@ -407,6 +407,7 @@ jenkins:
     Global:
       EnvVars:
         DOCKER_REGISTRY: ""
+        TILLER_NAMESPACE: ""
 
   Agent:
     Enabled: true
