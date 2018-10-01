@@ -277,7 +277,7 @@ monocular:
       repos:
         - name: chartmuseum
           url: http://jenkins-x-chartmuseum:8080
-          source: https://github.com/jenkins-x/jenkins-x-platfrom
+          source: https://github.com/jenkins-x/jenkins-x-platform
       cacheRefreshInterval: 30
       releasesEnabled: false
   ui:
@@ -455,7 +455,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: jenkinsxio/builder-maven:0.0.522
+            Image: jenkinsxio/builder-maven:0.0.531
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -494,7 +494,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Gradle:
-            Image: jenkinsxio/builder-gradle:0.0.394
+            Image: jenkinsxio/builder-gradle:0.0.403
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -536,7 +536,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Scala:
-            Image: jenkinsxio/builder-scala:0.0.328
+            Image: jenkinsxio/builder-scala:0.0.336
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -571,7 +571,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: jenkinsxio/builder-go:0.0.482
+            Image: jenkinsxio/builder-go:0.0.487
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -605,7 +605,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Terraform:
-            Image: jenkinsxio/builder-terraform:0.0.289
+            Image: jenkinsxio/builder-terraform:0.0.297
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -640,7 +640,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Rust:
-            Image: jenkinsxio/builder-rust:0.0.346
+            Image: jenkinsxio/builder-rust:0.0.353
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -676,7 +676,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: jenkinsxio/builder-nodejs:0.0.457
+            Image: jenkinsxio/builder-nodejs:0.0.464
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -710,7 +710,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: jenkinsxio/builder-base:0.0.601
+            Image: jenkinsxio/builder-base:0.0.611
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
@@ -744,7 +744,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Promote:
-            Image: jenkinsxio/builder-base:0.0.601
+            Image: jenkinsxio/builder-base:0.0.611
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "100Mi"
@@ -780,7 +780,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: jenkinsxio/builder-python2:0.0.284
+            Image: jenkinsxio/builder-python2:0.0.292
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -816,7 +816,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: jenkinsxio/builder-python:0.0.284
+            Image: jenkinsxio/builder-python:0.0.292
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
