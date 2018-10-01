@@ -1,0 +1,29 @@
+{{- if .Values.controllerteam.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "jenkins-x-team-controller"
+data:
+  myvalues.yaml: |-
+    # disable stuff
+    controllerteam:
+      enabled: false
+    pipelinecontroller:
+      enabled: false
+    monocular:
+      enabled: false
+
+    # service link nexus
+    nexus:
+      enabled: false
+    nexusServiceLink:
+      enabled: true
+      externalName: "nexus.jx.svc.cluster.local"
+
+    # service link chartmuseum
+    chartmuseum:
+      enabled: false
+    chartmuseumServiceLink:
+      enabled: true
+      externalName: "jenkins-x-chartmuseum.jx.svc.cluster.local"
+{{- end }}
