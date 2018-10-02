@@ -241,7 +241,7 @@ controllerrole:
       - get
 
 controllerteam:
-  enabled: true
+  enabled: false
   serviceaccount:
     enabled: true
   deployment:
