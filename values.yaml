@@ -256,6 +256,9 @@ controllerteam:
   args:
   - "controller"
   - "team"
+  image:
+    repository: jenkinsxio/builder-base
+    tag: 0.0.614
   clusterrole:
     enabled: true
     rules:
