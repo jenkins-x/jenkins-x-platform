@@ -373,7 +373,7 @@ cleanup:
 pipelinecontroller:
   enabled: true
 
-dockerregistry:
+docker-registry:
   enabled: true
   service:
     annotations:
