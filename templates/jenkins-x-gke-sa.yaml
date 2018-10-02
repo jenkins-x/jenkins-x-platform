@@ -2,7 +2,7 @@
 apiVersion: v1
 data:
   filename: {{ .Values.JenkinsXGKEServiceAccount.Filename | b64enc | quote }}
-  password: {{ .Values.JenkinsXGKEServiceAccount.Data | b64enc | quote }}
+  data: {{ .Values.JenkinsXGKEServiceAccount.Data | b64enc | quote }}
 kind: Secret
 metadata:
   labels:
