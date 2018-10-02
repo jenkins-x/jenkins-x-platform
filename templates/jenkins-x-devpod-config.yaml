@@ -4,4 +4,4 @@ metadata:
   name: "jenkins-x-devpod-config"
 data:
   versions: |-
-    theia: latest
+    theia: 0.3.15
