@@ -1,0 +1,12 @@
+{{- if .Values.JenkinsXGHETestUser }}
+apiVersion: v1
+data:
+  username: {{ .Values.JenkinsXGHETestUser.Name | b64enc | quote }}
+  password: {{ .Values.JenkinsXGHETestUser.Password | b64enc | quote }}
+kind: Secret
+metadata:
+  labels:
+    jenkins.io/credentials-type: usernamePassword
+  name: ghe-test-user
+type: Opaque
+{{- end }}
