@@ -258,7 +258,7 @@ controllerteam:
   - "team"
   image:
     repository: jenkinsxio/builder-go
-    tag: 0.0.494
+    tag: 0.0.496
   clusterrole:
     enabled: true
     rules:
