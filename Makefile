@@ -46,4 +46,5 @@ endif
 	helm repo update
 	rm -rf ${NAME}*.tgz
 	updatebot push-version --kind make CHART_VERSION $(RELEASE_VERSION)
+	updatebot push-regex -r "JX_PLATFORM_VERSION=(.*)" -v $(VERSION) build.sh
 	echo $(RELEASE_VERSION) > VERSION
