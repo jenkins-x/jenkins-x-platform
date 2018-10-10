@@ -15,6 +15,10 @@ build: setup clean
 	helm dependency build
 	$(HELM) lint
 
+lint:
+	helm dependency build
+	$(HELM) lint
+
 install: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) .
 

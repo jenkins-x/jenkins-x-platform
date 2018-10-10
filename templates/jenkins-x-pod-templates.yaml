@@ -5,6 +5,7 @@ metadata:
 data:
 {{- if .Values.jenkins.Agent.Enabled }}
 {{- $agent := .Values.jenkins.Agent -}}
+{{- $globalenv := .Values.jenkins.Servers.Global.EnvVars -}}
 {{- range $pkey, $pval := .Values.jenkins.Agent.PodTemplates }}
   {{ $pval.Name }}: |-
     apiVersion: v1
@@ -65,6 +66,8 @@ data:
             configMapKeyRef:
               name: jenkins-x-docker-registry
               key: docker.registry
+        - name: TILLER_NAMESPACE
+          value: {{ $globalenv.TILLER_NAMESPACE }}
   {{- range $ekey, $eval := $pval.EnvVars }}
         - name: {{ $ekey }}
           value: {{ $eval }}

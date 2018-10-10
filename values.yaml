@@ -6,15 +6,15 @@ teamRoles:
   team-admin:
     enabled: true
 
-gc-previews:
+gcpreviews:
   serviceaccount:
     enabled: true
   cronjob:
     enabled: true
     schedule: "0 */3 * * *"
   args:
-    - "gc"
-    - "previews"
+  - "gc"
+  - "previews"
   role:
     enabled: true
     rules:
@@ -48,6 +48,8 @@ gc-previews:
       - customresourcedefinitions
       verbs:
       - get
+      - create
+      - update
     - apiGroups:
       - ""
       resources:
@@ -57,15 +59,15 @@ gc-previews:
       - delete
       - list
 
-gc-activities:
+gcactivities:
   serviceaccount:
     enabled: true
   cronjob:
     enabled: true
     schedule: "0/30 */3 * * *"
   args:
-    - "gc"
-    - "activities"
+  - "gc"
+  - "activities"
   role:
     enabled: true
     rules:
@@ -115,7 +117,7 @@ gc-activities:
       verbs:
       - get
 
-controller-workflow:
+controllerworkflow:
   enabled: true
   serviceaccount:
     enabled: true
@@ -175,18 +177,198 @@ controller-workflow:
       - list
       - get
 
+controllerrole:
+  enabled: false
+  serviceaccount:
+    enabled: true
+  deployment:
+    enabled: true
+  probe:
+    path: ""
+  restartPolicy: Always
+  args:
+  - "controller"
+  - "role"
+  clusterrole:
+    enabled: true
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+      - namespaces
+      verbs:
+      - get
+      - list
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - get
+      - create
+      - update
+      - list
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - teams
+      - users
+      verbs:
+      - list
+      - get
+      - watch
+  role:
+    enabled: true
+    rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - environmentrolebindings
+      verbs:
+      - list
+      - get
+      - watch
+      - create
+      - update
+    - apiGroups:
+      - ""
+      resources:
+      - roles
+      - rolebindings
+      verbs:
+      - list
+      - watch
+      - get
+
+controllerteam:
+  enabled: true
+  serviceaccount:
+    enabled: true
+  deployment:
+    enabled: true
+  env:
+    GIT_AUTHOR_NAME: "jenkins-x-bot"
+    GIT_AUTHOR_EMAIL: "jenkins-x@googlegroups.com"
+    XDG_CONFIG_HOME: "/home/jenkins"
+  probe:
+    path: ""
+  restartPolicy: Always
+  args:
+  - "controller"
+  - "team"
+  image:
+    repository: jenkinsxio/builder-go
+    tag: 0.0.498
+  clusterrole:
+    enabled: true
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+      - namespaces
+      verbs:
+      - get
+      - watch
+      - list
+      - create
+      - update
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - get
+      - create
+      - update
+      - list
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - teams
+      - users
+      verbs:
+      - list
+      - get
+      - watch
+      - update
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - users
+      verbs:
+      - list
+      - get
+      - watch
+  role:
+    enabled: true
+    rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - teams
+      - users
+      verbs:
+      - list
+      - get
+      - watch
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - environments
+      verbs:
+      - list
+      - get
+      - watch
+      - create
+      - update
+    - apiGroups:
+      - ""
+      resources:
+      - configmaps
+      - persistentvolumeclaims
+      - secrets
+      - serviceaccounts
+      - services
+      verbs:
+      - list
+      - watch
+      - get
+      - create
+      - update
+      - delete
+    - apiGroups:
+      - "extensions/v1beta1"
+      resources:
+      - deployments
+      verbs:
+      - list
+      - watch
+      - get
+      - create
+      - update
+      - delete
+    - apiGroups:
+      - "rbac.authorization.k8s.io/v1"
+      resources:
+      - roles
+      - rolebindings
+      verbs:
+      - list
+      - watch
+      - get
+
 
 expose:
   Annotations:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
-  # use value of `path` to use path based ingress
-  #config:
+    # use value of `path` to use path based ingress
+    #config:
     #pathMode: "path"
 
 cleanup:
-  Args: 
-    - --cleanup
+  Args:
+  - --cleanup
   Annotations:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
@@ -230,7 +412,7 @@ chartmuseum:
       fabric8.io/expose: "true"
       fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
   persistence:
-    Enabled: true
+    enabled: true
     AccessMode: ReadWriteOnce
     Size: 8Gi
   env:
@@ -273,9 +455,9 @@ monocular:
         fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx\nnginx.ingress.kubernetes.io/rewrite-target: /\nnginx.ingress.kubernetes.io/ingress.class: nginx"
     config:
       repos:
-        - name: chartmuseum
-          url: http://jenkins-x-chartmuseum:8080
-          source: https://github.com/jenkins-x/jenkins-x-platfrom
+      - name: chartmuseum
+        url: http://jenkins-x-chartmuseum:8080
+        source: https://github.com/jenkins-x/jenkins-x-platform
       cacheRefreshInterval: 30
       releasesEnabled: false
   ui:
@@ -307,68 +489,75 @@ jenkins:
     Component: "jenkins-master"
     UseSecurity: true
     AdminUser: admin
-  # AdminPassword: <defaults to random>
+    # AdminPassword: <defaults to random>
     AdminPassword: admin
+    AuthorizationStrategyClass: "hudson.security.FullControlOnceLoggedInAuthorizationStrategy"
+    AuthorizationStrategyAttributes:
+    - name: 'denyAnonymousReadAccess'
+      value: 'true'
+    SecurityRealmClass: "hudson.security.LegacySecurityRealm"
+    SecurityRealmAttributes: {}
+    ServiceAccountAnnotations: {}
     Cpu: "200m"
     Memory: "256Mi"
-  # Set min/max heap here if needed with:
-  # JavaOpts: "-Xms512m -Xmx512m"
+    # Set min/max heap here if needed with:
+    # JavaOpts: "-Xms512m -Xmx512m"
     JavaOpts: >
       -Dhudson.slaves.NodeProvisioner.initialDelay=0
       -Dhudson.slaves.NodeProvisioner.MARGIN=50
       -Dhudson.slaves.NodeProvisioner.MARGIN0=0.85
       -Djenkins.displayurl.provider=org.jenkinsci.plugins.blueoceandisplayurl.BlueOceanDisplayURLImpl
-  # JenkinsOpts: ""
-  # JenkinsUriPrefix: "/jenkins"
+    # JenkinsOpts: ""
+    # JenkinsUriPrefix: "/jenkins"
     ServicePort: 8080
-  # For minikube, set this to NodePort, elsewhere use LoadBalancer
-  # Use ClusterIP if your setup includes ingress controller
+    # For minikube, set this to NodePort, elsewhere use LoadBalancer
+    # Use ClusterIP if your setup includes ingress controller
     ServiceType: ClusterIP
-  # Master Service annotations
+    # Master Service annotations
     ServiceAnnotations:
       #   service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
       fabric8.io/expose: "true"
       fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx\nnginx.ingress.kubernetes.io/proxy-body-size: 500m"
-  # Used to create Ingress record (should used with ServiceType: ClusterIP)
-  # HostName: jenkins.cluster.local
-  # NodePort: <to set explicitly, choose port between 30000-32767
+    # Used to create Ingress record (should used with ServiceType: ClusterIP)
+    # HostName: jenkins.cluster.local
+    # NodePort: <to set explicitly, choose port between 30000-32767
     ContainerPort: 8080
     SlaveListenerPort: 50000
     # LoadBalancerSourceRanges:
     # - 0.0.0.0/0
-  # Optionally assign a known public LB IP
-  # LoadBalancerIP: 1.2.3.4
-  # Optionally configure a JMX port
-  # requires additional JavaOpts, ie
-  # JavaOpts: >
-  #   -Dcom.sun.management.jmxremote.port=4000
-  #   -Dcom.sun.management.jmxremote.authenticate=false
-  #   -Dcom.sun.management.jmxremote.ssl=false
-  # JMXPort: 4000
-  # Used to approve a list of groovy functions in pipelines used the script-security plugin. Can be viewed under /scriptApproval
+    # Optionally assign a known public LB IP
+    # LoadBalancerIP: 1.2.3.4
+    # Optionally configure a JMX port
+    # requires additional JavaOpts, ie
+    # JavaOpts: >
+    #   -Dcom.sun.management.jmxremote.port=4000
+    #   -Dcom.sun.management.jmxremote.authenticate=false
+    #   -Dcom.sun.management.jmxremote.ssl=false
+    # JMXPort: 4000
+    # Used to approve a list of groovy functions in pipelines used the script-security plugin. Can be viewed under /scriptApproval
     # ScriptApproval:
     #   - "method groovy.json.JsonSlurperClassic parseText java.lang.String"
     #   - "new groovy.json.JsonSlurperClassic"
-  # List of groovy init scripts to be executed during Jenkins master start
+    # List of groovy init scripts to be executed during Jenkins master start
     InitScripts:
-  #  - |
-  #    print 'adding global pipeline libraries, register properties, bootstrap jobs...'
+    #  - |
+    #    print 'adding global pipeline libraries, register properties, bootstrap jobs...'
     CustomConfigMap: false
-  # Node labels and tolerations for pod assignment
-  # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
-  # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#taints-and-tolerations-beta-feature
+    # Node labels and tolerations for pod assignment
+    # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+    # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#taints-and-tolerations-beta-feature
     NodeSelector: {}
     Tolerations: {}
-  
+
     Ingress:
       Annotations:
-        # kubernetes.io/ingress.class: nginx
-        # kubernetes.io/tls-acme: "true"
-  
+      # kubernetes.io/ingress.class: nginx
+      # kubernetes.io/tls-acme: "true"
+
       TLS:
-        # - secretName: jenkins.cluster.local
-        #   hosts:
-        #     - jenkins.cluster.local
+      # - secretName: jenkins.cluster.local
+      #   hosts:
+      #     - jenkins.cluster.local
 
     # Overwrite the base jenkins config and any plugins during upgrades
     Overwrite:
@@ -405,6 +594,7 @@ jenkins:
     Global:
       EnvVars:
         DOCKER_REGISTRY: ""
+        TILLER_NAMESPACE: ""
 
   Agent:
     Enabled: true
@@ -452,7 +642,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: jenkinsxio/builder-maven:0.0.522
+            Image: jenkinsxio/builder-maven:0.0.541
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -491,7 +681,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Gradle:
-            Image: jenkinsxio/builder-gradle:0.0.394
+            Image: jenkinsxio/builder-gradle:0.0.412
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -533,7 +723,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Scala:
-            Image: jenkinsxio/builder-scala:0.0.328
+            Image: jenkinsxio/builder-scala:0.0.346
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -568,7 +758,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: jenkinsxio/builder-go:0.0.482
+            Image: jenkinsxio/builder-go:0.0.498
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -602,7 +792,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Terraform:
-            Image: jenkinsxio/builder-terraform:0.0.289
+            Image: jenkinsxio/builder-terraform:0.0.306
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -637,7 +827,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Rust:
-            Image: jenkinsxio/builder-rust:0.0.346
+            Image: jenkinsxio/builder-rust:0.0.363
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -673,7 +863,43 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: jenkinsxio/builder-nodejs:0.0.456
+            Image: jenkinsxio/builder-nodejs:0.0.475
+            Privileged: true
+            RequestCpu: "400m"
+            RequestMemory: "512Mi"
+            LimitCpu: "2"
+            LimitMemory: "2048Mi"
+            # You may want to change this to true while testing a new image
+            # AlwaysPullImage: true
+            Command: "/bin/sh -c"
+            Args: "cat"
+            Tty: true
+      Serverless:
+        Name: serverless
+        # ServiceAccount: fooo
+        Label: jenkins-serverless
+        DevPodPorts: 9229, 3000
+        volumes:
+        - type: Secret
+          secretName: jenkins-docker-cfg
+          mountPath: /home/jenkins/.docker
+        EnvVars:
+          JENKINS_URL: http://jenkins:8080
+          GIT_COMMITTER_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_EMAIL: jenkins-x@googlegroups.com
+          GIT_AUTHOR_NAME: jenkins-x-bot
+          GIT_COMMITTER_NAME: jenkins-x-bot
+          XDG_CONFIG_HOME: /home/jenkins
+          DOCKER_CONFIG: /home/jenkins/.docker/
+        ServiceAccount: jenkins
+        Containers:
+          Jnlp:
+            Image: jenkinsci/jnlp-slave:3.14-1
+            RequestCpu: "100m"
+            RequestMemory: "128Mi"
+            Args: '${computer.jnlpmac} ${computer.name}'
+          Nodejs:
+            Image: jenkinsxio/builder-serverless:0.0.3
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -707,7 +933,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: jenkinsxio/builder-base:0.0.601
+            Image: jenkinsxio/builder-base:0.0.623
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
@@ -741,7 +967,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Promote:
-            Image: jenkinsxio/builder-base:0.0.601
+            Image: jenkinsxio/builder-base:0.0.623
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "100Mi"
@@ -777,7 +1003,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: jenkinsxio/builder-python2:0.0.284
+            Image: jenkinsxio/builder-python2:0.0.302
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -813,7 +1039,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: jenkinsxio/builder-python:0.0.283
+            Image: jenkinsxio/builder-python:0.0.302
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -937,7 +1163,7 @@ jenkins:
     ## Requires Persistence.Enabled: true
     ## If defined, PVC must be created manually before volume will be bound
     # ExistingClaim:
-  
+
     ## jenkins data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -946,24 +1172,24 @@ jenkins:
     ##   GKE, AWS & OpenStack)
     ##
     # StorageClass: "-"
-  
+
     AccessMode: ReadWriteOnce
     Size: 30Gi
     volumes:
-  #  - name: nothing
-  #    emptyDir: {}
+    #  - name: nothing
+    #    emptyDir: {}
     mounts:
   #  - mountPath: /var/nothing
   #    name: nothing
   #    readOnly: true
-  
+
   NetworkPolicy:
     # Enable creation of NetworkPolicy resources.
     Enabled: false
     # For Kubernetes v1.4, v1.5 and v1.6, use 'extensions/v1beta1'
     # For Kubernetes v1.7, use 'networking.k8s.io/v1'
     ApiVersion: extensions/v1beta1
-  
+
   ## Install Default RBAC roles and bindings
   rbac:
     install: true
@@ -977,68 +1203,68 @@ jenkins:
 PipelineSecrets:
   # used by pipelines to tag new releases
   GitCreds: |-
-      https://jenkins-x-bot@github.com
+    https://jenkins-x-bot@github.com
   DockerConfig: |-
-      {}
+    {}
   GithubToken:
   NPMToken:
   PipelineSecrets:
-      pubring:
-      secjenkins:
-      secring:
-      trustdb:
+    pubring:
+    secjenkins:
+    secring:
+    trustdb:
   SSHConfig: |-
-      Host github.com
-          User git
-          IdentityFile /root/.ssh-git/ssh-key
-          StrictHostKeyChecking no
+    Host github.com
+        User git
+        IdentityFile /root/.ssh-git/ssh-key
+        StrictHostKeyChecking no
   MavenSettingsXML: |-
-      <settings>
-          <!-- sets the local maven repository outside of the ~/.m2 folder for easier mounting of secrets and repo -->
-          <localRepository>${user.home}/.mvnrepository</localRepository>
-          <!-- lets disable the download progress indicator that fills up logs -->
-          <interactiveMode>false</interactiveMode>
-          <mirrors>
-              <mirror>
-              <id>nexus</id>
-              <mirrorOf>external:*</mirrorOf>
-              <url>http://nexus:8081/repository/maven-group/</url>
-              </mirror>
-          </mirrors>
-          <servers>
-              <server>
-              <id>local-nexus</id>
-              <username>admin</username>
-              <password>admin123</password>
-          </server>
-          <server>
-              <id>oss-sonatype-staging</id>
-              <username></username>
-              <password></password>
-              </server>
-          </servers>
-          <profiles>
-              <profile>
-                  <id>nexus</id>
-                  <properties>
-                      <altDeploymentRepository>local-nexus::default::http://nexus/repository/maven-snapshots/</altDeploymentRepository>
-                      <altReleaseDeploymentRepository>local-nexus::default::http://nexus/repository/maven-releases/</altReleaseDeploymentRepository>
-                      <altSnapshotDeploymentRepository>local-nexus::default::http://nexus/repository/maven-snapshots/</altSnapshotDeploymentRepository>
-                  </properties>
-              </profile>
-              <profile>
-                  <id>release</id>
-                  <properties>
-                      <gpg.executable>gpg</gpg.executable>
-                      <gpg.passphrase>mysecretpassphrase</gpg.passphrase>
-                  </properties>
-              </profile>
-          </profiles>
-          <activeProfiles>
-              <!--make the profile active all the time -->
-              <activeProfile>nexus</activeProfile>
-          </activeProfiles>
-      </settings>
+    <settings>
+        <!-- sets the local maven repository outside of the ~/.m2 folder for easier mounting of secrets and repo -->
+        <localRepository>${user.home}/.mvnrepository</localRepository>
+        <!-- lets disable the download progress indicator that fills up logs -->
+        <interactiveMode>false</interactiveMode>
+        <mirrors>
+            <mirror>
+            <id>nexus</id>
+            <mirrorOf>external:*</mirrorOf>
+            <url>http://nexus:8081/repository/maven-group/</url>
+            </mirror>
+        </mirrors>
+        <servers>
+            <server>
+            <id>local-nexus</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+        <server>
+            <id>oss-sonatype-staging</id>
+            <username></username>
+            <password></password>
+            </server>
+        </servers>
+        <profiles>
+            <profile>
+                <id>nexus</id>
+                <properties>
+                    <altDeploymentRepository>local-nexus::default::http://nexus/repository/maven-snapshots/</altDeploymentRepository>
+                    <altReleaseDeploymentRepository>local-nexus::default::http://nexus/repository/maven-releases/</altReleaseDeploymentRepository>
+                    <altSnapshotDeploymentRepository>local-nexus::default::http://nexus/repository/maven-snapshots/</altSnapshotDeploymentRepository>
+                </properties>
+            </profile>
+            <profile>
+                <id>release</id>
+                <properties>
+                    <gpg.executable>gpg</gpg.executable>
+                    <gpg.passphrase>mysecretpassphrase</gpg.passphrase>
+                </properties>
+            </profile>
+        </profiles>
+        <activeProfiles>
+            <!--make the profile active all the time -->
+            <activeProfile>nexus</activeProfile>
+        </activeProfiles>
+    </settings>
 
 grafana:
   server:
