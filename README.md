@@ -58,3 +58,4 @@ This repo is for test purposes, so default admin username and passwords are used
 | Jenkins       | admin    | admin    |
 | Nexus         | admin    | admin123 |
 | Grafana       | admin    | admin    |
+
