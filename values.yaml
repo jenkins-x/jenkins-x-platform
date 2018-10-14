@@ -177,6 +177,46 @@ controllerworkflow:
       - list
       - get
 
+controllercompliance:
+  enabled: true
+  serviceaccount:
+    enabled: true
+  deployment:
+    enabled: true
+  probe:
+    path: ""
+  restartPolicy: Always
+  args:
+  - "controller"
+  - "compliance"
+  clusterrole:
+    enabled: false
+  role:
+    enabled: true
+    rules:
+    rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+        compliancechecks
+      verbs:
+      - get
+      - create
+      - update
+      - watch
+    - apiGroups:
+      - jenkins.io
+      resources:
+        pipelineactivities
+      verbs:
+      - get
+    - apiGroups:
+      - ""
+      resources:
+      - pods
+      verbs:
+      - watch
+      
 controllerrole:
   enabled: false
   serviceaccount:
