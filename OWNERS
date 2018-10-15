@@ -1,5 +1,6 @@
 approvers:
 - rawlingsj
+- jenkins-x-bot
 - jstrachan
 - rajdavies
 - ccojocar
@@ -8,6 +9,7 @@ approvers:
 - pmuir
 reviewers:
 - rawlingsj
+- jenkins-x-bot
 - jstrachan
 - rajdavies
 - ccojocar
