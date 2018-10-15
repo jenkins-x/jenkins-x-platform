@@ -53,3 +53,8 @@ dependencies:
   version: "1.3.429"
   condition: "controllerteam.enabled"
   alias: "controllerteam"
+- name: "jx"
+  repository: "http://chartmuseum.build.cd.jenkins-x.io"
+  version: "1.3.425"
+  condition: "controllercompliance.enabled"
+  alias: "controllercompliance"
