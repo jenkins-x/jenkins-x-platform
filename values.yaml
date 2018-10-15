@@ -189,6 +189,7 @@ controllercompliance:
   args:
   - "controller"
   - "compliance"
+  - "--verbose"
   clusterrole:
     enabled: true
     rules:
@@ -220,6 +221,7 @@ controllercompliance:
       - create
       - update
       - watch
+      - list
     - apiGroups:
       - jenkins.io
       resources:
@@ -230,8 +232,11 @@ controllercompliance:
       - ""
       resources:
       - pods
+      - secrets
       verbs:
       - watch
+      - list
+      - get
       
 controllerrole:
   enabled: false
