@@ -177,7 +177,7 @@ controllerworkflow:
       - list
       - get
 
-controllercompliance:
+controllercommitstatus:
   enabled: true
   serviceaccount:
     enabled: true
@@ -188,7 +188,7 @@ controllercompliance:
   restartPolicy: Always
   args:
   - "controller"
-  - "compliance"
+  - "commitstatus"
   - "--verbose"
   clusterrole:
     enabled: true
