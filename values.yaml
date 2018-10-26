@@ -215,7 +215,7 @@ controllercommitstatus:
     - apiGroups:
       - jenkins.io
       resources:
-      - compliancechecks
+      - commitstatuses
       verbs:
       - get
       - create
