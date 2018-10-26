@@ -698,7 +698,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -740,7 +740,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -779,7 +779,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -821,7 +821,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -856,7 +856,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -890,7 +890,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -925,7 +925,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -960,7 +960,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -996,7 +996,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1032,7 +1032,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1066,7 +1066,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1100,7 +1100,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1136,7 +1136,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1172,7 +1172,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1208,7 +1208,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1244,7 +1244,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
@@ -1279,7 +1279,7 @@ jenkins:
         ServiceAccount: jenkins
         Containers:
           Jnlp:
-            Image: jenkinsci/jnlp-slave:3.14-1
+            Image: jenkinsci/jnlp-slave:3.26-1
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
