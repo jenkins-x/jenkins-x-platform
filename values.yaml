@@ -1,6 +1,6 @@
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
 extensions:
-  enabled: true
+  enabled: false
 teamRoles:
   viewer:
     enabled: true
