@@ -1,0 +1,15 @@
+{{- if .Values.extensions.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "jenkins-x-extensions"
+data:  
+  knownRepositories: |
+    repositories:
+    - chart: {}
+      github: jenkins-x/jenkins-x-extensions
+  repository: |
+    chart: {}
+    github: jenkins-x/jenkins-x-extensions
+  
+{{- end }}
