@@ -118,6 +118,27 @@ gcactivities:
       verbs:
       - get
 
+gcpods:
+  serviceaccount:
+    enabled: true
+  cronjob:
+    enabled: true
+    schedule: "0/30 */3 * * *"
+  args:
+  - "gc"
+  - "pods"
+  role:
+    enabled: true
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+      - pods
+      verbs:
+      - get
+      - delete
+      - list
+
 controllerworkflow:
   enabled: true
   serviceaccount:
@@ -241,7 +262,7 @@ controllercommitstatus:
       - get
       
 controllerrole:
-  enabled: false
+  enabled: true
   serviceaccount:
     enabled: true
   deployment:
@@ -274,6 +295,7 @@ controllerrole:
     - apiGroups:
       - jenkins.io
       resources:
+      - environments
       - teams
       - users
       verbs:
@@ -283,6 +305,18 @@ controllerrole:
   role:
     enabled: true
     rules:
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      resources:
+      - roles
+      - rolebindings
+      verbs:
+      - list
+      - get
+      - watch
+      - create
+      - update
+      - delete
     - apiGroups:
       - jenkins.io
       resources:
@@ -1360,8 +1394,7 @@ PipelineSecrets:
   # used by pipelines to tag new releases
   GitCreds: |-
     https://jenkins-x-bot@github.com
-  DockerConfig: |-
-    {}
+  DockerConfig: "{}"
   GithubToken:
   NPMToken:
   PipelineSecrets:
