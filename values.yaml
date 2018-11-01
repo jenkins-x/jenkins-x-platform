@@ -234,6 +234,7 @@ controllercommitstatus:
       resources:
       - pods
       - secrets
+      - configmaps
       verbs:
       - watch
       - list
