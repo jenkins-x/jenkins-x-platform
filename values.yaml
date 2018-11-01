@@ -988,7 +988,7 @@ jenkins:
         Name: nodejs
         # ServiceAccount: fooo
         Label: jenkins-nodejs
-        DevPodPorts: 9229, 3000
+        DevPodPorts: 9229, 3000, 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -1025,7 +1025,7 @@ jenkins:
         Name: serverless
         # ServiceAccount: fooo
         Label: jenkins-serverless
-        DevPodPorts: 9229, 3000
+        DevPodPorts: 9229, 3000, 8080
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
