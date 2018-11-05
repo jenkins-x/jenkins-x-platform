@@ -250,6 +250,7 @@ controllercommitstatus:
       - pipelineactivities
       verbs:
       - get
+      - update
     - apiGroups:
       - ""
       resources:
