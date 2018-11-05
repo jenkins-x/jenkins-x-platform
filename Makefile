@@ -1,4 +1,5 @@
 CHART_REPO := http://jenkins-x-chartmuseum:8080
+CHART_REPO2 := http://jenkins-x-chartmuseum.build:8080
 NAME := jenkins-x
 OS := $(shell uname)
 RELEASE_VERSION := $(shell jx-release-version)
@@ -48,6 +49,7 @@ endif
 	git push origin v$(RELEASE_VERSION)
 	$(HELM) package .
 	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
+	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO2)/api/charts
 	helm repo update
 	rm -rf ${NAME}*.tgz
 	updatebot push-version --kind make CHART_VERSION $(RELEASE_VERSION)
