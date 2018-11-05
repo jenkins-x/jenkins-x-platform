@@ -5,7 +5,7 @@ RELEASE_VERSION := $(shell jx-release-version)
 HELM := helm
 
 setup:
-	$(HELM) repo add jenkins-x https://storage.googleapis.com/jenkinsx-chartmuseum
+	$(HELM) repo add jenkins-x http://chartmuseum.jenkins-x.io
 	$(HELM) repo add jenkins-x-api http://chartmuseum.build.cd.jenkins-x.io
 	$(HELM) repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
 	$(HELM) repo add stable https://kubernetes-charts.storage.googleapis.com
