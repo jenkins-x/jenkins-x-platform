@@ -3,6 +3,7 @@ dependencies:
 - name: "jenkins"
   repository: "http://chartmuseum.jenkins-x.io"
   version: "0.10.31"
+  condition: "jenkins.enabled"
 - name: "exposecontroller"
   repository: "http://chartmuseum.jenkins-x.io"
   version: "2.3.82"
