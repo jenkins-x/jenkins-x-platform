@@ -10,19 +10,12 @@ metadata:
      description: "A team owner can add/remove users and has write access to all team resources"
 rules:
   - apiGroups:
-    - jenkins.io
-    resources:
-    - "*"
-    verbs:
-    - list
-    - get
-    - watch
-    - create
-    - update
-    - patch
-    - delete
-  - apiGroups:
     - ""
+    - extensions
+    - apps
+    - rbac.authorization.k8s.io
+    - batch
+    - jenkins.io
     resources:
     - "*"
     verbs:

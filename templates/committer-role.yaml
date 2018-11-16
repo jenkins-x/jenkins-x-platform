@@ -11,6 +11,7 @@ metadata:
 rules:
   - apiGroups:
     - jenkins.io
+    - rbac.authorization.k8s.io
     resources:
     - "*"
     verbs:
@@ -19,6 +20,9 @@ rules:
     - watch
   - apiGroups:
     - ""
+    - extensions
+    - apps
+    - batch
     resources:
     - "*"
     verbs:

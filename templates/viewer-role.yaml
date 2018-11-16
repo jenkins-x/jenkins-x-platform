@@ -10,15 +10,12 @@ metadata:
      description: "A viewer can view all project resources"
 rules:
   - apiGroups:
-    - jenkins.io
-    resources:
-    - "*"
-    verbs:
-    - list
-    - get
-    - watch
-  - apiGroups:
     - ""
+    - jenkins.io
+    - extensions
+    - apps
+    - rbac.authorization.k8s.io
+    - batch
     resources:
     - "*"
     verbs:
