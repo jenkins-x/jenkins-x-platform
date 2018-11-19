@@ -24,6 +24,10 @@ data:
 {{- range $key, $value := $pval.NodeSelector }}
         {{- $key }}: {{ $value }}
 {{- end }}
+{{- if $pval.Tolerations }}
+      tolerations:
+{{ toYaml $pval.Tolerations | indent 6 }}
+{{- end }}
       volumes:
       - name: workspace-volume
         emptyDir: {}
