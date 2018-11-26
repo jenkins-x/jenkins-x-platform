@@ -334,11 +334,22 @@ controllerrole:
     rules:
     - apiGroups:
       - ""
+      - extensions
+      - apps
+      - rbac.authorization.k8s.io
+      - batch
+      - jenkins.io
       resources:
-      - namespaces
+      - "*"
+      - "pods/*"
       verbs:
-      - get
       - list
+      - get
+      - watch
+      - create
+      - update
+      - patch
+      - delete
     - apiGroups:
       - apiextensions.k8s.io
       resources:
@@ -348,31 +359,9 @@ controllerrole:
       - create
       - update
       - list
-    - apiGroups:
-      - jenkins.io
-      resources:
-      - environments
-      - teams
-      - users
-      verbs:
-      - list
-      - get
-      - watch
   role:
     enabled: true
     rules:
-    - apiGroups:
-      - rbac.authorization.k8s.io
-      resources:
-      - roles
-      - rolebindings
-      verbs:
-      - list
-      - get
-      - watch
-      - create
-      - update
-      - delete
     - apiGroups:
       - jenkins.io
       resources:
@@ -383,15 +372,6 @@ controllerrole:
       - watch
       - create
       - update
-    - apiGroups:
-      - ""
-      resources:
-      - roles
-      - rolebindings
-      verbs:
-      - list
-      - watch
-      - get
 
 controllerteam:
   enabled: true
