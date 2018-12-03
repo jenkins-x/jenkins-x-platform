@@ -789,6 +789,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -831,6 +841,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -871,6 +891,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -914,6 +944,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -950,6 +990,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -985,6 +1035,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1021,6 +1081,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1057,6 +1127,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1094,6 +1174,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1131,6 +1221,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1166,6 +1266,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1201,6 +1311,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1238,6 +1358,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1275,6 +1405,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1312,6 +1452,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1349,6 +1499,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
@@ -1385,6 +1545,16 @@ jenkins:
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
         ServiceAccount: jenkins
+        # Node labels and tolerations for pod assignment
+        # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
+        # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+        # NodeSelector:
+        #   dedicated: jenkins-x-builder
+        # Tolerations:
+        # - effect: NoSchedule
+        #   key: dedicated
+        #   operator: Equal
+        #   value: jenkins-x-builder
         Containers:
           Jnlp:
             Image: jenkinsci/jnlp-slave:3.26-1-alpine
