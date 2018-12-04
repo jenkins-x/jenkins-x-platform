@@ -30,12 +30,6 @@ pipeline {
                     sh "jx step git credentials"
                     sh "./jx/scripts/release.sh"
                 }
-                dir('/home/jenkins/packs'){
-                    git 'https://github.com/jenkins-x/draft-packs.git'
-                    sh 'git config credential.helper store'
-                    sh "jx step git credentials"
-                    sh 'jx step tag --version \$(cat /home/jenkins/jenkins-x-platform/VERSION)'
-                }
             }
         }
     }
