@@ -266,6 +266,13 @@ controllerbuild:
   args:
   - "controller"
   - "build"
+  - "--batch-mode"
+  - "--git-credentials"
+  - "--verbose"
+  env:
+    GIT_AUTHOR_NAME: "jenkins-x-bot"
+    GIT_AUTHOR_EMAIL: "jenkins-x@googlegroups.com"
+    XDG_CONFIG_HOME: "/home/jenkins"
   clusterrole:
     enabled: true
     rules:
@@ -311,6 +318,8 @@ controllerbuild:
       - ""
       resources:
       - pods
+      - pods/log
+      - secrets
       verbs:
       - get
       - list
