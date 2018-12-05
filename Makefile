@@ -21,6 +21,9 @@ lint:
 install: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) .
 
+apply: clean setup
+	jx step helm apply $(NAME) .
+
 upgrade: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) .
 
