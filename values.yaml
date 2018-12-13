@@ -1742,7 +1742,7 @@ PipelineSecrets:
   DockerConfig: "{}"
   GithubToken:
   NPMToken:
-  PipelineSecrets:
+  GPG:
     pubring:
     secjenkins:
     secring:
