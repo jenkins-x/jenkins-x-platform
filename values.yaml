@@ -1743,10 +1743,10 @@ PipelineSecrets:
   GithubToken:
   NPMToken:
   GPG:
-    pubring:
-    secjenkins:
-    secring:
-    trustdb:
+    pubring: ""
+    secjenkins: ""
+    secring: ""
+    trustdb: ""
   SSHConfig: |-
     Host github.com
         User git
