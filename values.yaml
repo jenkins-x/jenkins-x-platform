@@ -1739,9 +1739,6 @@ jenkins:
 
 
 PipelineSecrets:
-  # used by pipelines to tag new releases
-  GitCreds: |-
-    https://jenkins-x-bot@github.com
   DockerConfig: "{}"
   GithubToken:
   NPMToken:
