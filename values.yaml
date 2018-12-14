@@ -1739,17 +1739,14 @@ jenkins:
 
 
 PipelineSecrets:
-  # used by pipelines to tag new releases
-  GitCreds: |-
-    https://jenkins-x-bot@github.com
   DockerConfig: "{}"
   GithubToken:
   NPMToken:
-  PipelineSecrets:
-    pubring:
-    secjenkins:
-    secring:
-    trustdb:
+  GPG:
+    pubring: ""
+    secjenkins: ""
+    secring: ""
+    trustdb: ""
   SSHConfig: |-
     Host github.com
         User git
