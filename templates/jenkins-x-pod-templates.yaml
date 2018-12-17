@@ -16,6 +16,11 @@ data:
         jenkins.io/kind: build-pod
       annotations:
         jenkins-x.io/devpodPorts: {{ $pval.DevPodPorts }}
+      {{- if $pval.annotations }}
+      {{- range $key, $value := $pval.annotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+      {{- end }}
     spec:
 {{- if $pval.ServiceAccount }}
       serviceAccount: {{ $pval.ServiceAccount }}
