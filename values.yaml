@@ -390,7 +390,7 @@ controllercommitstatus:
       - watch
       - list
       - get
-      
+
 controllerrole:
   enabled: true
   serviceaccount:
@@ -843,6 +843,8 @@ jenkins:
         Name: maven
         Label: jenkins-maven
         DevPodPorts: 5005, 8080
+        # annotations:
+        #   iam.amazonaws.com/role: arn:aws:iam::accountid:role/rolename
         volumes:
         - type: Secret
           secretName: jenkins-maven-settings
@@ -1554,7 +1556,7 @@ jenkins:
             # AlwaysPullImage: true
             Command: "/bin/sh -c"
             Args: "cat"
-            Tty: true            
+            Tty: true
       Ruby:
         Name: ruby
         # ServiceAccount: fooo
