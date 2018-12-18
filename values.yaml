@@ -22,6 +22,14 @@ gcpreviews:
     - apiGroups:
       - jenkins.io
       resources:
+      - plugins
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
+      - jenkins.io
+      resources:
       - environments
       verbs:
       - list
@@ -80,6 +88,15 @@ gcactivities:
       - list
       - delete
     - apiGroups:
+      - jenkins.io
+      resources:
+      - environments
+      - plugins
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
       - ""
       resources:
       - secrets
@@ -130,6 +147,15 @@ gcpods:
   role:
     enabled: true
     rules:
+    - apiGroups:
+      - jenkins.io
+      resources:
+      - environments
+      - plugins
+      verbs:
+      - get
+      - list
+      - watch
     - apiGroups:
       - ""
       resources:
