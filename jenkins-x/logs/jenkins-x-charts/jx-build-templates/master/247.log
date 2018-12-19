@@ -1,0 +1,43 @@
+Step: build-step-credential-initializer:
+
+Step: build-step-git-source:
+
+Step: build-step-credentials:
+
+Tag v0.0.261 created and pushed to remote origin
+Step: build-step-release:
+
+rm -rf charts
+rm -rf jx-build-templates*.tgz
+rm -rf requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+helm repo add jenkinsxio http://chartmuseum.jenkins-x.io 
+"jenkinsxio" has been added to your repositories
+helm dependency build
+No requirements found in ./charts.
+helm lint
+==> Linting .
+Lint OK
+
+1 chart(s) linted, no failures
+sed -i -e "s/version:.*/version: 0.0.261/" Chart.yaml
+helm package .
+Successfully packaged chart and saved it to: /workspace/jx-build-templates/jx-build-templates-0.0.261.tgz
+curl --fail -u admin:jxadmin18 --data-binary "@jx-build-templates-0.0.261.tgz" http://jenkins-x-chartmuseum:8080/api/charts
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3055  100    14  100  3041     72  15688 --:--:-- --:--:-- --:--:-- 15756
+{"saved":true}rm -rf jx-build-templates*.tgz
