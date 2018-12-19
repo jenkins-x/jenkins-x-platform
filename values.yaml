@@ -16,6 +16,7 @@ gcpreviews:
   args:
   - "gc"
   - "previews"
+  - "--batch-mode"
   role:
     enabled: true
     rules:
@@ -77,6 +78,7 @@ gcactivities:
   args:
   - "gc"
   - "activities"
+  - "--batch-mode"
   role:
     enabled: true
     rules:
@@ -144,6 +146,7 @@ gcpods:
   args:
   - "gc"
   - "pods"
+  - "--batch-mode"
   role:
     enabled: true
     rules:
