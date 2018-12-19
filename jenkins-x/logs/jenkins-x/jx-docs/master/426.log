@@ -1,0 +1,143 @@
+Step: build-step-credential-initializer:
+
+Step: build-step-git-source:
+
+Step: build-step-jenkins:
+
+Picked up _JAVA_OPTIONS: -Xmx2048m
+Started
+Running in Durability level: PERFORMANCE_OPTIMIZED
+  36.483 [id=23]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+[Pipeline] node
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins7663068729042233277test/workspace/job
+[Pipeline] {
+  66.562 [id=68]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class io.jenkins.jenkinsfile.runner.FileSystemSCM
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:245)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:178)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor157.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor162.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:108)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:182)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:332)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:83)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:244)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:232)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withCredentials
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI Validate)
+Stage "CI Validate" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Regenerate Website)
+[Pipeline] sh
++ git clone https://github.com/jenkins-x/jx-docs.git
+Cloning into 'jx-docs'...
+[Pipeline] dir
+Running in /tmp/jenkinsTests.tmp/jenkins7663068729042233277test/workspace/job/jx-docs
+[Pipeline] {
+[Pipeline] sh
++ git clone https://github.com/jenkins-x/jenkins-x-website.git
+Cloning into 'jenkins-x-website'...
+[Pipeline] sh
++ hugo version
+Hugo Static Site Generator v0.49 linux/amd64 BuildDate: 2018-09-24T10:03:17Z
+[Pipeline] sh
++ hugo -d jenkins-x-website --enableGitInfo
+[?25lBuilding sites … [?25h[K
+                   | EN  | ZH   
++------------------+-----+-----+
+  Pages            | 404 |  75  
+  Paginator pages  |   2 |   0  
+  Non-page files   |   0 |   0  
+  Static files     | 193 | 193  
+  Processed images |   0 |   0  
+  Aliases          |  10 |   8  
+  Sitemaps         |   2 |   1  
+  Cleaned          |   0 |   0  
+
+Total in 8320 ms
+[Pipeline] dir
+Running in /tmp/jenkinsTests.tmp/jenkins7663068729042233277test/workspace/job/jx-docs/jenkins-x-website
+[Pipeline] {
+[Pipeline] sh
++ jx step git credentials
+Generated Git credentials file /home/jenkins/git/credentials
+[Pipeline] sh
++ git config credential.helper store
+[Pipeline] sh
++ git add 404.html CNAME LICENSE _headers _redirects about algolia.json android-chrome-144x144.png android-chrome-192x192.png android-chrome-36x3.png android-chrome-48x4.png android-chrome-72x7.png android-chrome-96x96.png android-icon-144x144.png android-icon-192x192.png android-icon-36x36.png android-icon-48x48.png android-icon-72x72.png android-icon-96x96.png apple-icon-114x114.png apple-icon-120x120.png apple-icon-144x144.png apple-icon-152x152.png apple-icon-180x180.png apple-icon-57x57.png apple-icon-60x60.png apple-icon-72x72.png apple-icon-76x76.png apple-icon-precomposed.png apple-icon.png apple-touch-icon.png architecture articles browserconfig.xml categories commands community contribute css demos developing dist documentation en extending faq favicon-16x16.png favicon-32x32.png favicon-96x96.png favicon.ico files fonts getting-started google2664f93f52944bf5.html gulpfile.js images img index.html index.xml index2.html index3.html js less manifest.json ms-icon-144x144.png ms-icon-150x150.png ms-icon-310x310.png ms-icon-70x70.png mstile-144x144.png mstile-150x150.png mstile-310x310.png news package.json quickstart safari-pinned-tab.svg share sitemap.xml talks troubleshooting vendor zh
+[Pipeline] sh
++ git commit --allow-empty -a -m updated site
+[master 8ec0216e7b] updated site
+ 12 files changed, 25 insertions(+), 25 deletions(-)
+[Pipeline] sh
++ git push origin
+To https://github.com/jenkins-x/jenkins-x-website.git
+   bcf7ae0eb6..8ec0216e7b  master -> master
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
