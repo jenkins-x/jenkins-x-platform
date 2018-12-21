@@ -1,0 +1,2368 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1545394167.8220205,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1545394167.8224576,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1545394169.1862013,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1545394170.4852743,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-builders.git\" @ \"dbb5b471e5f7d41355f6d36a173e56b8bd177792\" in path \"/workspace\""}
+Step: build-step-jenkins:
+
+Picked up _JAVA_OPTIONS: -Xmx2048m
+Started
+Running in Durability level: PERFORMANCE_OPTIMIZED
+  19.367 [id=25]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+  31.149 [id=52]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class io.jenkins.jenkinsfile.runner.FileSystemSCM
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:245)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:178)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor108.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor121.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:108)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:182)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:332)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:83)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:244)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:232)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[Pipeline] node
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI Build and push snapshot)
+Stage "CI Build and push snapshot" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Release)
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/jenkins-x/jenkins-x-builders.git # timeout=10
+Fetching upstream changes from https://github.com/jenkins-x/jenkins-x-builders.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/jenkins-x/jenkins-x-builders.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision dbb5b471e5f7d41355f6d36a173e56b8bd177792 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f dbb5b471e5f7d41355f6d36a173e56b8bd177792
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master dbb5b471e5f7d41355f6d36a173e56b8bd177792
+Commit message: "Merge pull request #185 from jenkins-x/updatebot-e99dc5f2-0aea-4e15-a33a-0c9ca97c5c27"
+First time build. Skipping changelog.
+[Pipeline] sh
++ git config --global credential.helper store
+[Pipeline] sh
++ jx step validate --min-jx-version 1.1.73
+[Pipeline] sh
++ jx step git credentials
+Generated Git credentials file /home/jenkins/git/credentials
+[Pipeline] sh
++ jx-release-version
++ echo 0.1.166
+[Pipeline] sh
++ cat VERSION
++ export VERSION=0.1.166
+[Pipeline] sh
++ jx step validate --min-jx-version 1.2.36
+[Pipeline] sh
++ cat VERSION
++ ./jx-docker-build.sh 0.1.166 release
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-base /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+Building images with version 0.1.166
+Building docker.io/jenkinsxio/builder-base:0.1.166
+Sending build context to Docker daemon  35.84kB
+Step 1/39 : FROM centos:7
+ ---> 1e1148e4cc2c
+Step 2/39 : RUN yum install -y epel-release &&   yum install -y unzip   which   make   wget   zip   bzip2   python-pip
+ ---> Using cache
+ ---> 7d7082d5e650
+Step 3/39 : RUN pip install anchorecli
+ ---> Using cache
+ ---> 3983e4cd92e2
+Step 4/39 : RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm &&   yum install -y google-chrome-stable_current_x86_64.rpm &&   yum install -y Xvfb
+ ---> Using cache
+ ---> 30ce3d108c7a
+Step 5/39 : ENV LANG en_US.UTF-8
+ ---> Using cache
+ ---> 46e63923d304
+Step 6/39 : ENV LANGUAGE en_US:en
+ ---> Using cache
+ ---> b7a080181e0e
+Step 7/39 : ENV LC_ALL en_US.UTF-8
+ ---> Using cache
+ ---> 27a21e03ad84
+Step 8/39 : RUN curl -f -o ./endpoint-repo-1.7-1.x86_64.rpm https://packages.endpoint.com/rhel/7/os/x86_64/endpoint-repo-1.7-1.x86_64.rpm &&   rpm -Uvh endpoint-repo*rpm &&   yum install -y git
+ ---> Using cache
+ ---> 561e398046f7
+Step 9/39 : RUN yum install -y java-1.8.0-openjdk-devel     java-1.8.0-openjdk-devel.i686
+ ---> Using cache
+ ---> 0241d5148435
+Step 10/39 : ENV DOCKER_VERSION 17.12.0
+ ---> Using cache
+ ---> 52a701d18ea4
+Step 11/39 : ENV EXPOSECONTROLLER_VERSION 2.3.34
+ ---> Using cache
+ ---> b3e609240371
+Step 12/39 : ENV GCLOUD_VERSION 222.0.0
+ ---> Using cache
+ ---> b59daed70687
+Step 13/39 : ENV HELM_VERSION 2.12.0
+ ---> Using cache
+ ---> 5712f1dc345f
+Step 14/39 : ENV JX_RELEASE_VERSION 1.0.10
+ ---> Using cache
+ ---> f2996c19e5df
+Step 15/39 : ENV JX_VERSION 1.3.684
+ ---> Using cache
+ ---> e64606ab952f
+Step 16/39 : ENV SKAFFOLD_VERSION 0.19.0
+ ---> Using cache
+ ---> c98308bdaf08
+Step 17/39 : ENV UPDATEBOT_VERSION 1.1.31
+ ---> Using cache
+ ---> 6679fb343fe9
+Step 18/39 : ENV REFLEX_VERSION 0.3.1
+ ---> Using cache
+ ---> bc6adece8322
+Step 19/39 : WORKDIR /home/jenkins
+ ---> Using cache
+ ---> 5da10462d7fd
+Step 20/39 : RUN curl -f https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION-ce.tgz | tar xvz &&   mv docker/docker /usr/bin/ &&   rm -rf docker
+ ---> Using cache
+ ---> 261519e7179d
+Step 21/39 : RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz  | tar xzv &&   mv linux-amd64/helm /usr/bin/ &&   rm -rf linux-amd64
+ ---> Using cache
+ ---> 7b514c0b0b06
+Step 22/39 : RUN curl -f -L https://github.com/jstrachan/helm-tiller-release/releases/download/2.10.0/tiller.tar.gz -o tiller.tgz &&   tar xf tiller.tgz &&   chmod +x tiller &&   mv tiller /usr/bin/
+ ---> Using cache
+ ---> a79ab4b23d77
+Step 23/39 : RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-93375777c6644a452a64/helm-linux-amd64.tar.gz -o helm3.tgz &&   tar xf helm3.tgz &&   mv helm /usr/bin/helm3
+ ---> Using cache
+ ---> a61b8ea8a3e2
+Step 24/39 : RUN rm *.tgz
+ ---> Using cache
+ ---> 2a61b1459983
+Step 25/39 : RUN curl -f -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${GCLOUD_VERSION}-linux-x86_64.tar.gz | tar xzv &&   mv google-cloud-sdk /usr/bin/
+ ---> Using cache
+ ---> 4b91c460ea01
+Step 26/39 : ENV PATH $PATH:/usr/bin/google-cloud-sdk/bin
+ ---> Using cache
+ ---> 0b125f16d359
+Step 27/39 : RUN gcloud components install docker-credential-gcr
+ ---> Using cache
+ ---> 806394e0ee16
+Step 28/39 : RUN curl -f -o ./jx-release-version -L https://github.com/jenkins-x/jx-release-version/releases/download/v${JX_RELEASE_VERSION}/jx-release-version-linux &&   mv jx-release-version /usr/bin/ &&   chmod +x /usr/bin/jx-release-version
+ ---> Using cache
+ ---> 79ec6af8b2a8
+Step 29/39 : RUN curl -f -L https://github.com/fabric8io/exposecontroller/releases/download/v$EXPOSECONTROLLER_VERSION/exposecontroller-linux-amd64 > exposecontroller &&   chmod +x exposecontroller &&   mv exposecontroller /usr/bin/
+ ---> Using cache
+ ---> d00cf4304f9a
+Step 30/39 : RUN curl -f -Lo skaffold https://github.com/GoogleCloudPlatform/skaffold/releases/download/v${SKAFFOLD_VERSION}/skaffold-linux-amd64 &&   chmod +x skaffold &&   mv skaffold /usr/bin
+ ---> Using cache
+ ---> c3e303411283
+Step 31/39 : RUN curl -f  -o ./updatebot -L https://oss.sonatype.org/content/groups/public/io/jenkins/updatebot/updatebot/${UPDATEBOT_VERSION}/updatebot-${UPDATEBOT_VERSION}.jar &&   chmod +x updatebot &&   cp updatebot /usr/bin/ &&   rm -rf updatebot
+ ---> Using cache
+ ---> 15ff98675372
+Step 32/39 : RUN curl -f https://azuredraft.blob.core.windows.net/draft/draft-canary-linux-amd64.tar.gz  | tar xzv &&   mv linux-amd64/draft /usr/bin/ &&   rm -rf linux-amd64
+ ---> Using cache
+ ---> 3df084fb8b72
+Step 33/39 : RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl &&   chmod +x kubectl &&   mv kubectl /usr/bin/
+ ---> Using cache
+ ---> 4d7c56dc3cb7
+Step 34/39 : RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv &&   mv jx /usr/bin/
+ ---> Using cache
+ ---> 81fb15ce91f6
+Step 35/39 : RUN mkdir ecr &&     curl -f -L https://github.com/estahn/amazon-ecr-credential-helper/releases/download/v0.1.1/amazon-ecr-credential-helper_0.1.1_linux_amd64.tar.gz | tar -xzv -C ./ecr/ &&     mv ecr/docker-credential-ecr-login /usr/bin/ &&     rm -rf ecr
+ ---> Using cache
+ ---> 446077b66f6b
+Step 36/39 : RUN mkdir acr &&     curl -f -L https://aadacr.blob.core.windows.net/acr-docker-credential-helper/docker-credential-acr-linux-amd64.tar.gz | tar -xzv -C ./acr/ &&     mv acr/docker-credential-acr-linux /usr/bin/ &&     rm -rf acr
+ ---> Using cache
+ ---> 5ff21eff399d
+Step 37/39 : RUN curl -f -L https://github.com/ccojocar/reflex/releases/download/v${REFLEX_VERSION}/reflex_${REFLEX_VERSION}_linux_amd64.tar.gz | tar xzv &&   mv reflex /usr/bin/
+ ---> Using cache
+ ---> 87ee18a5526a
+Step 38/39 : ENV PATH ${PATH}:/opt/google/chrome
+ ---> Using cache
+ ---> d0259dc1c66f
+Step 39/39 : CMD helm version
+ ---> Using cache
+ ---> a32669b0f512
+Successfully built a32669b0f512
+Building docker.io/jenkinsxio/builder-slim:0.1.166
+Sending build context to Docker daemon  35.84kB
+Step 1/10 : FROM centos:7
+ ---> 1e1148e4cc2c
+Step 2/10 : ENV HELM_VERSION 2.10.0
+ ---> Using cache
+ ---> 6e02d155ab95
+Step 3/10 : RUN curl -f https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz  | tar xzv &&   mv linux-amd64/helm /usr/bin/ &&   rm -rf linux-amd64
+ ---> Using cache
+ ---> 0a124092f71a
+Step 4/10 : RUN curl -f -L https://github.com/jstrachan/helm/releases/download/untagged-93375777c6644a452a64/helm-linux-amd64.tar.gz -o helm3.tgz &&   tar xf helm3.tgz &&   mv helm /usr/bin/helm3
+ ---> Using cache
+ ---> de7d2e5ce09a
+Step 5/10 : ENV JX_RELEASE_VERSION 1.0.10
+ ---> Using cache
+ ---> c8b8f56e23b3
+Step 6/10 : RUN curl -f -o ./jx-release-version -L https://github.com/jenkins-x/jx-release-version/releases/download/v${JX_RELEASE_VERSION}/jx-release-version-linux &&   mv jx-release-version /usr/bin/ &&   chmod +x /usr/bin/jx-release-version
+ ---> Using cache
+ ---> 69820b101df0
+Step 7/10 : RUN curl -f -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl &&   chmod +x kubectl &&   mv kubectl /usr/bin/
+ ---> Using cache
+ ---> c0af34cf1cb0
+Step 8/10 : ENV JX_VERSION 1.3.375
+ ---> Using cache
+ ---> 34b967a1125d
+Step 9/10 : RUN curl -f -L https://github.com/jenkins-x/jx/releases/download/v${JX_VERSION}/jx-linux-amd64.tar.gz | tar xzv &&   mv jx /usr/bin/
+ ---> Using cache
+ ---> 5e2474524e65
+Step 10/10 : CMD helm version
+ ---> Using cache
+ ---> 6c5f12ed86da
+Successfully built 6c5f12ed86da
+Pushing the docker image
+The push refers to a repository [docker.io/jenkinsxio/builder-base]
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+8137131949a1: Waiting
+50e587c6987c: Layer already exists
+6774c35f9160: Layer already exists
+51ed3acf4d8d: Layer already exists
+011511ec8363: Layer already exists
+442518b0fbea: Layer already exists
+c88d09d87151: Layer already exists
+8137131949a1: Layer already exists
+cf2fad2c768e: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+c7fbb3941972: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+4722a6772643: Layer already exists
+925627df51db: Layer already exists
+66dfea5c24eb: Layer already exists
+ffbb4b49fcd6: Layer already exists
+20f1ff591185: Layer already exists
+2009930db218: Layer already exists
+580594f1ae0e: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:3ebb33975c57d1d7a03e0e02d04f910bb503ef017379055e51e2b5b05c572bd4 size: 5389
+The push refers to a repository [docker.io/jenkinsxio/builder-slim]
+c664d46e03a8: Preparing
+724f257c403b: Preparing
+49ce74512f25: Preparing
+d5cabc16409e: Preparing
+f175915cfdf6: Preparing
+071d8bd76517: Preparing
+071d8bd76517: Waiting
+d5cabc16409e: Layer already exists
+f175915cfdf6: Layer already exists
+724f257c403b: Layer already exists
+c664d46e03a8: Layer already exists
+49ce74512f25: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:eed2ff7a94956773db41685556f700eca90eefe764c7e3b3df899bdb538d36ae size: 1587
+Not pushing the latest docker image as PUSH_LATEST=false
+pack ruby uses image: ruby:2.5.1
+Pushing the docker image
+The push refers to a repository [docker.io/jenkinsxio/builder-ruby]
+b993a2782822: Preparing
+34063f1d4b16: Preparing
+49e5ec7bd0fc: Preparing
+f0d502e1756d: Preparing
+0a8ab4247913: Preparing
+cf35a757f9d0: Preparing
+2be6bb1de787: Preparing
+59964bab0653: Preparing
+3530c79ee7f2: Preparing
+15f32e039005: Preparing
+5b23e8e89646: Preparing
+774dca5ef0e3: Preparing
+f57d72cb835c: Preparing
+59a79434e14d: Preparing
+fe4d1d286fd6: Preparing
+57218054be47: Preparing
+34155944e446: Preparing
+291e0eaf58a2: Preparing
+cb9444e2f3e3: Preparing
+60ba5334044e: Preparing
+1c30de28be8a: Preparing
+9c23289b40ef: Preparing
+3696bfafb5ed: Preparing
+dda5ada3fa53: Preparing
+f5e615773459: Preparing
+9978d084fd77: Preparing
+1191b3f5862a: Preparing
+08a01612ffca: Preparing
+8bb25f9cdc41: Preparing
+f715ed19c28b: Preparing
+57218054be47: Waiting
+34155944e446: Waiting
+291e0eaf58a2: Waiting
+cb9444e2f3e3: Waiting
+60ba5334044e: Waiting
+1c30de28be8a: Waiting
+9c23289b40ef: Waiting
+3696bfafb5ed: Waiting
+dda5ada3fa53: Waiting
+f5e615773459: Waiting
+9978d084fd77: Waiting
+1191b3f5862a: Waiting
+08a01612ffca: Waiting
+8bb25f9cdc41: Waiting
+f715ed19c28b: Waiting
+3530c79ee7f2: Waiting
+15f32e039005: Waiting
+5b23e8e89646: Waiting
+774dca5ef0e3: Waiting
+f57d72cb835c: Waiting
+59a79434e14d: Waiting
+fe4d1d286fd6: Waiting
+2be6bb1de787: Waiting
+cf35a757f9d0: Waiting
+59964bab0653: Waiting
+49e5ec7bd0fc: Layer already exists
+0a8ab4247913: Layer already exists
+b993a2782822: Layer already exists
+f0d502e1756d: Layer already exists
+34063f1d4b16: Layer already exists
+2be6bb1de787: Layer already exists
+cf35a757f9d0: Layer already exists
+3530c79ee7f2: Layer already exists
+59964bab0653: Layer already exists
+15f32e039005: Layer already exists
+5b23e8e89646: Layer already exists
+774dca5ef0e3: Layer already exists
+59a79434e14d: Layer already exists
+f57d72cb835c: Layer already exists
+fe4d1d286fd6: Layer already exists
+57218054be47: Layer already exists
+34155944e446: Layer already exists
+cb9444e2f3e3: Layer already exists
+291e0eaf58a2: Layer already exists
+60ba5334044e: Layer already exists
+1c30de28be8a: Layer already exists
+dda5ada3fa53: Layer already exists
+3696bfafb5ed: Layer already exists
+9c23289b40ef: Layer already exists
+f5e615773459: Layer already exists
+9978d084fd77: Layer already exists
+1191b3f5862a: Layer already exists
+08a01612ffca: Layer already exists
+f715ed19c28b: Layer already exists
+8bb25f9cdc41: Layer already exists
+0.1.166: digest: sha256:a2d03f0e813cc75790a1a45a013711b8fb70917e5cf7b4996e5b9dc4c5024ca8 size: 6650
+Not pushing the latest docker image as PUSH_LATEST=false
+pack swift uses image: swift:4.0.3
+Pushing the docker image
+The push refers to a repository [docker.io/jenkinsxio/builder-swift]
+df44f43d8e1f: Preparing
+cdada95c8ad5: Preparing
+6bb769d478ed: Preparing
+e494133976f5: Preparing
+08db8667a535: Preparing
+6771b779c3a2: Preparing
+82e0c95a68e2: Preparing
+e24879a0820d: Preparing
+0f4a3946db09: Preparing
+c58b49447e27: Preparing
+45213b23e50c: Preparing
+3c11abe0e29b: Preparing
+937ec8869b29: Preparing
+6bb58ca33942: Preparing
+5bab8794e1f3: Preparing
+2cdf7e507d8b: Preparing
+54b37f988fc8: Preparing
+2fb7267be358: Preparing
+c1f696b650bc: Preparing
+726e3799b24d: Preparing
+f9e71befd463: Preparing
+d3ff2a0c10ad: Preparing
+ac7144c0172d: Preparing
+29793c7e3b69: Preparing
+3db5746c911a: Preparing
+819a824caf70: Preparing
+647265b9d8bc: Preparing
+e24879a0820d: Waiting
+41c002c8a6fd: Preparing
+0f4a3946db09: Waiting
+5bab8794e1f3: Waiting
+c58b49447e27: Waiting
+2cdf7e507d8b: Waiting
+45213b23e50c: Waiting
+54b37f988fc8: Waiting
+2fb7267be358: Waiting
+c1f696b650bc: Waiting
+726e3799b24d: Waiting
+f9e71befd463: Waiting
+d3ff2a0c10ad: Waiting
+ac7144c0172d: Waiting
+29793c7e3b69: Waiting
+3db5746c911a: Waiting
+819a824caf70: Waiting
+647265b9d8bc: Waiting
+41c002c8a6fd: Waiting
+3c11abe0e29b: Waiting
+6bb58ca33942: Waiting
+937ec8869b29: Waiting
+6771b779c3a2: Waiting
+82e0c95a68e2: Waiting
+df44f43d8e1f: Layer already exists
+08db8667a535: Layer already exists
+e494133976f5: Layer already exists
+cdada95c8ad5: Layer already exists
+6bb769d478ed: Layer already exists
+82e0c95a68e2: Layer already exists
+6771b779c3a2: Layer already exists
+e24879a0820d: Layer already exists
+0f4a3946db09: Layer already exists
+c58b49447e27: Layer already exists
+45213b23e50c: Layer already exists
+937ec8869b29: Layer already exists
+3c11abe0e29b: Layer already exists
+6bb58ca33942: Layer already exists
+5bab8794e1f3: Layer already exists
+2cdf7e507d8b: Layer already exists
+54b37f988fc8: Layer already exists
+2fb7267be358: Layer already exists
+726e3799b24d: Layer already exists
+c1f696b650bc: Layer already exists
+f9e71befd463: Layer already exists
+d3ff2a0c10ad: Layer already exists
+ac7144c0172d: Layer already exists
+29793c7e3b69: Layer already exists
+3db5746c911a: Layer already exists
+819a824caf70: Layer already exists
+647265b9d8bc: Layer already exists
+41c002c8a6fd: Layer already exists
+0.1.166: digest: sha256:98902429f4593b062c46107aff627f54b4efde264dfdf34acc520088bccbf33d size: 6223
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-dlang
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-dlang /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-go
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-go /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-go-maven
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-go-maven /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-gradle
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-gradle /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-maven
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-maven /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-maven-java11
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-maven-java11 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-maven:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-maven-32
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-maven-32 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-nodejs
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-nodejs /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-newman
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-newman /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-nodejs:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-python
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-python /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-python2
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-python2 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-python37
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-python37 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-rust
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-rust /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-scala
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-scala /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+updating builder-terraform
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-terraform /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+Tag v0.1.166 created and pushed to remote origin
+building builder-dlang
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-dlang /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-dlang:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/6 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/6 : ENV DMD_PATH /opt/dlang
+ ---> Using cache
+ ---> 58b221bdda61
+Step 3/6 : RUN yum install -y gcc openssl-devel
+ ---> Using cache
+ ---> 0e24c90f8e5b
+Step 4/6 : RUN curl -fsS https://dlang.org/install.sh | bash -s dmd install -p /opt     && export DMD_VERSION=$(ls /opt | grep dmd)     && mv /opt/${DMD_VERSION} ${DMD_PATH}
+ ---> Using cache
+ ---> a0d5e79ca66d
+Step 5/6 : ENV PATH ${DMD_PATH}/linux/bin64:${PATH} LD_LIBRARY_PATH ${DMD_PATH}/linux/lib64 LIBRARY_PATH ${DMD_PATH}/linux/lib64 PS1 "(dmd}) \\u@\\h:\\w\$"
+ ---> Using cache
+ ---> 7b7dabf35f34
+Step 6/6 : CMD dmd
+ ---> Using cache
+ ---> b6d5b49e9368
+Successfully built b6d5b49e9368
+Pushing builder-dlang:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-dlang]
+72650dfaedf1: Preparing
+b1bbfc0b6a73: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+011511ec8363: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+c7fbb3941972: Waiting
+580594f1ae0e: Waiting
+590265475127: Waiting
+2009930db218: Waiting
+64e528685118: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+ffbb4b49fcd6: Waiting
+4722a6772643: Waiting
+72650dfaedf1: Layer already exists
+6774c35f9160: Layer already exists
+442518b0fbea: Layer already exists
+51ed3acf4d8d: Layer already exists
+b1bbfc0b6a73: Layer already exists
+011511ec8363: Layer already exists
+8137131949a1: Layer already exists
+50e587c6987c: Layer already exists
+afd9c1521343: Layer already exists
+c88d09d87151: Layer already exists
+61542700425c: Layer already exists
+c7fbb3941972: Layer already exists
+590265475127: Layer already exists
+cf2fad2c768e: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+ffbb4b49fcd6: Layer already exists
+925627df51db: Layer already exists
+4722a6772643: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:f3be75aeea44b1058e876d20640a4049036a2a4ce603b066179577dbcb065a3b size: 5813
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-go
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-go /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-go:0.1.166
+Sending build context to Docker daemon  4.608kB
+Step 1/26 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/26 : RUN yum -y groupinstall 'Development Tools'
+ ---> Using cache
+ ---> b89b681abb9f
+Step 3/26 : RUN curl -f -o /etc/yum.repos.d/vbatts-bazel-epel-7.repo  https://copr.fedorainfracloud.org/coprs/vbatts/bazel/repo/epel-7/vbatts-bazel-epel-7.repo &&   yum install -y bazel
+ ---> Using cache
+ ---> b5f48fa0768d
+Step 4/26 : ENV GOLANG_VERSION 1.11.4
+ ---> Using cache
+ ---> 558e51d95d96
+Step 5/26 : RUN wget https://golang.org/dl/go$GOLANG_VERSION.linux-amd64.tar.gz &&   tar -C /usr/local -xzf go$GOLANG_VERSION.linux-amd64.tar.gz &&   rm go${GOLANG_VERSION}.linux-amd64.tar.gz
+ ---> Using cache
+ ---> c277a7837d28
+Step 6/26 : ENV GLIDE_VERSION v0.13.1
+ ---> Using cache
+ ---> 308d72680400
+Step 7/26 : ENV GO15VENDOREXPERIMENT 1
+ ---> Using cache
+ ---> 3052f990fbca
+Step 8/26 : RUN wget https://github.com/Masterminds/glide/releases/download/$GLIDE_VERSION/glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   tar -xzf glide-$GLIDE_VERSION-linux-amd64.tar.gz &&   mv linux-amd64 /usr/local/glide &&   rm glide-$GLIDE_VERSION-linux-amd64.tar.gz
+ ---> Using cache
+ ---> 5a958298bcc3
+Step 9/26 : ENV GH_RELEASE_VERSION 2.2.1
+ ---> Using cache
+ ---> 7361e9dc9943
+Step 10/26 : RUN wget https://github.com/progrium/gh-release/releases/download/v$GH_RELEASE_VERSION/gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   tar -xzf gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz &&   mv gh-release /usr/local/gh-release &&   rm gh-release_${GH_RELEASE_VERSION}_linux_x86_64.tgz
+ ---> Using cache
+ ---> 1d5912893daf
+Step 11/26 : ENV JQ_RELEASE_VERSION 1.5
+ ---> Using cache
+ ---> 93518aca4a05
+Step 12/26 : RUN wget https://github.com/stedolan/jq/releases/download/jq-${JQ_RELEASE_VERSION}/jq-linux64 && mv jq-linux64 jq && chmod +x jq && cp jq /usr/bin/jq
+ ---> Using cache
+ ---> 694c9cc4a3dc
+Step 13/26 : ENV PROTOBUF 3.5.1
+ ---> Using cache
+ ---> 6f1a2f6b8f93
+Step 14/26 : RUN wget https://github.com/google/protobuf/releases/download/v${PROTOBUF}/protoc-${PROTOBUF}-linux-x86_64.zip &&   unzip protoc-${PROTOBUF}-linux-x86_64.zip -d protoc &&   chmod +x protoc && cp protoc/bin/protoc /usr/bin/protoc && rm -rf protoc
+ ---> Using cache
+ ---> 35a9657bcbb3
+Step 15/26 : ENV PATH $PATH:/usr/local/go/bin
+ ---> Using cache
+ ---> f0124a197dbe
+Step 16/26 : ENV PATH $PATH:/usr/local/glide
+ ---> Using cache
+ ---> bb430ef3167a
+Step 17/26 : ENV PATH $PATH:/usr/local/
+ ---> Using cache
+ ---> e51d939f7f86
+Step 18/26 : ENV GOROOT /usr/local/go
+ ---> Using cache
+ ---> ab79e5bccd80
+Step 19/26 : ENV GOPATH /home/jenkins/go
+ ---> Using cache
+ ---> ac09f5fe14e6
+Step 20/26 : ENV PATH $PATH:$GOPATH/bin
+ ---> Using cache
+ ---> 078334a89425
+Step 21/26 : RUN go get github.com/DATA-DOG/godog/cmd/godog &&   mv $GOPATH/bin/godog /usr/local/ &&   rm -rf $GOPATH/src/github.com/DATA-DOG
+ ---> Using cache
+ ---> 9ac55763b419
+Step 22/26 : ENV HUGO_VERSION 0.49
+ ---> Using cache
+ ---> cbd934b02a8f
+Step 23/26 : RUN curl -Lf -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz &&   tar xvfz hugo.tar.gz &&   mv hugo /usr/local &&   rm -fr hugo* &&   hugo version
+ ---> Using cache
+ ---> 9cc7e94ac4da
+Step 24/26 : RUN go get github.com/derekparker/delve/cmd/dlv &&   mv $GOPATH/bin/* /usr/local/ &&   rm -rf $GOPATH/src/github.com/derekparker
+ ---> Using cache
+ ---> a9d79dabf85a
+Step 25/26 : RUN go get github.com/golang/protobuf/proto &&   go get github.com/micro/protoc-gen-micro &&   go get github.com/golang/protobuf/protoc-gen-go &&   go get -u github.com/micro/micro &&   mv $GOPATH/bin/* /usr/local/ &&   cp -r $GOPATH/src/* /usr/local/go/src
+ ---> Using cache
+ ---> 39e9b0262f62
+Step 26/26 : CMD go version
+ ---> Using cache
+ ---> aba30c3ac122
+Successfully built aba30c3ac122
+Pushing builder-go:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-go]
+8c76085ce208: Preparing
+0a372184036d: Preparing
+9183ab02b37c: Preparing
+dc490b71ff6c: Preparing
+2645545dbf4d: Preparing
+a2aefb03e944: Preparing
+70d4479d041f: Preparing
+303d7a053fa4: Preparing
+fb36c27ed0d4: Preparing
+5705d7e563b0: Preparing
+3fc5a396de79: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+011511ec8363: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+a2aefb03e944: Waiting
+5705d7e563b0: Waiting
+3fc5a396de79: Waiting
+70d4479d041f: Waiting
+303d7a053fa4: Waiting
+51ed3acf4d8d: Waiting
+fb36c27ed0d4: Waiting
+6774c35f9160: Waiting
+442518b0fbea: Waiting
+9183ab02b37c: Layer already exists
+dc490b71ff6c: Layer already exists
+8c76085ce208: Layer already exists
+2645545dbf4d: Layer already exists
+0a372184036d: Layer already exists
+a2aefb03e944: Layer already exists
+5705d7e563b0: Layer already exists
+70d4479d041f: Layer already exists
+303d7a053fa4: Layer already exists
+fb36c27ed0d4: Layer already exists
+3fc5a396de79: Layer already exists
+51ed3acf4d8d: Layer already exists
+011511ec8363: Layer already exists
+442518b0fbea: Layer already exists
+6774c35f9160: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+afd9c1521343: Layer already exists
+c88d09d87151: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+590265475127: Layer already exists
+c7fbb3941972: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+925627df51db: Layer already exists
+8e3ab3c457c9: Layer already exists
+66dfea5c24eb: Layer already exists
+ffbb4b49fcd6: Layer already exists
+4722a6772643: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+071d8bd76517: Layer already exists
+af6c73bf9d23: Layer already exists
+0.1.166: digest: sha256:60c2f44f55dfdaca9f4faa03e5e651b687e012c78cb7df931fd4f3341c6adb2f size: 7719
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-go-maven
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-go-maven /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-go-maven:0.1.166
+Sending build context to Docker daemon  3.072kB
+Step 1/10 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/10 : ENV MAVEN_VERSION 3.5.3
+ ---> Using cache
+ ---> d5ddc17c558c
+Step 3/10 : RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
+ ---> Using cache
+ ---> d723324895a6
+Step 4/10 : ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
+ ---> Using cache
+ ---> 8226a3f656aa
+Step 5/10 : ENV maven.home $M2_HOME
+ ---> Using cache
+ ---> 5a430a3aaabc
+Step 6/10 : ENV M2 $M2_HOME/bin
+ ---> Using cache
+ ---> a46626a0328a
+Step 7/10 : ENV PATH $M2:$PATH
+ ---> Using cache
+ ---> 5be9a88008a3
+Step 8/10 : COPY set_java $M2
+ ---> Using cache
+ ---> edaf01fb5aeb
+Step 9/10 : RUN $M2/set_java && rm $M2/set_java
+ ---> Using cache
+ ---> 4cb5304d98fc
+Step 10/10 : CMD mvn -version
+ ---> Using cache
+ ---> 6316f9872c07
+Successfully built 6316f9872c07
+Pushing builder-go-maven:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-go-maven]
+c4cc094e1947: Preparing
+3f03b9fc712a: Preparing
+beacb90c5dac: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+442518b0fbea: Waiting
+011511ec8363: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+afd9c1521343: Waiting
+c7fbb3941972: Waiting
+c4cc094e1947: Layer already exists
+beacb90c5dac: Layer already exists
+6774c35f9160: Layer already exists
+3f03b9fc712a: Layer already exists
+51ed3acf4d8d: Layer already exists
+442518b0fbea: Layer already exists
+011511ec8363: Layer already exists
+8137131949a1: Layer already exists
+50e587c6987c: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+cf2fad2c768e: Layer already exists
+61542700425c: Layer already exists
+590265475127: Layer already exists
+c7fbb3941972: Layer already exists
+64e528685118: Layer already exists
+8e3ab3c457c9: Layer already exists
+6ee20e481fe6: Layer already exists
+4722a6772643: Layer already exists
+925627df51db: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+580594f1ae0e: Layer already exists
+20f1ff591185: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:801bcd250b5107ad79a345b058091d55e53a0d337dc72c02f5fd3f535cc6fb6b size: 6015
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-gradle
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-gradle /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-gradle:0.1.166
+Sending build context to Docker daemon  4.608kB
+Step 1/13 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/13 : CMD gradle
+ ---> Using cache
+ ---> 4fc6579ccae3
+Step 3/13 : ENV GRADLE_HOME /opt/gradle
+ ---> Using cache
+ ---> b3fdebf19445
+Step 4/13 : ENV GRADLE_VERSION 4.6
+ ---> Using cache
+ ---> 0ffe3eb7301e
+Step 5/13 : ARG GRADLE_DOWNLOAD_SHA256=98bd5fd2b30e070517e03c51cbb32beee3e2ee1a84003a5a5d748996d4b1b915
+ ---> Using cache
+ ---> ab9024e8943f
+Step 6/13 : RUN set -o errexit -o nounset 	&& echo "Downloading Gradle" 	&& wget -O gradle.zip "https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip" 		&& echo "Checking download hash" 	&& echo "${GRADLE_DOWNLOAD_SHA256} *gradle.zip" | sha256sum -c - 		&& echo "Installing Gradle" 	&& unzip gradle.zip 	&& rm gradle.zip 	&& mkdir -p /opt 	&& mv "gradle-${GRADLE_VERSION}" "${GRADLE_HOME}/" 	&& ln -s "${GRADLE_HOME}/bin/gradle" /usr/bin/gradle
+ ---> Using cache
+ ---> daf4ebcb19e4
+Step 7/13 : ENV ANDROID_VERSION 4333796
+ ---> Using cache
+ ---> 3817aac5ab1b
+Step 8/13 : ENV ANDROID_HOME /opt/android-sdk-linux
+ ---> Using cache
+ ---> 8c3d989a017d
+Step 9/13 : RUN wget https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip &&   unzip sdk-tools-linux-${ANDROID_VERSION}.zip -d android-sdk-linux && mv android-sdk-linux /opt/
+ ---> Using cache
+ ---> 9067c5249005
+Step 10/13 : ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools
+ ---> Using cache
+ ---> 890950b2b3bc
+Step 11/13 : RUN yes | sdkmanager --licenses
+ ---> Using cache
+ ---> 28423afc8dbb
+Step 12/13 : RUN sdkmanager "platform-tools"
+ ---> Using cache
+ ---> 0ea901a82032
+Step 13/13 : RUN yes | sdkmanager     "platforms;android-28"     "build-tools;28.0.0"
+ ---> Using cache
+ ---> 224c5e965040
+Successfully built 224c5e965040
+Pushing builder-gradle:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-gradle]
+9848ce2e1ed4: Preparing
+acd568d53170: Preparing
+11e9efd380f8: Preparing
+53fdd08e44c0: Preparing
+1127772af6ca: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+51ed3acf4d8d: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+6774c35f9160: Waiting
+442518b0fbea: Waiting
+011511ec8363: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+c88d09d87151: Waiting
+580594f1ae0e: Waiting
+afd9c1521343: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+61542700425c: Waiting
+071d8bd76517: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+1127772af6ca: Layer already exists
+9848ce2e1ed4: Layer already exists
+53fdd08e44c0: Layer already exists
+11e9efd380f8: Layer already exists
+acd568d53170: Layer already exists
+6774c35f9160: Layer already exists
+51ed3acf4d8d: Layer already exists
+011511ec8363: Layer already exists
+442518b0fbea: Layer already exists
+50e587c6987c: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+8137131949a1: Layer already exists
+cf2fad2c768e: Layer already exists
+590265475127: Layer already exists
+c7fbb3941972: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+ffbb4b49fcd6: Layer already exists
+925627df51db: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+4722a6772643: Layer already exists
+2009930db218: Layer already exists
+580594f1ae0e: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:75724743327a989013f8298de1530aee00c8736264ae8afd93dc63685f0f8eb4 size: 6448
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-maven
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-maven /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-maven:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/8 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/8 : ENV MAVEN_VERSION 3.5.3
+ ---> Using cache
+ ---> d5ddc17c558c
+Step 3/8 : RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
+ ---> Using cache
+ ---> d723324895a6
+Step 4/8 : ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
+ ---> Using cache
+ ---> 8226a3f656aa
+Step 5/8 : ENV maven.home $M2_HOME
+ ---> Using cache
+ ---> 5a430a3aaabc
+Step 6/8 : ENV M2 $M2_HOME/bin
+ ---> Using cache
+ ---> a46626a0328a
+Step 7/8 : ENV PATH $M2:$PATH
+ ---> Using cache
+ ---> 5be9a88008a3
+Step 8/8 : CMD mvn -version
+ ---> Using cache
+ ---> 4311bc1cd40c
+Successfully built 4311bc1cd40c
+Pushing builder-maven:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-maven]
+beacb90c5dac: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+442518b0fbea: Layer already exists
+beacb90c5dac: Layer already exists
+6774c35f9160: Layer already exists
+51ed3acf4d8d: Layer already exists
+011511ec8363: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+c7fbb3941972: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+925627df51db: Layer already exists
+8e3ab3c457c9: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:07a8c131ad3aaf2f1f8a90c87372d9ac69584b0b52a02c01a6885347061cfeef size: 5600
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-maven-java11
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-maven-java11 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-maven:0.1.166
+Building docker.io/jenkinsxio/builder-maven-java11:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/8 : FROM jenkinsxio/builder-maven:0.1.166
+ ---> 4311bc1cd40c
+Step 2/8 : RUN curl https://download.java.net/java/ga/jdk11/openjdk-11_linux-x64_bin.tar.gz | tar -xz
+ ---> Using cache
+ ---> ade8035c361e
+Step 3/8 : RUN mv /home/jenkins/jdk-11 /usr/java
+ ---> Using cache
+ ---> 14ae9662a750
+Step 4/8 : RUN rm /usr/bin/java /usr/bin/javac
+ ---> Using cache
+ ---> d7129bd9da53
+Step 5/8 : RUN ln -s /usr/java/bin/java /usr/bin/java
+ ---> Using cache
+ ---> 23e9f2094bc9
+Step 6/8 : RUN ln -s /usr/java/bin/javac /usr/bin/javac
+ ---> Using cache
+ ---> 69280c0a3596
+Step 7/8 : ENV JAVA_HOME /usr/java
+ ---> Using cache
+ ---> 5425e5269695
+Step 8/8 : CMD mvn -version
+ ---> Using cache
+ ---> 11cfbf68ed02
+Successfully built 11cfbf68ed02
+Pushing builder-maven-java11:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-maven-java11]
+d3ade6d4b2c5: Preparing
+83da1af31a4c: Preparing
+9b0da8de6b57: Preparing
+8f4089393b07: Preparing
+0ef95815e0ec: Preparing
+beacb90c5dac: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+011511ec8363: Waiting
+beacb90c5dac: Waiting
+50e587c6987c: Waiting
+51ed3acf4d8d: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+6774c35f9160: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+442518b0fbea: Waiting
+071d8bd76517: Waiting
+83da1af31a4c: Layer already exists
+8f4089393b07: Layer already exists
+d3ade6d4b2c5: Layer already exists
+9b0da8de6b57: Layer already exists
+0ef95815e0ec: Layer already exists
+beacb90c5dac: Layer already exists
+51ed3acf4d8d: Layer already exists
+6774c35f9160: Layer already exists
+011511ec8363: Layer already exists
+442518b0fbea: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+c7fbb3941972: Layer already exists
+590265475127: Layer already exists
+6ee20e481fe6: Layer already exists
+64e528685118: Layer already exists
+8e3ab3c457c9: Layer already exists
+4722a6772643: Layer already exists
+925627df51db: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+2009930db218: Layer already exists
+580594f1ae0e: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:f224a88512bce6202afe9812d738f59f896df004f667e9310d419f925ab1aec9 size: 6647
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-maven-32
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-maven-32 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-maven-32:0.1.166
+Sending build context to Docker daemon  3.072kB
+Step 1/10 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/10 : ENV MAVEN_VERSION 3.5.3
+ ---> Using cache
+ ---> d5ddc17c558c
+Step 3/10 : RUN curl -f -L http://central.maven.org/maven2/org/apache/maven/apache-maven/$MAVEN_VERSION/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar -C /opt -xzv
+ ---> Using cache
+ ---> d723324895a6
+Step 4/10 : ENV M2_HOME /opt/apache-maven-$MAVEN_VERSION
+ ---> Using cache
+ ---> 8226a3f656aa
+Step 5/10 : ENV maven.home $M2_HOME
+ ---> Using cache
+ ---> 5a430a3aaabc
+Step 6/10 : ENV M2 $M2_HOME/bin
+ ---> Using cache
+ ---> a46626a0328a
+Step 7/10 : ENV PATH $M2:$PATH
+ ---> Using cache
+ ---> 5be9a88008a3
+Step 8/10 : COPY set_java $M2
+ ---> Using cache
+ ---> edaf01fb5aeb
+Step 9/10 : RUN $M2/set_java && rm $M2/set_java
+ ---> Using cache
+ ---> 4cb5304d98fc
+Step 10/10 : CMD mvn -version
+ ---> Using cache
+ ---> 6316f9872c07
+Successfully built 6316f9872c07
+Pushing builder-maven-32:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-maven-32]
+c4cc094e1947: Preparing
+3f03b9fc712a: Preparing
+beacb90c5dac: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+442518b0fbea: Waiting
+011511ec8363: Waiting
+4722a6772643: Waiting
+50e587c6987c: Waiting
+ffbb4b49fcd6: Waiting
+8137131949a1: Waiting
+66dfea5c24eb: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+20f1ff591185: Waiting
+61542700425c: Waiting
+580594f1ae0e: Waiting
+cf2fad2c768e: Waiting
+2009930db218: Waiting
+c7fbb3941972: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+c4cc094e1947: Layer already exists
+3f03b9fc712a: Layer already exists
+beacb90c5dac: Layer already exists
+51ed3acf4d8d: Layer already exists
+6774c35f9160: Layer already exists
+442518b0fbea: Layer already exists
+50e587c6987c: Layer already exists
+011511ec8363: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+cf2fad2c768e: Layer already exists
+c7fbb3941972: Layer already exists
+61542700425c: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+925627df51db: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:801bcd250b5107ad79a345b058091d55e53a0d337dc72c02f5fd3f535cc6fb6b size: 6015
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-nodejs
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-nodejs /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-nodejs:0.1.166
+Sending build context to Docker daemon   2.56kB
+Step 1/5 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/5 : RUN curl -f --silent --location https://rpm.nodesource.com/setup_9.x | bash - &&   yum install -y nodejs gcc-c++ make bzip2 GConf2 gtk2 chromedriver chromium xorg-x11-server-Xvfb
+ ---> Using cache
+ ---> 57e726dcb382
+Step 3/5 : RUN npm i -g watch-cli vsce typescript
+ ---> Using cache
+ ---> e54fd1cfe6c7
+Step 4/5 : ENV YARN_VERSION 1.3.2
+ ---> Using cache
+ ---> 12038e05ca0e
+Step 5/5 : RUN curl -f -L -o /tmp/yarn.tgz https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz && 	tar xf /tmp/yarn.tgz && 	mv yarn-v${YARN_VERSION} /opt/yarn && 	ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn
+ ---> Using cache
+ ---> 651a147d0544
+Successfully built 651a147d0544
+Pushing builder-nodejs:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-nodejs]
+dddf5116a9bc: Preparing
+59441ff55eaf: Preparing
+676bc427a5d2: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+c88d09d87151: Waiting
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+dddf5116a9bc: Waiting
+59441ff55eaf: Waiting
+af6c73bf9d23: Waiting
+676bc427a5d2: Waiting
+071d8bd76517: Waiting
+51ed3acf4d8d: Waiting
+6774c35f9160: Waiting
+442518b0fbea: Waiting
+61542700425c: Waiting
+011511ec8363: Waiting
+8137131949a1: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+afd9c1521343: Waiting
+dddf5116a9bc: Layer already exists
+59441ff55eaf: Layer already exists
+676bc427a5d2: Layer already exists
+51ed3acf4d8d: Layer already exists
+6774c35f9160: Layer already exists
+442518b0fbea: Layer already exists
+011511ec8363: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+590265475127: Layer already exists
+c7fbb3941972: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+925627df51db: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+20f1ff591185: Layer already exists
+66dfea5c24eb: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:fedc46693fad51b4dbf0b48fa55e02cace59e9455033fd15ea8250806209de39 size: 6025
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-newman
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-newman /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-nodejs:0.1.166
+Building docker.io/jenkinsxio/builder-newman:0.1.166
+Sending build context to Docker daemon  3.072kB
+Step 1/2 : FROM jenkinsxio/builder-nodejs:0.1.166
+ ---> 651a147d0544
+Step 2/2 : RUN npm install -g newman
+ ---> Using cache
+ ---> c854c3c1bbed
+Successfully built c854c3c1bbed
+Pushing builder-newman:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-newman]
+977f7df60c63: Preparing
+dddf5116a9bc: Preparing
+59441ff55eaf: Preparing
+676bc427a5d2: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+50e587c6987c: Waiting
+cf2fad2c768e: Waiting
+8137131949a1: Waiting
+c7fbb3941972: Waiting
+c88d09d87151: Waiting
+590265475127: Waiting
+afd9c1521343: Waiting
+64e528685118: Waiting
+61542700425c: Waiting
+6ee20e481fe6: Waiting
+580594f1ae0e: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+071d8bd76517: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+6774c35f9160: Waiting
+442518b0fbea: Waiting
+011511ec8363: Waiting
+51ed3acf4d8d: Layer already exists
+dddf5116a9bc: Layer already exists
+977f7df60c63: Layer already exists
+676bc427a5d2: Layer already exists
+59441ff55eaf: Layer already exists
+6774c35f9160: Layer already exists
+011511ec8363: Layer already exists
+442518b0fbea: Layer already exists
+8137131949a1: Layer already exists
+50e587c6987c: Layer already exists
+c88d09d87151: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+c7fbb3941972: Layer already exists
+afd9c1521343: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+8e3ab3c457c9: Layer already exists
+6ee20e481fe6: Layer already exists
+925627df51db: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:5577f13d441c1a387d1d7eab83ca4d4d7c7cea475fa5118c7416e04c5e96f91c size: 6237
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-python
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-python /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-python:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/6 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/6 : RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+ ---> Using cache
+ ---> 95f82eff89bf
+Step 3/6 : RUN yum update  -y
+ ---> Using cache
+ ---> 71faf81e0a9e
+Step 4/6 : RUN yum install -y python36u python36u-libs python36u-devel python36u-pip
+ ---> Using cache
+ ---> 48937a91658a
+Step 5/6 : RUN ln -s /usr/bin/python3.6 /usr/bin/python3
+ ---> Using cache
+ ---> 28beeccff8f8
+Step 6/6 : CMD python3 --version
+ ---> Using cache
+ ---> a6dbb1e0f059
+Successfully built a6dbb1e0f059
+Pushing builder-python:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-python]
+cc4f54ff26b7: Preparing
+387824107b55: Preparing
+422385d306b9: Preparing
+d7b7cbed8a26: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+011511ec8363: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+6774c35f9160: Waiting
+442518b0fbea: Waiting
+387824107b55: Layer already exists
+422385d306b9: Layer already exists
+51ed3acf4d8d: Layer already exists
+cc4f54ff26b7: Layer already exists
+d7b7cbed8a26: Layer already exists
+442518b0fbea: Layer already exists
+8137131949a1: Layer already exists
+6774c35f9160: Layer already exists
+011511ec8363: Layer already exists
+50e587c6987c: Layer already exists
+cf2fad2c768e: Layer already exists
+c7fbb3941972: Layer already exists
+afd9c1521343: Layer already exists
+c88d09d87151: Layer already exists
+61542700425c: Layer already exists
+590265475127: Layer already exists
+6ee20e481fe6: Layer already exists
+64e528685118: Layer already exists
+925627df51db: Layer already exists
+8e3ab3c457c9: Layer already exists
+4722a6772643: Layer already exists
+66dfea5c24eb: Layer already exists
+580594f1ae0e: Layer already exists
+ffbb4b49fcd6: Layer already exists
+20f1ff591185: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:9f2875eadc70caccb90f0779fdd63d8b2c94047c87919db42e9bd968b1f0bef7 size: 6231
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-python2
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-python2 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-python2:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/4 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/4 : RUN yum update  -y
+ ---> Using cache
+ ---> f2420346a069
+Step 3/4 : RUN yum install -y python python-libs python-devel python-pip
+ ---> Using cache
+ ---> 2849f780bf60
+Step 4/4 : CMD python --version
+ ---> Using cache
+ ---> 23a8967d0776
+Successfully built 23a8967d0776
+Pushing builder-python2:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-python2]
+91c38abcacce: Preparing
+711533b4338f: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+011511ec8363: Waiting
+50e587c6987c: Waiting
+c88d09d87151: Preparing
+8137131949a1: Waiting
+afd9c1521343: Preparing
+c88d09d87151: Waiting
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+afd9c1521343: Waiting
+590265475127: Preparing
+64e528685118: Preparing
+cf2fad2c768e: Waiting
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+c7fbb3941972: Waiting
+925627df51db: Preparing
+4722a6772643: Preparing
+590265475127: Waiting
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+64e528685118: Waiting
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+6ee20e481fe6: Waiting
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+580594f1ae0e: Waiting
+af6c73bf9d23: Waiting
+2009930db218: Waiting
+071d8bd76517: Waiting
+4722a6772643: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+ffbb4b49fcd6: Waiting
+711533b4338f: Layer already exists
+442518b0fbea: Layer already exists
+51ed3acf4d8d: Layer already exists
+6774c35f9160: Layer already exists
+91c38abcacce: Layer already exists
+011511ec8363: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+c7fbb3941972: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+4722a6772643: Layer already exists
+925627df51db: Layer already exists
+ffbb4b49fcd6: Layer already exists
+20f1ff591185: Layer already exists
+66dfea5c24eb: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:f8f9bf8016d7fa640f3718ce92e1ce299d6dcd9a2cebd4c90af879874eec8b8f size: 5813
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-python37
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-python37 /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-python37:0.1.166
+Sending build context to Docker daemon   2.56kB
+Step 1/8 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/8 : ENV PYTHONVERSION 3.7.1
+ ---> Using cache
+ ---> 018a6379bbb2
+Step 3/8 : RUN yum update  -y
+ ---> Using cache
+ ---> c7ab61f9c21c
+Step 4/8 : RUN yum -y install gcc openssl-devel bzip2-devel libffi-devel
+ ---> Using cache
+ ---> cbfb51cc6df8
+Step 5/8 : RUN cd /usr/src &&     wget https://www.python.org/ftp/python/${PYTHONVERSION}/Python-${PYTHONVERSION}.tgz &&     tar xzf Python-${PYTHONVERSION}.tgz &&     cd Python-${PYTHONVERSION} &&     ./configure --enable-optimizations &&     make altinstall &&     rm /usr/src/Python-${PYTHONVERSION}.tgz &&     cd ../ &&     rm -rf /usr/src/Python-${PYTHONVERSION}
+ ---> Using cache
+ ---> ed0083d6b753
+Step 6/8 : RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
+ ---> Using cache
+ ---> 33ae5c62e3d3
+Step 7/8 : RUN yum -y remove gcc openssl-devel bzip2-devel
+ ---> Using cache
+ ---> 5d66c9af9116
+Step 8/8 : CMD python3 --version
+ ---> Using cache
+ ---> 020b1ace8c2e
+Successfully built 020b1ace8c2e
+Pushing builder-python37:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-python37]
+cc8d6fafa2ae: Preparing
+d59196f8d4c9: Preparing
+7cfc1e0bc515: Preparing
+b0ab504ff3b3: Preparing
+b21e2573b420: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+442518b0fbea: Waiting
+011511ec8363: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+6774c35f9160: Waiting
+51ed3acf4d8d: Waiting
+b21e2573b420: Layer already exists
+b0ab504ff3b3: Layer already exists
+cc8d6fafa2ae: Layer already exists
+7cfc1e0bc515: Layer already exists
+d59196f8d4c9: Layer already exists
+51ed3acf4d8d: Layer already exists
+442518b0fbea: Layer already exists
+6774c35f9160: Layer already exists
+50e587c6987c: Layer already exists
+011511ec8363: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+cf2fad2c768e: Layer already exists
+61542700425c: Layer already exists
+c7fbb3941972: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+925627df51db: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+20f1ff591185: Layer already exists
+66dfea5c24eb: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:944a7dafdfe4764fe3ad667021f8588cfce271b6d00ccf2318cb90013418c805 size: 6443
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-rust
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-rust /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-rust:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/5 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/5 : RUN yum install -y gcc
+ ---> Using cache
+ ---> c516f30e9fe4
+Step 3/5 : RUN wget https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init &&   chmod +x rustup-init &&  ./rustup-init -y &&  rm -rf rustup-init
+ ---> Using cache
+ ---> e7a8b0ea5102
+Step 4/5 : ENV PATH $PATH:/root/.cargo/bin
+ ---> Using cache
+ ---> 9938d21103f0
+Step 5/5 : RUN rustup override set nightly
+ ---> Using cache
+ ---> 31c50bff5487
+Successfully built 31c50bff5487
+Pushing builder-rust:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-rust]
+94ed37549729: Preparing
+cf5be1718307: Preparing
+6ed24758e12b: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+2009930db218: Waiting
+925627df51db: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+442518b0fbea: Waiting
+580594f1ae0e: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+011511ec8363: Waiting
+51ed3acf4d8d: Layer already exists
+94ed37549729: Layer already exists
+6774c35f9160: Layer already exists
+6ed24758e12b: Layer already exists
+cf5be1718307: Layer already exists
+011511ec8363: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+442518b0fbea: Layer already exists
+afd9c1521343: Layer already exists
+c7fbb3941972: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+8e3ab3c457c9: Layer already exists
+925627df51db: Layer already exists
+6ee20e481fe6: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:11d2fa03574f41ba290f51468836ae819834c390d557e9405e9abbd4919012ea size: 6027
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-scala
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-scala /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-scala:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/5 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/5 : ENV SCALA_VERSION 2.12.5
+ ---> Using cache
+ ---> 8705942d1c94
+Step 3/5 : ENV SBT_VERSION 1.1.2
+ ---> Using cache
+ ---> 8aa4b3ee85b6
+Step 4/5 : RUN curl -fsL https://downloads.typesafe.com/scala/$SCALA_VERSION/scala-$SCALA_VERSION.tgz | tar xfz - -C /root/ &&   echo >> /root/.bashrc &&   echo "export PATH=~/scala-$SCALA_VERSION/bin:$PATH" >> /root/.bashrc
+ ---> Using cache
+ ---> 6beb38bd0386
+Step 5/5 : RUN curl -f https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo &&   yum install -y sbt-$SBT_VERSION &&   sbt sbtVersion
+ ---> Using cache
+ ---> 92ad024a2a97
+Successfully built 92ad024a2a97
+Pushing builder-scala:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-scala]
+6e540750e070: Preparing
+7c24e35a7b8f: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+011511ec8363: Waiting
+50e587c6987c: Waiting
+8137131949a1: Waiting
+c88d09d87151: Waiting
+afd9c1521343: Waiting
+61542700425c: Waiting
+cf2fad2c768e: Waiting
+c7fbb3941972: Waiting
+590265475127: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+8e3ab3c457c9: Waiting
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+071d8bd76517: Waiting
+6774c35f9160: Layer already exists
+6e540750e070: Layer already exists
+442518b0fbea: Layer already exists
+51ed3acf4d8d: Layer already exists
+7c24e35a7b8f: Layer already exists
+011511ec8363: Layer already exists
+c88d09d87151: Layer already exists
+8137131949a1: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+590265475127: Layer already exists
+c7fbb3941972: Layer already exists
+64e528685118: Layer already exists
+50e587c6987c: Layer already exists
+6ee20e481fe6: Layer already exists
+925627df51db: Layer already exists
+8e3ab3c457c9: Layer already exists
+4722a6772643: Layer already exists
+ffbb4b49fcd6: Layer already exists
+66dfea5c24eb: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:95f60c3e6ff591689702f0bc29e396966851042b0cefc350bea4f8358610778f size: 5814
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+building builder-terraform
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job/builder-terraform /tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+FROM jenkinsxio/builder-base:0.1.166
+Building docker.io/jenkinsxio/builder-terraform:0.1.166
+Sending build context to Docker daemon  2.048kB
+Step 1/4 : FROM jenkinsxio/builder-base:0.1.166
+ ---> a32669b0f512
+Step 2/4 : ENV TERRAFORM 0.11.10
+ ---> Using cache
+ ---> 66f02423d09e
+Step 3/4 : RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip &&   unzip terraform_${TERRAFORM}_linux_amd64.zip &&   chmod +x terraform && mv terraform /usr/bin/terraform && rm terraform_${TERRAFORM}_linux_amd64.zip
+ ---> Using cache
+ ---> 13048d3d43ba
+Step 4/4 : ENV PATH $PATH:/usr/local/
+ ---> Using cache
+ ---> 5f705e18e16e
+Successfully built 5f705e18e16e
+Pushing builder-terraform:0.1.166 to docker.io
+The push refers to a repository [docker.io/jenkinsxio/builder-terraform]
+9099d431a167: Preparing
+51ed3acf4d8d: Preparing
+6774c35f9160: Preparing
+442518b0fbea: Preparing
+011511ec8363: Preparing
+50e587c6987c: Preparing
+8137131949a1: Preparing
+c88d09d87151: Preparing
+afd9c1521343: Preparing
+50e587c6987c: Waiting
+8137131949a1: Waiting
+61542700425c: Preparing
+cf2fad2c768e: Preparing
+c7fbb3941972: Preparing
+590265475127: Preparing
+c7fbb3941972: Waiting
+cf2fad2c768e: Waiting
+61542700425c: Waiting
+590265475127: Waiting
+64e528685118: Preparing
+6ee20e481fe6: Preparing
+8e3ab3c457c9: Preparing
+925627df51db: Preparing
+4722a6772643: Preparing
+ffbb4b49fcd6: Preparing
+66dfea5c24eb: Preparing
+20f1ff591185: Preparing
+580594f1ae0e: Preparing
+2009930db218: Preparing
+af6c73bf9d23: Preparing
+071d8bd76517: Preparing
+925627df51db: Waiting
+4722a6772643: Waiting
+ffbb4b49fcd6: Waiting
+66dfea5c24eb: Waiting
+20f1ff591185: Waiting
+580594f1ae0e: Waiting
+64e528685118: Waiting
+6ee20e481fe6: Waiting
+2009930db218: Waiting
+af6c73bf9d23: Waiting
+8e3ab3c457c9: Waiting
+442518b0fbea: Layer already exists
+011511ec8363: Layer already exists
+6774c35f9160: Layer already exists
+9099d431a167: Layer already exists
+51ed3acf4d8d: Layer already exists
+50e587c6987c: Layer already exists
+8137131949a1: Layer already exists
+c88d09d87151: Layer already exists
+afd9c1521343: Layer already exists
+61542700425c: Layer already exists
+cf2fad2c768e: Layer already exists
+c7fbb3941972: Layer already exists
+590265475127: Layer already exists
+64e528685118: Layer already exists
+6ee20e481fe6: Layer already exists
+8e3ab3c457c9: Layer already exists
+925627df51db: Layer already exists
+4722a6772643: Layer already exists
+66dfea5c24eb: Layer already exists
+ffbb4b49fcd6: Layer already exists
+20f1ff591185: Layer already exists
+580594f1ae0e: Layer already exists
+2009930db218: Layer already exists
+af6c73bf9d23: Layer already exists
+071d8bd76517: Layer already exists
+0.1.166: digest: sha256:f2a6ac0eb6d9f3996260541a73e62d5843417b09798934a5efad0b7758c3e400 size: 5601
+Not pushing the latest docker image as PUSH_LATEST=false
+/tmp/jenkinsTests.tmp/jenkins9107799962875219435test/workspace/job
+Picked up _JAVA_OPTIONS: -Xmx2048m
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 4 git credentials from /home/jenkins/git/credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/jenkins-x-platform has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x-charts/jx-build-templates has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - Cloning: jenkins-x/jenkins-x-platform to .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Cloning into 'jenkins-x-platform'...
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Cloning: jenkins-x-charts/jx-build-templates to .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Cloning into 'jx-build-templates'...
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[updatebot-c33bb6ef-187b-444f-a378-2490a2faaf35 1db7468c] fix(version): update jenkinsxio/builder-base to 0.1.166
+ 1 file changed, 16 insertions(+), 16 deletions(-)
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Created pull request https://github.com/jenkins-x/jenkins-x-platform/pull/4564
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+Picked up _JAVA_OPTIONS: -Xmx2048m
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 4 git credentials from /home/jenkins/git/credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/jenkins-x-platform has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x-charts/jx-build-templates has excludeUpdateLoop: null
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up-to-date.
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up-to-date.
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: builderTag: (.*) with value 0.1.166 in: ././.updatebot-repos/github/jenkins-x/jenkins-x-platform repo: git://github.com/jenkins-x/jenkins-x-platform.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: null
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: builderTag: (.*) with value 0.1.166 in: ././.updatebot-repos/github/jenkins-x-charts/jx-build-templates repo: git://github.com/jenkins-x-charts/jx-build-templates.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: null
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[updatebot-fc9ffb46-853f-4d6a-9769-766790a1e303 56c981f] fix(regex): update builderTag: (.*) to 0.1.166
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Created pull request https://github.com/jenkins-x-charts/jx-build-templates/pull/270
+Picked up _JAVA_OPTIONS: -Xmx2048m
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 4 git credentials from /home/jenkins/git/credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/jenkins-x-platform has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x-charts/jx-build-templates has excludeUpdateLoop: null
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up-to-date.
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - From https://github.com/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI -    c4f90603..f64f7a94  gh-pages   -> origin/gh-pages
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up-to-date.
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/jenkins-x-platform in .updatebot-repos/github/jenkins-x/jenkins-x-platform
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: \s+tag: (.*) with value 0.1.166 in: ././.updatebot-repos/github/jenkins-x/jenkins-x-platform repo: git://github.com/jenkins-x/jenkins-x-platform.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: \s+repository: jenkinsxio/builder-go
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[updatebot-ee10d952-e027-4629-b567-7cf7b2dd9310 4cb310de] fix(regex): update \s+tag: (.*) to 0.1.166
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Created pull request https://github.com/jenkins-x/jenkins-x-platform/pull/4565
+[main] WARN io.jenkins.updatebot.repository.LocalRepository - The repo has no config!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x-charts/jx-build-templates in .updatebot-repos/github/jenkins-x-charts/jx-build-templates
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: \s+tag: (.*) with value 0.1.166 in: ././.updatebot-repos/github/jenkins-x-charts/jx-build-templates repo: git://github.com/jenkins-x-charts/jx-build-templates.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: \s+repository: jenkinsxio/builder-go
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
