@@ -300,7 +300,7 @@ controllerbuild:
   - "--verbose"
   image:
     repository: jenkinsxio/builder-go
-    tag: 0.1.163
+    tag: 0.1.164
   env:
     GIT_AUTHOR_NAME: "jenkins-x-bot"
     GIT_AUTHOR_EMAIL: "jenkins-x@googlegroups.com"
@@ -514,7 +514,7 @@ controllerteam:
   - "team"
   image:
     repository: jenkinsxio/builder-go
-    tag: 0.1.163
+    tag: 0.1.164
   clusterrole:
     enabled: true
     rules:
