@@ -7,6 +7,16 @@ teamRoles:
   team-admin:
     enabled: true
 
+BuildPacks:
+  "classic-workloads":
+     Label: "Library Workloads: CI+Release but no CD"
+     GitUrl: "https://github.com/jenkins-x-buildpacks/jenkins-x-classic.git"
+     GitRef: "master"
+  "kubernetes-workloads":
+     Label: "Kubernetes Workloads: Automated CI+CD with GitOps Promotion"
+     GitUrl: "https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git"
+     GitRef: "master"
+
 gcpreviews:
   serviceaccount:
     enabled: true
