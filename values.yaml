@@ -406,6 +406,7 @@ controllercommitstatus:
       - jenkins.io
       resources:
       - environments
+      - plugins
       verbs:
       - get
       - list
