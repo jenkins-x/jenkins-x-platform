@@ -405,6 +405,14 @@ controllercommitstatus:
     - apiGroups:
       - jenkins.io
       resources:
+      - environments
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
+      - jenkins.io
+      resources:
       - pipelineactivities
       verbs:
       - get
