@@ -271,6 +271,7 @@ controllerworkflow:
       - jenkins.io
       resources:
       - workflows
+      - environments
       verbs:
       - list
       - get
@@ -279,6 +280,7 @@ controllerworkflow:
       - ""
       resources:
       - services
+      - secrets
       verbs:
       - list
       - get
