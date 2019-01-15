@@ -1,0 +1,260 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1547543443.4940994,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1547543443.494431,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1547543445.0160468,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1547543447.9484901,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-platform.git\" @ \"eee3b13d1b9d8e914089fb48789a12e0c870eb5a\" in path \"/workspace\""}
+Step: build-step-jenkins:
+
+Picked up _JAVA_OPTIONS: -Xmx400m
+Started
+Running in Durability level: PERFORMANCE_OPTIMIZED
+  15.227 [id=38]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+[Pipeline] node
+  21.277 [id=87]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class io.jenkins.jenkinsfile.runner.FileSystemSCM
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:245)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:178)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor91.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor99.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:108)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:182)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:332)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:83)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:244)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:232)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins6427642912644595394test/workspace/job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withCredentials
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI Build)
+Stage "CI Build" skipped due to when conditional
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build and Push Release)
+[Pipeline] dir
+Running in /home/jenkins/jenkins-x-platform
+[Pipeline] {
+[Pipeline] git
+Cloning the remote Git repository
+Cloning repository https://github.com/jenkins-x/jenkins-x-platform
+ > git init /home/jenkins/jenkins-x-platform # timeout=10
+Fetching upstream changes from https://github.com/jenkins-x/jenkins-x-platform
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/jenkins-x/jenkins-x-platform +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/jenkins-x/jenkins-x-platform # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/jenkins-x/jenkins-x-platform # timeout=10
+Fetching upstream changes from https://github.com/jenkins-x/jenkins-x-platform
+ > git fetch --tags --progress https://github.com/jenkins-x/jenkins-x-platform +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision eee3b13d1b9d8e914089fb48789a12e0c870eb5a (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f eee3b13d1b9d8e914089fb48789a12e0c870eb5a
+ > git branch -a -v --no-abbrev # timeout=10
+ > git checkout -b master eee3b13d1b9d8e914089fb48789a12e0c870eb5a
+Commit message: "Merge pull request #4664 from jenkins-x/updatebot-ea253aba-b705-447f-ab20-f11335d2351f"
+First time build. Skipping changelog.
+[Pipeline] sh
++ jx step git credentials
+Generated Git credentials file /home/jenkins/git/credentials
+[Pipeline] sh
++ ./jx/scripts/release.sh
+Already on 'master'
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+"incubator" has been added to your repositories
+"stable" has been added to your repositories
+Error: Looks like "https://kubernetes-helm.github.io/monocular" is not a valid chart repository or cannot be reached: Failed to fetch https://kubernetes-helm.github.io/monocular/index.yaml : 404 Not Found
+"jx" has been added to your repositories
+helm repo add jenkins-x http://chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+"incubator" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+helm repo add monocular https://helm.github.io/monocular
+"monocular" has been added to your repositories
+rm -rf charts
+rm -rf jenkins-x*.tgz
+rm -rf requirements.lock
+helm dependency build
+Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "jx" chart repository
+...Successfully got an update from the "jenkins-x" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈Happy Helming!⎈
+Saving 17 charts
+Downloading jenkins from repo http://chartmuseum.jenkins-x.io
+Downloading exposecontroller from repo http://chartmuseum.jenkins-x.io
+Downloading exposecontroller from repo http://chartmuseum.jenkins-x.io
+Downloading chartmuseum from repo http://chartmuseum.jenkins-x.io
+Downloading nexus from repo http://chartmuseum.jenkins-x.io
+Downloading heapster from repo https://kubernetes-charts.storage.googleapis.com
+Downloading monocular from repo http://chartmuseum.jenkins-x.io
+Downloading docker-registry from repo https://kubernetes-charts.storage.googleapis.com
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Downloading jx from repo http://chartmuseum.jenkins-x.io
+Deleting outdated charts
+helm lint
+==> Linting .
+Lint OK
+
+1 chart(s) linted, no failures
+sed -i -e "s/version:.*/version: 0.0.3223/" Chart.yaml
+git add Chart.yaml
+git commit -a -m "release 0.0.3223" --allow-empty
+[master 9725b829] release 0.0.3223
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+git tag -fa v0.0.3223 -m "Release version 0.0.3223"
+git push origin v0.0.3223
+To https://github.com/jenkins-x/jenkins-x-platform
+ * [new tag]           v0.0.3223 -> v0.0.3223
+helm package .
+Successfully packaged chart and saved it to: /home/jenkins/jenkins-x-platform/jenkins-x-platform-0.0.3223.tgz
+curl --fail -u **** --data-binary "@jenkins-x-platform-0.0.3223.tgz" http://jenkins-x-chartmuseum:8080/api/charts
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 76821  100    14  100 76807     47   252k --:--:-- --:--:-- --:--:--  252k
+{"saved":true}helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "jenkins-x" chart repository
+...Successfully got an update from the "jx" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete. ⎈ Happy Helming!⎈ 
+rm -rf jenkins-x*.tgz
+updatebot push-version --kind make CHART_VERSION 0.0.3223
+Picked up _JAVA_OPTIONS: -Xmx400m
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 4 git credentials from /home/jenkins/git/credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/cloud-environments has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository garethjevans/organisation-gevans has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - Cloning: jenkins-x/cloud-environments to .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Cloning into 'cloud-environments'...
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Cloning: garethjevans/organisation-gevans to .updatebot-repos/github/garethjevans/organisation-gevans
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Cloning into 'organisation-gevans'...
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] WARN io.jenkins.updatebot.support.ProcessHelper - Failed to run command git branch -D updatebot-4ea16f43-c938-4048-9ef7-26e21080826d in ././.updatebot-repos/github/jenkins-x/cloud-environments : exit 1
+[updatebot-4ea16f43-c938-4048-9ef7-26e21080826d e594344] fix(version): update CHART_VERSION to 0.0.3223
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Updated PR https://github.com/jenkins-x/cloud-environments/pull/245
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from garethjevans/organisation-gevans in .updatebot-repos/github/garethjevans/organisation-gevans
+updatebot push-regex -r "JX_PLATFORM_VERSION=(.*)" -v 0.0.3223 build.sh
+Picked up _JAVA_OPTIONS: -Xmx400m
+[main] INFO io.jenkins.updatebot.git.GitHelper - Loaded 4 git credentials from /home/jenkins/git/credentials
+[main] INFO io.jenkins.updatebot.commands.PushSourceChanges - Loaded from git credentials
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository jenkins-x/cloud-environments has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - repository garethjevans/organisation-gevans has excludeUpdateLoop: null
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up-to-date.
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.repository.Repositories - Checkout branch: master from garethjevans/organisation-gevans in .updatebot-repos/github/garethjevans/organisation-gevans
+[main] INFO io.jenkins.updatebot.repository.Repositories - Pull branch: master from garethjevans/organisation-gevans in .updatebot-repos/github/garethjevans/organisation-gevans
+[main] INFO io.jenkins.updatebot.git.GitPluginCLI - Already up-to-date.
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No name available for GitHub login!
+[main] WARN io.jenkins.updatebot.git.GitPluginCLI - No email available for GitHub login!
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from jenkins-x/cloud-environments in .updatebot-repos/github/jenkins-x/cloud-environments
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: JX_PLATFORM_VERSION=(.*) with value 0.0.3223 in: ././.updatebot-repos/github/jenkins-x/cloud-environments repo: git://github.com/jenkins-x/cloud-environments.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: null
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Checkout branch: master from garethjevans/organisation-gevans in .updatebot-repos/github/garethjevans/organisation-gevans
+[main] INFO io.jenkins.updatebot.commands.PushRegexChanges - Updating regex: JX_PLATFORM_VERSION=(.*) with value 0.0.3223 in: ././.updatebot-repos/github/garethjevans/organisation-gevans repo: git://github.com/garethjevans/organisation-gevans.git
+[main] INFO io.jenkins.updatebot.kind.regex.RegexUpdater - Using Previous Line regex: null
+[main] WARN io.jenkins.updatebot.support.ProcessHelper - Failed to run command git branch -D updatebot-c3d15a83-4a8f-42bd-bd89-b0713a4ab31b in ././.updatebot-repos/github/garethjevans/organisation-gevans : exit 1
+[updatebot-c3d15a83-4a8f-42bd-bd89-b0713a4ab31b 8665396] fix(regex): update JX_PLATFORM_VERSION=(.*) to 0.0.3223
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[main] INFO io.jenkins.updatebot.commands.ModifyFilesCommandSupport - Updated PR https://github.com/garethjevans/organisation-gevans/pull/12
+echo 0.0.3223 > VERSION
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
