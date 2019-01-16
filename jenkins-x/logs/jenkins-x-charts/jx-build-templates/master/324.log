@@ -1,0 +1,47 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1547619744.85754,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1547619744.8594248,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1547619746.0502765,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1547619747.4999516,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/jenkins-x-charts/jx-build-templates.git\" @ \"b2f767888275bb76c71221cd5d80170d935c295f\" in path \"/workspace\""}
+Step: build-step-credentials:
+
+Tag v0.0.338 created and pushed to remote origin
+Step: build-step-release:
+
+rm -rf charts
+rm -rf jx-build-templates*.tgz
+rm -rf requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+Happy Helming!
+helm repo add jenkinsxio http://chartmuseum.jenkins-x.io 
+"jenkinsxio" has been added to your repositories
+helm dependency build
+No requirements found in ./charts.
+helm lint
+==> Linting .
+Lint OK
+
+1 chart(s) linted, no failures
+sed -i -e "s/version:.*/version: 0.0.338/" Chart.yaml
+helm package .
+Successfully packaged chart and saved it to: /workspace/jx-build-templates/jx-build-templates-0.0.338.tgz
+curl --fail -u admin:jxadmin18 --data-binary "@jx-build-templates-0.0.338.tgz" http://jenkins-x-chartmuseum:8080/api/charts
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3364  100    14  100  3350     40   9627 --:--:-- --:--:-- --:--:--  9626100  3364  100    14  100  3350     40   9624 --:--:-- --:--:-- --:--:--  9626
+{"saved":true}rm -rf jx-build-templates*.tgz
