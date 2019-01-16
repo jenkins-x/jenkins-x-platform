@@ -1,0 +1,378 @@
+Step: build-step-credential-initializer:
+
+{"level":"warn","ts":1547642857.9117362,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1547642857.912196,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-0:
+
+{"level":"warn","ts":1547642860.3217547,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/test\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1547642862.689132,"logger":"fallback-logger","caller":"git-init/main.go:92","msg":"Successfully cloned \"https://github.com/cloudbees/core-frontend.git\" @ \"de36dad8c37823a417a88723f03806525f6b31d0\" in path \"/workspace\""}
+Step: build-step-jenkins:
+
+Picked up _JAVA_OPTIONS: -Xmx400m
+Started
+Running in Durability level: PERFORMANCE_OPTIMIZED
+  24.298 [id=40]	WARNING	i.f.k.c.i.VersionUsageUtils#alert: The client is using resource type 'customresourcedefinitions' with unstable version 'v1beta1'
+[Pipeline] node
+  38.220 [id=60]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class io.jenkins.jenkinsfile.runner.FileSystemSCM
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:245)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:178)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:48)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.methodCall(DefaultInvoker.java:20)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor142.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor146.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:108)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:182)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:332)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:83)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:244)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:232)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Running on Jenkins in /tmp/jenkinsTests.tmp/jenkins8308543226228718736test/workspace/job
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+[Pipeline] }
+[Pipeline] // stage
+  39.512 [id=60]	WARNING	o.j.plugins.workflow.cps.DSL#invokeStep: Error storing the arguments for step: checkout
+org.kohsuke.stapler.NoStaplerConstructorException: There's no @DataBoundConstructor on any constructor of class io.jenkins.jenkinsfile.runner.FileSystemSCM
+	at org.kohsuke.stapler.ClassDescriptor.loadConstructorParamNames(ClassDescriptor.java:265)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.<init>(DescribableModel.java:144)
+	at org.jenkinsci.plugins.structs.describable.DescribableModel.of(DescribableModel.java:114)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeObjectAndRecordMutation(ArgumentsActionImpl.java:294)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.sanitizeMapAndRecordMutation(ArgumentsActionImpl.java:386)
+	at org.jenkinsci.plugins.workflow.cps.actions.ArgumentsActionImpl.<init>(ArgumentsActionImpl.java:74)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeStep(DSL.java:245)
+	at org.jenkinsci.plugins.workflow.cps.DSL.invokeMethod(DSL.java:178)
+	at org.jenkinsci.plugins.workflow.cps.CpsScript.invokeMethod(CpsScript.java:122)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1213)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1022)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.call(PogoMetaClassSite.java:42)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.kohsuke.groovy.sandbox.impl.Checker$1.call(Checker.java:157)
+	at org.kohsuke.groovy.sandbox.GroovyInterceptor.onMethodCall(GroovyInterceptor.java:23)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SandboxInterceptor.onMethodCall(SandboxInterceptor.java:155)
+	at org.kohsuke.groovy.sandbox.impl.Checker$1.call(Checker.java:155)
+	at org.kohsuke.groovy.sandbox.impl.Checker.checkedCall(Checker.java:159)
+	at org.kohsuke.groovy.sandbox.impl.Checker.checkedCall(Checker.java:129)
+	at com.cloudbees.groovy.cps.sandbox.SandboxInvoker.methodCall(SandboxInvoker.java:17)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:57)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor142.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.get(PropertyishBlock.java:76)
+	at com.cloudbees.groovy.cps.LValueBlock$GetAdapter.receive(LValueBlock.java:30)
+	at com.cloudbees.groovy.cps.impl.PropertyishBlock$ContinuationImpl.fixName(PropertyishBlock.java:66)
+	at sun.reflect.GeneratedMethodAccessor146.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:108)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:182)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:332)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:83)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:244)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:232)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[Pipeline] withCredentials
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI Build and deploy preview)
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] checkout
+[Pipeline] sh
++ ./scripts/ci/feature.sh
++ set -e
++ npm install -g yarn
+/usr/bin/yarn -> /usr/lib/node_modules/yarn/bin/yarn.js
+/usr/bin/yarnpkg -> /usr/lib/node_modules/yarn/bin/yarn.js
++ yarn@1.13.0
+added 1 package in 0.535s
++ npm -v
+5.6.0
++ node -v
+v9.11.2
++ yarn -v
+1.3.2
++ yarn install --ignore-engines
+yarn install v1.3.2
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@1.2.4: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.4" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-data@1.0.0" has unmet peer dependency "mobx@^5.5.2".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-data@1.0.0" has unmet peer dependency "mobx-react@^5.3.6".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-data@1.0.0" has unmet peer dependency "mobx-state-tree@^3.7.1".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-data@1.0.0" has unmet peer dependency "react@^16.6.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard@1.0.0" has unmet peer dependency "react@^16.6.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard@1.0.0" has unmet peer dependency "react-dom@^16.6.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-api > ts-jest@23.10.5" has unmet peer dependency "jest@>=22 <24".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > formik@1.4.1" has unmet peer dependency "react@>=15".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-gravatar@2.6.3" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-modal@3.8.1" has unmet peer dependency "react@^0.14.0 || ^15.0.0 || ^16".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-outside-click-handler@1.2.2" has unmet peer dependency "react@^0.14 || >=15".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-select@2.2.0" has unmet peer dependency "react@^15.3.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-transition-group@2.5.2" has unmet peer dependency "react@>=15.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-virtualized@9.21.0" has unmet peer dependency "react@^15.3.0 || ^16.0.0-alpha".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions@4.1.4" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-info@3.4.11" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-jest@3.4.11" has unmet peer dependency "@storybook/addons@^3.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-jest@3.4.11" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-options@3.4.11" has unmet peer dependency "@storybook/addons@^3.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-options@3.4.11" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react@4.1.4" has unmet peer dependency "react@^16.6.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > env-var-helpers@4.1.0" has unmet peer dependency "lodash@^4.x".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > enzyme-adapter-react-16@1.7.1" has unmet peer dependency "react@^16.0.0-0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-dom@16.7.0" has unmet peer dependency "react@^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-test-renderer@16.7.0" has unmet peer dependency "react@^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > @expantra/pipeline-widget-proto@0.0.2-JW" has unmet peer dependency "react@^16.4.1".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > @expantra/pipeline-widget-proto@0.0.2-JW" has unmet peer dependency "react-dom@^16.4.1".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > mst-middlewares@3.6.0" has unmet peer dependency "mobx-state-tree@^3.4.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-copy-to-clipboard@5.0.1" has unmet peer dependency "react@^15.3.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-hotkeys@1.1.4" has unmet peer dependency "react@>= 0.14.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-hotkeys@1.1.4" has unmet peer dependency "react-dom@>= 0.14.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-lazylog@3.2.0" has unmet peer dependency "react@>=16.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-router@4.2.0" has unmet peer dependency "react@>=15".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-router-dom@4.2.2" has unmet peer dependency "react@>=15".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > formik > create-react-context@0.2.3" has unmet peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-outside-click-handler > airbnb-prop-types@2.11.0" has unmet peer dependency "react@^0.14 || ^15.0.0 || ^16.0.0-alpha".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > react-select > react-input-autosize@2.2.1" has unmet peer dependency "react@^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @emotion/core@0.13.1" has unmet peer dependency "react@>=16.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @emotion/provider@0.11.2" has unmet peer dependency "react@>=16.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @storybook/components@4.1.4" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > react-inspector@2.3.1" has unmet peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-info > @storybook/components@3.4.11" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-storyshots > jest-specific-snapshot@1.0.0" has unmet peer dependency "jest@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core@4.1.4" has unmet peer dependency "react@>=16.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > env-var-helpers > mad-logs@10.3.6" has unmet peer dependency "lodash@^4.x".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > enzyme-adapter-react-16 > enzyme-adapter-utils@1.9.0" has unmet peer dependency "react@0.13.x || 0.14.x || ^15.0.0-0 || ^16.0.0-0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-document-title > react-side-effect@1.1.5" has unmet peer dependency "react@^0.13.0 || ^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-ui > react-router-dom > react-router@4.3.1" has unmet peer dependency "react@>=15".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @emotion/styled > @emotion/styled-base@0.10.6" has unmet peer dependency "react@>=16.3.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @storybook/components > react-textarea-autosize@7.1.0" has unmet peer dependency "react@>=0.14.0 <17.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @storybook/components > render-fragment@0.1.1" has unmet peer dependency "react@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/addon-actions > @storybook/components > render-fragment@0.1.1" has unmet peer dependency "prop-types@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui@4.1.4" has unmet peer dependency "react@*".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > env-var-helpers > mad-logs > env-var-helpers@5.2.0" has unmet peer dependency "lodash@^4.x".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > @storybook/react-komposer@2.0.5" has unmet peer dependency "react@^0.14.7 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > react-fuzzy@0.5.2" has unmet peer dependency "react@^0.14.7 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > react-treebeard@3.1.0" has unmet peer dependency "@emotion/styled@^0.10.6".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > react-treebeard@3.1.0" has unmet peer dependency "react@^15.5.4 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > @storybook/mantra-core > @storybook/react-simple-di@1.3.0" has unmet peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > @storybook/react-komposer > @storybook/react-stubber@1.0.1" has unmet peer dependency "react@^0.14.7 || ^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-77e9ca76-0953-4a39-a782-9f6ab04eab3f > @cloudbees/core-shipyard > @storybook/react > @storybook/core > @storybook/ui > react-treebeard > velocity-react@1.4.1" has unmet peer dependency "react@^15.3.0 || ^16.0.0".
+[4/4] Building fresh packages...
+Done in 406.72s.
++ yarn build-packages
+yarn run v1.3.2
+$ lerna run build --ignore '@cloudbees/*-ui'
+lerna notice cli v3.8.4
+lerna info versioning independent
+lerna info ci enabled
+lerna info filter [ '!@cloudbees/*-ui' ]
+lerna info Executing command in 4 packages: "yarn run build"
+lerna info run Ran npm script 'build' in '@cloudbees/core-flags' in 7.5s:
+$ rimraf ./dist && tsc -p ./tsconfig.build.json
+lerna info run Ran npm script 'build' in '@cloudbees/core-api' in 8.3s:
+$ rimraf ./dist && tsc -p ./tsconfig.build.json
+lerna info run Ran npm script 'build' in '@cloudbees/core-shipyard' in 16.4s:
+$ rimraf ./dist && tsc -p ./tsconfig.build.json && yarn run build-css && yarn run copy-assets
+$ node-sass --importer ../../node_modules/node-sass-package-importer/dist/cli.js src/styles/shipyard.scss dist/index.css
+Rendering Complete, saving .css file...
+Wrote CSS to /tmp/jenkinsTests.tmp/jenkins8308543226228718736test/workspace/job/packages/core-shipyard/dist/index.css
+$ cd src/ && cpx "./**/*.{scss, css}" ../dist
+lerna info run Ran npm script 'build' in '@cloudbees/core-data' in 6.6s:
+$ rimraf ./dist && tsc -p ./tsconfig.build.json
+lerna success run Ran npm script 'build' in 4 packages in 23.3s:
+lerna success - @cloudbees/core-api
+lerna success - @cloudbees/core-data
+lerna success - @cloudbees/core-flags
+lerna success - @cloudbees/core-shipyard
+Done in 24.09s.
++ yarn test
+yarn run v1.3.2
+$ cross-env NODE_ENV='ci' lerna run test --stream
+lerna notice cli v3.8.4
+lerna info versioning independent
+lerna info ci enabled
+lerna info Executing command in 5 packages: "yarn run test"
+@cloudbees/core-api: warning package.json: No license field
+@cloudbees/core-shipyard: warning package.json: No license field
+@cloudbees/core-flags: warning package.json: No license field
+@cloudbees/core-api: $ jest
+@cloudbees/core-flags: $ jest || true
+@cloudbees/core-shipyard: $ jest
+@cloudbees/core-flags: No tests found
+@cloudbees/core-flags: In /tmp/jenkinsTests.tmp/jenkins8308543226228718736test/workspace/job/packages/core-flags
+@cloudbees/core-flags:   7 files checked.
+@cloudbees/core-flags:   testMatch: **/__tests__/**/*.js?(x),**/?(*.)+(spec|test).js?(x) - 0 matches
+@cloudbees/core-flags:   testPathIgnorePatterns: /node_modules/ - 7 matches
+@cloudbees/core-flags: Pattern:  - 0 matches
+@cloudbees/core-api: PASS src/auth.spec.ts (16.655s)
+@cloudbees/core-api:   auth
+@cloudbees/core-api:     ✓ should be able to call signOut (56ms)
+@cloudbees/core-api: Test Suites: 1 passed, 1 total
+@cloudbees/core-api: Tests:       1 passed, 1 total
+@cloudbees/core-api: Snapshots:   0 total
+@cloudbees/core-api: Time:        16.747s
+@cloudbees/core-api: Ran all test suites.
+@cloudbees/core-shipyard: PASS src/components/button/Button.spec.tsx
+@cloudbees/core-shipyard: PASS src/components/menu/Menu.spec.tsx
+@cloudbees/core-shipyard: PASS src/components/card/Card.spec.tsx
+@cloudbees/core-shipyard: PASS src/components/modal/Modal.spec.tsx
+@cloudbees/core-shipyard: PASS src/components/icon/Icon.spec.tsx
+@cloudbees/core-shipyard: FAIL tests/shots.js (25.478s)
+@cloudbees/core-shipyard:   ● Console
+@cloudbees/core-shipyard:     console.warn src/utils/stories/withComponentTests.ts:8
+@cloudbees/core-shipyard:       No tests results available
+@cloudbees/core-shipyard:   ● Storyshots › Widget|Heading › With Pages 📷
+@cloudbees/core-shipyard:     expect(value).toMatchSnapshot()
+@cloudbees/core-shipyard:     Received value does not match stored snapshot "Storyshots Widget|Heading With Pages 📷 1".
+@cloudbees/core-shipyard:     - Snapshot
+@cloudbees/core-shipyard:     + Received
+@cloudbees/core-shipyard:     @@ -12,10 +12,11 @@
+@cloudbees/core-shipyard:           <li
+@cloudbees/core-shipyard:             className="inline-block pl-4 text-normal"
+@cloudbees/core-shipyard:           >
+@cloudbees/core-shipyard:             <div
+@cloudbees/core-shipyard:               className="align-center hover:no-underline inline-block w-96 relative group medium cursor-default green-dark bold"
+@cloudbees/core-shipyard:     +         data-test="HeadingPageItem-Pipelines"
+@cloudbees/core-shipyard:               tabIndex={0}
+@cloudbees/core-shipyard:             >
+@cloudbees/core-shipyard:               Pipelines
+@cloudbees/core-shipyard:               <div
+@cloudbees/core-shipyard:                 className="h-4 rounded rounded-top absolute pin-b--1 pin-x ease-300ms o-100 bg-color green"
+@cloudbees/core-shipyard:     @@ -25,10 +26,11 @@
+@cloudbees/core-shipyard:           <li
+@cloudbees/core-shipyard:             className="inline-block pl-4 text-normal"
+@cloudbees/core-shipyard:           >
+@cloudbees/core-shipyard:             <div
+@cloudbees/core-shipyard:               className="align-center hover:no-underline inline-block w-96 relative group medium cursor-pointer"
+@cloudbees/core-shipyard:     +         data-test="HeadingPageItem-Tests"
+@cloudbees/core-shipyard:               onClick={[Function]}
+@cloudbees/core-shipyard:               onKeyDown={[Function]}
+@cloudbees/core-shipyard:               role="link"
+@cloudbees/core-shipyard:               tabIndex={0}
+@cloudbees/core-shipyard:             >
+@cloudbees/core-shipyard:     @@ -41,10 +43,11 @@
+@cloudbees/core-shipyard:           <li
+@cloudbees/core-shipyard:             className="inline-block pl-4 text-normal"
+@cloudbees/core-shipyard:           >
+@cloudbees/core-shipyard:             <div
+@cloudbees/core-shipyard:               className="align-center hover:no-underline inline-block w-96 relative group medium cursor-pointer"
+@cloudbees/core-shipyard:     +         data-test="HeadingPageItem-Logs"
+@cloudbees/core-shipyard:               onClick={[Function]}
+@cloudbees/core-shipyard:               onKeyDown={[Function]}
+@cloudbees/core-shipyard:               role="link"
+@cloudbees/core-shipyard:               tabIndex={0}
+@cloudbees/core-shipyard:             >
+@cloudbees/core-shipyard:       at match (../../node_modules/@storybook/addon-storyshots/dist/test-bodies.js:25:20)
+@cloudbees/core-shipyard:       at ../../node_modules/@storybook/addon-storyshots/dist/test-bodies.js:39:10
+@cloudbees/core-shipyard:       at ../../node_modules/@storybook/addon-storyshots/dist/test-bodies.js:49:35
+@cloudbees/core-shipyard:       at Object.<anonymous> (../../node_modules/@storybook/addon-storyshots/dist/api/snapshotsTestsTemplate.js:46:33)
+@cloudbees/core-shipyard:  › 1 snapshot failed.
+@cloudbees/core-shipyard: Snapshot Summary
+@cloudbees/core-shipyard:  › 1 snapshot failed from 1 test suite. Inspect your code changes or run `yarn test -u` to update them.
+@cloudbees/core-shipyard: Test Suites: 1 failed, 5 passed, 6 total
+@cloudbees/core-shipyard: Tests:       1 failed, 79 passed, 80 total
+@cloudbees/core-shipyard: Snapshots:   1 failed, 66 passed, 67 total
+@cloudbees/core-shipyard: Time:        50.9s
+@cloudbees/core-shipyard: Ran all test suites.
+@cloudbees/core-shipyard: error Command failed with exit code 1.
+@cloudbees/core-shipyard: info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+lerna ERR! yarn run test exited 1 in '@cloudbees/core-shipyard'
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+Post stage
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build and Deploy Release)
+Stage "Build and Deploy Release" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
