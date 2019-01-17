@@ -9,7 +9,7 @@ teamRoles:
 
 gcpreviews:
   serviceaccount:
-    enabled: true
+    customName: jenkins
   cronjob:
     enabled: true
     schedule: "0 */3 * * *"
@@ -17,57 +17,6 @@ gcpreviews:
   - "gc"
   - "previews"
   - "--batch-mode"
-  role:
-    enabled: true
-    rules:
-    - apiGroups:
-      - jenkins.io
-      resources:
-      - plugins
-      verbs:
-      - get
-      - list
-      - watch
-    - apiGroups:
-      - jenkins.io
-      resources:
-      - environments
-      verbs:
-      - list
-      - delete
-    - apiGroups:
-      - ""
-      resources:
-      - secrets
-      verbs:
-      - get
-      - list
-    - apiGroups:
-      - apiextensions.k8s.io
-      resources:
-      - customresourcedefinitions
-      verbs:
-      - create
-
-  clusterrole:
-    enabled: true
-    rules:
-    - apiGroups:
-      - apiextensions.k8s.io
-      resources:
-      - customresourcedefinitions
-      verbs:
-      - get
-      - create
-      - update
-    - apiGroups:
-      - ""
-      resources:
-      - namespaces
-      verbs:
-      - get
-      - delete
-      - list
 
 gcactivities:
   serviceaccount:
