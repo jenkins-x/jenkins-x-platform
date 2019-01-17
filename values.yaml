@@ -1309,7 +1309,7 @@ jenkins:
             Args: "cat"
             Tty: true
       Maven-Nodejs:
-        Name: nodejs
+        Name: maven-nodejs
         # ServiceAccount: fooo
         Label: jenkins-maven-nodejs
         DevPodPorts: 9229, 3000, 8080, 5005
