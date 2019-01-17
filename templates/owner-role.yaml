@@ -18,6 +18,7 @@ rules:
     - jenkins.io
     resources:
     - "*"
+    - "pods/*"
     verbs:
     - list
     - get

@@ -25,6 +25,7 @@ rules:
     - batch
     resources:
     - "*"
+    - "pods/*"
     verbs:
     - list
     - get
