@@ -681,7 +681,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "jenkinsxio/jenkinsx"
-    ImageTag: "0.0.41"
+    ImageTag: "0.0.42"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
