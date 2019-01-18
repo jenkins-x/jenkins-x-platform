@@ -17,6 +17,9 @@ gcpreviews:
   - "gc"
   - "previews"
   - "--batch-mode"
+  image:
+    repository: jenkinsxio/builder-go
+    tag: 0.1.199
 
 gcactivities:
   serviceaccount:
