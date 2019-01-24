@@ -906,7 +906,7 @@ jenkins:
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
-          Maven-Java11:
+          maven:
             Image: jenkinsxio/builder-maven-java11:0.1.211
             Privileged: true
             RequestCpu: "400m"
