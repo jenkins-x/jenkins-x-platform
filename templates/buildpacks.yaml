@@ -1,0 +1,15 @@
+{{- if .Values.BuildPacks }}
+apiVersion: v1
+kind: List
+items:
+{{- range $pkey, $pval := .Values.BuildPacks }}
+- apiVersion: jenkins.io/v1
+  kind: BuildPack
+  metadata:
+    name: {{ quote $pkey }}
+  spec:
+    label: {{ quote $pval.Label }}
+    gitUrl: {{ quote $pval.GitUrl }}
+    gitRef: {{ quote $pval.GitRef }}
+{{- end }}
+{{- end }}
