@@ -916,7 +916,7 @@ jenkins:
             Args: "cat"
             Tty: true
       Maven-Java11:
-        Name: maven
+        Name: maven-java11
         Label: jenkins-maven-java11
         DevPodPorts: 5005, 8080
         volumes:
