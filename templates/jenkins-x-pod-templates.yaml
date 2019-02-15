@@ -75,8 +75,10 @@ data:
             configMapKeyRef:
               name: jenkins-x-docker-registry
               key: docker.registry
+  {{- if $globalenv.TILLER_NAMESPACE }}
         - name: TILLER_NAMESPACE
           value: {{ $globalenv.TILLER_NAMESPACE }}
+  {{- end }}
   {{- range $ekey, $eval := $pval.EnvVars }}
         - name: {{ $ekey }}
           value: {{ $eval }}
