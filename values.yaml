@@ -886,6 +886,9 @@ jenkins:
           GIT_COMMITTER_NAME: jenkins-x-bot
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
+          # lets disable the noisy download artifact logging messages
+          MAVEN_OPTS: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+
         ServiceAccount: jenkins
         # Node labels and tolerations for pod assignment
         # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
@@ -938,6 +941,9 @@ jenkins:
           GIT_COMMITTER_NAME: jenkins-x-bot
           XDG_CONFIG_HOME: /home/jenkins
           DOCKER_CONFIG: /home/jenkins/.docker/
+
+          # lets disable the noisy download artifact logging messages
+          MAVEN_OPTS: -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
         ServiceAccount: jenkins
         # Node labels and tolerations for pod assignment
         # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
