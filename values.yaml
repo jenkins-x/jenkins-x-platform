@@ -289,6 +289,17 @@ controllerbuild:
       - update
       - list
     - apiGroups:
+      - tekton.dev
+      resources:
+      - pipelines
+      - pipelinereources
+      - pipelineruns
+      - tasks
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
       - apps
       resources:
       - deployments
