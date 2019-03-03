@@ -53,5 +53,5 @@ endif
 	rm -rf ${NAME}*.tgz
 	updatebot push-version --kind make CHART_VERSION $(RELEASE_VERSION)
 	updatebot push-regex -r "JX_PLATFORM_VERSION=(.*)" -v $(RELEASE_VERSION) build.sh
-	#jx step create version pr -b -n jenkins-x/jenkins-x-platform -v $(RELEASE_VERSION)
+	jx step create version pr -f "jenkins-x/*"
 	echo $(RELEASE_VERSION) > VERSION
