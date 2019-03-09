@@ -314,6 +314,7 @@ controllerbuild:
       - jenkins.io
       resources:
       - pipelineactivities
+      - pipelinestructures
       verbs:
       - list
       - get
