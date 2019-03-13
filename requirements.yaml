@@ -22,7 +22,7 @@ dependencies:
   condition: "nexus.enabled"
 - name: "heapster"
   repository: "https://kubernetes-charts.storage.googleapis.com"
-  version: "0.2.4"
+  version: "0.3.2"
 - name: "monocular"
   repository: "http://chartmuseum.jenkins-x.io"
   version: "0.6.4"
