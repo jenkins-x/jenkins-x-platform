@@ -315,6 +315,7 @@ controllerbuild:
       resources:
       - pipelineactivities
       - pipelinestructures
+      - sourcerepositories
       verbs:
       - list
       - get
