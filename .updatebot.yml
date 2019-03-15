@@ -3,6 +3,3 @@ github:
   - name: jenkins-x
     repositories:
     - name: cloud-environments
-  - name: garethjevans
-    repositories:
-    - name: organisation-gevans
