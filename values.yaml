@@ -19,17 +19,58 @@ BuildPacks:
 
 gcpreviews:
   serviceaccount:
-    customName: jenkins
+    enabled: true
   cronjob:
     enabled: true
     schedule: "0 */3 * * *"
   args:
-  - "gc"
-  - "previews"
-  - "--batch-mode"
+    - "gc"
+    - "previews"
+    - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-go
     tag: 0.1.297
+  role:
+    enabled: true
+    rules:
+      - apiGroups:
+          - jenkins.io
+        resources:
+          - environments
+        verbs:
+          - list
+          - get
+          - update
+          - delete
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - list
+          - get
+          - watch
+    clusterrole:
+      enabled: true
+      rules:
+        - apiGroups:
+            - ""
+          resources:
+            - namespaces
+          verbs:
+            - get
+            - list
+            - delete
+        - apiGroups:
+            - ""
+          resources:
+            - pods
+            - pods/portforward
+          verbs:
+            - get
+            - delete
+            - list
+            - create
 
 gcactivities:
   serviceaccount:
