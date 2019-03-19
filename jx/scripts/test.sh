@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 IMAGES=$(cat values.yaml | grep Image | grep gcr | sed 's/Image: //')
 
 function get_digest() {
