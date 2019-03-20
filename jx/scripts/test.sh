@@ -24,7 +24,7 @@ function get_image_configuration() {
   CONTAINER_CONFIG=$(curl --silent --location "https://$registry/v2/$image/blobs/$digest" | jq -r '.container_config')
   if [[ $CONTAINER_CONFIG == "null" ]]; then
     echo "Unable to find image"
-	exit 1
+	#exit 1
   fi
 }
 
