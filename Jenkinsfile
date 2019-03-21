@@ -15,6 +15,7 @@ pipeline {
 
                     sh "make build"
                     sh "helm template ."
+                    sh "./jx/scripts/test.sh"
                 }
             }
         }
