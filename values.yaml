@@ -29,7 +29,7 @@ gcpreviews:
     - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-go
-    tag: 0.1.318
+    tag: 0.1.319
   role:
     enabled: true
     rules:
@@ -305,7 +305,7 @@ controllerbuild:
   - "--verbose"
   image:
     repository: gcr.io/jenkinsxio/builder-go
-    tag: 0.1.318
+    tag: 0.1.319
   env:
     GIT_AUTHOR_NAME: "jenkins-x-bot"
     GIT_AUTHOR_EMAIL: "jenkins-x@googlegroups.com"
@@ -529,7 +529,7 @@ controllerteam:
   - "team"
   image:
     repository: gcr.io/jenkinsxio/builder-go
-    tag: 0.1.318
+    tag: 0.1.319
   clusterrole:
     enabled: true
     rules:
