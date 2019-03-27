@@ -50,27 +50,27 @@ gcpreviews:
           - list
           - get
           - watch
-    clusterrole:
-      enabled: true
-      rules:
-        - apiGroups:
-            - ""
-          resources:
-            - namespaces
-          verbs:
-            - get
-            - list
-            - delete
-        - apiGroups:
-            - ""
-          resources:
-            - pods
-            - pods/portforward
-          verbs:
-            - get
-            - delete
-            - list
-            - create
+  clusterrole:
+    enabled: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - namespaces
+        verbs:
+          - get
+          - list
+          - delete
+      - apiGroups:
+          - ""
+        resources:
+          - pods
+          - pods/portforward
+        verbs:
+          - get
+          - delete
+          - list
+          - create
 
 gcactivities:
   serviceaccount:
