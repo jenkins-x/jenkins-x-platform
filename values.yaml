@@ -1,4 +1,8 @@
+# to specify the docker registry when not using Jenkins
+dockerRegistry: ""
+
 JXBasicAuth: admin:$apr1$a/HdTrV7$XYCGJWF9PdVwVVTvjMyaU/
+
 extensions:
   enabled: true
 teamRoles:
@@ -6,6 +10,7 @@ teamRoles:
     enabled: true
   team-admin:
     enabled: true
+
 
 BuildPacks:
   "classic-workloads":
