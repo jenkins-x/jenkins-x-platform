@@ -368,6 +368,7 @@ controllerbuild:
       - watch
       - create
       - update
+      - patch
     - apiGroups:
       - jenkins.io
       resources:
