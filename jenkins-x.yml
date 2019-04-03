@@ -1,0 +1,44 @@
+buildPack: none
+pipelineConfig:
+  pipelines:
+    release:
+      pipeline:
+        agent:
+          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+        stages:
+        - name: release
+          environment:
+          - name: GIT_COMMITTER_EMAIL
+            value: jenkins-x@googlegroups.com
+          - name: GIT_COMMITTER_NAME
+            value: jenkins-x-bot
+          - name: GIT_AUTHOR_EMAIL
+            value: jenkins-x@googlegroups.com
+          - name: GIT_AUTHOR_NAME
+            value: jenkins-x-bot
+          steps:
+          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
+            command: make
+            args:
+              - release
+
+    pullRequest:
+      pipeline:
+        agent:
+          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
+        stages:
+        - name: build-pr
+          steps:
+          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
+            command: make
+            args:
+              - build
+
+          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
+            command: helm
+            args:
+              - template
+              - jenkins-x-platform
+
+          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
+            command: ./jx/scripts/test.sh

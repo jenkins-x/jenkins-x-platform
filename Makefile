@@ -4,19 +4,22 @@ OS := $(shell uname)
 RELEASE_VERSION := $(shell jx-release-version)
 HELM := helm
 
-setup:
-	$(HELM) repo add jenkins-x http://chartmuseum.jenkins-x.io
+init:
+	$(HELM) init --client-only
+
+setup: init
+	$(HELM) repo add jx http://chartmuseum.jenkins-x.io
 	$(HELM) repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
 	$(HELM) repo add stable https://kubernetes-charts.storage.googleapis.com
 	$(HELM) repo add monocular https://helm.github.io/monocular
 
 build: setup clean
-	helm dependency build
-	$(HELM) lint
+	$(HELM) dependency build jenkins-x-platform
+	$(HELM) lint jenkins-x-platform
 
 lint:
-	helm dependency build
-	$(HELM) lint
+	$(HELM) dependency build jenkins-x-platform
+	$(HELM) lint jenkins-x-platform
 
 install: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) .
@@ -31,23 +34,23 @@ delete:
 	$(HELM) delete --purge $(NAME)
 
 clean: 
-	rm -rf charts
-	rm -rf ${NAME}*.tgz
-	rm -rf requirements.lock
+	rm -rf jenkins-x-platform/charts
+	rm -rf jenkins-x-platform/${NAME}*.tgz
+	rm -rf jenkins-x-platform/requirements.lock
 
 release: setup clean build
 ifeq ($(OS),Darwin)
-	sed -i "" -e "s/version:.*/version: $(RELEASE_VERSION)/" Chart.yaml
+	sed -i "" -e "s/version:.*/version: $(RELEASE_VERSION)/" jenkins-x-platform/Chart.yaml
 else ifeq ($(OS),Linux)
-	sed -i -e "s/version:.*/version: $(RELEASE_VERSION)/" Chart.yaml
+	sed -i -e "s/version:.*/version: $(RELEASE_VERSION)/" jenkins-x-platform/Chart.yaml
 else
 	exit -1
 endif
-	git add Chart.yaml
+	git add jenkins-x-platform/Chart.yaml
 	git commit -a -m "release $(RELEASE_VERSION)" --allow-empty
 	git tag -fa v$(RELEASE_VERSION) -m "Release version $(RELEASE_VERSION)"
 	git push origin v$(RELEASE_VERSION)
-	$(HELM) package .
+	$(HELM) package jenkins-x-platform
 	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
 	helm repo update
 	rm -rf ${NAME}*.tgz

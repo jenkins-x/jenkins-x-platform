@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-IMAGES=$(cat values.yaml | grep Image | grep gcr | sed 's/Image: //')
+IMAGES=$(cat jenkins-x-platform/values.yaml | grep Image | grep gcr | sed 's/Image: //')
 
 function get_digest() {
   local image=$1
