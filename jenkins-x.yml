@@ -3,6 +3,8 @@ pipelineConfig:
   pipelines:
     release:
       pipeline:
+        agent:
+          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
         - name: release
           environment:
@@ -60,6 +62,8 @@ pipelineConfig:
 
     pullRequest:
       pipeline:
+        agent:
+          image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
         - name: build-pr
           steps:
