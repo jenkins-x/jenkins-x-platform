@@ -83,7 +83,7 @@ pipelineConfig:
             command: helm
             args:
               - template
-              - .
+              - jenkins-x-platform
 
           - image: gcr.io/jenkinsxio/builder-jx:0.1.320
             command: ./jx/scripts/test.sh
