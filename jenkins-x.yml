@@ -18,44 +18,6 @@ pipelineConfig:
             value: jenkins-x-bot
           steps:
           - image: gcr.io/jenkinsxio/builder-jx:0.1.320
-            command: helm
-            args:
-              - init
-              - --client-only
-
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
-            command: helm
-            args:
-              - repo
-              - add
-              - incubator
-              - https://kubernetes-charts-incubator.storage.googleapis.com
-
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
-            command: helm
-            args:
-              - repo
-              - add
-              - stable
-              - https://kubernetes-charts.storage.googleapis.com
-
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
-            command: helm
-            args:
-              - repo
-              - add
-              - monocular
-              - https://kubernetes-helm.github.io/monocular
-
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
-            command: helm
-            args:
-              - repo
-              - add
-              - jx
-              - http://chartmuseum.jenkins-x.io
-
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
             command: make
             args:
               - release
@@ -67,13 +29,6 @@ pipelineConfig:
         stages:
         - name: build-pr
           steps:
- 
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
-            command: helm
-            args:
-              - init
-              - --client-only
-
           - image: gcr.io/jenkinsxio/builder-jx:0.1.320
             command: make
             args:
