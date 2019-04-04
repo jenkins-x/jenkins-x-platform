@@ -28,6 +28,18 @@ pipelineConfig:
               - -k
               - BASIC_AUTH_PASS
               - -f
+              - /builder/home/basic-auth-user.json
+            name: basic-auth-username
+          - image: gcr.io/jenkinsxio/builder-jx:0.1.320
+            command: jx
+            args:
+              - step
+              - credential
+              - -s
+              - jenkins-x-chartmuseum
+              - -k
+              - BASIC_AUTH_PASS
+              - -f
               - /builder/home/basic-auth-pass.json
             name: basic-auth-password
           - image: gcr.io/jenkinsxio/builder-jx:0.1.320
