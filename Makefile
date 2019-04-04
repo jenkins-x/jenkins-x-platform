@@ -4,6 +4,9 @@ OS := $(shell uname)
 RELEASE_VERSION := $(shell jx-release-version)
 HELM := helm
 
+CHARTMUSEUM_CREDS_USR := $(shell cat /builder/home/basic-auth-user.json)
+CHARTMUSEUM_CREDS_PSW := $(shell cat /builder/home/basic-auth-pass.json)
+
 init:
 	$(HELM) init --client-only
 
