@@ -25,7 +25,8 @@ pipelineConfig:
               - credential
               - -s
               - jenkins-x-chartmuseum
-              - -k BASIC_AUTH_PASS
+              - -k
+              - BASIC_AUTH_PASS
               - -f
               - /builder/home/basic-auth-pass.json
             name: basic-auth-password
