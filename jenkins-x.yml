@@ -16,8 +16,8 @@ pipelineConfig:
             value: jenkins-x@googlegroups.com
           - name: GIT_AUTHOR_NAME
             value: jenkins-x-bot
-          steps:
           container: gcr.io/jenkinsxio/builder-go:0.1.339
+          steps:
           - image: gcr.io/jenkinsxio/builder-jx:0.1.320
             command: jx
             args:
