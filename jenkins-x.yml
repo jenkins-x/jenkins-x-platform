@@ -6,6 +6,9 @@ pipelineConfig:
         agent:
           image: gcr.io/kaniko-project/executor:9912ccbf8d22bbafbf971124600fbb0b13b9cbd6
         stages:
+        - sh: jx step credential -s jenkins-x-chartmuseum -k BASIC_AUTH_PASS -f /builder/home/basic-auth-pass.json
+          name: basic-auth-password
+          container: gcr.io/jenkinsxio/builder-go:0.1.339
         - name: release
           environment:
           - name: GIT_COMMITTER_EMAIL
