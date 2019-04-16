@@ -8,7 +8,7 @@ kind: ConfigMap
 metadata:
   name: "jenkins-x-pod-template-{{ $pval.Name }}"
 data:
-  config.xml: |-
+  pod: |-
     apiVersion: v1
     kind: Pod
     metadata:
