@@ -1,13 +1,14 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "jenkins-x-pod-templates"
-data:
 {{- if .Values.jenkins.Agent.Enabled }}
 {{- $agent := .Values.jenkins.Agent -}}
 {{- $globalenv := .Values.jenkins.Servers.Global.EnvVars -}}
 {{- range $pkey, $pval := .Values.jenkins.Agent.PodTemplates }}
-  {{ $pval.Name }}: |-
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "jenkins-x-pod-template-{{ $pval.Name }}"
+data:
+  config.xml: |-
     apiVersion: v1
     kind: Pod
     metadata:
