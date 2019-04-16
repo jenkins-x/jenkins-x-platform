@@ -7,6 +7,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: "jenkins-x-pod-template-{{ $pval.Name }}"
+  labels:
+    jenkins.io/kind: podTemplate
 data:
   pod: |-
     apiVersion: v1
