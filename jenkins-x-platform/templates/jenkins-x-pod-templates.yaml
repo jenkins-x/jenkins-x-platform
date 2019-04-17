@@ -54,6 +54,12 @@ data:
         hostPath:
           path: {{ $volume.hostPath }}
   {{- end }}
+  {{- if eq "PersistentVolumeClaim" $volume.type }}
+        claimName:
+          path: {{ $volume.claimName }}
+        readOnly
+          readOnly: {{ default false $volume.readOnly }}
+  {{- end }}
 {{- end }}
       containers:
   {{- range $ckey, $cval := $pval.Containers }}
