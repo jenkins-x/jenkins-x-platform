@@ -45,6 +45,7 @@ gcpreviews:
         verbs:
           - list
           - get
+          - patch
           - update
           - delete
       - apiGroups:
@@ -129,6 +130,7 @@ gcactivities:
       verbs:
       - get
       - create
+      - patch
       - update
     - apiGroups:
       - ""
@@ -221,6 +223,7 @@ postinstalljob:
       verbs:
       - get
       - create
+      - patch
       - update
     - apiGroups:
       - ""
@@ -260,6 +263,7 @@ controllerworkflow:
       verbs:
       - get
       - create
+      - patch
       - update
       - list
   role:
@@ -274,6 +278,7 @@ controllerworkflow:
       - get
       - watch
       - create
+      - patch
       - update
     - apiGroups:
       - jenkins.io
@@ -332,6 +337,7 @@ controllerbuild:
       verbs:
       - get
       - create
+      - patch
       - update
       - list
     - apiGroups:
@@ -419,6 +425,7 @@ controllercommitstatus:
       verbs:
       - get
       - create
+      - patch
       - update
       - list
   role:
@@ -432,6 +439,7 @@ controllercommitstatus:
       - get
       - create
       - update
+      - patch
       - watch
       - list
     - apiGroups:
@@ -449,6 +457,7 @@ controllercommitstatus:
       - pipelineactivities
       verbs:
       - get
+      - patch
       - update
     - apiGroups:
       - ""
@@ -501,6 +510,7 @@ controllerrole:
       verbs:
       - get
       - create
+      - patch
       - update
       - list
   role:
@@ -515,6 +525,7 @@ controllerrole:
       - get
       - watch
       - create
+      - patch
       - update
 
 controllerteam:
@@ -548,6 +559,7 @@ controllerteam:
       - watch
       - list
       - create
+      - patch
       - update
     - apiGroups:
       - apiextensions.k8s.io
@@ -556,6 +568,7 @@ controllerteam:
       verbs:
       - get
       - create
+      - patch
       - update
       - list
     - apiGroups:
@@ -567,6 +580,7 @@ controllerteam:
       - list
       - get
       - watch
+      - patch
       - update
     - apiGroups:
       - jenkins.io
@@ -597,6 +611,7 @@ controllerteam:
       - get
       - watch
       - create
+      - patch
       - update
     - apiGroups:
       - ""
@@ -611,6 +626,7 @@ controllerteam:
       - watch
       - get
       - create
+      - patch
       - update
       - delete
     - apiGroups:
@@ -622,6 +638,7 @@ controllerteam:
       - watch
       - get
       - create
+      - patch
       - update
       - delete
     - apiGroups:
