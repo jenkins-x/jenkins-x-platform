@@ -102,6 +102,15 @@ gcactivities:
       - jenkins.io
       resources:
       - environments
+      verbs:
+      - get
+      - list
+      - patch
+      - update
+      - watch
+    - apiGroups:
+      - jenkins.io
+      resources:
       - plugins
       verbs:
       - get
