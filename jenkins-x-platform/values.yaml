@@ -405,7 +405,7 @@ controllerbuild:
       - watch
 
 controllercommitstatus:
-  enabled: true
+  enabled: false
   serviceaccount:
     enabled: true
   deployment:
