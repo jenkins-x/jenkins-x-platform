@@ -1,0 +1,586 @@
+Step: build-step-credential-initializer-fmh4c:
+
+{"level":"warn","ts":1557640089.6639593,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557640089.6653593,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-jenkins-x-versions-pr-5scvp:
+
+{"level":"warn","ts":1557640091.6816573,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557640092.9530888,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-versions\" @ \"129e0cfbbf00102ea046a3959fa00987fe8edcfb\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:0e90f5dc98aec3a4daac41b5c450ee40590d128f,256:129e0cfbbf00102ea046a3959fa00987fe8edcfb
+ran git fetch --unshallow origin 129e0cfbbf00102ea046a3959fa00987fe8edcfb: 0e90f5dc98aec3a4daac41b5c450ee40590d128f: in 
+ran git checkout master in 
+ran git reset --hard 0e90f5dc98aec3a4daac41b5c450ee40590d128f in 
+ran clean --force -d . in 
+ran git merge 129e0cfbbf00102ea046a3959fa00987fe8edcfb in 
+Step: build-step-runci:
+
++ export GH_USERNAME=*************-test
++ GH_USERNAME=*************-test
++ export GH_OWNER=cb-kubecd
++ GH_OWNER=cb-kubecd
+++ ** step credential -s *************-test-github
++ export GH_CREDS_PSW=****************************************
++ GH_CREDS_PSW=****************************************
+++ ** step credential -s test-jenkins-user
++ export JENKINS_CREDS_PSW=************
++ JENKINS_CREDS_PSW=************
+++ ** step credential -k bdd-credentials.json -s bdd-secret -f sa.json
++ export GKE_SA=sa.json
++ GKE_SA=sa.json
++ export BUILD_NUMBER=
++ BUILD_NUMBER=
++ JX_HOME=/tmp/**home
++ KUBECONFIG=/tmp/**home/config
++ mkdir -p /tmp/**home
++ ** --version
+2.0.117
++ ** step git credentials
+Generated Git credentials file /builder/home/git/credentials
++ gcloud auth activate-service-account --key-file sa.json
+Activated service account credentials for: [jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com]
++ git config --global --add user.name JenkinsXBot
++ git config --global --add user.email jenkins-x@googlegroups.com
++ echo 'running the BDD tests with JX_HOME = /tmp/**home'
+running the BDD tests with JX_HOME = /tmp/**home
++ ** step bdd --use-revision --version-repo-pr --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --config **/bdd/ng/cluster.yaml --gopath /tmp --git-provider=github --git-username *************-test --git-owner cb-kubecd --git-api-token **************************************** --default-*****-password ************ --no-delete-app --no-delete-repo --tests install --tests test-create-spring
+found git revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb: branch PR-256
+using versions git repo https://github.com/jenkins-x/jenkins-x-versions.git and ref 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+
+Creating cluster pr-256-117-ng-gkebdd
+using stable version 2.0.270 from charts of jenkins-x/jenkins-x-platform from 
+loaded version 2.0.270 from Makefile in directory 
+
+running command: ** create cluster gke --ng --project-id=jenkins-x-bdd -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-117-ng-gkebdd --batch-mode --version 2.0.270 --labels cluster=ng-gkebdd,branch=pr-256 --git-provider-url https://github.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref 129e0cfbbf00102ea046a3959fa00987fe8edcfb --git-username *************-test --environment-git-owner cb-kubecd --git-api-token **************¬ --default-*****-password **************¬
+Updated property [core/project].
+Let's ensure we have container and compute enabled on your project
+No apis need to be enable as they are already enabled: container compute
+checking if we need to enable APIs for GCB and GCR
+No apis need to be enable as they are already enabled: cloudbuild containerregistry containeranalysis
+using cluster scopes: https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/compute https://www.googleapis.com/auth/devstorage.full_control https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/servicecontrol https://www.googleapis.com/auth/logging.write https://www.googleapis.com/auth/monitoring
+Creating cluster...
+Initialising cluster ...
+Setting the dev namespace to: **
+Using helmBinary helm with feature flag: none
+Storing the kubernetes provider gke in the TeamSettings
+Enabling helm template mode in the TeamSettings
+Setting the docker registry organisation to jenkins-x-bdd in the TeamSettings
+Git configured for user: JenkinsXBot and email jenkins-x@googlegroups.com
+Trying to create ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding for role: cluster-***** for user jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com
+ clusterrolebindings.rbac.authorization.k8s.io "jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding" not found
+Created ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding
+Using helm2
+Skipping tiller
+Using helmBinary helm with feature flag: template-mode
+Initialising Helm 'init --client-only'
+helm installed and configured
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+using stable version 1.3.1 from charts of stable/nginx-ingress from /builder/home/.**/jenkins-x-versions
+Installing using helm binary: helm
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+Fetched chart stable/nginx-ingress to dir /tmp/helm-template-workdir-901287869/**ing/chartFiles/nginx-ingress
+Generating Chart Template 'template --name **ing --namespace kube-system /tmp/helm-template-workdir-901287869/**ing/chartFiles/nginx-ingress --output-dir /tmp/helm-template-workdir-901287869/**ing/output --debug --set rbac.create=true --set controller.extraArgs.publish-service=kube-system/**ing-nginx-ingress-controller'
+Applying generated chart stable/nginx-ingress YAML via kubectl in dir: /tmp/helm-template-workdir-901287869/**ing/output
+clusterrole.rbac.authorization.k8s.io/**ing-nginx-ingress created
+clusterrolebinding.rbac.authorization.k8s.io/**ing-nginx-ingress created
+configmap/**ing-nginx-ingress-controller created
+deployment.extensions/**ing-nginx-ingress-controller created
+service/**ing-nginx-ingress-controller created
+deployment.extensions/**ing-nginx-ingress-default-backend created
+service/**ing-nginx-ingress-default-backend created
+role.rbac.authorization.k8s.io/**ing-nginx-ingress created
+rolebinding.rbac.authorization.k8s.io/**ing-nginx-ingress created
+serviceaccount/**ing-nginx-ingress created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**ing,jenkins.io/version!=1.3.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**ing,jenkins.io/version!=1.3.1,jenkins.io/namespace=kube-system from clusterrole clusterrolebinding
+Waiting for external loadbalancer to be created and update the nginx-ingress-controller service in kube-system namespace
+Note: this loadbalancer will fail to be provisioned if you have insufficient quotas, this can happen easily on a GKE free account. To view quotas run: gcloud compute project-info describe
+External loadbalancer created
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
+No domain flag provided so using default 35.187.180.186.nip.io to generate Ingress rules
+nginx ingress controller installed and configured
+Installing vault-operator...
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+using stable version 0.2.1 from charts of jenkins-x/vault-operator from /builder/home/.**/jenkins-x-versions
+Namespace ** created 
+ 
+Fetched chart jenkins-x/vault-operator to dir /tmp/helm-template-workdir-901287869/vault-operator/chartFiles/vault-operator
+Generating Chart Template 'template --name vault-operator --namespace ** /tmp/helm-template-workdir-901287869/vault-operator/chartFiles/vault-operator --output-dir /tmp/helm-template-workdir-901287869/vault-operator/output --debug --set image.repository=banzaicloud/vault-operator --set image.tag=0.4.7 --set '
+Applying generated chart jenkins-x/vault-operator YAML via kubectl in dir: /tmp/helm-template-workdir-901287869/vault-operator/output
+customresourcedefinition.apiextensions.k8s.io/vaults.vault.banzaicloud.com created
+deployment.apps/vault-operator created
+clusterrole.rbac.authorization.k8s.io/vault-operator created
+clusterrolebinding.rbac.authorization.k8s.io/vault-operator created
+serviceaccount/vault-operator created
+service/vault-operator created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=vault-operator,jenkins.io/version!=0.2.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=vault-operator,jenkins.io/version!=0.2.1,jenkins.io/namespace=** from clusterrole clusterrolebinding
+vault-operator addon succesfully installed.
+Creating new system vault
+cluster short name for vault naming: pr-256-117-ng-gk
+Created service account **-vault-pr-256-117-ng-auth-sa for Vault authentication
+Updated property [core/project].
+Ensure KMS API is enabled
+No apis need to be enable as they are already enabled: cloudkms
+Creating GCP service account for Vault backend
+Unable to find service account **-vault-pr-256-117-ng-sa, checking if we have enough permission to create
+Creating service account **-vault-pr-256-117-ng-sa
+Assigning role roles/storage.objectAdmin
+Assigning role roles/cloudkms.*****
+Assigning role roles/cloudkms.cryptoKeyEncrypterDecrypter
+Downloading service account key
+**-vault-pr-256-117-ng-gcp-sa service account created
+Setting up GCP KMS configuration
+KMS Key **-vault-pr-256-117-ng-key created in keying **-vault-pr-256-117-ng-keyring
+GCS bucket **-vault-pr-256-117-ng-bucket was created for Vault backend
+Creating Vault...
+Vault **-vault-pr-256-117-ng created in cluster pr-256-117-ng-gk
+Exposing Vault...
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+using stable version 2.3.111 from charts of jenkins-x/exposecontroller from /builder/home/.**/jenkins-x-versions
+Updating Helm repository...
+Helm repository update done.
+Fetched chart jenkins-x/exposecontroller to dir /tmp/helm-template-workdir-901287869/expose-collarcerulean/chartFiles/exposecontroller
+Generating Chart Template 'template --name expose-collarcerulean --namespace ** /tmp/helm-template-workdir-901287869/expose-collarcerulean/chartFiles/exposecontroller --output-dir /tmp/helm-template-workdir-901287869/expose-collarcerulean/output --debug --set config.exposer=Ingress --set config.domain=35.187.180.186.nip.io --set config.tlsacme=false --set config.urltemplate= --set config.extravalues.services={**-vault-pr-256-117-ng}'
+Applying generated chart jenkins-x/exposecontroller YAML via kubectl in dir: /tmp/helm-template-workdir-901287869/expose-collarcerulean/output
+configmap/exposecontroller created
+job.batch/exposecontroller created
+role.rbac.authorization.k8s.io/exposecontroller created
+rolebinding.rbac.authorization.k8s.io/exposecontroller created
+serviceaccount/exposecontroller created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=expose-collarcerulean,jenkins.io/version!=2.3.111 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=expose-collarcerulean,jenkins.io/version!=2.3.111,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Removing Kubernetes resources from release expose-collarcerulean using selector: jenkins.io/chart-release=expose-collarcerulean from all pvc configmap release sa role rolebinding secret
+job.batch "exposecontroller" deleted
+configmap "exposecontroller" deleted
+serviceaccount "exposecontroller" deleted
+role.rbac.authorization.k8s.io "exposecontroller" deleted
+rolebinding.rbac.authorization.k8s.io "exposecontroller" deleted
+Removing Kubernetes resources from release expose-collarcerulean using selector: jenkins.io/chart-release=expose-collarcerulean,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Ingress rules recreated
+Vault **-vault-pr-256-117-ng exposed
+System vault created named **-vault-pr-256-117-ng in namespace **.
+Setting the dev namespace to: **
+Lets set up a Git user name and API token to be able to perform CI/CD
+
+Select the CI/CD pipelines Git server and user
+Setting the pipelines Git server https://github.com and user name *************-test.
+Saving the Git authentication configuration
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+Current configuration dir: /builder/home/.**
+options.Flags.CloudEnvRepository: https://github.com/jenkins-x/cloud-environments
+options.Flags.LocalCloudEnvironment: false
+Cloning the Jenkins X cloud environments repo to /builder/home/.**/cloud-environments
+Enumerating objects: 1382, done.
+Total 1382 (delta 0), reused 0 (delta 0), pack-reused 1382
+Configuring Kaniko service account **kaniko-pr-256-117-ng-gkebdd for project jenkins-x-bdd
+Unable to find service account **kaniko-pr-256-117-ng-gkebdd, checking if we have enough permission to create
+Creating service account **kaniko-pr-256-117-ng-gkebdd
+Assigning role roles/storage.*****
+Assigning role roles/storage.objectAdmin
+Assigning role roles/storage.objectCreator
+Downloading service account key
+Setting the dev namespace to: **
+Generated helm values /builder/home/.**/extraValues.yaml
+Installing Jenkins X platform helm chart from: /builder/home/.**/cloud-environments/env-gke
+Configuring the TeamSettings for Prow with engine Tekton
+Setting the current namespace to: **
+
+Setting up prow config into namespace **
+
+Installing tekton into namespace **
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+using stable version 0.0.38 from charts of jenkins-x/tekton from /builder/home/.**/jenkins-x-versions
+Using /builder/home/.**/jenkins-x-dev-environment/env/tekton for requirementName files
+Writing values file to /builder/home/.**/jenkins-x-dev-environment/env/tekton/values.yaml
+Not adding release.yaml as not present in chart. Only files in /builder/home/.**/jenkins-x-dev-environment/env/templates are:
+drwxr----- 4096 12 May 19 05:58 UTC templates
+-rwxr----- 1007 12 May 19 06:00 UTC dev-env.yaml
+-rwxr----- 230 12 May 19 05:57 UTC ingress-config-configmap.yaml
+-rwxr----- 1553 12 May 19 05:58 UTC **-install-config-configmap.yaml
+Not adding Chart.yaml as not present in chart. Only files in /builder/home/.**/jenkins-x-dev-environment/env are:
+drwxr----- 4096 12 May 19 06:00 UTC env
+-rwxr----- 82 12 May 19 06:00 UTC secrets.yaml
+drwx------ 4096 12 May 19 06:00 UTC tekton
+-rw------- 66 12 May 19 06:00 UTC values.yaml
+drwxr----- 4096 12 May 19 05:58 UTC templates
+-rwxr----- 1007 12 May 19 06:00 UTC dev-env.yaml
+-rwxr----- 230 12 May 19 05:57 UTC ingress-config-configmap.yaml
+-rwxr----- 1553 12 May 19 05:58 UTC **-install-config-configmap.yaml
+Not adding App Readme as no README, README.md, readme or readme.md found in /builder/home/.**/jenkins-x-dev-environment/env
+Generating Chart Template 'template --name tekton --namespace  /builder/home/.**/jenkins-x-dev-environment/env --output-dir /builder/home/.**/jenkins-x-dev-environment/env/output --debug'
+
+Installing Prow into namespace **
+with values file /builder/home/.**/cloud-environments/env-gke/myvalues.yaml
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+using stable version 0.0.618 from charts of jenkins-x/prow from /builder/home/.**/jenkins-x-versions
+Using /builder/home/.**/jenkins-x-dev-environment/env/prow for requirementName files
+Not adding release.yaml as not present in chart. Only files in /builder/home/.**/jenkins-x-dev-environment/env/templates are:
+drwxr----- 4096 12 May 19 05:58 UTC templates
+-rwxr----- 1007 12 May 19 06:00 UTC dev-env.yaml
+-rwxr----- 230 12 May 19 05:57 UTC ingress-config-configmap.yaml
+-rwxr----- 1553 12 May 19 05:58 UTC **-install-config-configmap.yaml
+Not adding App Readme as no README, README.md, readme or readme.md found in /builder/home/.**/jenkins-x-dev-environment/env
+Generating Chart Template 'template --name prow --namespace  /builder/home/.**/jenkins-x-dev-environment/env --output-dir /builder/home/.**/jenkins-x-dev-environment/env/output --debug'
+Installing ** into namespace **
+Installing jenkins-x-platform version: 2.0.270
+Configuring the TeamSettings for ImportMode YAML
+
+
+	********************************************************
+
+	     NOTE: Your ***** password is in vault: eval `** get vault-config` && vault kv get secret/*****/jenkins
+
+	********************************************************
+
+	
+Setting the dev namespace to: **
+Creating default staging and production environments
+Using Git provider GitHub at https://github.com
+
+
+About to create repository environment-pr-256-117-ng-gkebdd-staging on server https://github.com with user *************-test
+
+
+Creating repository cb-kubecd/environment-pr-256-117-ng-gkebdd-staging
+Creating Git repository cb-kubecd/environment-pr-256-117-ng-gkebdd-staging
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-256-117-ng-gkebdd-staging
+
+Created environment staging
+Using Git provider GitHub at https://github.com
+
+
+About to create repository environment-pr-256-117-ng-gkebdd-production on server https://github.com with user *************-test
+
+
+Creating repository cb-kubecd/environment-pr-256-117-ng-gkebdd-production
+Creating Git repository cb-kubecd/environment-pr-256-117-ng-gkebdd-production
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-256-117-ng-gkebdd-production
+
+Created environment production
+WARNING: No service called jenkins-x-chartmuseum could be found so couldn't wire up the local auth file to talk to chart museum
+
+
+Generated the source code for the GitOps development environment at /builder/home/.**/jenkins-x-dev-environment
+You can apply this to the kubernetes cluster at any time in this directory via: ** step env apply
+
+Using Git provider GitHub at https://github.com
+
+
+About to create repository environment-pr-256-117-ng-gkebdd-dev on server https://github.com with user *************-test
+
+
+Creating repository cb-kubecd/environment-pr-256-117-ng-gkebdd-dev
+Creating Git repository cb-kubecd/environment-pr-256-117-ng-gkebdd-dev
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-256-117-ng-gkebdd-dev
+
+Setting the dev namespace to: **
+Loading the latest Dev Environment configuration from /builder/home/.**/jenkins-x-dev-environment/env/templates/dev-env.yaml
+Using helmBinary helm with feature flag: template-mode
+Initialising Helm 'init --client-only'
+Initialising Helm 'init --client-only'
+Applying helm chart at /builder/home/.**/jenkins-x-dev-environment/env as release name jenkins-x to namespace **
+Fetching secrets from vault into directory "/builder/home/.**/jenkins-x-dev-environment/env"
+Saved secrets file /builder/home/.**/jenkins-x-dev-environment/env/secrets.yaml
+Saved secrets file /builder/home/.**/jenkins-x-dev-environment/env/templates/**-install-config-secret.yaml
+adding secret file /builder/home/.**/jenkins-x-dev-environment/env/secrets.yaml
+adding secret file /builder/home/.**/jenkins-x-dev-environment/env/templates/**-install-config-secret.yaml
+Ignoring templates/dev-env.yaml
+Ignoring templates/ingress-config-configmap.yaml
+Ignoring templates/**-install-config-configmap.yaml
+Ignoring templates/**-install-config-secret.yaml
+Ignoring templates/production-env.yaml
+Ignoring templates/staging-env.yaml
+Wrote chart values.yaml /builder/home/.**/jenkins-x-dev-environment/env/values.yaml generated from directory tree
+generated helm /builder/home/.**/jenkins-x-dev-environment/env/values.yaml
+
+controllerbuild:
+  enabled: true
+controllerworkflow:
+  enabled: false
+jenkins:
+  enabled: false
+jenkins-x-platform:
+  PipelineSecrets:
+    DockerConfig: |-
+      {
+          "credHelpers": {
+              "gcr.io": "gcr",
+              "us.gcr.io": "gcr",
+              "eu.gcr.io": "gcr",
+              "asia.gcr.io": "gcr",
+              "staging-k8s.gcr.io": "gcr"
+          }
+      }
+  postinstalljob:
+    enabled: "true"
+tekton:
+  auth:
+    git:
+      username: *************-test
+  tillerNamespace: ""
+
+
+Using values files: /builder/home/.**/jenkins-x-dev-environment/env/values.yaml, /builder/home/.**/jenkins-x-dev-environment/env/secrets.yaml, /builder/home/.**/jenkins-x-dev-environment/env/templates/**-install-config-secret.yaml
+Applying chart overrides
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: 129e0cfbbf00102ea046a3959fa00987fe8edcfb
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision 129e0cfbbf00102ea046a3959fa00987fe8edcfb to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            129e0cfbbf00102ea046a3959fa00987fe8edcfb -> FETCH_HEAD
+WARNING: could not find a stable version from charts of /builder/home/.**/jenkins-x-dev-environment/env from /builder/home/.**/jenkins-x-versions
+For background see: https://jenkins-x.io/architecture/version-stream/
+Please lock this version down via the command: ** step create version pr -k charts -n /builder/home/.**/jenkins-x-dev-environment/env
+
+Generating Chart Template 'template --name jenkins-x --namespace ** /builder/home/.**/jenkins-x-dev-environment/env --output-dir /tmp/helm-template-workdir-137079968/jenkins-x/output --debug --values /tmp/values.yaml775726107 --values /tmp/values.yaml688126654 --values /tmp/values.yaml053353733'
+Applying generated chart /builder/home/.**/jenkins-x-dev-environment/env YAML via kubectl in dir: /tmp/helm-template-workdir-137079968/jenkins-x/output
+deployment.extensions/jenkins-x-chartmuseum created
+persistentvolumeclaim/jenkins-x-chartmuseum created
+secret/jenkins-x-chartmuseum created
+service/jenkins-x-chartmuseum created
+role.rbac.authorization.k8s.io/cleanup created
+rolebinding.rbac.authorization.k8s.io/cleanup created
+serviceaccount/cleanup created
+clusterrole.rbac.authorization.k8s.io/controllerbuild-** created
+clusterrolebinding.rbac.authorization.k8s.io/controllerbuild-** created
+deployment.apps/jenkins-x-controllerbuild created
+role.rbac.authorization.k8s.io/controllerbuild created
+rolebinding.rbac.authorization.k8s.io/controllerbuild created
+serviceaccount/jenkins-x-controllerbuild created
+clusterrole.rbac.authorization.k8s.io/controllerrole-** created
+clusterrolebinding.rbac.authorization.k8s.io/controllerrole-** created
+deployment.apps/jenkins-x-controllerrole created
+role.rbac.authorization.k8s.io/controllerrole created
+rolebinding.rbac.authorization.k8s.io/controllerrole created
+serviceaccount/jenkins-x-controllerrole created
+clusterrole.rbac.authorization.k8s.io/controllerteam-** created
+clusterrolebinding.rbac.authorization.k8s.io/controllerteam-** created
+deployment.apps/jenkins-x-controllerteam created
+role.rbac.authorization.k8s.io/controllerteam created
+rolebinding.rbac.authorization.k8s.io/controllerteam created
+serviceaccount/jenkins-x-controllerteam created
+configmap/jenkins-x-docker-registry-config created
+deployment.extensions/jenkins-x-docker-registry created
+persistentvolumeclaim/jenkins-x-docker-registry created
+secret/jenkins-x-docker-registry-secret created
+service/jenkins-x-docker-registry created
+configmap/exposecontroller created
+role.rbac.authorization.k8s.io/expose created
+rolebinding.rbac.authorization.k8s.io/expose created
+serviceaccount/expose created
+clusterrole.rbac.authorization.k8s.io/gcactivities-** created
+clusterrolebinding.rbac.authorization.k8s.io/gcactivities-** created
+cronjob.batch/jenkins-x-gcactivities created
+role.rbac.authorization.k8s.io/gcactivities created
+rolebinding.rbac.authorization.k8s.io/gcactivities created
+serviceaccount/jenkins-x-gcactivities created
+cronjob.batch/jenkins-x-gcpods created
+role.rbac.authorization.k8s.io/gcpods created
+rolebinding.rbac.authorization.k8s.io/gcpods created
+serviceaccount/jenkins-x-gcpods created
+clusterrole.rbac.authorization.k8s.io/gcpreviews-** created
+clusterrolebinding.rbac.authorization.k8s.io/gcpreviews-** created
+cronjob.batch/jenkins-x-gcpreviews created
+role.rbac.authorization.k8s.io/gcpreviews created
+rolebinding.rbac.authorization.k8s.io/gcpreviews created
+serviceaccount/jenkins-x-gcpreviews created
+deployment.extensions/jenkins-x-heapster created
+clusterrolebinding.rbac.authorization.k8s.io/jenkins-x-heapster created
+role.rbac.authorization.k8s.io/jenkins-x-heapster-pod-nanny created
+rolebinding.rbac.authorization.k8s.io/jenkins-x-heapster-pod-nanny created
+service/heapster created
+serviceaccount/jenkins-x-heapster created
+deployment.extensions/jenkins-x-mongodb created
+persistentvolumeclaim/jenkins-x-mongodb created
+secret/jenkins-x-mongodb created
+service/jenkins-x-mongodb created
+configmap/jenkins-x-monocular-api-config created
+deployment.extensions/jenkins-x-monocular-api created
+service/jenkins-x-monocular-api created
+deployment.extensions/jenkins-x-monocular-prerender created
+service/jenkins-x-monocular-prerender created
+configmap/jenkins-x-monocular-ui-config created
+deployment.extensions/jenkins-x-monocular-ui created
+service/jenkins-x-monocular-ui created
+configmap/jenkins-x-monocular-ui-vhost created
+configmap/nexus created
+deployment.extensions/jenkins-x-nexus created
+persistentvolumeclaim/jenkins-x-nexus created
+secret/nexus created
+service/nexus created
+role.rbac.authorization.k8s.io/committer created
+clusterrolebinding.rbac.authorization.k8s.io/jenkins-x-team-controller created
+configmap/jenkins-x-team-controller created
+secret/jenkins-docker-cfg created
+configmap/jenkins-x-devpod-config created
+configmap/jenkins-x-docker-registry created
+configmap/jenkins-x-extensions created
+secret/**-basic-auth created
+role.rbac.authorization.k8s.io/**-view created
+secret/kaniko-secret created
+secret/jenkins-maven-settings created
+secret/jenkins-npm-token created
+role.rbac.authorization.k8s.io/owner created
+configmap/jenkins-x-pod-template-dlang created
+configmap/jenkins-x-pod-template-go created
+configmap/jenkins-x-pod-template-nodejs10x created
+configmap/jenkins-x-pod-template-terraform created
+configmap/jenkins-x-pod-template-maven-nodejs created
+configmap/jenkins-x-pod-template-rust created
+configmap/jenkins-x-pod-template-machine-learning created
+configmap/jenkins-x-pod-template-python2 created
+configmap/jenkins-x-pod-template-nodejs8x created
+configmap/jenkins-x-pod-template-aws-cdk created
+configmap/jenkins-x-pod-template-newman created
+configmap/jenkins-x-pod-template-scala created
+configmap/jenkins-x-pod-template-gradle created
+configmap/jenkins-x-pod-template-maven created
+configmap/jenkins-x-pod-template-python37 created
+configmap/jenkins-x-pod-template-promote created
+configmap/jenkins-x-pod-template-nodejs created
+configmap/jenkins-x-pod-template-swift created
+configmap/jenkins-x-pod-template-maven-java11 created
+configmap/jenkins-x-pod-template-ruby created
+configmap/jenkins-x-pod-template-**-base created
+configmap/jenkins-x-pod-template-python created
+secret/jenkins-release-gpg created
+secret/jenkins-ssh-config created
+role.rbac.authorization.k8s.io/viewer created
+clusterrole.rbac.authorization.k8s.io/prow-build created
+clusterrolebinding.rbac.authorization.k8s.io/prow-build-** created
+deployment.extensions/prow-build created
+serviceaccount/prow-build created
+deployment.extensions/buildnum created
+rolebinding.rbac.authorization.k8s.io/buildnum created
+role.rbac.authorization.k8s.io/buildnum created
+serviceaccount/buildnum created
+service/buildnum created
+clusterrolebinding.rbac.authorization.k8s.io/cluster-*****-binding-** created
+clusterrole.rbac.authorization.k8s.io/crier created
+clusterrolebinding.rbac.authorization.k8s.io/crier-** created
+deployment.extensions/crier created
+rolebinding.rbac.authorization.k8s.io/crier created
+role.rbac.authorization.k8s.io/crier created
+serviceaccount/crier created
+deployment.extensions/deck created
+rolebinding.rbac.authorization.k8s.io/deck created
+role.rbac.authorization.k8s.io/deck created
+serviceaccount/deck created
+service/deck created
+secret/hmac-token created
+deployment.extensions/hook created
+rolebinding.rbac.authorization.k8s.io/hook created
+role.rbac.authorization.k8s.io/hook created
+serviceaccount/hook created
+service/hook created
+deployment.extensions/horologium created
+rolebinding.rbac.authorization.k8s.io/horologium created
+role.rbac.authorization.k8s.io/horologium created
+serviceaccount/horologium created
+secret/oauth-token created
+clusterrole.rbac.authorization.k8s.io/pipeline created
+clusterrolebinding.rbac.authorization.k8s.io/pipeline-** created
+deployment.extensions/pipeline created
+serviceaccount/pipeline created
+deployment.extensions/plank created
+rolebinding.rbac.authorization.k8s.io/plank created
+role.rbac.authorization.k8s.io/plank created
+serviceaccount/plank created
+customresourcedefinition.apiextensions.k8s.io/prowjobs.prow.k8s.io created
+deployment.extensions/sinker created
+rolebinding.rbac.authorization.k8s.io/sinker created
+role.rbac.authorization.k8s.io/sinker created
+serviceaccount/sinker created
+deployment.extensions/tide created
+rolebinding.rbac.authorization.k8s.io/tide created
+role.rbac.authorization.k8s.io/tide created
+serviceaccount/tide created
+service/tide created
+podsecuritypolicy.policy/tekton-pipelines created
+clusterrole.rbac.authorization.k8s.io/tekton-pipelines created
+clusterrolebinding.rbac.authorization.k8s.io/tekton-pipelines-** created
+secret/knative-git-user-pass created
+serviceaccount/tekton-pipelines created
+serviceaccount/tekton-bot created
+customresourcedefinition.apiextensions.k8s.io/clustertasks.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/pipelines.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/pipelineruns.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/pipelineresources.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/tasks.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/taskruns.tekton.dev created
+service/tekton-pipelines-controller created
+service/tekton-pipelines-webhook created
+clusterrole.rbac.authorization.k8s.io/tekton-bot created
+clusterrolebinding.rbac.authorization.k8s.io/tekton-bot-** created
+role.rbac.authorization.k8s.io/tekton-bot created
+rolebinding.rbac.authorization.k8s.io/tekton-bot created
+configmap/config-artifact-bucket created
+configmap/config-entrypoint created
+configmap/config-logging created
+deployment.apps/tekton-pipelines-controller created
+deployment.apps/tekton-pipelines-webhook created
+environment.jenkins.io/dev created
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+configmap/ingress-config configured
+configmap/**-install-config created
+secret/**-install-config created
+environment.jenkins.io/production created
+environment.jenkins.io/staging created
+
+Applying Helm hook post-upgrade YAML via kubectl in file: /tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml
+job.batch/expose created
+
+Waiting for helm post-upgrade hook Job expose to complete before removing it
+ERROR: logging before flag.Parse: E0512 06:02:58.776123     129 streamwatcher.go:109] Unable to decode an event from the watch stream: http2: server sent GOAWAY and closed the connection; LastStreamID=441, ErrCode=NO_ERROR, debug=""
+Deleting helm hook sources from file: /tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml
+error: error when deleting "/tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml": Delete https://35.187.1.241/apis/batch/v1/namespaces/**/jobs/expose: dial tcp 35.187.1.241:443: connect: connection refused
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1,jenkins.io/namespace=** from clusterrole clusterrolebinding
+ERROR: error creating cluster applying the GitOps development environment config: applying the dev environment configuration: applying the helm chart in dir /builder/home/.**/jenkins-x-dev-environment/env: upgrading helm chart '/builder/home/.**/jenkins-x-dev-environment/env': [failed to run 'kubectl delete -f /tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml --namespace ** --wait' command in directory '', output: 'error: error when deleting "/tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml": Delete https://35.187.1.241/apis/batch/v1/namespaces/**/jobs/expose: dial tcp 35.187.1.241:443: connect: connection refused', [failed to run 'kubectl delete all --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete pvc --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete configmap --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete release --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete sa --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete role --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete rolebinding --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete secret --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete clusterrole --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1,jenkins.io/namespace=**' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete clusterrolebinding --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1,jenkins.io/namespace=**' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?']]
+error: applying the GitOps development environment config: applying the dev environment configuration: applying the helm chart in dir /builder/home/.**/jenkins-x-dev-environment/env: upgrading helm chart '/builder/home/.**/jenkins-x-dev-environment/env': [failed to run 'kubectl delete -f /tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml --namespace ** --wait' command in directory '', output: 'error: error when deleting "/tmp/helm-template-workdir-137079968/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml": Delete https://35.187.1.241/apis/batch/v1/namespaces/**/jobs/expose: dial tcp 35.187.1.241:443: connect: connection refused', [failed to run 'kubectl delete all --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete pvc --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete configmap --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete release --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete sa --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete role --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete rolebinding --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete secret --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 --namespace **' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete clusterrole --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1,jenkins.io/namespace=**' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?', failed to run 'kubectl delete clusterrolebinding --ignore-not-found -l jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1,jenkins.io/namespace=**' command in directory '', output: 'The connection to the server 35.187.1.241 was refused - did you specify the right host or port?']]
+ERROR: Error: Command failed  ** create cluster gke --ng --project-id=jenkins-x-bdd -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-117-ng-gkebdd --batch-mode --version 2.0.270 --labels cluster=ng-gkebdd,branch=pr-256 --git-provider-url https://github.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref 129e0cfbbf00102ea046a3959fa00987fe8edcfb --git-username *************-test --environment-git-owner cb-kubecd --git-api-token **************¬ --default-*****-password **************¬
+error: exit status 1
+{"component":"entrypoint","error":"wrapped process failed: exit status 1","level":"error","msg":"Error executing test process","time":"2019-05-12T06:02:59Z"}
