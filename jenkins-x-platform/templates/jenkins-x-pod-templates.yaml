@@ -1,3 +1,65 @@
+{{- define "container" }}
+  {{- if ne "Jnlp" .ckey }}
+      - name: {{ .ckey | lower }}
+        image: {{ .cval.Image }}
+  {{- if .cval.Args }}
+        args:
+        {{- range $arg := splitList " " .cval.Args }}
+        - {{ $arg }}
+        {{- end }}
+  {{- end }}
+  {{- if .cval.Command }}
+        command:
+        {{- range $cmd := splitList " " .cval.Command }}
+        - {{ $cmd }}
+        {{- end }}
+  {{- end }}
+        workingDir: /home/jenkins
+        securityContext:
+          privileged: {{ default false .cval.Privileged }}
+  {{- if .cval.AlwaysPullImage }}
+        imagePullPolicy: Always
+  {{- end }}
+        tty: {{ default false .cval.Tty }}
+        env:
+        - name: DOCKER_REGISTRY
+          valueFrom:
+            configMapKeyRef:
+              name: jenkins-x-docker-registry
+              key: docker.registry
+  {{- if .globalenv.TILLER_NAMESPACE }}
+        - name: TILLER_NAMESPACE
+          value: {{ .globalenv.TILLER_NAMESPACE }}
+  {{- end }}
+  {{- range $ekey, $eval := .pval.EnvVars }}
+        - name: {{ $ekey }}
+          value: {{ $eval }}
+  {{- end }}
+        resources:
+          requests:
+            cpu: {{ .cval.RequestCpu }}
+            memory: {{ .cval.RequestMemory }}
+          limits:
+  {{- if .pval.LimitCpu }}
+            cpu: {{ .cval.LimitCpu }}
+  {{- end }}
+  {{- if .pval.LimitMemory }}
+            memory: {{ .cval.LimitMemory }}
+  {{- end }}
+        volumeMounts:
+          - mountPath: /home/jenkins
+            name: workspace-volume
+  {{- if .agent.DockerHostPath }}
+          - name: docker-daemon
+            mountPath: {{ .agent.DockerMountPath }}
+  {{- end }}
+  {{- range $index, $volume := .pval.volumes }}
+          - name: volume-{{ $index }}
+            mountPath: {{ $volume.mountPath }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+
 {{- if .Values.jenkins.Agent.Enabled }}
 {{- $agent := .Values.jenkins.Agent -}}
 {{- $globalenv := .Values.jenkins.Servers.Global.EnvVars -}}
@@ -63,66 +125,15 @@ data:
 {{- end }}
       containers:
   {{- range $ckey, $cval := $pval.Containers }}
-  {{- if ne "Jnlp" $ckey }}
-      - name: {{ $ckey | lower }}
-        image: {{ $cval.Image }}
-  {{- if $cval.Args }}
-        args:
-        {{- range $arg := splitList " " $cval.Args }}
-        - {{ $arg }}
-        {{- end }}
-  {{- end }}
-  {{- if $cval.Command }}
-        command:
-        {{- range $cmd := splitList " " $cval.Command }}
-        - {{ $cmd }}
-        {{- end }}
-  {{- end }}
-        workingDir: /home/jenkins
-        securityContext:
-          privileged: {{ default false $cval.Privileged }}
-  {{- if $cval.AlwaysPullImage }}
-        imagePullPolicy: Always
-  {{- end }}
-        tty: {{ default false $cval.Tty }}
-        env:
-        - name: DOCKER_REGISTRY
-          valueFrom:
-            configMapKeyRef:
-              name: jenkins-x-docker-registry
-              key: docker.registry
-  {{- if $globalenv.TILLER_NAMESPACE }}
-        - name: TILLER_NAMESPACE
-          value: {{ $globalenv.TILLER_NAMESPACE }}
-  {{- end }}
-  {{- range $ekey, $eval := $pval.EnvVars }}
-        - name: {{ $ekey }}
-          value: {{ $eval }}
-  {{- end }}
-        resources:
-          requests:
-            cpu: {{ $cval.RequestCpu }}
-            memory: {{ $cval.RequestMemory }}
-          limits:
-  {{- if $pval.LimitCpu }}
-            cpu: {{ $cval.LimitCpu }}
-  {{- end }}
-  {{- if $pval.LimitMemory }}
-            memory: {{ $cval.LimitMemory }}
-  {{- end }}
-        volumeMounts:
-          - mountPath: /home/jenkins
-            name: workspace-volume
-  {{- if $agent.DockerHostPath }}
-          - name: docker-daemon
-            mountPath: {{ $agent.DockerMountPath }}
-  {{- end }}
-  {{- range $index, $volume := $pval.volumes }}
-          - name: volume-{{ $index }}
-            mountPath: {{ $volume.mountPath }}
+  {{- if $cval.IsBuilder }}
+  {{- include "container" (dict "agent" $agent "globalenv" $globalenv "pval" $pval "ckey" $ckey "cval" $cval) }}
   {{- end }}
   {{- end }}
-{{- end }}
+  {{- range $ckey, $cval := $pval.Containers }}
+  {{- if not $cval.IsBuilder }}
+  {{- include "container" (dict "agent" $agent "globalenv" $globalenv "pval" $pval "ckey" $ckey "cval" $cval) }}
+  {{- end }}
+  {{- end }}
 {{- if $pval.ImagePullSecret }}
       imagePullSecrets:
         - name: {{ $pval.ImagePullSecret }}
