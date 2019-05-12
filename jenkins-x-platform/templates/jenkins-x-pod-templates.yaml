@@ -66,11 +66,18 @@ data:
   {{- if ne "Jnlp" $ckey }}
       - name: {{ $ckey | lower }}
         image: {{ $cval.Image }}
+  {{- if $cval.Args }}
         args:
-        - cat
+        {{- range $arg := splitList " " $cval.Args }}
+        - {{ $arg }}
+        {{- end }}
+  {{- end }}
+  {{- if $cval.Command }}
         command:
-        - /bin/sh
-        - -c
+        {{- range $cmd := splitList " " $cval.Command }}
+        - {{ $cmd }}
+        {{- end }}
+  {{- end }}
         workingDir: /home/jenkins
         securityContext:
           privileged: {{ default false $cval.Privileged }}
