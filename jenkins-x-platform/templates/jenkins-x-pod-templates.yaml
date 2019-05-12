@@ -40,10 +40,10 @@
             cpu: {{ .cval.RequestCpu }}
             memory: {{ .cval.RequestMemory }}
           limits:
-  {{- if .pval.LimitCpu }}
+  {{- if .cval.LimitCpu }}
             cpu: {{ .cval.LimitCpu }}
   {{- end }}
-  {{- if .pval.LimitMemory }}
+  {{- if .cval.LimitMemory }}
             memory: {{ .cval.LimitMemory }}
   {{- end }}
         volumeMounts:
