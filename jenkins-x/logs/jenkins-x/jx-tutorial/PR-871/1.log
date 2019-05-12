@@ -1,0 +1,22 @@
+Step: build-step-credential-initializer-wmwxc:
+
+{"level":"warn","ts":1557644111.931573,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557644111.9320993,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-**-tutorial-pr-871-te-cdfmd:
+
+{"level":"warn","ts":1557644116.572907,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557644117.8843238,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/**-tutorial\" @ \"b1064eceb5ac8af5bbd7ea407a64b578b7bd257a\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:5f7be25ef541ee49859740c547397d5f979c944a,871:b1064eceb5ac8af5bbd7ea407a64b578b7bd257a
+ran git fetch --unshallow origin b1064eceb5ac8af5bbd7ea407a64b578b7bd257a: 5f7be25ef541ee49859740c547397d5f979c944a: in 
+ran git checkout master in 
+ran git reset --hard 5f7be25ef541ee49859740c547397d5f979c944a in 
+ran clean --force -d . in 
+ran git merge b1064eceb5ac8af5bbd7ea407a64b578b7bd257a in 
+Step: build-step-build-dummy-build:
+
+PR
