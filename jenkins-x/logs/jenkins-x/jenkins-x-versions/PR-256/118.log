@@ -1,0 +1,1574 @@
+Step: build-step-credential-initializer-z4rtx:
+
+{"level":"warn","ts":1557641229.4327106,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557641229.4332187,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-jenkins-x-jenkins-x-versions-pr-7lcch:
+
+{"level":"warn","ts":1557641229.9564219,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1557641231.1886985,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/jenkins-x/jenkins-x-versions\" @ \"d9f4edf459f20fb43c020c89d4b585412495a9a1\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+548a93a-dev+981c48321: No Major.Minor.Patch elements found
+Using SHAs from PULL_REFS=master:0e90f5dc98aec3a4daac41b5c450ee40590d128f,256:d9f4edf459f20fb43c020c89d4b585412495a9a1
+ran git fetch --unshallow origin d9f4edf459f20fb43c020c89d4b585412495a9a1: 0e90f5dc98aec3a4daac41b5c450ee40590d128f: in 
+ran git checkout master in 
+ran git reset --hard 0e90f5dc98aec3a4daac41b5c450ee40590d128f in 
+ran clean --force -d . in 
+ran git merge d9f4edf459f20fb43c020c89d4b585412495a9a1 in 
+Step: build-step-runci:
+
++ export GH_USERNAME=*************-test
++ GH_USERNAME=*************-test
++ export GH_OWNER=cb-kubecd
++ GH_OWNER=cb-kubecd
+++ ** step credential -s *************-test-github
++ export GH_CREDS_PSW=****************************************
++ GH_CREDS_PSW=****************************************
+++ ** step credential -s test-jenkins-user
++ export JENKINS_CREDS_PSW=************
++ JENKINS_CREDS_PSW=************
+++ ** step credential -k bdd-credentials.json -s bdd-secret -f sa.json
++ export GKE_SA=sa.json
++ GKE_SA=sa.json
++ export BUILD_NUMBER=
++ BUILD_NUMBER=
++ JX_HOME=/tmp/**home
++ KUBECONFIG=/tmp/**home/config
++ mkdir -p /tmp/**home
++ ** --version
+0.0.0-SNAPSHOT-PR-3926-1
++ ** step git credentials
+Generated Git credentials file /builder/home/git/credentials
++ gcloud auth activate-service-account --key-file sa.json
+Activated service account credentials for: [jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com]
++ git config --global --add user.name JenkinsXBot
++ git config --global --add user.email jenkins-x@googlegroups.com
++ echo 'running the BDD tests with JX_HOME = /tmp/**home'
+running the BDD tests with JX_HOME = /tmp/**home
++ ** step bdd --use-revision --version-repo-pr --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --config **/bdd/ng/cluster.yaml --gopath /tmp --git-provider=github --git-username *************-test --git-owner cb-kubecd --git-api-token **************************************** --default-*****-password ************ --no-delete-app --no-delete-repo --tests install --tests test-create-spring
+found git revision d9f4edf459f20fb43c020c89d4b585412495a9a1: branch PR-256
+using versions git repo https://github.com/jenkins-x/jenkins-x-versions.git and ref d9f4edf459f20fb43c020c89d4b585412495a9a1
+
+Creating cluster pr-256-118-ng-gkebdd
+using stable version 2.0.270 from charts of jenkins-x/jenkins-x-platform from 
+loaded version 2.0.270 from Makefile in directory 
+
+running command: ** create cluster gke --ng --project-id=jenkins-x-bdd -m=n1-standard-2 --min-num-nodes=3 --max-num-nodes=5 -z=europe-west1-c --skip-login --cluster-name pr-256-118-ng-gkebdd --batch-mode --version 2.0.270 --labels cluster=ng-gkebdd,branch=pr-256 --git-provider-url https://github.com --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git --versions-ref d9f4edf459f20fb43c020c89d4b585412495a9a1 --git-username *************-test --environment-git-owner cb-kubecd --git-api-token **************¬ --default-*****-password **************¬
+Updated property [core/project].
+Let's ensure we have container and compute enabled on your project
+No apis need to be enable as they are already enabled: container compute
+checking if we need to enable APIs for GCB and GCR
+No apis need to be enable as they are already enabled: cloudbuild containerregistry containeranalysis
+using cluster scopes: https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/compute https://www.googleapis.com/auth/devstorage.full_control https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/servicecontrol https://www.googleapis.com/auth/logging.write https://www.googleapis.com/auth/monitoring
+Creating cluster...
+Initialising cluster ...
+Setting the dev namespace to: **
+Using helmBinary helm with feature flag: none
+Storing the kubernetes provider gke in the TeamSettings
+Enabling helm template mode in the TeamSettings
+Setting the docker registry organisation to jenkins-x-bdd in the TeamSettings
+Git configured for user: JenkinsXBot and email jenkins-x@googlegroups.com
+Trying to create ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding for role: cluster-***** for user jenkins-x-bdd@jenkins-x-bdd.iam.gserviceaccount.com
+ clusterrolebindings.rbac.authorization.k8s.io "jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding" not found
+Created ClusterRoleBinding jenkins-x-bdd-jenkins-x-bdd-iam-gserviceaccount-com-cluster-*****-binding
+Using helm2
+Skipping tiller
+Using helmBinary helm with feature flag: template-mode
+Initialising Helm 'init --client-only'
+helm installed and configured
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+using stable version 1.3.1 from charts of stable/nginx-ingress from /builder/home/.**/jenkins-x-versions
+Installing using helm binary: helm
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+Fetched chart stable/nginx-ingress to dir /tmp/helm-template-workdir-875426081/**ing/chartFiles/nginx-ingress
+Generating Chart Template 'template --name **ing --namespace kube-system /tmp/helm-template-workdir-875426081/**ing/chartFiles/nginx-ingress --output-dir /tmp/helm-template-workdir-875426081/**ing/output --debug --set rbac.create=true --set controller.extraArgs.publish-service=kube-system/**ing-nginx-ingress-controller'
+Applying generated chart stable/nginx-ingress YAML via kubectl in dir: /tmp/helm-template-workdir-875426081/**ing/output
+clusterrole.rbac.authorization.k8s.io/**ing-nginx-ingress created
+clusterrolebinding.rbac.authorization.k8s.io/**ing-nginx-ingress created
+configmap/**ing-nginx-ingress-controller created
+deployment.extensions/**ing-nginx-ingress-controller created
+service/**ing-nginx-ingress-controller created
+deployment.extensions/**ing-nginx-ingress-default-backend created
+service/**ing-nginx-ingress-default-backend created
+role.rbac.authorization.k8s.io/**ing-nginx-ingress created
+rolebinding.rbac.authorization.k8s.io/**ing-nginx-ingress created
+serviceaccount/**ing-nginx-ingress created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**ing,jenkins.io/version!=1.3.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=**ing,jenkins.io/version!=1.3.1,jenkins.io/namespace=kube-system from clusterrole clusterrolebinding
+Waiting for external loadbalancer to be created and update the nginx-ingress-controller service in kube-system namespace
+Note: this loadbalancer will fail to be provisioned if you have insufficient quotas, this can happen easily on a GKE free account. To view quotas run: gcloud compute project-info describe
+External loadbalancer created
+Waiting to find the external host name of the ingress controller Service in namespace kube-system with name **ing-nginx-ingress-controller
+No domain flag provided so using default 146.148.22.135.nip.io to generate Ingress rules
+nginx ingress controller installed and configured
+Installing vault-operator...
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+using stable version 0.2.1 from charts of jenkins-x/vault-operator from /builder/home/.**/jenkins-x-versions
+Namespace ** created 
+ 
+Fetched chart jenkins-x/vault-operator to dir /tmp/helm-template-workdir-875426081/vault-operator/chartFiles/vault-operator
+Generating Chart Template 'template --name vault-operator --namespace ** /tmp/helm-template-workdir-875426081/vault-operator/chartFiles/vault-operator --output-dir /tmp/helm-template-workdir-875426081/vault-operator/output --debug --set image.repository=banzaicloud/vault-operator --set image.tag=0.4.7 --set '
+Applying generated chart jenkins-x/vault-operator YAML via kubectl in dir: /tmp/helm-template-workdir-875426081/vault-operator/output
+customresourcedefinition.apiextensions.k8s.io/vaults.vault.banzaicloud.com created
+deployment.apps/vault-operator created
+clusterrole.rbac.authorization.k8s.io/vault-operator created
+clusterrolebinding.rbac.authorization.k8s.io/vault-operator created
+serviceaccount/vault-operator created
+service/vault-operator created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=vault-operator,jenkins.io/version!=0.2.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=vault-operator,jenkins.io/version!=0.2.1,jenkins.io/namespace=** from clusterrole clusterrolebinding
+vault-operator addon succesfully installed.
+Creating new system vault
+cluster short name for vault naming: pr-256-118-ng-gk
+Created service account **-vault-pr-256-118-ng-auth-sa for Vault authentication
+Updated property [core/project].
+Ensure KMS API is enabled
+No apis need to be enable as they are already enabled: cloudkms
+Creating GCP service account for Vault backend
+Unable to find service account **-vault-pr-256-118-ng-sa, checking if we have enough permission to create
+Creating service account **-vault-pr-256-118-ng-sa
+Assigning role roles/storage.objectAdmin
+Assigning role roles/cloudkms.*****
+Assigning role roles/cloudkms.cryptoKeyEncrypterDecrypter
+Downloading service account key
+**-vault-pr-256-118-ng-gcp-sa service account created
+Setting up GCP KMS configuration
+KMS Key **-vault-pr-256-118-ng-key created in keying **-vault-pr-256-118-ng-keyring
+GCS bucket **-vault-pr-256-118-ng-bucket was created for Vault backend
+Creating Vault...
+Vault **-vault-pr-256-118-ng created in cluster pr-256-118-ng-gk
+Exposing Vault...
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+using stable version 2.3.111 from charts of jenkins-x/exposecontroller from /builder/home/.**/jenkins-x-versions
+Updating Helm repository...
+Helm repository update done.
+Fetched chart jenkins-x/exposecontroller to dir /tmp/helm-template-workdir-875426081/expose-terrierclover/chartFiles/exposecontroller
+Generating Chart Template 'template --name expose-terrierclover --namespace ** /tmp/helm-template-workdir-875426081/expose-terrierclover/chartFiles/exposecontroller --output-dir /tmp/helm-template-workdir-875426081/expose-terrierclover/output --debug --set config.exposer=Ingress --set config.domain=146.148.22.135.nip.io --set config.tlsacme=false --set config.urltemplate= --set config.extravalues.services={**-vault-pr-256-118-ng}'
+Applying generated chart jenkins-x/exposecontroller YAML via kubectl in dir: /tmp/helm-template-workdir-875426081/expose-terrierclover/output
+configmap/exposecontroller created
+job.batch/exposecontroller created
+role.rbac.authorization.k8s.io/exposecontroller created
+rolebinding.rbac.authorization.k8s.io/exposecontroller created
+serviceaccount/exposecontroller created
+
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=expose-terrierclover,jenkins.io/version!=2.3.111 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=expose-terrierclover,jenkins.io/version!=2.3.111,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Removing Kubernetes resources from release expose-terrierclover using selector: jenkins.io/chart-release=expose-terrierclover from all pvc configmap release sa role rolebinding secret
+job.batch "exposecontroller" deleted
+configmap "exposecontroller" deleted
+serviceaccount "exposecontroller" deleted
+role.rbac.authorization.k8s.io "exposecontroller" deleted
+rolebinding.rbac.authorization.k8s.io "exposecontroller" deleted
+Removing Kubernetes resources from release expose-terrierclover using selector: jenkins.io/chart-release=expose-terrierclover,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Ingress rules recreated
+Vault **-vault-pr-256-118-ng exposed
+System vault created named **-vault-pr-256-118-ng in namespace **.
+Setting the dev namespace to: **
+Lets set up a Git user name and API token to be able to perform CI/CD
+
+Select the CI/CD pipelines Git server and user
+Setting the pipelines Git server https://github.com and user name *************-test.
+Saving the Git authentication configuration
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+Current configuration dir: /builder/home/.**
+options.Flags.CloudEnvRepository: https://github.com/jenkins-x/cloud-environments
+options.Flags.LocalCloudEnvironment: false
+Cloning the Jenkins X cloud environments repo to /builder/home/.**/cloud-environments
+Enumerating objects: 1382, done.
+Total 1382 (delta 0), reused 0 (delta 0), pack-reused 1382
+Configuring Kaniko service account **kaniko-pr-256-118-ng-gkebdd for project jenkins-x-bdd
+Unable to find service account **kaniko-pr-256-118-ng-gkebdd, checking if we have enough permission to create
+Creating service account **kaniko-pr-256-118-ng-gkebdd
+Assigning role roles/storage.*****
+Assigning role roles/storage.objectAdmin
+Assigning role roles/storage.objectCreator
+Downloading service account key
+Setting the dev namespace to: **
+Generated helm values /builder/home/.**/extraValues.yaml
+Installing Jenkins X platform helm chart from: /builder/home/.**/cloud-environments/env-gke
+Configuring the TeamSettings for Prow with engine Tekton
+Setting the current namespace to: **
+
+Setting up prow config into namespace **
+
+Installing tekton into namespace **
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+using stable version 0.0.38 from charts of jenkins-x/tekton from /builder/home/.**/jenkins-x-versions
+Using /builder/home/.**/jenkins-x-dev-environment/env/tekton for requirementName files
+Writing values file to /builder/home/.**/jenkins-x-dev-environment/env/tekton/values.yaml
+Not adding release.yaml as not present in chart. Only files in /builder/home/.**/jenkins-x-dev-environment/env/templates are:
+drwxr----- 4096 12 May 19 06:15 UTC templates
+-rwxr----- 1007 12 May 19 06:16 UTC dev-env.yaml
+-rwxr----- 230 12 May 19 06:14 UTC ingress-config-configmap.yaml
+-rwxr----- 1571 12 May 19 06:15 UTC **-install-config-configmap.yaml
+Not adding Chart.yaml as not present in chart. Only files in /builder/home/.**/jenkins-x-dev-environment/env are:
+drwxr----- 4096 12 May 19 06:16 UTC env
+-rwxr----- 82 12 May 19 06:16 UTC secrets.yaml
+drwx------ 4096 12 May 19 06:16 UTC tekton
+-rw------- 66 12 May 19 06:16 UTC values.yaml
+drwxr----- 4096 12 May 19 06:15 UTC templates
+-rwxr----- 1007 12 May 19 06:16 UTC dev-env.yaml
+-rwxr----- 230 12 May 19 06:14 UTC ingress-config-configmap.yaml
+-rwxr----- 1571 12 May 19 06:15 UTC **-install-config-configmap.yaml
+Not adding App Readme as no README, README.md, readme or readme.md found in /builder/home/.**/jenkins-x-dev-environment/env
+Generating Chart Template 'template --name tekton --namespace  /builder/home/.**/jenkins-x-dev-environment/env --output-dir /builder/home/.**/jenkins-x-dev-environment/env/output --debug'
+
+Installing Prow into namespace **
+with values file /builder/home/.**/cloud-environments/env-gke/myvalues.yaml
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+using stable version 0.0.618 from charts of jenkins-x/prow from /builder/home/.**/jenkins-x-versions
+Using /builder/home/.**/jenkins-x-dev-environment/env/prow for requirementName files
+Writing values file to /builder/home/.**/jenkins-x-dev-environment/env/prow/values.yaml
+Not adding release.yaml as not present in chart. Only files in /builder/home/.**/jenkins-x-dev-environment/env/templates are:
+drwxr----- 4096 12 May 19 06:15 UTC templates
+-rwxr----- 1007 12 May 19 06:16 UTC dev-env.yaml
+-rwxr----- 230 12 May 19 06:14 UTC ingress-config-configmap.yaml
+-rwxr----- 1571 12 May 19 06:15 UTC **-install-config-configmap.yaml
+Not adding App Readme as no README, README.md, readme or readme.md found in /builder/home/.**/jenkins-x-dev-environment/env
+Generating Chart Template 'template --name prow --namespace  /builder/home/.**/jenkins-x-dev-environment/env --output-dir /builder/home/.**/jenkins-x-dev-environment/env/output --debug'
+Installing ** into namespace **
+Installing jenkins-x-platform version: 2.0.270
+Configuring the TeamSettings for ImportMode YAML
+
+
+	********************************************************
+
+	     NOTE: Your ***** password is in vault: eval `** get vault-config` && vault kv get secret/*****/jenkins
+
+	********************************************************
+
+	
+Setting the dev namespace to: **
+Creating default staging and production environments
+Using Git provider GitHub at https://github.com
+
+
+About to create repository environment-pr-256-118-ng-gkebdd-staging on server https://github.com with user *************-test
+
+
+Creating repository cb-kubecd/environment-pr-256-118-ng-gkebdd-staging
+Creating Git repository cb-kubecd/environment-pr-256-118-ng-gkebdd-staging
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-staging
+
+Created environment staging
+Using Git provider GitHub at https://github.com
+
+
+About to create repository environment-pr-256-118-ng-gkebdd-production on server https://github.com with user *************-test
+
+
+Creating repository cb-kubecd/environment-pr-256-118-ng-gkebdd-production
+Creating Git repository cb-kubecd/environment-pr-256-118-ng-gkebdd-production
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-production
+
+Created environment production
+WARNING: No service called jenkins-x-chartmuseum could be found so couldn't wire up the local auth file to talk to chart museum
+
+
+Generated the source code for the GitOps development environment at /builder/home/.**/jenkins-x-dev-environment
+You can apply this to the kubernetes cluster at any time in this directory via: ** step env apply
+
+Using Git provider GitHub at https://github.com
+
+
+About to create repository environment-pr-256-118-ng-gkebdd-dev on server https://github.com with user *************-test
+
+
+Creating repository cb-kubecd/environment-pr-256-118-ng-gkebdd-dev
+Creating Git repository cb-kubecd/environment-pr-256-118-ng-gkebdd-dev
+Pushed Git repository to https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-dev
+
+Setting the dev namespace to: **
+Loading the latest Dev Environment configuration from /builder/home/.**/jenkins-x-dev-environment/env/templates/dev-env.yaml
+Using helmBinary helm with feature flag: template-mode
+Initialising Helm 'init --client-only'
+Initialising Helm 'init --client-only'
+Applying helm chart at /builder/home/.**/jenkins-x-dev-environment/env as release name jenkins-x to namespace **
+Fetching secrets from vault into directory "/builder/home/.**/jenkins-x-dev-environment/env"
+Saved secrets file /builder/home/.**/jenkins-x-dev-environment/env/secrets.yaml
+Saved secrets file /builder/home/.**/jenkins-x-dev-environment/env/templates/**-install-config-secret.yaml
+adding secret file /builder/home/.**/jenkins-x-dev-environment/env/secrets.yaml
+adding secret file /builder/home/.**/jenkins-x-dev-environment/env/templates/**-install-config-secret.yaml
+Ignoring templates/dev-env.yaml
+Ignoring templates/ingress-config-configmap.yaml
+Ignoring templates/**-install-config-configmap.yaml
+Ignoring templates/**-install-config-secret.yaml
+Ignoring templates/production-env.yaml
+Ignoring templates/staging-env.yaml
+Wrote chart values.yaml /builder/home/.**/jenkins-x-dev-environment/env/values.yaml generated from directory tree
+generated helm /builder/home/.**/jenkins-x-dev-environment/env/values.yaml
+
+controllerbuild:
+  enabled: true
+controllerworkflow:
+  enabled: false
+jenkins:
+  enabled: false
+jenkins-x-platform:
+  PipelineSecrets:
+    DockerConfig: |-
+      {
+          "credHelpers": {
+              "gcr.io": "gcr",
+              "us.gcr.io": "gcr",
+              "eu.gcr.io": "gcr",
+              "asia.gcr.io": "gcr",
+              "staging-k8s.gcr.io": "gcr"
+          }
+      }
+  postinstalljob:
+    enabled: "true"
+prow:
+  PipelineSecrets:
+    DockerConfig: |-
+      {
+          "credHelpers": {
+              "gcr.io": "gcr",
+              "us.gcr.io": "gcr",
+              "eu.gcr.io": "gcr",
+              "asia.gcr.io": "gcr",
+              "staging-k8s.gcr.io": "gcr"
+          }
+      }
+  auth:
+    git:
+      username: *************-test
+  build:
+    enabled: false
+  buildnum:
+    enabled: false
+  pipelinerunner:
+    enabled: "true"
+  tillerNamespace: ""
+tekton:
+  auth:
+    git:
+      username: *************-test
+  tillerNamespace: ""
+
+
+Using values files: /builder/home/.**/jenkins-x-dev-environment/env/values.yaml, /builder/home/.**/jenkins-x-dev-environment/env/secrets.yaml, /builder/home/.**/jenkins-x-dev-environment/env/templates/**-install-config-secret.yaml
+Applying chart overrides
+Current configuration dir: /builder/home/.**
+versionRepository: https://github.com/jenkins-x/jenkins-x-versions.git git ref: d9f4edf459f20fb43c020c89d4b585412495a9a1
+Deleting and cloning the Jenkins X versions repo
+Cloning the Jenkins X versions repo https://github.com/jenkins-x/jenkins-x-versions.git with revision d9f4edf459f20fb43c020c89d4b585412495a9a1 to /builder/home/.**/jenkins-x-versions
+From https://github.com/jenkins-x/jenkins-x-versions
+ * branch            d9f4edf459f20fb43c020c89d4b585412495a9a1 -> FETCH_HEAD
+WARNING: could not find a stable version from charts of /builder/home/.**/jenkins-x-dev-environment/env from /builder/home/.**/jenkins-x-versions
+For background see: https://jenkins-x.io/architecture/version-stream/
+Please lock this version down via the command: ** step create version pr -k charts -n /builder/home/.**/jenkins-x-dev-environment/env
+
+Generating Chart Template 'template --name jenkins-x --namespace ** /builder/home/.**/jenkins-x-dev-environment/env --output-dir /tmp/helm-template-workdir-210478900/jenkins-x/output --debug --values /tmp/values.yaml448060767 --values /tmp/values.yaml384580914 --values /tmp/values.yaml533181673'
+Applying generated chart /builder/home/.**/jenkins-x-dev-environment/env YAML via kubectl in dir: /tmp/helm-template-workdir-210478900/jenkins-x/output
+deployment.extensions/jenkins-x-chartmuseum created
+persistentvolumeclaim/jenkins-x-chartmuseum created
+secret/jenkins-x-chartmuseum created
+service/jenkins-x-chartmuseum created
+role.rbac.authorization.k8s.io/cleanup created
+rolebinding.rbac.authorization.k8s.io/cleanup created
+serviceaccount/cleanup created
+clusterrole.rbac.authorization.k8s.io/controllerbuild-** created
+clusterrolebinding.rbac.authorization.k8s.io/controllerbuild-** created
+deployment.apps/jenkins-x-controllerbuild created
+role.rbac.authorization.k8s.io/controllerbuild created
+rolebinding.rbac.authorization.k8s.io/controllerbuild created
+serviceaccount/jenkins-x-controllerbuild created
+clusterrole.rbac.authorization.k8s.io/controllerrole-** created
+clusterrolebinding.rbac.authorization.k8s.io/controllerrole-** created
+deployment.apps/jenkins-x-controllerrole created
+role.rbac.authorization.k8s.io/controllerrole created
+rolebinding.rbac.authorization.k8s.io/controllerrole created
+serviceaccount/jenkins-x-controllerrole created
+clusterrole.rbac.authorization.k8s.io/controllerteam-** created
+clusterrolebinding.rbac.authorization.k8s.io/controllerteam-** created
+deployment.apps/jenkins-x-controllerteam created
+role.rbac.authorization.k8s.io/controllerteam created
+rolebinding.rbac.authorization.k8s.io/controllerteam created
+serviceaccount/jenkins-x-controllerteam created
+configmap/jenkins-x-docker-registry-config created
+deployment.extensions/jenkins-x-docker-registry created
+persistentvolumeclaim/jenkins-x-docker-registry created
+secret/jenkins-x-docker-registry-secret created
+service/jenkins-x-docker-registry created
+configmap/exposecontroller created
+role.rbac.authorization.k8s.io/expose created
+rolebinding.rbac.authorization.k8s.io/expose created
+serviceaccount/expose created
+clusterrole.rbac.authorization.k8s.io/gcactivities-** created
+clusterrolebinding.rbac.authorization.k8s.io/gcactivities-** created
+cronjob.batch/jenkins-x-gcactivities created
+role.rbac.authorization.k8s.io/gcactivities created
+rolebinding.rbac.authorization.k8s.io/gcactivities created
+serviceaccount/jenkins-x-gcactivities created
+cronjob.batch/jenkins-x-gcpods created
+role.rbac.authorization.k8s.io/gcpods created
+rolebinding.rbac.authorization.k8s.io/gcpods created
+serviceaccount/jenkins-x-gcpods created
+clusterrole.rbac.authorization.k8s.io/gcpreviews-** created
+clusterrolebinding.rbac.authorization.k8s.io/gcpreviews-** created
+cronjob.batch/jenkins-x-gcpreviews created
+role.rbac.authorization.k8s.io/gcpreviews created
+rolebinding.rbac.authorization.k8s.io/gcpreviews created
+serviceaccount/jenkins-x-gcpreviews created
+deployment.extensions/jenkins-x-heapster created
+clusterrolebinding.rbac.authorization.k8s.io/jenkins-x-heapster created
+role.rbac.authorization.k8s.io/jenkins-x-heapster-pod-nanny created
+rolebinding.rbac.authorization.k8s.io/jenkins-x-heapster-pod-nanny created
+service/heapster created
+serviceaccount/jenkins-x-heapster created
+deployment.extensions/jenkins-x-mongodb created
+persistentvolumeclaim/jenkins-x-mongodb created
+secret/jenkins-x-mongodb created
+service/jenkins-x-mongodb created
+configmap/jenkins-x-monocular-api-config created
+deployment.extensions/jenkins-x-monocular-api created
+service/jenkins-x-monocular-api created
+deployment.extensions/jenkins-x-monocular-prerender created
+service/jenkins-x-monocular-prerender created
+configmap/jenkins-x-monocular-ui-config created
+deployment.extensions/jenkins-x-monocular-ui created
+service/jenkins-x-monocular-ui created
+configmap/jenkins-x-monocular-ui-vhost created
+configmap/nexus created
+deployment.extensions/jenkins-x-nexus created
+persistentvolumeclaim/jenkins-x-nexus created
+secret/nexus created
+service/nexus created
+role.rbac.authorization.k8s.io/committer created
+clusterrolebinding.rbac.authorization.k8s.io/jenkins-x-team-controller created
+configmap/jenkins-x-team-controller created
+secret/jenkins-docker-cfg created
+configmap/jenkins-x-devpod-config created
+configmap/jenkins-x-docker-registry created
+configmap/jenkins-x-extensions created
+secret/**-basic-auth created
+role.rbac.authorization.k8s.io/**-view created
+secret/kaniko-secret created
+secret/jenkins-maven-settings created
+secret/jenkins-npm-token created
+role.rbac.authorization.k8s.io/owner created
+configmap/jenkins-x-pod-template-dlang created
+configmap/jenkins-x-pod-template-go created
+configmap/jenkins-x-pod-template-nodejs10x created
+configmap/jenkins-x-pod-template-terraform created
+configmap/jenkins-x-pod-template-maven-nodejs created
+configmap/jenkins-x-pod-template-rust created
+configmap/jenkins-x-pod-template-machine-learning created
+configmap/jenkins-x-pod-template-python2 created
+configmap/jenkins-x-pod-template-nodejs8x created
+configmap/jenkins-x-pod-template-aws-cdk created
+configmap/jenkins-x-pod-template-newman created
+configmap/jenkins-x-pod-template-scala created
+configmap/jenkins-x-pod-template-gradle created
+configmap/jenkins-x-pod-template-maven created
+configmap/jenkins-x-pod-template-python37 created
+configmap/jenkins-x-pod-template-promote created
+configmap/jenkins-x-pod-template-nodejs created
+configmap/jenkins-x-pod-template-swift created
+configmap/jenkins-x-pod-template-maven-java11 created
+configmap/jenkins-x-pod-template-ruby created
+configmap/jenkins-x-pod-template-**-base created
+configmap/jenkins-x-pod-template-python created
+secret/jenkins-release-gpg created
+secret/jenkins-ssh-config created
+role.rbac.authorization.k8s.io/viewer created
+clusterrolebinding.rbac.authorization.k8s.io/cluster-*****-binding-** created
+clusterrole.rbac.authorization.k8s.io/crier created
+clusterrolebinding.rbac.authorization.k8s.io/crier-** created
+deployment.extensions/crier created
+rolebinding.rbac.authorization.k8s.io/crier created
+role.rbac.authorization.k8s.io/crier created
+serviceaccount/crier created
+deployment.extensions/deck created
+rolebinding.rbac.authorization.k8s.io/deck created
+role.rbac.authorization.k8s.io/deck created
+serviceaccount/deck created
+service/deck created
+secret/hmac-token created
+deployment.extensions/hook created
+rolebinding.rbac.authorization.k8s.io/hook created
+role.rbac.authorization.k8s.io/hook created
+serviceaccount/hook created
+service/hook created
+deployment.extensions/horologium created
+rolebinding.rbac.authorization.k8s.io/horologium created
+role.rbac.authorization.k8s.io/horologium created
+serviceaccount/horologium created
+secret/oauth-token created
+clusterrole.rbac.authorization.k8s.io/pipeline created
+clusterrolebinding.rbac.authorization.k8s.io/pipeline-** created
+deployment.extensions/pipeline created
+serviceaccount/pipeline created
+deployment.extensions/pipelinerunner created
+rolebinding.rbac.authorization.k8s.io/pipelinerunner created
+role.rbac.authorization.k8s.io/pipelinerunner created
+serviceaccount/pipelinerunner created
+service/pipelinerunner created
+deployment.extensions/plank created
+rolebinding.rbac.authorization.k8s.io/plank created
+role.rbac.authorization.k8s.io/plank created
+serviceaccount/plank created
+customresourcedefinition.apiextensions.k8s.io/prowjobs.prow.k8s.io created
+deployment.extensions/sinker created
+rolebinding.rbac.authorization.k8s.io/sinker created
+role.rbac.authorization.k8s.io/sinker created
+serviceaccount/sinker created
+deployment.extensions/tide created
+rolebinding.rbac.authorization.k8s.io/tide created
+role.rbac.authorization.k8s.io/tide created
+serviceaccount/tide created
+service/tide created
+podsecuritypolicy.policy/tekton-pipelines created
+clusterrole.rbac.authorization.k8s.io/tekton-pipelines created
+clusterrolebinding.rbac.authorization.k8s.io/tekton-pipelines-** created
+secret/knative-git-user-pass created
+serviceaccount/tekton-pipelines created
+serviceaccount/tekton-bot created
+customresourcedefinition.apiextensions.k8s.io/clustertasks.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/pipelines.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/pipelineruns.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/pipelineresources.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/tasks.tekton.dev created
+customresourcedefinition.apiextensions.k8s.io/taskruns.tekton.dev created
+service/tekton-pipelines-controller created
+service/tekton-pipelines-webhook created
+clusterrole.rbac.authorization.k8s.io/tekton-bot created
+clusterrolebinding.rbac.authorization.k8s.io/tekton-bot-** created
+role.rbac.authorization.k8s.io/tekton-bot created
+rolebinding.rbac.authorization.k8s.io/tekton-bot created
+configmap/config-artifact-bucket created
+configmap/config-entrypoint created
+configmap/config-logging created
+deployment.apps/tekton-pipelines-controller created
+deployment.apps/tekton-pipelines-webhook created
+environment.jenkins.io/dev created
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+configmap/ingress-config configured
+configmap/**-install-config created
+secret/**-install-config created
+environment.jenkins.io/production created
+environment.jenkins.io/staging created
+
+Applying Helm hook post-upgrade YAML via kubectl in file: /tmp/helm-template-workdir-210478900/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml
+job.batch/expose created
+
+Waiting for helm post-upgrade hook Job expose to complete before removing it
+Deleting helm hook sources from file: /tmp/helm-template-workdir-210478900/jenkins-x/helmHooks/env/charts/jenkins-x-platform/charts/expose/templates/job.yaml
+job.batch "expose" deleted
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1 from all pvc configmap release sa role rolebinding secret
+Removing Kubernetes resources from older releases using selector: jenkins.io/chart-release=jenkins-x,jenkins.io/version!=0.0.1,jenkins.io/namespace=** from clusterrole clusterrolebinding
+Environment applied in namespace **
+Creating GitHub webhook for cb-kubecd/environment-pr-256-118-ng-gkebdd-production for url http://hook.**.146.148.22.135.nip.io/hook
+Registered environment "production"
+Creating GitHub webhook for cb-kubecd/environment-pr-256-118-ng-gkebdd-staging for url http://hook.**.146.148.22.135.nip.io/hook
+Registered environment "staging"
+Creating GitHub webhook for cb-kubecd/environment-pr-256-118-ng-gkebdd-dev for url http://hook.**.146.148.22.135.nip.io/hook
+Registered environment "dev"
+
+Jenkins X installation completed successfully
+
+
+	********************************************************
+
+	     NOTE: Your ***** password is in vault: eval `** get vault-config` && vault kv get secret/*****/jenkins
+
+	********************************************************
+
+	
+
+Your Kubernetes context is now set to the namespace: ** 
+To switch back to your original namespace use: ** namespace **
+Or to use this context/namespace in just one terminal use: ** shell
+For help on switching contexts see: https://jenkins-x.io/developing/kube-context/
+
+To import existing projects into Jenkins:       ** import
+To create a new Spring Boot microservice:       ** create spring -d web -d actuator
+To create a new microservice from a quickstart: ** create quickstart
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for pr-256-118-ng-gkebdd.
+Context "gke_jenkins-x-bdd_europe-west1-c_pr-256-118-ng-gkebdd" modified.
+NAME                     HOSTS                                             ADDRESS          PORTS   AGE
+chartmuseum              chartmuseum.**.146.148.22.135.nip.io                               80      12s
+deck                     deck.**.146.148.22.135.nip.io                                      80      12s
+docker-registry          docker-registry.**.146.148.22.135.nip.io                           80      11s
+hook                     hook.**.146.148.22.135.nip.io                                      80      12s
+**-vault-pr-256-118-ng   **-vault-pr-256-118-ng.**.146.148.22.135.nip.io   146.148.22.135   80      5m
+monocular                monocular.**.146.148.22.135.nip.io                                 80      13s
+nexus                    nexus.**.146.148.22.135.nip.io                                     80      13s
+tide                     tide.**.146.148.22.135.nip.io                                      80      10s
+cloning BDD test repository to: /tmp/jenkins-x/bdd-**
+Cloning git repository https://github.com/jenkins-x/bdd-**.git to dir /tmp/jenkins-x/bdd-**
+Checking out repository branch master to dir /tmp/jenkins-x/bdd-**
+go: finding github.com/alexflint/go-filemutex v0.0.0-20171028004239-d358565f3c3f
+go: finding github.com/chromedp/chromedp v0.1.1
+go: finding github.com/IBM-Cloud/bluemix-go v0.0.0-20181008063305-d718d474c7c2
+go: finding github.com/hashicorp/hcl v0.0.0-20180404174102-ef8a98b0bbce
+go: finding github.com/jenkins-x/draft-repo v0.0.0-20180417100212-2f66cc518135
+go: finding github.com/andygrunwald/go-gerrit v0.0.0-20181026193842-43cfd7a94eb4
+go: finding github.com/russross/blackfriday v1.5.1
+go: finding github.com/ghodss/yaml v1.0.0
+go: finding github.com/hinshun/vt10x v0.0.0-20180809195222-d55458df857c
+go: finding k8s.io/test-infra v0.0.0-20190131093439-a22cef183a8f
+go: finding github.com/stretchr/testify v1.3.0
+go: finding github.com/pkg/browser v0.0.0-20170505125900-c90ca0c84f15
+go: finding gocloud.dev v0.9.0
+go: finding github.com/go-openapi/spec v0.17.1
+go: finding github.com/MakeNowJust/heredoc v0.0.0-20171113091838-e9091a26100e
+go: finding github.com/gfleury/go-bitbucket-v1 v0.0.0-20190216152406-3a732135aa4d
+go: finding k8s.io/metrics v0.0.0-20181128195641-3954d62a524d
+go: finding github.com/sethvargo/go-password v0.1.2
+go: finding gopkg.in/AlecAivazis/survey.v1 v1.6.2
+go: finding github.com/hashicorp/vault v0.11.4
+go: finding github.com/knq/sysutil v0.0.0-20180306023629-0218e141a794
+go: finding github.com/hashicorp/go-version v0.0.0-20180716215031-270f2f71b1ee
+go: finding github.com/wbrefvem/go-bitbucket v0.0.0-20190128183802-fc08fd046abb
+go: finding gopkg.in/yaml.v2 v2.2.1
+go: finding github.com/magiconair/properties v1.8.0
+go: finding github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
+go: finding github.com/sirupsen/logrus v1.2.0
+go: finding github.com/andygrunwald/go-jira v1.5.0
+go: finding github.com/coreos/go-semver v0.2.0
+go: finding cloud.google.com/go v0.34.0
+go: finding github.com/coreos/bbolt v1.3.1-coreos.6
+go: finding github.com/denormal/go-gitignore v0.0.0-20180713143441-75ce8f3e513c
+go: finding google.golang.org/api v0.0.0-20181017004218-3f6e8463aa1d
+go: finding github.com/mailru/easyjson v0.0.0-20180606163543-3fdea8d05856
+go: finding github.com/grpc-ecosystem/grpc-gateway v1.5.1
+go: finding github.com/pmezard/go-difflib v1.0.0
+go: finding github.com/PuerkitoBio/purell v1.1.0
+go: finding gopkg.in/src-d/go-git.v4 v4.5.0
+go: finding github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: finding golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890
+go: finding github.com/beevik/etree v1.0.1
+go: finding github.com/bouk/monkey v1.0.0
+go: finding go.uber.org/multierr v1.1.0
+go: finding k8s.io/gengo v0.0.0-20180718083919-906d99f89cd6
+go: finding github.com/knative/build v0.3.0
+go: finding github.com/blang/semver v3.5.1+incompatible
+go: finding github.com/streadway/amqp v0.0.0-20181107104731-27835f1a64e9
+go: finding gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127
+go: finding github.com/googleapis/gax-go v2.0.0+incompatible
+go: finding github.com/gorilla/mux v1.6.2
+go: finding contrib.go.opencensus.io/integrations/ocsql v0.1.2
+go: finding github.com/disintegration/imaging v1.4.2
+go: finding github.com/prometheus/client_golang v0.9.0
+go: finding github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516
+go: finding golang.org/x/image v0.0.0-20180628062038-cc896f830ced
+go: finding github.com/lib/pq v1.0.0
+go: finding contrib.go.opencensus.io/exporter/stackdriver v0.6.0
+go: finding github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c
+go: finding golang.org/x/sys v0.0.0-20181011152604-fa43e7bc11ba
+go: finding github.com/gorilla/websocket v1.4.0
+go: finding github.com/nlopes/slack v0.0.0-20180721202243-347a74b1ea30
+go: finding github.com/spf13/cobra v0.0.3
+go: finding github.com/mitchellh/mapstructure v0.0.0-20180715050151-f15292f7a699
+go: finding k8s.io/api v0.0.0-20181128191700-6db15a15d2d3
+go: finding github.com/google/subcommands v0.0.0-20181012225330-46f0354f6315
+go: finding gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405
+go: finding github.com/sirupsen/logrus v1.1.1
+go: finding github.com/stoewer/go-strcase v1.0.1
+go: finding github.com/knative/pkg v0.0.0-20190125193334-994b801b03ef
+go: finding github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: finding github.com/antham/chyle v1.4.0
+go: finding google.golang.org/genproto v0.0.0-20181016170114-94acd270e44e
+go: finding golang.org/x/sys v0.0.0-20180905080454-ebe1bf3edb33
+go: finding github.com/gorilla/context v1.1.1
+go: finding github.com/go-ini/ini v1.39.0
+go: finding github.com/coreos/go-systemd v0.0.0-20181012123002-c6f51f82210d
+go: finding github.com/go-openapi/swag v0.17.0
+go: finding github.com/peterbourgon/diskv v0.0.0-20171120014656-2973218375c3
+go: finding github.com/jinzhu/inflection v0.0.0-20151009084129-3272df6c21d0
+go: finding github.com/Jeffail/gabs v1.1.1
+go: finding github.com/golang/mock v1.1.1
+go: finding github.com/shurcooL/githubv4 v0.0.0-20180925043049-51d7b505e2e9
+go: finding github.com/Azure/azure-pipeline-go v0.1.8
+go: finding github.com/tmc/grpc-websocket-proxy v0.0.0-20171017195756-830351dc03c6
+go: finding github.com/opencontainers/image-spec v1.0.1
+go: finding github.com/hashicorp/errwrap v0.0.0-20141028054710-7554cd9344ce
+go: finding github.com/antham/strumt v0.0.0-20171215230529-6776189777d3
+go: finding github.com/pkg/errors v0.8.0
+go: finding github.com/gorilla/sessions v1.1.3
+go: finding github.com/gorilla/securecookie v1.1.1
+go: finding github.com/Azure/azure-storage-blob-go v0.0.0-20181023070848-cf01652132cc
+go: finding github.com/pelletier/go-toml v1.2.0
+go: finding golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4
+go: finding github.com/hpcloud/tail v1.0.0
+go: finding github.com/fatih/color v1.7.0
+go: finding github.com/BurntSushi/toml v0.3.0
+go: finding github.com/pborman/uuid v0.0.0-20170612153648-e790cca94e6c
+go: finding github.com/golang/groupcache v0.0.0-20180513044358-24b0969c4cb7
+go: finding go.uber.org/atomic v1.3.2
+go: finding golang.org/x/oauth2 v0.0.0-20181017192945-9dcd33a902f4
+go: finding github.com/googleapis/gnostic v0.1.0
+go: finding github.com/knative/build v0.2.0
+go: finding github.com/jenkins-x/sonobuoy v0.11.7-0.20190318120422-253758214767
+go: finding github.com/shirou/gopsutil v0.0.0-20180901134234-eb1f1ab16f2e
+go: finding github.com/inconshreveable/mousetrap v0.0.0-20141017200713-76626ae9c91c
+go: finding github.com/stretchr/ob** v0.1.1
+go: finding github.com/docker/docker v0.0.0-20171206114025-5e5fadb3c020
+go: finding github.com/GoogleCloudPlatform/cloudsql-proxy v0.0.0-20181009230506-ac834ce67862
+go: finding github.com/dnaeon/go-vcr v1.0.1
+go: finding github.com/xlab/handysort v0.0.0-20150421192137-fb3537ed64a1
+go: finding github.com/kr/pretty v0.1.0
+go: finding github.com/docker/go-units v0.3.2
+go: finding cloud.google.com/go v0.24.0
+go: finding github.com/jenkins-x/** v1.3.1037
+go: finding go.opencensus.io v0.17.0
+go: finding github.com/huandu/xstrings v1.0.0
+go: finding github.com/mailru/easyjson v0.0.0-20171120080333-32fa128f234d
+go: finding github.com/google/gofuzz v0.0.0-20170612174753-24818f796faf
+go: finding github.com/Azure/go-autorest v10.15.5+incompatible
+go: finding k8s.io/apimachinery v0.0.0-20190122181752-bebe27e40fb7
+go: finding github.com/go-openapi/jsonreference v0.17.0
+go: finding github.com/spf13/jwalterweatherman v0.0.0-20180109140146-7c0cea34c8ec
+go: finding github.com/fatih/structs v1.0.0
+go: finding github.com/jinzhu/now v0.0.0-20181116074157-8ec929ed50c3
+go: finding github.com/evanphx/json-patch v4.1.0+incompatible
+go: finding github.com/gophercloud/gophercloud v0.0.0-20180629215909-9e34f4686044
+go: finding github.com/spf13/cobra v0.0.0-00000000000000-c46add8a6528
+go: finding github.com/gogo/protobuf v1.0.0
+go: finding github.com/hashicorp/golang-lru v0.0.0-20180201235237-0fb14efe8c47
+go: finding github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78
+go: finding github.com/elazarl/goproxy v0.0.0-20181111060418-2ce16c963a8a
+go: finding github.com/golang/protobuf v1.1.0
+go: finding code.gitea.io/sdk v0.0.0-20180702024448-79a281c4e34a
+go: finding github.com/jbrukh/bayesian v0.0.0-20161210175230-bf3f261f9a9c
+go: finding google.golang.org/api v0.0.0-20180910000450-7ca32eb868bf
+go: finding github.com/ryanuber/go-glob v0.0.0-20170128012129-256dc444b735
+go: finding github.com/markbates/inflect v1.0.4
+go: finding github.com/nwaples/rardecode v1.0.0
+go: finding github.com/andygrunwald/go-gerrit v0.0.0-20171029143327-95b11af228a1
+go: finding github.com/go-openapi/jsonreference v0.0.0-20161105162150-36d33bfe519e
+go: finding github.com/antham/envh v1.2.0
+go: finding github.com/gobwas/glob v0.2.3
+go: finding github.com/mattn/go-sqlite3 v0.0.0-20160514122348-38ee283dabf1
+go: finding github.com/onsi/ginkgo v1.8.0
+go: finding github.com/google/btree v0.0.0-20180124185431-e89373fe6b4a
+go: finding github.com/sergi/go-diff v1.0.0
+go: finding github.com/prometheus/client_model v0.0.0-20180712105110-5c3871d89910
+go: finding github.com/opencontainers/runc v0.1.1
+go: finding github.com/docker/spdystream v0.0.0-20170912183627-bc6354cbbc29
+go: finding github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568
+go: finding github.com/bwmarrin/snowflake v0.0.0-20180412010544-68117e6bbede
+go: finding golang.org/x/net v0.0.0-20180702212446-ed29d75add3d
+go: finding github.com/Masterminds/sprig v0.0.0-20180403013413-6b2a58267f6a
+go: finding github.com/Masterminds/semver v1.3.1
+go: finding golang.org/x/sys v0.0.0-20181004145325-8469e314837c
+go: finding github.com/lusis/go-slackbot v0.0.0-20180109053408-401027ccfef5
+go: finding github.com/grpc-ecosystem/go-grpc-middleware v1.0.0
+go: finding github.com/aws/aws-sdk-go v1.16.18
+go: finding github.com/prometheus/common v0.0.0-20180801064454-c7de2306084e
+go: finding github.com/googleapis/gnostic v0.2.0
+go: finding github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
+go: finding github.com/bitly/go-hostpool v0.0.0-20171023180738-a3a6125de932
+go: finding github.com/chai2010/gettext-go v0.0.0-20170215093142-bf70f2a70fb1
+go: finding github.com/inconshreveable/mousetrap v1.0.0
+go: finding github.com/Azure/draft v0.15.0
+go: finding golang.org/x/crypto v0.0.0-20180621125126-a49355c7e3f8
+go: finding github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135
+go: finding github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869
+go: finding github.com/docker/distribution v0.0.0-20170726174610-edc3ab29cdff
+go: finding google.golang.org/genproto v0.0.0-20190219182410-082222b4a5c5
+go: finding github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329
+go: finding google.golang.org/api v0.1.0
+go: finding github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d
+go: finding github.com/sirupsen/logrus v1.0.5
+go: finding github.com/gobuffalo/envy v1.6.5
+go: finding github.com/ulikunitz/xz v0.5.6
+go: finding github.com/Azure/azure-storage-blob-go v0.0.0-20180507052152-66ba96e49ebb
+go: finding github.com/gopherjs/gopherjs v0.0.0-20181017120253-0766667cb4d1
+go: finding github.com/gotestyourself/gotestyourself v2.2.0+incompatible
+go: finding golang.org/x/time v0.0.0-20180412165947-fbb02b2291d2
+go: finding github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4
+go: finding github.com/gliderlabs/ssh v0.1.1
+go: finding github.com/go-ldap/ldap v3.0.1+incompatible
+go: finding github.com/konsorten/go-windows-terminal-sequences v1.0.1
+go: finding github.com/onsi/ginkgo v1.5.0
+go: finding github.com/mattbaird/jsonpatch v0.0.0-20171005235357-81af80346b1a
+go: finding github.com/duosecurity/duo_api_golang v0.0.0-20190107154727-539434bf0d45
+go: finding golang.org/x/text v0.3.0
+go: finding github.com/chromedp/cdproto v0.0.0-20180703215205-c125a34ea3b3
+go: finding github.com/satori/go.uuid v1.2.1-0.20180103174451-36e9d2ebbde5
+go: finding github.com/viniciuschiele/tarx v0.0.0-20151205142357-6e3da540444d
+go: finding golang.org/x/sys v0.0.0-20190130150945-aca44879d564
+go: finding github.com/jenkins-x/golang-jenkins v0.0.0-20180919102630-65b83ad42314
+go: finding k8s.io/helm v2.7.2+incompatible
+go: finding github.com/gophercloud/gophercloud v0.0.0-20181215224939-bdd8b1ecd793
+go: finding gopkg.in/src-d/go-git.v4 v4.1.1
+go: finding github.com/google/martian v2.1.0+incompatible
+go: finding github.com/mattn/go-zglob v0.0.0-20180607075734-49693fbb3fe3
+go: finding k8s.io/kubernetes v1.11.3
+go: finding github.com/davecgh/go-spew v1.1.0
+go: finding github.com/gogo/protobuf v1.1.1
+go: finding github.com/go-openapi/swag v0.0.0-20171111214437-cf0bdb963811
+go: finding github.com/containerd/continuity v0.0.0-20181203112020-004b46473808
+go: finding github.com/aws/aws-sdk-go v1.17.10
+go: finding github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: finding github.com/knative/build-pipeline v0.1.0
+go: finding github.com/tektoncd/pipeline v0.1.1-0.20190315182348-1861bddc364c
+go: finding github.com/Microsoft/go-winio v0.4.6
+go: finding github.com/xiang90/probing v0.0.0-20160813154853-07dd2e8dfe18
+go: finding github.com/iancoleman/orderedmap v0.0.0-20181121102841-22c6ecc9fe13
+go: finding github.com/prometheus/client_golang v0.8.0
+go: finding github.com/soheilhy/cmux v0.1.4
+go: finding github.com/satori/go.uuid v0.0.0-20160713180306-0aa62d5ddceb
+go: finding github.com/Nvveen/Gotty v0.0.0-20120604004816-cd527374f1e5
+go: finding github.com/anmitsu/go-shlex v0.0.0-20161002113705-648efa622239
+go: finding github.com/hashicorp/go-multierror v0.0.0-20171204182908-b7773ae21874
+go: finding github.com/hashicorp/go-rootcerts v0.0.0-20160503143440-6bb64b370b90
+go: finding github.com/google/go-querystring v0.0.0-20150414214848-547ef5ac9797
+go: finding github.com/prometheus/procfs v0.0.0-20180725123919-05ee40e3a273
+go: finding k8s.io/apiextensions-apiserver v0.0.0-20181128195303-1f84094d7e8e
+go: finding k8s.io/kube-openapi v0.0.0-20180719232738-d8ea2fe547a4
+go: finding github.com/emirpasic/gods v1.9.0
+go: finding github.com/armon/go-radix v1.0.0
+go: finding github.com/denisenkom/go-mssqldb v0.0.0-20190111225525-2fea367d496d
+go: finding golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f
+go: finding github.com/spf13/afero v1.1.1
+go: finding github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
+go: finding honnef.co/go/tools v0.0.0-20180728063816-88497007e858
+go: finding github.com/alcortesm/tgz v0.0.0-20161220082320-9c5fe88206d7
+go: finding golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e
+go: finding github.com/matttproud/golang_protobuf_extensions v1.0.1
+go: finding golang.org/x/net v0.0.0-20181106065722-10aee1819953
+go: finding google.golang.org/appengine v1.3.0
+go: finding github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
+go: finding github.com/spf13/pflag v1.0.1
+go: finding gopkg.in/mgo.v2 v2.0.0-20180705113604-9856a29383ce
+go: finding github.com/aws/aws-k8s-tester v0.0.0-20190114231546-b411acf57dfe
+go: finding github.com/xanzy/go-gitlab v0.0.0-20180814191223-f3bc634ab936
+go: finding github.com/xanzy/ssh-agent v0.2.0
+go: finding k8s.io/client-go v2.0.0-alpha.0.0.20190115164855-701b91367003+incompatible
+go: finding github.com/apache/thrift v0.0.0-20180902110319-2566ecd5d999
+go: finding github.com/c2h5oh/datasize v0.0.0-20171227191756-4eba002a5eae
+go: finding github.com/gregjones/httpcache v0.0.0-20160524185540-16db777d8ebe
+go: finding github.com/spf13/cast v1.2.0
+go: finding github.com/qor/inflection v0.0.0-20180308033659-04140366298a
+go: finding golang.org/x/sync v0.0.0-20181108010431-42b317875d0f
+go: finding golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9
+go: finding github.com/bazelbuild/buildtools v0.0.0-20180226164855-80c7f0d45d7e
+go: finding golang.org/x/exp v0.0.0-20190121172915-509febef88a4
+go: finding golang.org/x/net v0.0.0-20180724234803-3673e40ba225
+go: finding github.com/Azure/go-autorest v10.12.0+incompatible
+go: finding github.com/jtolds/gls v4.2.1+incompatible
+go: finding github.com/fatih/color v1.5.0
+go: finding github.com/Masterminds/semver v1.4.2
+go: finding github.com/joho/godotenv v1.3.0
+go: finding github.com/Azure/azure-pipeline-go v0.0.0-20180507050906-098e490af5dc
+go: finding github.com/prometheus/common v0.0.0-20181015124227-bcb74de08d37
+go: finding gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d
+go: finding google.golang.org/grpc v1.16.0
+go: finding github.com/imdario/mergo v0.3.5
+go: finding github.com/keybase/go-crypto v0.0.0-20181127160227-255a5089e85a
+go: finding github.com/mitchellh/go-testing-interface v1.0.0
+go: finding github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964
+go: finding go.opencensus.io v0.18.0
+go: finding github.com/dustin/go-humanize v1.0.0
+go: finding github.com/pelletier/go-buffruneio v0.2.0
+go: finding github.com/davecgh/go-spew v1.1.1
+go: finding github.com/hashicorp/serf v0.8.2
+go: finding github.com/codeship/codeship-go v0.0.0-20180717142545-7793ca823354
+go: finding github.com/knq/snaker v0.0.0-20180306023312-d9ad1e7f342a
+go: finding github.com/modern-go/reflect2 v1.0.1
+go: finding github.com/jefferai/jsonx v1.0.0
+go: finding github.com/stretchr/ob** v0.1.0
+go: finding github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
+go: finding github.com/lusis/slack-test v0.0.0-20180109053238-3c758769bfa6
+go: finding github.com/acarl005/stripansi v0.0.0-20180116102854-5a71ef0e047d
+go: finding github.com/go-openapi/spec v0.0.0-20171219195406-fa03337d7da5
+go: finding github.com/banzaicloud/bank-vaults v0.0.0-20181129101211-e31657d7c4fe
+go: finding github.com/hashicorp/go-memdb v0.0.0-20181108192425-032f93b25bec
+go: finding github.com/mattn/go-colorable v0.0.8
+go: finding github.com/stretchr/testify v1.2.2
+go: finding github.com/ory/dockertest v3.3.4+incompatible
+go: finding github.com/djherbis/atime v1.0.0
+go: finding vbom.ml/util v0.0.0-20170409195630-256737ac55c4
+go: finding gopkg.in/warnings.v0 v0.1.2
+go: finding github.com/client9/misspell v0.3.4
+go: finding github.com/google/go-containerregistry v0.0.0-20190317040536-ebbba8469d06
+go: finding golang.org/x/crypto v0.0.0-20181015023909-0c41d7ab0a0e
+go: finding github.com/jetstack/cert-manager v0.5.2
+go: finding gopkg.in/h2non/gock.v0 v0.0.0-20160419120746-1baf36abac00
+go: finding github.com/openzipkin/zipkin-go v0.1.1
+go: finding github.com/dsnet/compress v0.0.0-20171208185109-cc9eb1d7ad76
+go: finding github.com/src-d/gcfg v1.3.0
+go: finding github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da
+go: finding github.com/onsi/gomega v1.5.0
+go: finding golang.org/x/net v0.0.0-20181005035420-146acd28ed58
+go: finding github.com/spf13/pflag v0.0.0-20170508184408-e57e3eeb33f7
+go: finding github.com/influxdata/influxdb v0.0.0-20161215172503-049f9b42e9a5
+go: finding github.com/prometheus/common v0.0.0-20181020173914-7e9e6cabbd39
+go: finding github.com/hashicorp/go-syslog v1.0.0
+go: finding github.com/knative/pkg v0.0.0-20181205230426-0e41760cea1d
+go: finding github.com/json-iterator/go v1.1.5
+go: finding github.com/google/wire v0.2.0
+go: finding github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db
+go: finding cloud.google.com/go v0.30.0
+go: finding github.com/kr/text v0.1.0
+go: finding github.com/hashicorp/memberlist v0.1.3
+go: finding google.golang.org/appengine v1.2.0
+go: finding github.com/google/uuid v1.1.0
+go: finding github.com/peterbourgon/diskv v2.0.1+incompatible
+go: finding github.com/armon/circbuf v0.0.0-20150827004946-bbbad097214e
+go: finding github.com/imdario/mergo v0.0.0-20180119215619-163f41321a19
+go: finding golang.org/x/oauth2 v0.0.0-20180620175406-ef147856a6dd
+go: finding github.com/golang/groupcache v0.0.0-20180924190550-6f2cf27854a4
+go: finding google.golang.org/genproto v0.0.0-20180831171423-11092d34479b
+go: finding github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+go: finding github.com/fsnotify/fsnotify v1.4.7
+go: finding github.com/gregjones/httpcache v0.0.0-20180305231024-9cad4c3443a7
+go: finding github.com/pierrec/lz4 v2.0.5+incompatible
+go: finding github.com/elazarl/go-bindata-assetfs v1.0.0
+go: finding k8s.io/kube-openapi v0.0.0-20180711000925-0cf8f7e6ed1d
+go: finding github.com/gorilla/websocket v1.2.0
+go: finding google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8
+go: finding github.com/fsouza/fake-gcs-server v0.0.0-20180612165233-e85be23bdaa8
+go: finding github.com/go-openapi/jsonpointer v0.0.0-20170102174223-779f45308c19
+go: finding github.com/sean-/seed v0.0.0-20170313163322-e2103e2c3529
+go: finding github.com/go-test/deep v1.0.1
+go: finding github.com/hashicorp/go-plugin v0.0.0-20190129155509-362c99b11937
+go: finding k8s.io/test-infra v0.0.0-20181019233642-2e10a0bbe9b3
+go: finding github.com/shurcooL/go v0.0.0-20180423040247-9e1955d9fb6e
+go: finding github.com/mitchellh/cli v1.0.0
+go: finding github.com/json-iterator/go v0.0.0-20180701071628-ab8a2e0c74be
+go: finding google.golang.org/grpc v1.15.0
+go: finding github.com/kr/pty v1.1.2
+go: finding github.com/emicklei/go-restful v2.8.0+incompatible
+go: finding gopkg.in/ini.v1 v1.39.0
+go: finding golang.org/x/image v0.0.0-20180708004352-c73c2afc3b81
+go: finding golang.org/x/sys v0.0.0-20181026203630-95b1ffbd15a5
+go: finding github.com/hashicorp/go-sockaddr v1.0.0
+go: finding go.uber.org/zap v1.9.1
+go: finding github.com/erikstmartin/go-testdb v0.0.0-20160219214506-8d10e4a1bae5
+go: finding github.com/SAP/go-hdb v0.13.2
+go: finding github.com/hashicorp/consul v1.4.2
+go: finding github.com/cpuguy83/go-md2man v1.0.8
+go: finding github.com/miekg/dns v1.0.14
+go: finding github.com/konsorten/go-windows-terminal-sequences v0.0.0-20180402223658-b729f2633dfe
+go: finding github.com/mitchellh/gox v0.4.0
+go: finding github.com/golang/protobuf v1.2.0
+go: finding github.com/hashicorp/mdns v1.0.0
+go: finding github.com/mholt/archiver v3.1.1+incompatible
+go: finding golang.org/x/sys v0.0.0-20180823144017-11551d06cbcc
+go: finding github.com/kisielk/gotool v1.0.0
+go: finding golang.org/x/tools v0.0.0-20181017214349-06f26fdaaa28
+go: finding github.com/coreos/pkg v0.0.0-20180928190104-399ea9e2e55f
+go: finding github.com/cenkalti/backoff v2.0.0+incompatible
+go: finding github.com/bwmarrin/snowflake v0.0.0-20170221160716-02cc386c183a
+go: finding gotest.tools v2.2.0+incompatible
+go: finding github.com/nbio/st v0.0.0-20140626010706-e9e8d9816f32
+go: finding gopkg.in/pipe.v2 v2.0.0-20140414041502-3c2ca4d52544
+go: finding github.com/operator-framework/operator-sdk v0.0.0-20181011175812-913cbf711929
+go: finding golang.org/x/lint v0.0.0-20180702182130-06c8688daad7
+go: finding github.com/tidwall/match v0.0.0-20171002075945-1731857f09b1
+go: finding golang.org/x/sys v0.0.0-20180830151530-49385e6e1522
+go: finding github.com/aws/aws-sdk-go v1.15.57
+go: finding golang.org/x/crypto v0.0.0-20181029021203-45a5f77698d3
+go: finding github.com/google/go-github v17.0.0+incompatible
+go: finding github.com/chromedp/cdproto v0.0.0-20180720050708-57cf4773008d
+go: finding github.com/bgentry/speakeasy v0.1.0
+go: finding gopkg.in/src-d/go-git-fixtures.v3 v3.3.0
+go: finding github.com/hashicorp/vault-plugin-secrets-kv v0.0.0-20190115203747-edbfe287c5d9
+go: finding github.com/go-yaml/yaml v2.1.0+incompatible
+go: finding github.com/modern-go/reflect2 v0.0.0-20180701023420-4b7aa43c6742
+go: finding github.com/prometheus/common v0.2.0
+go: finding github.com/mattn/go-isatty v0.0.2
+go: finding github.com/onsi/gomega v1.4.2
+go: finding golang.org/x/crypto v0.0.0-20180904163835-0709b304e793
+go: finding github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf
+go: finding k8s.io/code-generator v0.0.0-20181017053441-8c97d6ab64da
+go: finding github.com/NYTimes/gziphandler v0.0.0-20160419202541-63027b26b87e
+go: finding github.com/shurcooL/graphql v0.0.0-20181231061246-d48a9a75455f
+go: finding github.com/hashicorp/go-hclog v0.0.0-20190109152822-4783caec6f2e
+go: finding github.com/tidwall/gjson v1.1.0
+go: finding golang.org/x/net v0.0.0-20181114220301-adae6a3d119a
+go: finding github.com/mitchellh/copystructure v1.0.0
+go: finding github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb
+go: finding github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc
+go: finding github.com/mitchellh/iochan v1.0.0
+go: finding github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310
+go: finding github.com/deckarep/golang-set v0.0.0-20171013212420-1d4478f51bed
+go: finding google.golang.org/grpc v1.14.0
+go: finding github.com/sethgrid/pester v0.0.0-20180430140037-03e26c9abbbf
+go: finding gopkg.in/fsnotify.v1 v1.4.7
+go: finding golang.org/x/sys v0.0.0-20180627142611-7138fd3d9dc8
+go: finding github.com/posener/complete v1.1.1
+go: finding github.com/hashicorp/go-retryablehttp v0.0.0-20180718195005-e651d75abec6
+go: finding github.com/kr/logfmt v0.0.0-20140226030751-b84e30acd515
+go: finding github.com/julienschmidt/httprouter v1.2.0
+go: finding github.com/go-ini/ini v1.25.4
+go: finding github.com/DataDog/datadog-go v0.0.0-20180822151419-281ae9f2d895
+go: finding k8s.io/utils v0.0.0-20181019225348-5e321f9a457c
+go: finding github.com/hashicorp/logutils v1.0.0
+go: finding github.com/smartystreets/assertions v0.0.0-20180927180507-b2de0cb4f26d
+go: finding github.com/hashicorp/go-version v0.0.0-20180322230233-23480c066577
+go: finding github.com/mitchellh/go-homedir v0.0.0-20180523094522-3864e76763d9
+go: finding github.com/grpc-ecosystem/grpc-gateway v1.5.0
+go: finding github.com/gocql/gocql v0.0.0-20190126123547-8516aabb0f99
+go: finding gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405
+go: finding github.com/oklog/run v1.0.0
+go: finding github.com/google/go-cmp v0.2.0
+go: finding github.com/rodaine/hclencoder v0.0.0-20180926060551-0680c4321930
+go: finding gopkg.in/alecthomas/kingpin.v2 v2.2.6
+go: finding github.com/kevinburke/ssh_config v0.0.0-20180317175531-9fc7bb800b55
+go: finding github.com/hashicorp/go-multierror v1.0.0
+go: finding github.com/hashicorp/go-msgpack v0.5.3
+go: finding github.com/mattn/go-isatty v0.0.3
+go: finding github.com/mitchellh/ioprogress v0.0.0-20180201004757-6a23b12fa88e
+go: finding contrib.go.opencensus.io/exporter/aws v0.0.0-20180906190126-dd54a7ef511e
+go: finding github.com/petergtz/pegomock v0.0.0-20181206220228-b113d17a7e81
+go: finding gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5
+go: finding github.com/go-stack/stack v1.8.0
+go: finding github.com/Pallinder/go-randomdata v0.0.0-20180616180521-15df0648130a
+go: finding github.com/smartystreets/goconvey v0.0.0-20180222194500-ef6db91d284a
+go: finding github.com/Azure/azure-sdk-for-go v21.1.0+incompatible
+go: finding github.com/aokoli/goutils v1.0.1
+go: finding golang.org/x/net v0.0.0-20181017193950-04a2e542c03f
+go: finding github.com/petar/GoLLRB v0.0.0-20130427215148-53be0d36a84c
+go: finding gopkg.in/inf.v0 v0.9.1
+go: finding cloud.google.com/go v0.26.0
+go: finding github.com/hashicorp/go.net v0.0.1
+go: finding github.com/google/uuid v1.0.0
+go: finding github.com/jmespath/go-jmespath v0.0.0-20160202185014-0b12d6b521d8
+go: finding golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be
+go: finding go.opencensus.io v0.15.0
+go: finding github.com/go-sql-driver/mysql v1.4.0
+go: finding golang.org/x/tools v0.0.0-20180828015842-6cd1fcedba52
+go: finding github.com/hashicorp/go-hclog v0.0.0-20180709165350-ff2cf002a8dd
+go: finding k8s.io/cli-runtime v0.0.0-20181026155151-1ee5ba10d7e3
+go: finding google.golang.org/genproto v0.0.0-20181202183823-bd91e49a0898
+go: finding github.com/mitchellh/mapstructure v0.0.0-20160808181253-ca63d7c062ee
+go: finding golang.org/x/net v0.0.0-20181201002055-351d144fa1fc
+go: finding github.com/hashicorp/errwrap v1.0.0
+go: finding github.com/pascaldekloe/goe v0.0.0-20180627143212-57f6aae5913c
+go: finding github.com/mitchellh/reflectwalk v1.0.0
+go: finding sigs.k8s.io/yaml v1.1.0
+go: finding google.golang.org/grpc v1.17.0
+go: finding github.com/onsi/ginkgo v1.6.0
+go: finding github.com/go-kit/kit v0.8.0
+go: finding github.com/opencontainers/go-digest v1.0.0-rc1
+go: finding github.com/mitchellh/mapstructure v0.0.0-20180511142126-bb74f1db0675
+go: finding github.com/rifflock/lfshook v0.0.0-20180227222202-bf539943797a
+go: finding github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99
+go: finding github.com/hashicorp/go-immutable-radix v1.0.0
+go: finding github.com/Netflix/go-expect v0.0.0-20180814212900-124a37274874
+go: finding golang.org/x/net v0.0.0-20181023162649-9b4f9f5ad519
+go: finding github.com/spf13/viper v1.0.2
+go: finding github.com/asaskevich/govalidator v0.0.0-20180720115003-f9ffefc3facf
+go: finding github.com/SermoDigital/jose v0.9.1
+go: finding golang.org/x/sys v0.0.0-20181116152217-5ac8a444bdc5
+go: finding github.com/go-sql-driver/mysql v0.0.0-20160411075031-7ebe0a500653
+go: finding github.com/prometheus/client_golang v0.9.1
+go: finding google.golang.org/api v0.0.0-20181021000519-a2651947f503
+go: finding github.com/ryanuber/columnize v0.0.0-20160712163229-9b3edd62028f
+go: finding k8s.io/apiextensions-apiserver v0.0.0-20180621085152-bbc52469f98b
+go: finding github.com/knative/build v0.1.2
+go: finding github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed
+go: finding github.com/aws/aws-sdk-go v1.15.27
+go: finding github.com/hashicorp/go-uuid v1.0.1
+go: finding github.com/imdario/mergo v0.3.6
+go: finding go.etcd.io/etcd v0.0.0-20181031231232-83304cfc808c
+go: finding github.com/kr/pty v1.1.1
+go: finding github.com/google/go-github v0.0.0-20170604030111-7a51fb928f52
+go: finding github.com/jonboulle/clockwork v0.1.0
+go: finding gopkg.in/src-d/go-billy.v4 v4.2.0
+go: finding gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
+go: finding golang.org/x/sys v0.0.0-20190129075346-302c3dd5f1cc
+go: finding github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8
+go: finding github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223
+go: finding github.com/mattn/go-colorable v0.0.9
+go: finding golang.org/x/net v0.0.0-20180906233101-161cd47e91fd
+go: finding github.com/spf13/pflag v1.0.3
+go: finding github.com/mitchellh/go-testing-interface v0.0.0-20171004221916-a61a99592b77
+go: finding github.com/circonus-labs/circonus-gometrics v2.2.6+incompatible
+go: finding github.com/coreos/etcd v3.3.10+incompatible
+go: finding github.com/go-ole/go-ole v1.2.1
+go: finding github.com/docker/go-connections v0.3.0
+go: finding golang.org/x/net v0.0.0-20180826012351-8a410e7b638d
+go: finding github.com/hashicorp/golang-lru v0.5.0
+go: finding github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6
+go: finding google.golang.org/appengine v1.1.0
+go: finding github.com/hashicorp/go-uuid v1.0.0
+go: finding github.com/patrickmn/go-cache v2.1.0+incompatible
+go: finding github.com/trivago/tgo v1.0.1
+go: finding github.com/hashicorp/go-cleanhttp v0.5.0
+go: finding github.com/go-openapi/jsonpointer v0.17.0
+go: finding github.com/go-logfmt/logfmt v0.3.0
+go: finding github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
+go: finding github.com/golang/snappy v0.0.0-20170215233205-553a64147049
+go: finding github.com/jinzhu/gorm v0.0.0-20170316141641-572d0a0ab1eb
+go: finding golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
+go: finding github.com/prometheus/client_model v0.0.0-20170216185247-6f3806018612
+go: finding github.com/gorilla/websocket v0.0.0-20170926233335-4201258b820c
+go: finding github.com/kr/pty v1.0.0
+go: finding github.com/mattn/go-isatty v0.0.4
+go: finding github.com/ugorji/go v1.1.1
+go: finding golang.org/x/crypto v0.0.0-20180608092829-8ac0e0d97ce4
+go: finding github.com/prometheus/procfs v0.0.0-20180612222113-7d6f385de8be
+go: finding github.com/tmc/grpc-websocket-proxy v0.0.0-20170815181823-89b8d40f7ca8
+go: finding github.com/olekukonko/tablewriter v0.0.0-20170122224234-a0225b3f23b5
+go: finding github.com/prometheus/common v0.0.0-20180518154759-7600349dcfe1
+go: finding google.golang.org/genproto v0.0.0-20180608181217-32ee49c4dd80
+go: finding github.com/mattn/go-runewidth v0.0.2
+go: finding github.com/dustin/go-humanize v0.0.0-20171111073723-bb3d318650d4
+go: finding github.com/matttproud/golang_protobuf_extensions v1.0.0
+go: finding github.com/coreos/pkg v0.0.0-20160727233714-3ac0863d7acf
+go: finding gopkg.in/airbrake/gobrake.v2 v2.0.9
+go: finding gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2
+go: finding go.etcd.io/bbolt v1.3.1-etcd.7
+go: finding github.com/grpc-ecosystem/grpc-gateway v1.4.1
+go: finding github.com/urfave/cli v1.18.0
+go: finding github.com/coreos/go-systemd v0.0.0-20180511133405-39ca1b05acc7
+go: finding github.com/golang/groupcache v0.0.0-20160516000752-02826c3e7903
+go: finding gopkg.in/cheggaaa/pb.v1 v1.0.25
+go: downloading k8s.io/apimachinery v0.0.0-20190122181752-bebe27e40fb7
+go: downloading github.com/cenkalti/backoff v2.0.0+incompatible
+go: downloading github.com/onsi/gomega v1.5.0
+go: downloading gopkg.in/src-d/go-git.v4 v4.5.0
+go: downloading github.com/jenkins-x/** v1.3.1037
+go: downloading github.com/onsi/ginkgo v1.8.0
+go: downloading k8s.io/client-go v2.0.0-alpha.0.0.20190115164855-701b91367003+incompatible
+go: downloading github.com/jenkins-x/golang-jenkins v0.0.0-20180919102630-65b83ad42314
+go: downloading golang.org/x/net v0.0.0-20181201002055-351d144fa1fc
+go: downloading github.com/pkg/errors v0.8.0
+go: downloading k8s.io/api v0.0.0-20181128191700-6db15a15d2d3
+go: downloading github.com/sergi/go-diff v1.0.0
+go: downloading gopkg.in/src-d/go-billy.v4 v4.2.0
+go: downloading github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
+go: downloading github.com/google/gofuzz v0.0.0-20170612174753-24818f796faf
+go: downloading github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99
+go: downloading github.com/gogo/protobuf v1.1.1
+go: downloading github.com/hpcloud/tail v1.0.0
+go: downloading golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9
+go: downloading golang.org/x/text v0.3.0
+go: downloading github.com/mitchellh/go-homedir v0.0.0-20180523094522-3864e76763d9
+go: downloading github.com/kevinburke/ssh_config v0.0.0-20180317175531-9fc7bb800b55
+go: downloading github.com/xanzy/ssh-agent v0.2.0
+go: downloading gopkg.in/AlecAivazis/survey.v1 v1.6.2
+go: downloading github.com/jenkins-x/sonobuoy v0.11.7-0.20190318120422-253758214767
+go: downloading k8s.io/apiextensions-apiserver v0.0.0-20181128195303-1f84094d7e8e
+go: downloading gopkg.in/yaml.v2 v2.2.1
+go: downloading github.com/mattbaird/jsonpatch v0.0.0-20171005235357-81af80346b1a
+go: downloading github.com/IBM-Cloud/bluemix-go v0.0.0-20181008063305-d718d474c7c2
+go: downloading github.com/knative/pkg v0.0.0-20190125193334-994b801b03ef
+go: downloading k8s.io/test-infra v0.0.0-20190131093439-a22cef183a8f
+go: downloading github.com/alexflint/go-filemutex v0.0.0-20171028004239-d358565f3c3f
+go: downloading k8s.io/helm v2.7.2+incompatible
+go: downloading github.com/tektoncd/pipeline v0.1.1-0.20190315182348-1861bddc364c
+go: downloading github.com/go-openapi/spec v0.17.1
+go: downloading golang.org/x/oauth2 v0.0.0-20181203162652-d668ce993890
+go: downloading github.com/chromedp/chromedp v0.1.1
+go: downloading golang.org/x/time v0.0.0-20180412165947-fbb02b2291d2
+go: downloading github.com/aws/aws-sdk-go v1.17.10
+go: downloading gocloud.dev v0.9.0
+go: downloading github.com/jetstack/cert-manager v0.5.2
+go: downloading golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4
+go: downloading k8s.io/metrics v0.0.0-20181128195641-3954d62a524d
+go: downloading github.com/shirou/gopsutil v0.0.0-20180901134234-eb1f1ab16f2e
+go: downloading github.com/chromedp/cdproto v0.0.0-20180720050708-57cf4773008d
+go: downloading github.com/mitchellh/mapstructure v0.0.0-20180715050151-f15292f7a699
+go: downloading github.com/gregjones/httpcache v0.0.0-20180305231024-9cad4c3443a7
+go: downloading code.gitea.io/sdk v0.0.0-20180702024448-79a281c4e34a
+go: downloading k8s.io/kube-openapi v0.0.0-20180719232738-d8ea2fe547a4
+go: downloading github.com/knative/build v0.3.0
+go: downloading github.com/nlopes/slack v0.0.0-20180721202243-347a74b1ea30
+go: downloading github.com/codeship/codeship-go v0.0.0-20180717142545-7793ca823354
+go: downloading github.com/sethvargo/go-password v0.1.2
+go: downloading github.com/andygrunwald/go-gerrit v0.0.0-20181026193842-43cfd7a94eb4
+go: downloading github.com/pborman/uuid v0.0.0-20170612153648-e790cca94e6c
+go: downloading github.com/BurntSushi/toml v0.3.0
+go: downloading github.com/golang/protobuf v1.2.0
+go: downloading github.com/gorilla/websocket v1.4.0
+go: downloading sigs.k8s.io/yaml v1.1.0
+go: downloading github.com/andygrunwald/go-jira v1.5.0
+go: downloading github.com/banzaicloud/bank-vaults v0.0.0-20181129101211-e31657d7c4fe
+go: downloading github.com/denormal/go-gitignore v0.0.0-20180713143441-75ce8f3e513c
+go: downloading github.com/emicklei/go-restful v2.8.0+incompatible
+go: downloading github.com/mailru/easyjson v0.0.0-20180823135443-60711f1a8329
+go: downloading github.com/satori/go.uuid v1.2.1-0.20180103174451-36e9d2ebbde5
+go: downloading github.com/blang/semver v3.5.1+incompatible
+go: downloading github.com/peterbourgon/diskv v2.0.1+incompatible
+go: downloading github.com/knq/sysutil v0.0.0-20180306023629-0218e141a794
+go: downloading github.com/trivago/tgo v1.0.1
+go: downloading github.com/hashicorp/go-version v0.0.0-20180716215031-270f2f71b1ee
+go: downloading github.com/stretchr/testify v1.3.0
+go: downloading github.com/googleapis/gnostic v0.2.0
+go: downloading github.com/wbrefvem/go-bitbucket v0.0.0-20190128183802-fc08fd046abb
+go: downloading github.com/spf13/cobra v0.0.3
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: downloading github.com/MakeNowJust/heredoc v0.0.0-20171113091838-e9091a26100e
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: downloading github.com/danwakefield/fnmatch v0.0.0-20160403171240-cbb64ac3d964
+go: downloading github.com/Pallinder/go-randomdata v0.0.0-20180616180521-15df0648130a
+go: downloading github.com/gfleury/go-bitbucket-v1 v0.0.0-20190216152406-3a732135aa4d
+go: downloading github.com/spf13/viper v1.0.2
+go: downloading github.com/emirpasic/gods v1.9.0
+go: downloading github.com/rifflock/lfshook v0.0.0-20180227222202-bf539943797a
+go: downloading github.com/hashicorp/vault v0.11.4
+go: downloading github.com/go-openapi/jsonreference v0.17.0
+go: downloading github.com/mholt/archiver v3.1.1+incompatible
+go: downloading github.com/xanzy/go-gitlab v0.0.0-20180814191223-f3bc634ab936
+go: downloading github.com/gorilla/mux v1.6.2
+go: downloading github.com/spf13/afero v1.1.1
+go: downloading github.com/russross/blackfriday v1.5.1
+go: downloading github.com/pelletier/go-buffruneio v0.2.0
+go: downloading github.com/fsnotify/fsnotify v1.4.7
+go: downloading github.com/stoewer/go-strcase v1.0.1
+go: downloading github.com/dsnet/compress v0.0.0-20171208185109-cc9eb1d7ad76
+go: downloading github.com/magiconair/properties v1.8.0
+go: downloading github.com/pelletier/go-toml v1.2.0
+go: downloading golang.org/x/sys v0.0.0-20190130150945-aca44879d564
+go: downloading github.com/pierrec/lz4 v2.0.5+incompatible
+go: downloading github.com/Azure/azure-pipeline-go v0.1.8
+go: downloading github.com/rodaine/hclencoder v0.0.0-20180926060551-0680c4321930
+go: downloading github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135
+go: downloading github.com/spf13/pflag v1.0.3
+go: downloading github.com/beevik/etree v1.0.1
+go: downloading google.golang.org/api v0.1.0
+go: downloading github.com/iancoleman/orderedmap v0.0.0-20181121102841-22c6ecc9fe13
+go: downloading github.com/spf13/jwalterweatherman v0.0.0-20180109140146-7c0cea34c8ec
+go: downloading github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8
+go: downloading github.com/fatih/structs v1.0.0
+go: downloading github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
+go: downloading github.com/viniciuschiele/tarx v0.0.0-20151205142357-6e3da540444d
+go: downloading github.com/c2h5oh/datasize v0.0.0-20171227191756-4eba002a5eae
+go: downloading gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7
+go: downloading github.com/ghodss/yaml v1.0.0
+go: downloading github.com/pkg/browser v0.0.0-20170505125900-c90ca0c84f15
+go: downloading github.com/gophercloud/gophercloud v0.0.0-20181215224939-bdd8b1ecd793
+go: downloading github.com/hashicorp/hcl v0.0.0-20180404174102-ef8a98b0bbce
+go: downloading github.com/cpuguy83/go-md2man v1.0.8
+go: downloading github.com/disintegration/imaging v1.4.2
+go: downloading github.com/gobwas/glob v0.2.3
+go: downloading github.com/src-d/gcfg v1.3.0
+go: downloading github.com/Jeffail/gabs v1.1.1
+go: downloading github.com/hashicorp/golang-lru v0.5.0
+go: downloading github.com/Azure/go-autorest v10.15.5+incompatible
+go: downloading github.com/go-openapi/swag v0.17.0
+go: downloading github.com/imdario/mergo v0.3.6
+go: downloading github.com/sirupsen/logrus v1.2.0
+go: downloading github.com/go-openapi/jsonpointer v0.17.0
+go: downloading github.com/ulikunitz/xz v0.5.6
+go: downloading google.golang.org/grpc v1.17.0
+go: downloading github.com/modern-go/reflect2 v1.0.1
+go: downloading github.com/nwaples/rardecode v1.0.0
+go: downloading github.com/Azure/azure-storage-blob-go v0.0.0-20181023070848-cf01652132cc
+go: downloading github.com/google/wire v0.2.0
+go: downloading gopkg.in/fsnotify.v1 v1.4.7
+go: downloading github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b
+go: downloading github.com/Azure/draft v0.15.0
+go: downloading gopkg.in/warnings.v0 v0.1.2
+go: downloading github.com/fatih/color v1.7.0
+go: downloading cloud.google.com/go v0.34.0
+go: downloading github.com/google/go-github v17.0.0+incompatible
+go: downloading github.com/shurcooL/githubv4 v0.0.0-20180925043049-51d7b505e2e9
+go: downloading github.com/google/uuid v1.1.0
+go: downloading gopkg.in/inf.v0 v0.9.1
+go: downloading github.com/dgrijalva/jwt-go v3.2.0+incompatible
+go: downloading github.com/spf13/cast v1.2.0
+go: downloading github.com/PuerkitoBio/purell v1.1.0
+go: downloading github.com/mattn/go-colorable v0.0.9
+go: downloading golang.org/x/image v0.0.0-20180708004352-c73c2afc3b81
+go: downloading github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db
+go: downloading github.com/jenkins-x/draft-repo v0.0.0-20180417100212-2f66cc518135
+go: downloading github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578
+go: downloading github.com/json-iterator/go v1.1.5
+go: downloading github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af
+go: downloading github.com/shurcooL/graphql v0.0.0-20181231061246-d48a9a75455f
+go: downloading github.com/prometheus/client_golang v0.9.1
+go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+go: downloading github.com/antham/chyle v1.4.0
+go: downloading github.com/prometheus/common v0.2.0
+go: downloading github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d
+go: downloading github.com/google/go-cmp v0.2.0
+go: downloading github.com/matttproud/golang_protobuf_extensions v1.0.1
+go: downloading github.com/jbrukh/bayesian v0.0.0-20161210175230-bf3f261f9a9c
+go: downloading github.com/mattn/go-isatty v0.0.4
+go: downloading github.com/Masterminds/semver v1.4.2
+go: downloading github.com/googleapis/gax-go v2.0.0+incompatible
+go: downloading github.com/prometheus/client_model v0.0.0-20180712105110-5c3871d89910
+go: downloading github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
+go: downloading google.golang.org/genproto v0.0.0-20190219182410-082222b4a5c5
+go: downloading go.opencensus.io v0.18.0
+go: downloading github.com/gorilla/sessions v1.1.3
+go: downloading github.com/hashicorp/errwrap v1.0.0
+go: downloading gopkg.in/robfig/cron.v2 v2.0.0-20150107220207-be2e0b0deed5
+go: downloading github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c
+go: downloading github.com/hashicorp/go-multierror v1.0.0
+go: downloading github.com/evanphx/json-patch v4.1.0+incompatible
+go: downloading github.com/hashicorp/go-retryablehttp v0.0.0-20180718195005-e651d75abec6
+go: downloading github.com/gorilla/context v1.1.1
+go: downloading github.com/gorilla/securecookie v1.1.1
+go: downloading github.com/hashicorp/go-sockaddr v1.0.0
+go: downloading github.com/hashicorp/go-cleanhttp v0.5.0
+go: downloading github.com/operator-framework/operator-sdk v0.0.0-20181011175812-913cbf711929
+go: downloading github.com/hashicorp/go-rootcerts v0.0.0-20160503143440-6bb64b370b90
+go: downloading github.com/docker/spdystream v0.0.0-20170912183627-bc6354cbbc29
+go: downloading github.com/ryanuber/go-glob v0.0.0-20170128012129-256dc444b735
+go: finding k8s.io/api v0.0.0-20190126160303-ccdd560a045f
+go: finding k8s.io/client-go v9.0.0+incompatible
+go: finding github.com/heptio/sonobuoy v0.12.0
+go: finding k8s.io/metrics v0.0.0-20180620010437-b11cf31b380b
+go: finding github.com/shurcooL/graphql v0.0.0-20180924043259-e4a3a37e6d42
+GO111MODULE=on go build -ldflags " -X github.com/jenkins-x/bdd-**/version.Version=0.0.0-SNAPSHOT-PR-256-118 -X github.com/jenkins-x/bdd-**/version.Revision='e857ef6' -X github.com/jenkins-x/bdd-**/version.Branch='master' -X github.com/jenkins-x/bdd-**/version.BuildDate='20190512-06:23:09' -X github.com/jenkins-x/bdd-**/version.GoVersion='1.11.5'" -o build/bdd-** *.go
+GO111MODULE=on go get github.com/onsi/ginkgo/ginkgo
+go: finding github.com/onsi/ginkgo/ginkgo latest
+GO111MODULE=on go get github.com/onsi/gomega/...
+JX VERISON INFORMATION
+
+NAME               VERSION
+**                 0.0.0-SNAPSHOT-PR-3926-1
+Kubernetes cluster v1.11.8-gke.6
+kubectl            v1.14.0
+helm client        Client: v2.13.1+g618447c
+git                git version 2.21.0
+Operating System   "CentOS Linux release 7.6.1810 (Core) "
+
+GIT_ORGANISATION set to cb-kubecd
+GIT_PROVIDER_URL set to https://github.com
+JX_DISABLE_DELETE_APP is set. Apps created in the test run will NOT be deleted
+JX_DISABLE_DELETE_REPO is set. Repos created in the test run will NOT be deleted
+JX_DISABLE_WAIT_FOR_FIRST_RELEASE is not set.  If you would like to disable waiting for the build to be promoted to staging set this variable to TRUE
+JX_BDD_INCLUDE_APPS is set to **-app-jacoco:0.0.100
+BDD_TIMEOUT_BUILD_COMPLETES timeout value is 20
+BDD_TIMEOUT_BUILD_RUNNING_IN_STAGING timeout value is 10
+BDD_TIMEOUT_URL_RETURNS timeout value is 5
+BDD_TIMEOUT_CMD_LINE timeout value is 1
+BDD_TIMEOUT_APP_TESTS timeout value is 60
+BDD_TIMEOUT_SESSION_WAIT timeout value is 60
+BDD_TIMEOUT_JX_RUNNER timeout value is 
+JX_BDD_INCLUDE_APPS is set to **-app-jacoco:0.0.100
+GO111MODULE=on ginkgo  --slowSpecThreshold=50000 --focus="create spring"
+      About to verify pods      Pods verifiedRunning Suite: BddJx Suite
+==========================
+Random Seed: [1m1557642314[0m
+Will run [1m1[0m of [1m39[0m specs
+
+[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0mNo applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+No applications found in environments staging, production
+APPLICATION              STAGING PODS URL
+**-bdd-spring-1557642314 0.0.1        
+APPLICATION              STAGING PODS URL
+**-bdd-spring-1557642314 0.0.1   1/1  http://bdd-spring-1557642314.**-staging.146.148.22.135.nip.io
+
+Created PullRequest #1 at https://github.com/cb-kubecd/bdd-spring-1557642314/pull/1
+[32m•[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m[36mS[0m
+[1m[32mRan 1 of 39 Specs in 783.222 seconds[0m
+[1m[32mSUCCESS![0m -- [32m[1m1 Passed[0m | [91m[1m0 Failed[0m | [33m[1m0 Pending[0m | [36m[1m38 Skipped[0m
+PASS
+
+Ginkgo ran 1 suite in 13m46.684681847s
+Test Suite Passed
+NAME                                                                 READY   STATUS      RESTARTS   AGE
+cb-kubecd-bdd-spring-1557642314-1-from-build-pack-k2pqd-pod-6010c1   0/11    Completed   0          11m
+cb-kubecd-bdd-spring-1557642314-2-from-build-pack-bgc55-pod-4922d4   0/10    Completed   0          3m
+cb-kubecd-environment-pr-256-11-1-from-build-pack-hfndd-pod-5d8a3a   0/4     Completed   0          7m
+cb-kubecd-environment-pr-256-11-2-from-build-pack-s7265-pod-97bbc3   0/5     Completed   0          6m
+crier-6bfd4c5bd-trhl7                                                1/1     Running     0          21m
+deck-7df565d554-hsl84                                                1/1     Running     0          21m
+deck-7df565d554-hz4ff                                                1/1     Running     0          21m
+hook-d577484d7-hkcgs                                                 1/1     Running     0          21m
+hook-d577484d7-kl2lf                                                 1/1     Running     0          21m
+horologium-656f45c959-7njwn                                          1/1     Running     0          21m
+jenkins-x-chartmuseum-5687695d57-5k455                               1/1     Running     0          21m
+jenkins-x-controllerbuild-65fc69cfbf-r5s92                           1/1     Running     0          21m
+jenkins-x-controllerrole-7b9cc88fbd-8dmxm                            1/1     Running     0          21m
+jenkins-x-controllerteam-7665d69849-7lt6v                            1/1     Running     0          21m
+jenkins-x-docker-registry-7b56b4f555-8lz6z                           1/1     Running     0          21m
+jenkins-x-gcactivities-1557642600-xzs7m                              0/1     Completed   0          8m
+jenkins-x-gcpods-1557642600-246gm                                    0/1     Completed   0          8m
+jenkins-x-heapster-677477f6cd-kwnw4                                  2/2     Running     0          38s
+jenkins-x-mongodb-6bfd5d9c79-dtghk                                   1/1     Running     1          21m
+jenkins-x-monocular-api-b869c6cc4-zgzk2                              1/1     Running     2          21m
+jenkins-x-monocular-prerender-5848c74fdc-xm7ws                       1/1     Running     0          21m
+jenkins-x-monocular-ui-68774c6cb8-9bjjn                              1/1     Running     0          21m
+jenkins-x-nexus-74d978cc79-hnj6p                                     1/1     Running     0          21m
+**-vault-pr-256-118-ng-0                                             3/3     Running     0          24m
+**-vault-pr-256-118-ng-configurer-66c85b6dfc-xwsrm                   1/1     Running     0          24m
+pipeline-6d6f4658f6-864gt                                            1/1     Running     0          21m
+pipelinerunner-6664dbf94f-kjbgn                                      1/1     Running     0          21m
+plank-7b44b6c8f9-5vksh                                               1/1     Running     0          21m
+sinker-5b46748956-t79z5                                              1/1     Running     0          21m
+tekton-pipelines-controller-5c7b5498cc-mnptt                         1/1     Running     0          21m
+tekton-pipelines-webhook-5df6485c45-wm8k9                            1/1     Running     0          21m
+tide-75c8974dd7-l7wcm                                                1/1     Running     0          21m
+vault-operator-74577c68bd-fd4fd                                      1/1     Running     0          24m
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  annotations:
+    jenkins.io/chart: env
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"jenkins.io/v1","kind":"Environment","metadata":{"annotations":{"jenkins.io/chart":"env"},"creationTimestamp":null,"labels":{"env":"dev","jenkins.io/chart-release":"jenkins-x","jenkins.io/version":"0.0.1","team":"**"},"name":"dev","namespace":"**"},"spec":{"kind":"Development","label":"Development","namespace":"**","previewGitInfo":{"user":{}},"promotionStrategy":"Never","source":{"ref":"master","url":"https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-dev.git"},"teamSettings":{"appsRepository":"http://chartmuseum.jenkins-x.io","buildPackRef":"master","buildPackUrl":"https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git","dockerRegistryOrg":"jenkins-x-bdd","envOrganisation":"cb-kubecd","gitServer":"https://github.com","helmTemplate":true,"importMode":"YAML","kubeProvider":"gke","pipelineUsername":"*************-test","promotionEngine":"Prow","prowEngine":"Tekton","quickstartLocations":[{"excludes":["WIP-*"],"gitKind":"github","gitUrl":"https://github.com","includes":["*"],"owner":"jenkins-x-quickstarts"}],"useGitOps":true,"versionStreamRef":"d9f4edf459f20fb43c020c89d4b585412495a9a1","versionStreamUrl":"https://github.com/jenkins-x/jenkins-x-versions.git"},"webHookEngine":"Prow"},"status":{}}
+  creationTimestamp: "2019-05-12T06:17:44Z"
+  generation: 1
+  labels:
+    env: dev
+    jenkins.io/chart-release: jenkins-x
+    jenkins.io/version: 0.0.1
+    team: **
+  name: dev
+  namespace: **
+  resourceVersion: "2415"
+  selfLink: /apis/jenkins.io/v1/namespaces/**/environments/dev
+  uid: a7cd7151-747d-11e9-89c0-42010a840032
+spec:
+  kind: Development
+  label: Development
+  namespace: **
+  previewGitInfo:
+    user: {}
+  promotionStrategy: Never
+  source:
+    ref: master
+    url: https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-dev.git
+  teamSettings:
+    appsRepository: http://chartmuseum.jenkins-x.io
+    buildPackRef: master
+    buildPackUrl: https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git
+    dockerRegistryOrg: jenkins-x-bdd
+    envOrganisation: cb-kubecd
+    gitServer: https://github.com
+    helmTemplate: true
+    importMode: YAML
+    kubeProvider: gke
+    pipelineUsername: *************-test
+    promotionEngine: Prow
+    prowEngine: Tekton
+    quickstartLocations:
+    - excludes:
+      - WIP-*
+      gitKind: github
+      gitUrl: https://github.com
+      includes:
+      - '*'
+      owner: jenkins-x-quickstarts
+    useGitOps: true
+    versionStreamRef: d9f4edf459f20fb43c020c89d4b585412495a9a1
+    versionStreamUrl: https://github.com/jenkins-x/jenkins-x-versions.git
+  webHookEngine: Prow
+status: {}
+Jenkins X checks passed for Cluster(gke_jenkins-x-bdd_europe-west1-c_pr-256-118-ng-gkebdd): 4 nodes, memory 24% of 23112560Ki, cpu 75% of 7720m.
+NAME               VERSION
+**                 0.0.0-SNAPSHOT-PR-3926-1
+Kubernetes cluster v1.11.8-gke.6
+kubectl            v1.14.0
+helm client        Client: v2.13.1+g618447c
+git                git version 2.21.0
+Operating System   "CentOS Linux release 7.6.1810 (Core) "
+WARNING: 
+A new ** version is available: 2.0.117
+WARNING: To upgrade to this new version use: ** upgrade cli
+NAME       LABEL       KIND        PROMOTE NAMESPACE     ORDER CLUSTER SOURCE                                                                       REF    PR
+dev        Development Development Never   **            0             https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-dev.git        master 
+staging    Staging     Permanent   Auto    **-staging    100           https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-staging.git           
+production Production  Permanent   Manual  **-production 200           https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-production.git        
+STEP                                                         STARTED AGO DURATION STATUS
+cb-kubecd/bdd-spring-1557642314/master #1                          9m40s     3m0s Succeeded Version: 0.0.1
+  from build pack                                                  9m40s     3m0s Succeeded 
+    Build Container Build                                          9m40s    1m45s Succeeded 
+    Build Mvn Deploy                                               9m43s    1m36s Succeeded 
+    Build Post Build                                               9m39s    1m45s Succeeded 
+    Build Skaffold Version                                         9m43s    1m38s Succeeded 
+    Git Merge                                                      9m50s       1s Succeeded 
+    Git Source Cb Kubecd Bdd Spring 1557642314 45mfw               11m6s       1s Succeeded https://github.com/cb-kubecd/bdd-spring-1557642314
+    Promote Changelog                                              9m39s    1m52s Succeeded 
+    Promote Helm Release                                           9m39s    1m58s Succeeded 
+    Promote Jx Promote                                             9m38s    2m58s Succeeded 
+    Setup Jx Git Credentials                                       9m43s       0s Succeeded 
+    Nop                                                            9m37s    2m57s Succeeded 
+  Promote: staging                                                 7m26s      46s Succeeded 
+    PullRequest                                                    7m26s      45s Succeeded  PullRequest: https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-staging/pull/1 Merge SHA: 466b1e9a5369e32679b32490da55d6096b7d6589
+    Update                                                         6m41s       1s Succeeded 
+cb-kubecd/bdd-spring-1557642314/PR-1 #2                            3m10s     2m4s Succeeded 
+  from build pack                                                  3m10s     2m4s Succeeded 
+    Build Container Build                                          3m10s    1m25s Succeeded 
+    Build Mvn Install                                              3m10s    1m14s Succeeded 
+    Build Set Version                                              3m11s      37s Succeeded 
+    Build Skaffold Version                                         3m10s    1m15s Succeeded 
+    Git Merge                                                      3m11s       2s Succeeded 
+    Git Source Cb Kubecd Bdd Spring 1557642314 2nbhd               3m13s       2s Succeeded https://github.com/cb-kubecd/bdd-spring-1557642314
+    Postbuild Post Build                                           3m10s    1m26s Succeeded 
+    Promote Jx Preview                                              3m9s     2m3s Succeeded 
+    Promote Make Preview                                            3m9s    1m40s Succeeded 
+    Nop                                                             3m9s     2m3s Succeeded 
+  Preview                                                           1m7s           https://github.com/cb-kubecd/bdd-spring-1557642314/pull/1
+    Preview Application                                             1m7s           http://bdd-spring-1557642314.**-cb-kubecd-bdd-spring-1557642314-pr-1.146.148.22.135.nip.io
+cb-kubecd/environment-pr-256-118-ng-gkebdd-staging/master #2       5m19s      35s Succeeded 
+  from build pack                                                  5m19s      35s Succeeded 
+    Build Helm Apply                                               5m19s      35s Succeeded 
+    Git Merge                                                      5m20s       1s Succeeded 
+    Git Source Cb Kubecd Environment Pr 256 11 Sgzbp               6m32s       1s Succeeded https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-staging
+    Setup Jx Git Credentials                                       5m19s       0s Succeeded 
+    Nop                                                            5m18s      34s Succeeded 
+cb-kubecd/environment-pr-256-118-ng-gkebdd-staging/PR-1 #1         5m12s      15s Succeeded 
+  from build pack                                                  5m12s      15s Succeeded 
+    Build Helm Build                                               5m12s      15s Succeeded 
+    Git Merge                                                      5m55s       4s Succeeded 
+    Git Source Cb Kubecd Environment Pr 256 11 N5xkr                7m5s       1s Succeeded https://github.com/cb-kubecd/environment-pr-256-118-ng-gkebdd-staging
+    Nop                                                            5m11s      14s Succeeded 
+WARNING: could not find the current user name user: Current not implemented on linux/amd64
+APPLICATION              STAGING PODS URL
+**-bdd-spring-1557642314 0.0.1   1/1  http://bdd-spring-1557642314.**-staging.146.148.22.135.nip.io
+PULL REQUEST                                              NAMESPACE                               APPLICATION
+https://github.com/cb-kubecd/bdd-spring-1557642314/pull/1 **-cb-kubecd-bdd-spring-1557642314-pr-1 http://bdd-spring-1557642314.**-cb-kubecd-bdd-spring-1557642314-pr-1.146.148.22.135.nip.io
+NAME                      URL
+deck                      http://deck.**.146.148.22.135.nip.io
+hook                      http://hook.**.146.148.22.135.nip.io
+jenkins-x-chartmuseum     http://chartmuseum.**.146.148.22.135.nip.io
+jenkins-x-docker-registry http://docker-registry.**.146.148.22.135.nip.io
+jenkins-x-monocular-api   http://monocular.**.146.148.22.135.nip.io
+jenkins-x-monocular-ui    http://monocular.**.146.148.22.135.nip.io
+**-vault-pr-256-118-ng    http://**-vault-pr-256-118-ng.**.146.148.22.135.nip.io
+nexus                     http://nexus.**.146.148.22.135.nip.io
+tide                      http://tide.**.146.148.22.135.nip.io
