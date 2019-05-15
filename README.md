@@ -6,10 +6,10 @@ What's included out of the box?
 
 |                                   |                                       |
 | --------------------------------- | ------------------------------------- |
-|![Jenkins](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pipelines and environments |
-|![Sonartype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/nexus.png) | __Nexus__ - Artifact repository (pluggable so we can switch with Artifactory) |
-|![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/chartmuseum.png) | __Chartmuseum__ - Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
-|![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/images/bitnami.png) | __Monocular__ - Web UI for searching and discovering Helm Charts |
+|![Jenkins](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/jenkins-x-platform/images/jenkins.png)   | __Jenkins__ - Fully integrated CI / CD solution with opinionated yet customisable pipelines and environments |
+|![Sonatype Nexus 3](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/jenkins-x-platform/images/nexus.png) | __Nexus__ - Artifact repository (pluggable so we can switch with Artifactory) |
+|![Chartmuseum](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/jenkins-x-platform/images/chartmuseum.png) | __Chartmuseum__ - Helm Chart repository (Helm is the most popular Kubernetes package manager used to install and upgrade your applications)|
+|![Monocular](https://raw.githubusercontent.com/jenkins-x/jenkins-x-platform/master/jenkins-x-platform/images/bitnami.png) | __Monocular__ - Web UI for searching and discovering Helm Charts |
 
 Easy to install addons to come.
 
