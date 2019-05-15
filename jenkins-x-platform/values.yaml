@@ -129,6 +129,15 @@ gcactivities:
       - deployments
       verbs:
       - get
+    - apiGroups:
+      - tekton.dev
+      resources:
+      - pipelineruns
+      verbs:
+      - get
+      - list
+      - watch
+      - delete
   clusterrole:
     enabled: true
     rules:
