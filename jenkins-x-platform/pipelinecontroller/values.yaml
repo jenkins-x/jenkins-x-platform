@@ -1,3 +1,5 @@
 pipelinecontroller:
   Image: rawlingsj/pipeline-controller
   ImageTag: dev
+  pvc:
+    size: 5Gi
