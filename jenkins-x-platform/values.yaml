@@ -23,6 +23,7 @@ BuildPacks:
      GitRef: "master"
 
 gcpreviews:
+  enabled: true
   serviceaccount:
     enabled: true
   cronjob:
@@ -2143,3 +2144,6 @@ grafana:
       annotations:
         fabric8.io/expose: "true"
         fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
+        
+heapster:
+  enabled: true
