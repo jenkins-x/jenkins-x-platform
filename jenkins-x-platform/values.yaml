@@ -1637,7 +1637,7 @@ jenkins:
             Tty: true
       Packer:
         Name: packer
-        Label: jenkins-terraform
+        Label: jenkins-packer
         volumes:
         - type: Secret
           secretName: jenkins-docker-cfg
@@ -1664,7 +1664,6 @@ jenkins:
         Containers:
           Packer:
             Image: hashicorp/packer:1.4.1
-
             RequestCpu: "100m"
             RequestMemory: "128Mi"
             Command: "/bin/sh -c"
