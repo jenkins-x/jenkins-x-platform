@@ -39,44 +39,149 @@ gcpreviews:
     enabled: true
     rules:
       - apiGroups:
-          - jenkins.io
+        - jenkins.io
         resources:
-          - environments
+        - environments
+        - releases
+        - facts
+        - pipelineactivities
+        - commitstatuses
+        - schedulers
+        - extensions
+        - users
+        - teams
+        - pipelinestructures
+        - plugins
+        - buildpacks
+        - apps
+        - sourcerepositories
+        - gitservices
+        - workflows
+        - environmentrolebindings
+        - sourcerepositorygroups
         verbs:
-          - list
-          - get
-          - patch
-          - update
-          - delete
+        - list
+        - get
+        - patch
+        - update
+        - delete
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - secrets
+        - secrets
+        - services
+        - replicationcontrollers
+        - persistentvolumeclaims
+        - configmaps
+        - serviceaccounts
         verbs:
-          - list
-          - get
-          - watch
+        - list
+        - get
+        - watch
+      - apiGroups:
+        - apps
+        resources:
+        - daemonsets
+        - deployments
+        - replicasets
+        - statefulsets
+        verbs:
+        - list
+        - get
+        - watch
+      - apiGroups:
+        - autoscaling
+        resources:
+        - horizontalpodautoscalers
+        verbs:
+        - list
+        - get
+        - watch
+      - apiGroups:
+        - batch
+        resources:
+        - jobs
+        - cronjobs
+        verbs:
+        - list
+        - get
+        - watch
+      - apiGroups:
+        - tekton.dev
+        resources:
+        - pipelines
+        - taskruns
+        - tasks
+        - clustertasks
+        - pipelineresources
+        - pipelineruns
+        verbs:
+        - list
+        - get
+        - watch
+      - apiGroups:
+        - rbac.authorization.k8s.io
+        resources:
+        - roles
+        - rolebindings
+        verbs:
+        - list
+        - get
   clusterrole:
     enabled: true
     rules:
-      - apiGroups:
-          - ""
-        resources:
-          - namespaces
-        verbs:
-          - get
-          - list
-          - delete
-      - apiGroups:
-          - ""
-        resources:
-          - pods
-          - pods/portforward
-        verbs:
-          - get
-          - delete
-          - list
-          - create
+    - apiGroups:
+      - ""
+      resources:
+      - namespaces
+      verbs:
+      - get
+      - list
+      - delete
+    - apiGroups:
+      - ""
+      resources:
+      - pods
+      - pods/portforward
+      verbs:
+      - get
+      - create
+      - list
+      - delete
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      resources:
+      - clusterroles
+      - clusterrolebindings
+      - customresourcedefinitions
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
+      - rbac.authorization.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - create
+    - apiGroups:
+      - tekton.dev
+      resources:
+      - clustertasks
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
+      - apiextensions.k8s.io
+      resources:
+      - customresourcedefinitions
+      verbs:
+      - get
+      - list
+      - watch
+      - create
+      - update
 
 gcactivities:
   serviceaccount:
