@@ -27,8 +27,7 @@ install: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) jenkins-x-platform
 
 apply: build
-	cd jenkins-x-platform
-	jx step helm apply $(NAME) .
+	cd jenkins-x-platform && jx step helm apply $(NAME) .
 
 upgrade: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) jenkins-x-platform
