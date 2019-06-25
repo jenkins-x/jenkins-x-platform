@@ -750,42 +750,6 @@ chartmuseumServiceLink:
   # specify the external name here for where the chartmuseum should be
   externalName: ""
 
-monocular:
-  enabled: true
-  ingress:
-    enabled: false
-  api:
-    livenessProbe:
-      initialDelaySeconds: 360
-    replicaCount: 1
-    service:
-      type: ClusterIP
-      annotations:
-        fabric8.io/expose: "true"
-        fabric8.io/ingress.name: "monocular"
-        fabric8.io/ingress.path: "/api/"
-        fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx\nnginx.ingress.kubernetes.io/rewrite-target: /\nnginx.ingress.kubernetes.io/ingress.class: nginx"
-    config:
-      repos:
-      - name: chartmuseum
-        url: http://jenkins-x-chartmuseum:8080
-        source: https://github.com/jenkins-x/jenkins-x-platform
-      cacheRefreshInterval: 30
-      releasesEnabled: false
-  ui:
-    appName: Jenkins X Apps
-    replicaCount: 1
-    service:
-      type: ClusterIP
-      annotations:
-        fabric8.io/expose: "true"
-        fabric8.io/ingress.name: "monocular"
-        fabric8.io/ingress.path: "/"
-        jenkins-x.io/skip.tls: "true"
-  prerender:
-    service:
-      type: ClusterIP
-
 jenkins:
   enabled: true
   # Default values for jenkins.
