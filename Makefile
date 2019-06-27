@@ -56,6 +56,8 @@ endif
 	git push origin v$(RELEASE_VERSION)
 	$(HELM) package jenkins-x-platform
 	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
+	echo "we have the following remote helm repos:"	
+	helm repo list
 	helm repo update
 	rm -rf ${NAME}*.tgz
 	updatebot push-version --kind make CHART_VERSION $(RELEASE_VERSION)
