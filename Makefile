@@ -56,6 +56,7 @@ endif
 	git push origin v$(RELEASE_VERSION)
 	$(HELM) package jenkins-x-platform
 	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
+	helm repo add jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
 	echo "we have the following remote helm repos:"	
 	helm repo list
 	helm repo update
