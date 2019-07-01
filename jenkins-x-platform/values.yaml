@@ -671,6 +671,7 @@ controllerteam:
 
 
 expose:
+  enabled: true
   Annotations:
     helm.sh/hook: post-install,post-upgrade
     helm.sh/hook-delete-policy: hook-succeeded
@@ -679,6 +680,7 @@ expose:
     #pathMode: "path"
 
 cleanup:
+  enabled: true
   Args:
   - --cleanup
   Annotations:
