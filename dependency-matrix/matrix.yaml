@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: jenkins-x
+  repo: jenkins-x-image
+  url: https://github.com/jenkins-x/jenkins-x-image
+  version: 0.0.67
+  versionURL: https://github.com/jenkins-x/jenkins-x-image/releases/tag/0.0.67
