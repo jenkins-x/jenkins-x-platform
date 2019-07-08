@@ -22,7 +22,6 @@ dependencies:
   repository: "http://chartmuseum.jenkins-x.io"
   version: "0.1.7"
   condition: "jenkins-x-platform.nexus.enabled,nexus.enabled"
-  condition: "jenkins-x-platform.nexus.enabled,nexus.enabled"
 - name: "heapster"
   repository: "https://kubernetes-charts.storage.googleapis.com"
   version: "0.3.2"
