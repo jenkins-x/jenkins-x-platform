@@ -57,6 +57,6 @@ endif
 	helm repo update
 	rm -rf ${NAME}*.tgz
 	jx step changelog  --verbose --version ${VERSION} --rev ${PULL_BASE_SHA}
-	updatebot push-version --kind make CHART_VERSION $(VERSION)
+	jx step create pr make --name CHART_VERSION --version $(VERSION) --repo https://github.com/jenkins-x/cloud-environments.git
 	jx step create pr regex --regex "JX_PLATFORM_VERSION=(.*)" --version $(VERSION) --files build.sh --repo https://github.com/jenkins-x/cloud-environments.git
 	jx step create pr versions -f "jenkins-x/*" -b --images
