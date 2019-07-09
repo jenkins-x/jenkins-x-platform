@@ -5,9 +5,8 @@ approvers:
 - rajdavies
 - ccojocar
 - garethjevans
-- i0n
 - pmuir
-- jtnord
+- abayer
 reviewers:
 - rawlingsj
 - jenkins-x-bot
@@ -15,6 +14,5 @@ reviewers:
 - rajdavies
 - ccojocar
 - garethjevans
-- i0n
 - pmuir
-- jtnord
+- abayer
