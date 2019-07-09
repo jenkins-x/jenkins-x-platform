@@ -1,7 +1,0 @@
-pipelinecontroller:
-  Image: rawlingsj/pipeline-controller
-  ImageTag: dev
-
-
-
-

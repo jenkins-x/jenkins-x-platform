@@ -1,5 +1,0 @@
-name: pipelinecontroller
-home: https://jenkins-x.github.io/jenkins-x-website/
-version: 0.0.1
-appVersion: 0.0.1
-icon: file://pipeline.png
