@@ -33,8 +33,8 @@ gcpreviews:
     - "previews"
     - "--batch-mode"
   image:
-    repository: gcr.io/jenkinsxio/builder-go
-    tag: 0.1.551
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.553
   role:
     enabled: true
     rules:
@@ -88,6 +88,9 @@ gcactivities:
   - "gc"
   - "activities"
   - "--batch-mode"
+  image:
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.553
   role:
     enabled: true
     rules:
@@ -175,6 +178,9 @@ gcpods:
   - "gc"
   - "pods"
   - "--batch-mode"
+  image:
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.553
   role:
     enabled: true
     rules:
@@ -426,6 +432,9 @@ controllercommitstatus:
   - "controller"
   - "commitstatus"
   - "--verbose"
+  image:
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.553
   clusterrole:
     enabled: true
     rules:
@@ -500,6 +509,9 @@ controllerrole:
   args:
   - "controller"
   - "role"
+  image:
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.553
   clusterrole:
     enabled: true
     rules:
@@ -563,8 +575,8 @@ controllerteam:
   - "controller"
   - "team"
   image:
-    repository: gcr.io/jenkinsxio/builder-go
-    tag: 0.1.551
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.553
   clusterrole:
     enabled: true
     rules:
