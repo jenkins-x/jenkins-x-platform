@@ -1880,7 +1880,7 @@ Image: gcr.io/jenkinsxio/builder-go:0.1.563
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Ruby:
-Image: gcr.io/jenkinsxio/builder-ruby:0.1.563
+Image: gcr.io/jenkinsxio/builder-ruby:0.1.564
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
