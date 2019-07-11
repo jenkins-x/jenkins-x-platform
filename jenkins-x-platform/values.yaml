@@ -1973,7 +1973,7 @@ Image: gcr.io/jenkinsxio/builder-swift:0.1.563
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Dlang:
-            Image: gcr.io/jenkinsxio/builder-dlang:0.1.560
+Image: gcr.io/jenkinsxio/builder-dlang:0.1.563
             Privileged: true
             RequestCpu: "500m"
             RequestMemory: "1024Mi"
