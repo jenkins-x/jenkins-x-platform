@@ -1973,7 +1973,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Dlang:
-            Image: gcr.io/jenkinsxio/builder-dlang:0.1.564
+            Image: gcr.io/jenkinsxio/builder-dlang:0.1.566
             Privileged: true
             RequestCpu: "500m"
             RequestMemory: "1024Mi"
