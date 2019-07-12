@@ -933,7 +933,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           aws-cdk:
-            Image: gcr.io/jenkinsxio/builder-maven-nodejs:0.1.564
+            Image: gcr.io/jenkinsxio/builder-maven-nodejs:0.1.566
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1570,7 +1570,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           MavenNodejs:
-            Image: gcr.io/jenkinsxio/builder-maven-nodejs:0.1.564
+            Image: gcr.io/jenkinsxio/builder-maven-nodejs:0.1.566
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
