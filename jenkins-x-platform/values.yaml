@@ -1613,7 +1613,7 @@ Image: gcr.io/jenkinsxio/builder-go:0.1.564
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: gcr.io/jenkinsxio/builder-jx:0.1.560
+Image: gcr.io/jenkinsxio/builder-jx:0.1.564
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
@@ -1658,7 +1658,7 @@ Image: gcr.io/jenkinsxio/builder-go:0.1.564
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Promote:
-            Image: gcr.io/jenkinsxio/builder-jx:0.1.560
+Image: gcr.io/jenkinsxio/builder-jx:0.1.564
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "100Mi"
