@@ -50,7 +50,7 @@ else
 	exit -1
 endif
 	$(HELM) package jenkins-x-platform
-	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(RELEASE_VERSION).tgz" $(CHART_REPO)/api/charts
+	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(VERSION).tgz" $(CHART_REPO)/api/charts
 	helm repo add jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
 	echo "we have the following remote helm repos:"	
 	helm repo list
