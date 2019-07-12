@@ -1294,7 +1294,7 @@ Image: gcr.io/jenkinsxio/builder-go:0.1.564
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Terraform:
-            Image: gcr.io/jenkinsxio/builder-terraform:0.1.560
+Image: gcr.io/jenkinsxio/builder-terraform:0.1.564
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
