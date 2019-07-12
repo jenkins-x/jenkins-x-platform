@@ -2020,7 +2020,7 @@ Image: gcr.io/jenkinsxio/builder-dlang:0.1.564
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Machine-Learning:
-            Image: gcr.io/jenkinsxio/builder-machine-learning:0.1.560
+Image: gcr.io/jenkinsxio/builder-machine-learning:0.1.564
             Privileged: true
             RequestCpu: "2000m"
             RequestMemory: "4Gi"
