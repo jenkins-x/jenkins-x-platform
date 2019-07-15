@@ -1739,7 +1739,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: gcr.io/jenkinsxio/builder-python2:0.1.569
+            Image: gcr.io/jenkinsxio/builder-python2:0.1.572
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
