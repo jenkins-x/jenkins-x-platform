@@ -1386,7 +1386,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Newman:
-            Image: gcr.io/jenkinsxio/builder-newman:0.1.569
+            Image: gcr.io/jenkinsxio/builder-newman:0.1.572
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
