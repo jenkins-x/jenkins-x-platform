@@ -1927,7 +1927,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Swift:
-            Image: gcr.io/jenkinsxio/builder-swift:0.1.573
+            Image: gcr.io/jenkinsxio/builder-swift:0.1.574
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
