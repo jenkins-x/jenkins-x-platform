@@ -1,19 +1,25 @@
 dependencies:
-- owner: jenkins-x
+- host: ""
+  owner: jenkins-x
   repo: jenkins-x-builders
   url: https://github.com/jenkins-x/jenkins-x-builders
-  component: ""
   version: 0.1.572
-  versionurl: ""
-- owner: jenkins-x
+  versionURL: ""
+- host: ""
+  owner: jenkins-x
   repo: jx
   url: https://github.com/jenkins-x/jx
-  component: ""
   version: 2.0.466
-  versionurl: ""
-- owner: jenkins-x
+  versionURL: ""
+- host: ""
+  owner: jenkins-x
   repo: jenkins-x-image
   url: https://github.com/jenkins-x/jenkins-x-image
-  component: ""
   version: 0.0.70
-  versionurl: https://github.com/jenkins-x/jenkins-x-image/releases/tag/0.0.70
+  versionURL: https://github.com/jenkins-x/jenkins-x-image/releases/tag/0.0.70
+- host: github.com
+  owner: jenkins-x
+  repo: jenkins-x-builders
+  url: https://github.com/jenkins-x/jenkins-x-builders
+  version: 0.1.577
+  versionURL: ""
