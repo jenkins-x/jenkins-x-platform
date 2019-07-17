@@ -1203,7 +1203,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Scala:
-            Image: gcr.io/jenkinsxio/builder-scala:0.1.576
+            Image: gcr.io/jenkinsxio/builder-scala:0.1.577
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
