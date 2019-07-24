@@ -31,42 +31,42 @@ dependencies:
 - alias: gcactivities
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: gcpods
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: gcpreviews
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: controllerbuild
   condition: controllerbuild.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: controllerrole
   condition: controllerrole.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: controllerworkflow
   condition: controllerworkflow.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: controllerteam
   condition: controllerteam.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: controllercommitstatus
   condition: controllercommitstatus.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
 - alias: postinstalljob
   condition: postinstalljob.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.0.509
+  version: 2.0.510
