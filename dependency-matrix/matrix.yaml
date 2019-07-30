@@ -21,14 +21,14 @@ dependencies:
   owner: jenkins-x
   repo: jenkins-x-builders
   url: https://github.com/jenkins-x/jenkins-x-builders
-  version: 0.1.605
+  version: 0.1.609
   versionURL: ""
 - host: github.com
   owner: jenkins-x
   repo: jx
   url: https://github.com/jenkins-x/jx
-  version: 2.0.520
-  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.520
+  version: 2.0.531
+  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.531
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-ml
