@@ -6,5 +6,5 @@ Dependency | Sources | Version | Mismatched versions
 [jenkins-x/jx](https://github.com/jenkins-x/jx) |  | [2.0.466]() | 
 [jenkins-x/jenkins-x-image](https://github.com/jenkins-x/jenkins-x-image) |  | [0.0.70](https://github.com/jenkins-x/jenkins-x-image/releases/tag/0.0.70) | 
 [jenkins-x/jenkins-x-builders](https://github.com/jenkins-x/jenkins-x-builders) |  | [0.1.620]() | 
-[jenkins-x/jx](https://github.com/jenkins-x/jx) |  | [2.0.546](https://github.com/jenkins-x/jx/releases/tag/v2.0.546) | 
-[jenkins-x/jenkins-x-builders-ml](https://github.com/jenkins-x/jenkins-x-builders-ml) |  | [0.1.575]() | 
+[jenkins-x/jx](https://github.com/jenkins-x/jx) |  | [2.0.545](https://github.com/jenkins-x/jx/releases/tag/v2.0.545) | 
+[jenkins-x/jenkins-x-builders-ml](https://github.com/jenkins-x/jenkins-x-builders-ml) |  | [0.1.576]() | 
