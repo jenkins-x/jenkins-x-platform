@@ -2067,7 +2067,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Machine-Learning:
-            Image: gcr.io/jenkinsxio/builder-machine-learning-gpu:0.1.575
+            Image: gcr.io/jenkinsxio/builder-machine-learning-gpu:0.1.576
             Privileged: true
             RequestCpu: "1000m"
             RequestMemory: "1Gi"
