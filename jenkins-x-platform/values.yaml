@@ -127,6 +127,13 @@ gcpreviews:
         verbs:
         - list
         - get
+      - apiGroups:
+        - vault.banzaicloud.com
+        resources:
+        - vaults
+        verbs:
+        - list
+        - get
   clusterrole:
     enabled: true
     rules:
