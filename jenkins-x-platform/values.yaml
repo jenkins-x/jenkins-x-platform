@@ -134,6 +134,13 @@ gcpreviews:
         verbs:
         - list
         - get
+      - apiGroups:
+        - extensions
+        resources:
+        - ingresses
+        verbs:
+        - list
+        - get
   clusterrole:
     enabled: true
     rules:
