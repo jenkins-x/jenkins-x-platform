@@ -1,0 +1,44 @@
+Step: build-step-credential-initializer-gbm2v:
+
+{"level":"warn","ts":1565224278.6512678,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565224278.6546054,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-pn6rs:
+
+{"level":"warn","ts":1565224279.1715915,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565224279.176208,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-source-jenkins-x-jenkins-x-platform-pr-tsxvp:
+
+{"level":"warn","ts":1565224281.2391949,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565224283.5206814,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-platform @ 1e1544d9235f684282f5b7919c40f10f6f5ac298 in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-08T00:31:49Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:685a4c5c2f21d9fbe9d4f9a5e5a134e810930185,5841:1e1544d9235f684282f5b7919c40f10f6f5ac298
+ran git fetch --unshallow origin 1e1544d9235f684282f5b7919c40f10f6f5ac298: 685a4c5c2f21d9fbe9d4f9a5e5a134e810930185: in 
+ran git checkout master in 
+ran git reset --hard 685a4c5c2f21d9fbe9d4f9a5e5a134e810930185 in 
+ran clean --force -d . in 
+ran git merge 1e1544d9235f684282f5b7919c40f10f6f5ac298 in 
+Step: build-step-step2:
+
+cat: /builder/home/basic-auth-user.json: No such file or directory
+cat: /builder/home/basic-auth-pass.json: No such file or directory
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Error: error initializing: Looks like "https://kubernetes-charts.storage.googleapis.com" is not a valid chart repository or cannot be reached: Get https://kubernetes-charts.storage.googleapis.com/index.yaml: dial tcp: lookup kubernetes-charts.storage.googleapis.com on 10.55.240.10:53: read udp 10.52.60.4:60854->10.55.240.10:53: i/o timeout
+make: *** [init] Error 1
+Step: build-step-step3:
+
+Step: build-step-step4:
+
