@@ -1,0 +1,147 @@
+Step: build-step-credential-initializer-hcnsk:
+
+{"level":"warn","ts":1565286482.2765272,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565286482.2799914,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-zn9gr:
+
+{"level":"warn","ts":1565286484.4167626,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565286484.4188545,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-source-jenkins-x-jenkins-x-platform-ma-lqmj9:
+
+{"level":"warn","ts":1565286492.1091156,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565286494.5871332,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-platform @ v2.0.935 in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-08T17:48:26Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:c7566f53272bea036343ef69a998c47ce19fa177
+time="2019-08-08T17:48:26Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-basic-auth-username:
+
+/builder/home/basic-auth-user.json
+Step: build-step-basic-auth-password:
+
+/builder/home/basic-auth-pass.json
+Step: build-step-step4:
+
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add ** http://chartmuseum.jenkins-x.io
+"**" has been added to your repositories
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+"incubator" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+helm repo add monocular https://helm.github.io/monocular
+"monocular" has been added to your repositories
+rm -rf jenkins-x-platform/charts
+rm -rf jenkins-x-platform/jenkins-x*.tgz
+rm -rf jenkins-x-platform/requirements.lock
+helm dependency build jenkins-x-platform
+Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "**" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+Saving 16 charts
+Downloading jenkins from repo http://chartmuseum.jenkins-x.io
+Downloading exposecontroller from repo http://chartmuseum.jenkins-x.io
+Downloading exposecontroller from repo http://chartmuseum.jenkins-x.io
+Downloading chartmuseum from repo http://chartmuseum.jenkins-x.io
+Downloading nexus from repo http://chartmuseum.jenkins-x.io
+Downloading heapster from repo https://kubernetes-charts.storage.googleapis.com
+Downloading docker-registry from repo https://kubernetes-charts.storage.googleapis.com
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Downloading ** from repo http://chartmuseum.jenkins-x.io
+Deleting outdated charts
+helm lint jenkins-x-platform
+==> Linting jenkins-x-platform
+Lint OK
+
+1 chart(s) linted, no failures
+sed -i -e "s/version:.*/version: 2.0.935/" jenkins-x-platform/Chart.yaml
+helm package jenkins-x-platform
+Successfully packaged chart and saved it to: /workspace/source/jenkins-x-platform-2.0.935.tgz
+curl --fail -u *****:************ --data-binary "@jenkins-x-platform-2.0.935.tgz" http://jenkins-x-chartmuseum:8080/api/charts
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 50372  100    14  100 50358     36   128k --:--:-- --:--:-- --:--:--  128k100 50372  100    14  100 50358     36   128k --:--:-- --:--:-- --:--:--  128k
+{"saved":true}helm repo add jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+echo "we have the following remote helm repos:"	
+we have the following remote helm repos:
+helm repo list
+NAME     	URL                                                       
+stable   	https://kubernetes-charts.storage.googleapis.com          
+local    	http://127.0.0.1:8879/charts                              
+**       	http://chartmuseum.jenkins-x.io                           
+incubator	https://kubernetes-charts-incubator.storage.googleapis.com
+monocular	https://helm.github.io/monocular                          
+jenkins-x	https://storage.googleapis.com/chartmuseum.jenkins-x.io   
+helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "**" chart repository
+...Successfully got an update from the "jenkins-x" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+rm -rf jenkins-x*.tgz
+** step changelog  --verbose --version 2.0.935 --rev c7566f53272bea036343ef69a998c47ce19fa177
+Converted /workspace/source to an unshallow repository
+DEBUG: Using helmBinary helm with feature flag: template-mode
+Generating change log from git ref 7184fa9ee98af749b43e7807947b7059771cb491 => c7566f53272bea036343ef69a998c47ce19fa177
+DEBUG: merging pipeline secrets with local secrets
+DEBUG: merging pipeline secrets with local secrets
+WARNING: failed to find git commits between revision 7184fa9ee98af749b43e7807947b7059771cb491 and c7566f53272bea036343ef69a998c47ce19fa177 due to: object not found
+DEBUG: Found commits:
+DEBUG: Generated release notes:
+
+
+WARNING: No release found for jenkins-x/jenkins-x-platform and tag v2.0.935 so creating a new release
+Updated the release information at https://github.com/jenkins-x/jenkins-x-platform/releases/tag/v2.0.935
+Uploaded /workspace/source/dependency-matrix/matrix.yaml to release asset https://github.com/jenkins-x/jenkins-x-platform/releases/download/v2.0.935/dependency-matrix.yaml
+generated: /workspace/source/jenkins-x-platform/templates/release.yaml
+Created Release jenkins-x-platform-2-0-935 resource in namespace **
+Updating PipelineActivity jenkins-x-jenkins-x-platform-master-550 with version 2.0.935
+Updated PipelineActivities jenkins-x-jenkins-x-platform-master-550 with release notes URL: https://github.com/jenkins-x/jenkins-x-platform/releases/tag/v2.0.935
+** step create pr make --name CHART_VERSION --version 2.0.935 --repo https://github.com/jenkins-x/cloud-environments.git
+Using https://github.com/jenkins-x/jenkins-x-platform as source for change discovered from git repo in /workspace/source
+Updated Pull Request: https://github.com/jenkins-x/cloud-environments/pull/11
+Added label updatebot to Pull Request https://github.com/jenkins-x/cloud-environments/pull/11
+** step create pr regex --regex "JX_PLATFORM_VERSION=(.*)" --version 2.0.935 --files build.sh --repo https://github.com/jenkins-x/cloud-environments.git
+Using https://github.com/jenkins-x/jenkins-x-platform as source for change discovered from git repo in /workspace/source
+Updated Pull Request: https://github.com/jenkins-x/cloud-environments/pull/11
+Added label updatebot to Pull Request https://github.com/jenkins-x/cloud-environments/pull/11
+** step create pr versions -f "jenkins-x/*" -b --images
+the latest builder image version is 0.1.640
+cloned fork of versions repository https://github.com/*************/jenkins-x-versions to /tmp/create-version-pr202093065
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Read credentials for http://jenkins-x-chartmuseum:8080 from vault helm/repos
+error: failed to ensure the helm repositories were setup: failed to add chart repositories: failed to add the Helm repository with URL 'http://jenkins-x-chartmuseum:8080': failed to add the repository 'jenkins-x-chartmuseum' with URL 'http://jenkins-x-chartmuseum:8080': failed to run 'helm repo add jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080' command in directory '/tmp/create-version-pr202093065', output: 'Error: Looks like "http://jenkins-x-chartmuseum:8080" is not a valid chart repository or cannot be reached: Get http://jenkins-x-chartmuseum:8080/index.yaml: EOF'
+make: *** [release] Error 1
