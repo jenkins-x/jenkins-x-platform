@@ -1,0 +1,67 @@
+Step: build-step-credential-initializer-rdk6v:
+
+{"level":"warn","ts":1565288809.2028177,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565288809.2035308,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-working-dir-initializer-svb46:
+
+{"level":"warn","ts":1565288810.050375,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1565288810.0517588,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-source-jenkins-x-jenkins-x-platform-pr-5knqf:
+
+{"level":"warn","ts":1565288813.0417666,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/master\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1565288815.368112,"logger":"fallback-logger","caller":"git/git.go:102","msg":"Successfully cloned https://github.com/jenkins-x/jenkins-x-platform @ 20b10f7d48482c8f9f7aa042e2129cd423afe854 in path /workspace/source"}
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+9e73adc0b: No Major.Minor.Patch elements found
+time="2019-08-08T18:26:56Z" level=info msg="got "
+Using SHAs from PULL_REFS=master:309a39dcc64335e3bd8d8aab93fa20e9a410e18d,5847:20b10f7d48482c8f9f7aa042e2129cd423afe854
+ran git fetch --unshallow origin 20b10f7d48482c8f9f7aa042e2129cd423afe854: 309a39dcc64335e3bd8d8aab93fa20e9a410e18d: in 
+ran git checkout master in 
+ran git reset --hard 309a39dcc64335e3bd8d8aab93fa20e9a410e18d in 
+ran clean --force -d . in 
+ran git merge 20b10f7d48482c8f9f7aa042e2129cd423afe854 in 
+Step: build-step-step2:
+
+cat: /builder/home/basic-auth-user.json: No such file or directory
+cat: /builder/home/basic-auth-pass.json: No such file or directory
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add ** http://chartmuseum.jenkins-x.io
+"**" has been added to your repositories
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
+"incubator" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+helm repo add monocular https://helm.github.io/monocular
+"monocular" has been added to your repositories
+rm -rf jenkins-x-platform/charts
+rm -rf jenkins-x-platform/jenkins-x*.tgz
+rm -rf jenkins-x-platform/requirements.lock
+helm dependency build jenkins-x-platform
+Hang tight while we grab the latest from your chart repositories...
+...Unable to get an update from the "local" chart repository (http://127.0.0.1:8879/charts):
+	Get http://127.0.0.1:8879/charts/index.yaml: dial tcp 127.0.0.1:8879: connect: connection refused
+...Successfully got an update from the "monocular" chart repository
+...Successfully got an update from the "incubator" chart repository
+...Successfully got an update from the "**" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+Error: Can't get a valid version for repositories **, **, **, **, **, **, **, **, **. Try changing the version constraint in requirements.yaml
+make: *** [build] Error 1
+Step: build-step-step3:
+
+Step: build-step-step4:
+
