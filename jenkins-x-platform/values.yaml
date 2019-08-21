@@ -389,6 +389,9 @@ controllerworkflow:
   args:
   - "controller"
   - "workflow"
+  image:
+    repository: gcr.io/jenkinsxio/builder-jx
+    tag: 0.1.654
   clusterrole:
     enabled: true
     rules:
