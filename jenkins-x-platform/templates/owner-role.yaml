@@ -16,9 +16,11 @@ rules:
     - rbac.authorization.k8s.io
     - batch
     - jenkins.io
+    - tekton.dev
     resources:
     - "*"
     - "pods/*"
+    - deployments
     verbs:
     - list
     - get
