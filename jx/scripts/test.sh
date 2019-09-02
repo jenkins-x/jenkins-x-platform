@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-IMAGES=$(cat jenkins-x-platform/values.yaml | grep Image | grep gcr | sed 's/Image: //')
+IMAGES=$(cat jenkins-x-platform/values.yaml | grep Image | grep gcr | sed 's/Image: //' | grep ":")
 
 function get_digest() {
   local image=$1
@@ -29,7 +29,7 @@ function get_image_configuration() {
 }
 
 for IMAGE in $IMAGES; do
-	echo $IMAGE
+	echo "Checking $IMAGE..."
 	WITHOUT_REG=${IMAGE#*/}
 	NAME=${WITHOUT_REG%:*}
 	VERSION=${IMAGE##*:}
