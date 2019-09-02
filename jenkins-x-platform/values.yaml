@@ -897,7 +897,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "gcr.io/jenkinsxio/jenkinsx"
-    ImageTag: "0.0.73"
+    ImageTag: "0.0.74"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
