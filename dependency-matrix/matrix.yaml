@@ -49,5 +49,5 @@ dependencies:
   owner: jenkins-x
   repo: jenkins-x-image
   url: https://github.com/jenkins-x/jenkins-x-image.git
-  version: 0.0.72
-  versionURL: https://github.com/jenkins-x/jenkins-x-image/releases/tag/v0.0.72
+  version: 0.0.73
+  versionURL: https://github.com/jenkins-x/jenkins-x-image/releases/tag/v0.0.73
