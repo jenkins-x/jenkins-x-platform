@@ -12,6 +12,7 @@ rules:
   - apiGroups:
     - jenkins.io
     - rbac.authorization.k8s.io
+    - tekton.dev
     resources:
     - "*"
     verbs:
@@ -26,6 +27,7 @@ rules:
     resources:
     - "*"
     - "pods/*"
+    - deployments
     verbs:
     - list
     - get
