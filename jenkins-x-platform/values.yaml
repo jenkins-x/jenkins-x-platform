@@ -2250,7 +2250,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Machine-Learning:
-            Image: gcr.io/jenkinsxio/builder-machine-learning:0.1.771
+            Image: gcr.io/jenkinsxio/builder-machine-learning:0.1.772
             Privileged: true
             RequestCpu: "2000m"
             RequestMemory: "4Gi"
