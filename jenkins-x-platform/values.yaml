@@ -634,7 +634,7 @@ controllerrole:
   - "role"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.811-171
+    tag: 2.0.800-171
   clusterrole:
     enabled: true
     rules:
