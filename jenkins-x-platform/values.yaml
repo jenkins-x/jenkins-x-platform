@@ -680,6 +680,14 @@ controllerrole:
       - create
       - patch
       - update
+    - apiGroups:
+      - tekton.dev
+      resources:
+      - '*'
+      verbs:
+      - list
+      - get
+      - watch
 
 controllerteam:
   enabled: true
