@@ -378,7 +378,7 @@ postinstalljob:
       - watch
 
 controllerworkflow:
-  enabled: true
+  enabled: false
   serviceaccount:
     enabled: true
   deployment:
@@ -689,7 +689,7 @@ controllerrole:
       - watch
 
 controllerteam:
-  enabled: true
+  enabled: false
   serviceaccount:
     enabled: true
   deployment:
