@@ -34,7 +34,7 @@ gcpreviews:
     - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   role:
     enabled: true
     rules:
@@ -209,7 +209,7 @@ gcactivities:
   - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   role:
     enabled: true
     rules:
@@ -299,7 +299,7 @@ gcpods:
   - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   role:
     enabled: true
     rules:
@@ -391,7 +391,7 @@ controllerworkflow:
   - "workflow"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   clusterrole:
     enabled: true
     rules:
@@ -461,7 +461,7 @@ controllerbuild:
   - "--verbose"
   image:
     repository: gcr.io/jenkinsxio/builder-go
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   env:
     GIT_AUTHOR_NAME: "jenkins-x-bot"
     GIT_AUTHOR_EMAIL: "jenkins-x@googlegroups.com"
@@ -556,7 +556,7 @@ controllercommitstatus:
   - "--verbose"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   clusterrole:
     enabled: true
     rules:
@@ -633,7 +633,7 @@ controllerrole:
   - "role"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   clusterrole:
     enabled: true
     rules:
@@ -706,7 +706,7 @@ controllerteam:
   - "team"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.0.890-240
+    tag: 2.0.891-241
   clusterrole:
     enabled: true
     rules:
@@ -1063,7 +1063,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           aws-cdk:
-            Image: gcr.io/jenkinsxio/builder-maven-nodejs:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-maven-nodejs:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1118,7 +1118,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: gcr.io/jenkinsxio/builder-maven:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-maven:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1174,7 +1174,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Maven:
-            Image: gcr.io/jenkinsxio/builder-maven-java11:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-maven-java11:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1280,7 +1280,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Gradle:
-            Image: gcr.io/jenkinsxio/builder-gradle:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-gradle:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1333,7 +1333,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Scala:
-            Image: gcr.io/jenkinsxio/builder-scala:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-scala:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1379,7 +1379,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Go:
-            Image: gcr.io/jenkinsxio/builder-go:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-go:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -1424,7 +1424,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Terraform:
-            Image: gcr.io/jenkinsxio/builder-terraform:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-terraform:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "600Mi"
@@ -1470,7 +1470,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Rust:
-            Image: gcr.io/jenkinsxio/builder-rust:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-rust:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1516,7 +1516,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Newman:
-            Image: gcr.io/jenkinsxio/builder-newman:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-newman:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1563,7 +1563,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: gcr.io/jenkinsxio/builder-nodejs8x:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-nodejs8x:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1610,7 +1610,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: gcr.io/jenkinsxio/builder-nodejs10x:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-nodejs10x:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1646,7 +1646,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: gcr.io/jenkinsxio/builder-nodejs12x:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-nodejs12x:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1682,7 +1682,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: gcr.io/jenkinsxio/builder-php5x:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-php5x:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1718,7 +1718,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: gcr.io/jenkinsxio/builder-php7x:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-php7x:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1765,7 +1765,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Nodejs:
-            Image: gcr.io/jenkinsxio/builder-nodejs:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-nodejs:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1808,7 +1808,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           MavenNodejs:
-            Image: gcr.io/jenkinsxio/builder-maven-nodejs:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-maven-nodejs:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -1851,7 +1851,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           JX-base:
-            Image: gcr.io/jenkinsxio/builder-jx:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-jx:2.0.891-241
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "256Mi"
@@ -1896,7 +1896,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Promote:
-            Image: gcr.io/jenkinsxio/builder-jx:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-jx:2.0.891-241
             Privileged: true
             RequestCpu: "200m"
             RequestMemory: "100Mi"
@@ -1977,7 +1977,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: gcr.io/jenkinsxio/builder-python2:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-python2:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -2024,7 +2024,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: gcr.io/jenkinsxio/builder-python:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-python:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -2071,7 +2071,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Python:
-            Image: gcr.io/jenkinsxio/builder-python37:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-python37:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -2118,7 +2118,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Ruby:
-            Image: gcr.io/jenkinsxio/builder-ruby:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-ruby:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -2165,7 +2165,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Swift:
-            Image: gcr.io/jenkinsxio/builder-swift:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-swift:2.0.891-241
             Privileged: true
             RequestCpu: "400m"
             RequestMemory: "512Mi"
@@ -2211,7 +2211,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Dlang:
-            Image: gcr.io/jenkinsxio/builder-dlang:2.0.890-240
+            Image: gcr.io/jenkinsxio/builder-dlang:2.0.891-241
             Privileged: true
             RequestCpu: "500m"
             RequestMemory: "1024Mi"
@@ -2258,7 +2258,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Machine-Learning:
-            Image: gcr.io/jenkinsxio/builder-machine-learning:0.1.850
+            Image: gcr.io/jenkinsxio/builder-machine-learning:0.1.851
             Privileged: true
             RequestCpu: "2000m"
             RequestMemory: "4Gi"
@@ -2305,7 +2305,7 @@ jenkins:
             RequestMemory: "128Mi"
             Args: '${computer.jnlpmac} ${computer.name}'
           Machine-Learning:
-            Image: gcr.io/jenkinsxio/builder-machine-learning-gpu:0.1.850
+            Image: gcr.io/jenkinsxio/builder-machine-learning-gpu:0.1.851
             Privileged: true
             RequestCpu: "1000m"
             RequestMemory: "1Gi"
