@@ -15,7 +15,7 @@ Easy to install addons to come.
 
 # Install
 
-We use a CLI tool called [jx](https://github.com/jenkins-x/jx) to interact with Jenkins X.  For installation `jx` delegates to Helm (Kubernetes Package manager) for install, upgrades and uninstall operations.
+We use a CLI tool called [jx](https://github.com/jenkins-x/jx) to interact with Jenkins X.  For installation `jx` delegates to [Helm](https://helm.sh/) (Kubernetes Package manager) for install, upgrades and uninstall operations.
 
 Grab the latest [jx](https://github.com/jenkins-x/jx/releases/latest) and choose the type of cluster you want to create.
 ## Remote cluster install
@@ -27,7 +27,7 @@ __Prerequisite__ you will need a Google Cloud Account with a Google Project setu
 ```
 jx create cluster gke
 ```
-And follow the CLI wizard
+And follow the CLI wizard.
 
 ## Local development
 
@@ -46,6 +46,10 @@ You can list the external URLs used to access applications on your kubernetes cl
 ```
 jx open
 ```
+
+## License
+
+Apache License 2.0
 
 ## Credentials
 
