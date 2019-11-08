@@ -3,8 +3,8 @@ dependencies:
   name: jenkins
   repository: http://chartmuseum.jenkins-x.io
   version: 0.10.37
-- alias: jenkins-x-platform.expose.enabled,expose.enabled
-  condition: expose.enabled
+- alias: expose
+  condition: jenkins-x-platform.expose.enabled,expose.enabled
   name: exposecontroller
   repository: http://chartmuseum.jenkins-x.io
   version: 2.3.111
