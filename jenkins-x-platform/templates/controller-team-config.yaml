@@ -8,8 +8,6 @@ data:
     # disable stuff
     controllerteam:
       enabled: false
-    pipelinecontroller:
-      enabled: false
     monocular:
       enabled: false
 

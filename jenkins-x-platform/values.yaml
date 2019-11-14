@@ -829,9 +829,6 @@ cleanup:
     helm.sh/hook: pre-delete
     helm.sh/hook-delete-policy: hook-succeeded
 
-pipelinecontroller:
-  enabled: true
-
 docker-registry:
   enabled: true
   service:
