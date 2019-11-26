@@ -51,3 +51,9 @@ dependencies:
   url: https://github.com/jenkins-x/jenkins-x-image.git
   version: 0.0.80
   versionURL: https://github.com/jenkins-x/jenkins-x-image/releases/tag/v0.0.80
+- host: github.com
+  owner: gazal-k
+  repo: jenkins-x-image
+  url: https://github.com/gazal-k/jenkins-x-image
+  version: pull
+  versionURL: ""
