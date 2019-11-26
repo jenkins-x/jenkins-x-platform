@@ -902,7 +902,7 @@ jenkins:
     # Image: "jenkinsci/jenkins"
     # ImageTag: "2.89"
     Image: "gcr.io/jenkinsxio/jenkinsx"
-    ImageTag: "0.0.80"
+    ImageTag: "--help"
     ImagePullPolicy: "IfNotPresent"
     Component: "jenkins-master"
     UseSecurity: true
