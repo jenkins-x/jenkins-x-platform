@@ -260,6 +260,15 @@ gcactivities:
       - list
       - watch
       - delete
+    - apiGroups:
+      - prow.k8s.io
+      resources:
+      - prowjobs
+      verbs:
+      - get
+      - list
+      - watch
+      - delete
   clusterrole:
     enabled: true
     rules:
