@@ -8,6 +8,7 @@ approvers:
 - pmuir
 - abayer
 - warrenbailey
+- daveconde
 reviewers:
 - rawlingsj
 - jenkins-x-bot
@@ -18,3 +19,4 @@ reviewers:
 - pmuir
 - abayer
 - warrenbailey
+- daveconde
