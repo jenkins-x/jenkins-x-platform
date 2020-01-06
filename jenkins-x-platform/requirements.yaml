@@ -20,7 +20,7 @@ dependencies:
 - condition: nexus.enabled
   name: nexus
   repository: http://chartmuseum.jenkins-x.io
-  version: 0.1.12
+  version: 0.1.13
 - name: heapster
   repository: https://kubernetes-charts.storage.googleapis.com
   version: 0.3.2
