@@ -115,6 +115,7 @@ gcpreviews:
         - clustertasks
         - pipelineresources
         - pipelineruns
+        - conditions
         verbs:
         - list
         - get
