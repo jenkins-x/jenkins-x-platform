@@ -57,3 +57,9 @@ dependencies:
   url: https://github.com/jenkins-x-charts/nexus
   version: 0.1.20
   versionURL: ""
+- host: github.com
+  owner: jenkins-x
+  repo: sso-operator
+  url: https://github.com/jenkins-x/sso-operator
+  version: 1.2.37
+  versionURL: ""
