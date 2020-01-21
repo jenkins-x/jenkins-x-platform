@@ -546,10 +546,26 @@ controllerbuild:
       - pods
       - pods/log
       - secrets
+      - configmaps
+      - serviceaccounts
       verbs:
       - get
       - list
       - watch
+    - apiGroups:
+      - extensions
+      resources:
+      - ingresses
+      verbs:
+      - list
+      - get
+    - apiGroups:
+      - vault.banzaicloud.com
+      resources:
+      - vaults
+      verbs:
+      - list
+      - get
 
 controllercommitstatus:
   enabled: false
