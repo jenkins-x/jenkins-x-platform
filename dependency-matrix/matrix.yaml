@@ -57,3 +57,9 @@ dependencies:
   url: https://github.com/jenkins-x-charts/nexus
   version: 0.1.21
   versionURL: ""
+- host: github.com
+  owner: cloudbees
+  repo: training-platform-env-controller
+  url: https://github.com/cloudbees/training-platform-env-controller
+  version: 'prow:'
+  versionURL: ""
