@@ -55,5 +55,5 @@ dependencies:
   owner: jenkins-x-charts
   repo: nexus
   url: https://github.com/jenkins-x-charts/nexus
-  version: 0.1.22
+  version: 0.1.23
   versionURL: ""
