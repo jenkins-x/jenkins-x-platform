@@ -37,8 +37,8 @@ dependencies:
     version: 2.0.564
     versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.564
   url: https://github.com/jenkins-x/jx.git
-  version: 2.0.1272
-  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.1272
+  version: 2.0.1274
+  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.1274
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-ml
