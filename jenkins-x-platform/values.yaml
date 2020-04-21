@@ -68,6 +68,7 @@ gcpreviews:
       - apiGroups:
         - ""
         resources:
+        - namespaces
         - secrets
         - services
         - replicationcontrollers
@@ -242,6 +243,7 @@ gcactivities:
     - apiGroups:
       - ""
       resources:
+      - namespaces
       - secrets
       - services
       verbs:
@@ -325,6 +327,7 @@ gcpods:
     - apiGroups:
       - ""
       resources:
+      - namespaces
       - pods
       verbs:
       - get
@@ -448,6 +451,7 @@ controllerworkflow:
     - apiGroups:
       - ""
       resources:
+      - namespaces
       - services
       - secrets
       verbs:
@@ -543,6 +547,7 @@ controllerbuild:
     - apiGroups:
       - ""
       resources:
+      - namespaces
       - pods
       - pods/log
       - secrets
@@ -637,6 +642,7 @@ controllercommitstatus:
     - apiGroups:
       - ""
       resources:
+      - namespaces
       - pods
       - secrets
       - configmaps
@@ -705,6 +711,13 @@ controllerrole:
       - create
       - patch
       - update
+    - apiGroups:
+      - ""
+      resources:
+      - namespaces
+      verbs:
+      - list
+      - get
     - apiGroups:
       - tekton.dev
       resources:
@@ -802,6 +815,7 @@ controllerteam:
     - apiGroups:
       - ""
       resources:
+      - namespaces
       - configmaps
       - persistentvolumeclaims
       - secrets
@@ -877,6 +891,9 @@ nexus:
     annotations:
       fabric8.io/expose: "true"
       fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
+
+heapster:
+  enabled: true
 
 nexusServiceLink:
   enabled: false
