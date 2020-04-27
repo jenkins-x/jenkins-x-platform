@@ -21,7 +21,7 @@ dependencies:
   owner: jenkins-x
   repo: jenkins-x-builders
   url: https://github.com/jenkins-x/jenkins-x-builders
-  version: 2.1.11-638
+  version: 2.1.12-639
   versionURL: ""
 - host: github.com
   owner: jenkins-x
@@ -37,8 +37,8 @@ dependencies:
     version: 2.0.564
     versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.0.564
   url: https://github.com/jenkins-x/jx.git
-  version: 2.1.11
-  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.1.11
+  version: 2.1.12
+  versionURL: https://github.com/jenkins-x/jx/releases/tag/v2.1.12
 - host: github.com
   owner: jenkins-x
   repo: jenkins-x-builders-ml
