@@ -34,7 +34,7 @@ gcpreviews:
     - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   role:
     enabled: true
     rules:
@@ -211,7 +211,7 @@ gcactivities:
   - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   role:
     enabled: true
     rules:
@@ -311,7 +311,7 @@ gcpods:
   - "--batch-mode"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   role:
     enabled: true
     rules:
@@ -404,7 +404,7 @@ controllerworkflow:
   - "workflow"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   clusterrole:
     enabled: true
     rules:
@@ -475,7 +475,7 @@ controllerbuild:
   - "--verbose"
   image:
     repository: gcr.io/jenkinsxio/builder-go
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   env:
     GIT_AUTHOR_NAME: "jenkins-x-bot"
     GIT_AUTHOR_EMAIL: "jenkins-x@googlegroups.com"
@@ -587,7 +587,7 @@ controllercommitstatus:
   - "--verbose"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   clusterrole:
     enabled: true
     rules:
@@ -665,7 +665,7 @@ controllerrole:
   - "role"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   clusterrole:
     enabled: true
     rules:
@@ -745,7 +745,7 @@ controllerteam:
   - "team"
   image:
     repository: gcr.io/jenkinsxio/builder-jx
-    tag: 2.1.32-662
+    tag: 2.1.33-663
   clusterrole:
     enabled: true
     rules:
