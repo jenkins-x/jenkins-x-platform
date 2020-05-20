@@ -571,6 +571,26 @@ controllerbuild:
       verbs:
       - list
       - get
+    - apiGroups:
+      - tekton.dev
+      resources:
+      - pipelines
+      - pipelinereources
+      - pipelineruns
+      - tasks
+      verbs:
+      - get
+      - list
+      - watch
+    - apiGroups:
+      - apps
+      resources:
+      - deployments
+      verbs:
+      - get
+      - list
+      - watch
+
 
 controllercommitstatus:
   enabled: false
@@ -701,31 +721,11 @@ controllerrole:
     enabled: true
     rules:
     - apiGroups:
-      - jenkins.io
+      - "*"
       resources:
-      - environmentrolebindings
+      - "*"
       verbs:
-      - list
-      - get
-      - watch
-      - create
-      - patch
-      - update
-    - apiGroups:
-      - ""
-      resources:
-      - namespaces
-      verbs:
-      - list
-      - get
-    - apiGroups:
-      - tekton.dev
-      resources:
-      - '*'
-      verbs:
-      - list
-      - get
-      - watch
+      - "*"
 
 controllerteam:
   enabled: false
@@ -2572,7 +2572,3 @@ grafana:
       annotations:
         fabric8.io/expose: "true"
         fabric8.io/ingress.annotations: "kubernetes.io/ingress.class: nginx"
-
-
-
-
