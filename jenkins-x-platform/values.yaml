@@ -830,7 +830,7 @@ controllerteam:
       - update
       - delete
     - apiGroups:
-      - "extensions/v1beta1"
+      - "apps/v1"
       resources:
       - deployments
       verbs:

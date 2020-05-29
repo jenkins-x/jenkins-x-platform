@@ -9,6 +9,7 @@ approvers:
 - abayer
 - warrenbailey
 - daveconde
+- hferentschik
 reviewers:
 - rawlingsj
 - jenkins-x-bot
@@ -20,3 +21,4 @@ reviewers:
 - abayer
 - warrenbailey
 - daveconde
+- hferentschik
