@@ -1,4 +1,4 @@
-{{- if .Values.teamRoles.viewer.enabled -}}
+{{- if .Values.teamRoles.committer.enabled -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -8,32 +8,8 @@ metadata:
   annotations:
     title: "Committer"
     description: "A committer can write to project resources but cannot add/remove users"
+{{ if .Values.teamRoles.committer.rules -}}
 rules:
-  - apiGroups:
-    - jenkins.io
-    - rbac.authorization.k8s.io
-    - tekton.dev
-    resources:
-    - "*"
-    verbs:
-    - list
-    - get
-    - watch
-  - apiGroups:
-    - ""
-    - extensions
-    - apps
-    - batch
-    resources:
-    - "*"
-    - "pods/*"
-    - deployments
-    verbs:
-    - list
-    - get
-    - watch
-    - create
-    - update
-    - patch
-    - delete
+{{ toYaml .Values.teamRoles.committer.rules | indent 0 }}
+{{- end }}
 {{- end }}
