@@ -8,21 +8,8 @@ metadata:
   annotations:
      title: "Viewer"
      description: "A viewer can view all project resources"
+{{ if .Values.teamRoles.viewer.rules -}}
 rules:
-  - apiGroups:
-    - ""
-    - jenkins.io
-    - extensions
-    - apps
-    - rbac.authorization.k8s.io
-    - batch
-    - tekton.dev
-    resources:
-    - "*"
-    - pipelineruns
-    - deployments
-    verbs:
-    - list
-    - get
-    - watch
+{{ toYaml .Values.teamRoles.viewer.rules | indent 0 }}
+{{- end }}
 {{- end }}

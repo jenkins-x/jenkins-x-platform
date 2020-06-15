@@ -8,6 +8,76 @@ extensions:
 teamRoles:
   viewer:
     enabled: true
+    rules:
+      - apiGroups:
+        - ""
+        - jenkins.io
+        - extensions
+        - apps
+        - rbac.authorization.k8s.io
+        - batch
+        - tekton.dev
+        resources:
+        - "*"
+        - pipelineruns
+        - deployments
+        verbs:
+        - list
+        - get
+        - watch
+  committer:
+    enabled: true
+    rules:
+      - apiGroups:
+        - jenkins.io
+        - rbac.authorization.k8s.io
+        - tekton.dev
+        resources:
+        - "*"
+        verbs:
+        - list
+        - get
+        - watch
+      - apiGroups:
+        - ""
+        - extensions
+        - apps
+        - batch
+        resources:
+        - "*"
+        - "pods/*"
+        - deployments
+        verbs:
+        - list
+        - get
+        - watch
+        - create
+        - update
+        - patch
+        - delete
+  owner:
+    enabled: true
+    rules:
+      - apiGroups:
+        - ""
+        - extensions
+        - apps
+        - rbac.authorization.k8s.io
+        - batch
+        - jenkins.io
+        - tekton.dev
+        resources:
+        - "*"
+        - "pods/*"
+        - deployments
+        verbs:
+        - list
+        - get
+        - watch
+        - create
+        - update
+        - patch
+        - delete
   team-admin:
     enabled: true
 
