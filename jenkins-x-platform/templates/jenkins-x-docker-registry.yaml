@@ -5,8 +5,4 @@ metadata:
   annotations:
     expose.config.fabric8.io/clusterip-port-if-empty-key: docker.registry
 data:
-{{- if .Values.jenkins.Servers.Global.EnvVars.DOCKER_REGISTRY }}
-  docker.registry: {{ .Values.jenkins.Servers.Global.EnvVars.DOCKER_REGISTRY }}
-{{- else }}
   docker.registry: {{ .Values.dockerRegistry }}
-{{- end }}

@@ -1,8 +1,4 @@
 dependencies:
-- condition: jenkins.enabled
-  name: jenkins
-  repository: http://chartmuseum.jenkins-x.io
-  version: 0.10.38
 - alias: expose
   condition: expose.enabled
   name: exposecontroller

@@ -15,13 +15,11 @@ setup: init
 	$(HELM) repo add stable https://kubernetes-charts.storage.googleapis.com
 	$(HELM) repo add monocular https://helm.github.io/monocular
 
-build: setup clean
-	$(HELM) dependency build jenkins-x-platform
-	$(HELM) lint jenkins-x-platform
-
 lint:
 	$(HELM) dependency build jenkins-x-platform
 	$(HELM) lint jenkins-x-platform
+
+build: setup clean lint
 
 install: clean setup build
 	$(HELM) upgrade --debug --install $(NAME) jenkins-x-platform
