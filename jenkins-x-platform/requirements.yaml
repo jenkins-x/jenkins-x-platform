@@ -15,8 +15,8 @@ dependencies:
   version: 2.3.111
 - condition: chartmuseum.enabled
   name: chartmuseum
-  repository: http://chartmuseum.jenkins-x.io
-  version: 1.1.7
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 2.12.1
 - condition: nexus.enabled
   name: nexus
   repository: http://chartmuseum.jenkins-x.io
@@ -28,7 +28,7 @@ dependencies:
 - condition: docker-registry.enabled
   name: docker-registry
   repository: https://kubernetes-charts.storage.googleapis.com
-  version: 1.8.3
+  version: 1.9.3
 - alias: gcactivities
   name: jx
   repository: http://chartmuseum.jenkins-x.io
