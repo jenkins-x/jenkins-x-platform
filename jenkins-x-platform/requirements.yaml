@@ -21,10 +21,6 @@ dependencies:
   name: nexus
   repository: http://chartmuseum.jenkins-x.io
   version: 0.1.33
-- condition: heapster.enabled
-  name: heapster
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 1.0.2
 - condition: docker-registry.enabled
   name: docker-registry
   repository: https://kubernetes-charts.storage.googleapis.com
