@@ -16,6 +16,16 @@ pipelineConfig:
             value: jenkins-x@googlegroups.com
           - name: GIT_AUTHOR_NAME
             value: jenkins-x-bot
+          - name: CHARTMUSEUM_USER
+            valueFrom:
+              secretKeyRef:
+                name: jenkins-x-chartmuseum
+                key: BASIC_AUTH_USER
+          - name: CHARTMUSEUM_PASS
+            valueFrom:
+              secretKeyRef:
+                name: jenkins-x-chartmuseum
+                key: BASIC_AUTH_PASS
           steps:
           - image: gcr.io/jenkinsxio/builder-jx:0.1.610
             command: jx

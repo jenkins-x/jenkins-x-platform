@@ -3,9 +3,6 @@ NAME := jenkins-x
 OS := $(shell uname)
 HELM := helm
 
-CHARTMUSEUM_CREDS_USR := $(shell cat /builder/home/basic-auth-user.json)
-CHARTMUSEUM_CREDS_PSW := $(shell cat /builder/home/basic-auth-pass.json)
-
 init:
 	$(HELM) init --client-only
 
@@ -49,7 +46,7 @@ else
 	exit -1
 endif
 	$(HELM) package jenkins-x-platform
-	curl --fail -u $(CHARTMUSEUM_CREDS_USR):$(CHARTMUSEUM_CREDS_PSW) --data-binary "@$(NAME)-platform-$(VERSION).tgz" $(CHART_REPO)/api/charts
+	curl --fail -u $(CHARTMUSEUM_USER):$(CHARTMUSEUM_PASS) --data-binary "@$(NAME)-platform-$(VERSION).tgz" $(CHART_REPO)/api/charts
 	helm repo add jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
 	echo "we have the following remote helm repos:"	
 	helm repo list
