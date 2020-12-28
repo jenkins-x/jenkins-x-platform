@@ -8,8 +8,8 @@ init:
 
 setup: init
 	$(HELM) repo add jx http://chartmuseum.jenkins-x.io
-	$(HELM) repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
-	$(HELM) repo add stable https://kubernetes-charts.storage.googleapis.com
+	$(HELM) repo add incubator https://charts.helm.sh/incubator
+	$(HELM) repo add stable https://charts.helm.sh/stable
 	$(HELM) repo add monocular https://helm.github.io/monocular
 
 build: setup clean

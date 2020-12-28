@@ -27,7 +27,7 @@ pipelineConfig:
                 name: jenkins-x-chartmuseum
                 key: BASIC_AUTH_PASS
           steps:
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.610
+          - image: gcr.io/jenkinsxio/builder-jx:2.1.155-777
             command: jx
             args:
               - step
@@ -39,7 +39,7 @@ pipelineConfig:
               - -f
               - /tekton/home/basic-auth-user.json
             name: basic-auth-username
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.610
+          - image: gcr.io/jenkinsxio/builder-jx:2.1.155-777
             command: jx
             args:
               - step
@@ -51,7 +51,7 @@ pipelineConfig:
               - -f
               - /tekton/home/basic-auth-pass.json
             name: basic-auth-password
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.610
+          - image: gcr.io/jenkinsxio/builder-jx:2.1.155-777
             command: make
             args:
               - release
@@ -63,16 +63,16 @@ pipelineConfig:
         stages:
         - name: build-pr
           steps:
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.610
+          - image: gcr.io/jenkinsxio/builder-jx:2.1.155-777
             command: make
             args:
               - build
 
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.610
+          - image: gcr.io/jenkinsxio/builder-jx:2.1.155-777
             command: helm
             args:
               - template
               - jenkins-x-platform
 
-          - image: gcr.io/jenkinsxio/builder-jx:0.1.610
+          - image: gcr.io/jenkinsxio/builder-jx:2.1.155-777
             command: ./jx/scripts/test.sh

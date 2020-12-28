@@ -1,7 +1,7 @@
 dependencies:
 - condition: jenkins.enabled
   name: jenkins
-  repository: https://kubernetes-charts.storage.googleapis.com
+  repository: https://charts.helm.sh/stable
   version: 0.40.0
 - alias: expose
   condition: expose.enabled
@@ -23,32 +23,32 @@ dependencies:
   version: 0.1.36
 - condition: docker-registry.enabled
   name: docker-registry
-  repository: https://kubernetes-charts.storage.googleapis.com
+  repository: https://charts.helm.sh/stable
   version: 1.9.3
 - alias: gcactivities
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.1.150
+  version: 2.1.155
 - alias: gcpods
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.1.150
+  version: 2.1.155
 - alias: gcpreviews
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.1.150
+  version: 2.1.155
 - alias: controllerbuild
   condition: controllerbuild.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.1.150
+  version: 2.1.155
 - alias: controllerrole
   condition: controllerrole.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.1.150
+  version: 2.1.155
 - alias: postinstalljob
   condition: postinstalljob.enabled
   name: jx
   repository: http://chartmuseum.jenkins-x.io
-  version: 2.1.150
+  version: 2.1.155
