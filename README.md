@@ -33,7 +33,7 @@ And follow the CLI wizard.
 
 For local development we can install Jenkins X with minikube.
 
-First install the Hyperkit driver https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver
+First install the Hyperkit driver https://minikube.sigs.k8s.io/docs/drivers/hyperkit/
 
 ```
 git clone https://github.com/jenkins-x/cloud-environments && cd cloud-environments
