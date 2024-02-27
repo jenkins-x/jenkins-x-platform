@@ -1,3 +1,7 @@
+# DEPRECATED
+
+This repo is part of Jenkins X 2 that has not bee maintained since 2022.
+
 # Jenkins X Helm Charts
 
 [Jenkins X](https://jenkins-x.github.io/jenkins-x-website/) is an integrated CI / CD platform for any Kubernetes cluster or cloud.  Simple installation of best of breed open source software for developing and running applications in the cloud.
